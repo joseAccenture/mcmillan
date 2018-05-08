@@ -1,1 +1,116 @@
+@font-face {
+    font-family: 'open_sansbold';
+    src: url('./app/fonts/opensans-bold-webfont.woff2') format('woff2'),
+         url('./app/fonts/opensans-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'open_sansbold_italic';
+    src: url('./app/fonts/opensans-bolditalic-webfont.woff2') format('woff2'),
+         url('./app/fonts/opensans-bolditalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'open_sansextrabold_italic';
+    src: url('./app/fonts/opensans-extrabolditalic-webfont.woff2') format('woff2'),
+         url('./app/fonts/opensans-extrabolditalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'open_sansitalic';
+    src: url('./app/fonts/opensans-italic-webfont.woff2') format('woff2'),
+         url('./app/fonts/opensans-italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'open_sanslight';
+    src: url('./app/fonts/opensans-light-webfont.woff2') format('woff2'),
+         url('./app/fonts/opensans-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'open_sanslight_italic';
+    src: url('./app/fonts/opensans-lightitalic-webfont.woff2') format('woff2'),
+         url('./app/fonts/opensans-lightitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'open_sansregular';
+    src: url('./app/fonts/opensans-regular-webfont.woff2') format('woff2'),
+         url('./app/fonts/opensans-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'open_sanssemibold';
+    src: url('./app/fonts/opensans-semibold-webfont.woff2') format('woff2'),
+         url('./app/fonts/opensans-semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'open_sanssemibold_italic';
+    src: url('./app/fonts/opensans-semibolditalic-webfont.woff2') format('woff2'),
+         url('./app/fonts/opensans-semibolditalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
 /* You can add global styles to this file, and also import other style files */
+@media only screen and (max-width: 991px) and (min-width: 768px){
+	.wrapper {
+	    width: auto;
+	    margin: 0;
+	}
+}
+.clearfix {
+    display: block;
+}
+.clearfix:after {
+    clear: both;
+    content: " ";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+  font-family: open_sansregular;
+  
+}
+option.displayNone{
+	display: none;
+}
+.navbar{
+	max-width: 62%;
+	margin:  0 auto;
+}
+.navbar ul{
+	width: 100%;
+}
+app-header{
+position: fixed;
+width: 100%;
+z-index: 5;
+}
