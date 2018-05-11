@@ -1,10 +1,70 @@
-ul {
-    list-style-type: none;
+.navbar{
+      max-width: 80%;
+      max-height: 50px;
+      margin-left: 0;
+    }
+.navbar a.navbar-brand label{
+  font-size: 14px;
+    font-family: open_sansbold;
+    color: white;
     margin: 0;
-    padding: 5px 80px;
+    line-height: 14px;
+    vertical-align: text-top;
+}
+.navbar-light .navbar-nav .nav-link{
+  color: rgba(255, 255, 255, .8);
+  font-family: open_sansregular;
+}
+.navbar .navbar-collapse.collapse.show{
+  background: white;
+  -webkit-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.8);
+  -moz-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.8);
+  box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.8);
+}
+.navbar-right {
+  max-height: 50px;
+}
+.navbar-right .navbar-R .dropdown-menu button{
+  width: 100%;
+  border-radius: 0;
+}
+.navbar-light .navbar-nav .nav-link .icon::after{
+content: url(/assets/images/icons/baseline-person-24px.svg);
+}
+.navbar-light .navbar-nav .nav-link span.icon{
+  max-width: 40px;
+    max-height: 40px;
+    background: white;
+    padding: 6px;
+    border-radius: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 12px;
+    position: relative;
+}
+.navbar-light .navbar-nav a.changeUser{
+  padding: 0;
+  display: inline;
+}
+.navbar-light .navbar-nav input[type=text]{
+  display: inline;
+  max-width: 80%;
+  background: none;
+  border: none;
+  color: white;
+  font-family: open_sanssemibold;
+}
+.navbar-light .navbar-nav input[type=text]::placeholder {
+  color: white;
+  font-family: open_sanssemibold;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
 	font-family: open_sansregular;
 	color: #9ea4ab;
 	margin-bottom: 25px;
+  margin-top: 2%;
 }
 
 li {

@@ -1,3 +1,17 @@
+.card.secundary-head{
+	height: 100px;
+	background: #c40c0c;
+	margin-bottom: 50px;
+	border: none;
+	border-radius: 0px;
+	overflow: hidden;
+}
+.secundary-head::after{
+	content: url(/assets/images/headBack.svg);
+    position: absolute;
+    right:-10%;
+    top: 50px;
+}
 .row{
 	margin-bottom: 2%;
 }
@@ -14,7 +28,7 @@
 	background-image: url('../assets/images/logos/logo.png');
     background-size: 10px 20px;
     display: inline-block;
-    width: 260px; 
+    width: 260px;
     height: 20px;
     content:"";
 	background-repeat: no-repeat;
@@ -67,8 +81,8 @@ margin: 0 auto;
 }
 /* form */
 .container.form{
-width: 98%;
-margin-bottom: 250px;
+	overflow-y: auto;
+	max-height: 650px;
 }
 .container.form .col.inputMaxWidth{
 max-width: 50%;

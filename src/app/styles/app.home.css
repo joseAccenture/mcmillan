@@ -1,0 +1,17 @@
+.card{
+  top: 50px;
+}
+.card.secundary-head{
+  height: 150px;
+  background: #c40c0c;
+  border-radius:0;
+  border: none;
+  overflow: hidden;
+}
+.secundary-head::after{
+	content: url(/assets/images/headBack.svg);
+    position: absolute;
+    right:-10%;
+    top: 0;
+    max-width: 75%;
+}

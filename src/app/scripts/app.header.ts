@@ -5,6 +5,10 @@ import { Component } from '@angular/core';
   templateUrl: '../views/app.header.html',
   styleUrls: ['../styles/app.header.css']
 })
+// export class AppHeader {
+//   title = 'app';
+// }
 export class AppHeader {
-  title = 'app';
+title = 'app';
+
 }

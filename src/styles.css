@@ -76,6 +76,14 @@
 	    margin: 0;
 	}
 }
+/* overlay dialog */
+.modal-backdrop{
+  z-index: 4;
+}
+/* modal dialog window */
+.modal-dialog{
+  margin: 10.75rem auto;
+}
 .clearfix {
     display: block;
 }
@@ -97,7 +105,7 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
   font-family: open_sansregular;
-  
+
 }
 option.displayNone{
 	display: none;
