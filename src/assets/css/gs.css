@@ -1,0 +1,408 @@
+.gs-title {
+   text-align: center;
+   margin-top: 50px;
+   margin-bottom: 40px;
+}
+.gs-login-box {
+   position: relative; 
+   max-width:400px; 
+   padding: 10px; 
+   margin: auto
+}
+.gs-filter {
+   padding-top: 15px;
+   padding-bottom: 15px;
+}
+.btn[type=submit] {
+   margin-left: 10px;
+}
+
+.resum-icon {
+   font-size: 120px;  
+}
+
+.gs-view-options {
+   padding-bottom: 20px;  
+}
+
+.gs-flow-arrow {
+   font-size: 150%;
+   position: relative;
+   height: 100px;
+   background-color: white;
+   color: #333;
+   border: 2px solid #ccc;
+   border-radius: 5px;
+   text-align: center;
+   margin-bottom: 30px;
+}
+
+.gs-circle {
+   height: 40px;
+   width: 40px;
+   font-size: 16px;
+   line-height: 40px;
+   margin: auto;
+   border-radius: 20px;
+   background-color: lightgray;
+   border: 1px solid black;
+   color: black;
+   text-align: center;
+   font-weight: bold;
+}
+
+.gs-circle-resum {
+   height: 50px;
+   width: 50px;
+   font-size: 16px;
+   line-height: 50px;
+   margin: auto;
+   border-radius: 25px;
+   background-color: lightgray;
+   color: black;
+   text-align: center;
+   font-weight: bold;
+   margin-left: 15px; 
+   margin-top: 15px
+}
+
+.gs-resum-title {
+   font-weight: bold;
+   min-height: 80px;
+   margin-bottom: 15px;
+   padding-top: 30px;
+   text-align: center;
+}
+
+.gs-resum-block {
+   background-color: white;
+   padding-top: 10px;
+   border: 2px solid black;
+   /* top-left | top-right | bottom-right | bottom-left */
+   border-radius: 0 5px 5px 0;
+   margin-bottom: 15px;
+   min-height: 80px;
+}
+
+.gs-scr {
+   position: fixed;
+   top: 0;
+   right: 0;
+   background-color: #286090;
+   border: 4px solid #2e6da4;
+   color: white;
+   border-radius: 5px;
+   padding: 5px;
+   margin: 3px;
+   z-index: 99999;
+}
+
+	/* Flujo */
+	.gs-flujo {
+		width: 100%;
+		text-align: center;
+    }
+    
+	/* Nodo */
+    .gs-flujo > div {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		margin-right: -35px; /* Espacio entre flechas */
+    }
+
+	
+	/* Figura */
+	.gs-flujo > div > .svg {
+		position: relative;
+		height: 200px; /* Alto de flecha */
+		width: 250px;  /* Ancho de flecha */
+		cursor: pointer;
+		margin-bottom: 20px;
+	}
+    
+	/* Gráfico */
+    .gs-flujo > div > .svg > svg {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+		z-index: 1;
+    }
+    
+	/* Polígono del gráfico */
+    .gs-flujo > div > svg > polygon {
+		fill: #FFFFCC;
+    }
+    
+	/* Texto del gráfico */
+    .gs-flujo > div > .svg > .cuerpo {
+        display: block;
+        position: absolute;
+        z-index: 5;
+        top: 10%;
+        left: 10%;
+        right: 20%;
+        bottom: 10%;
+    }
+    
+    /* Icono de la flecha */
+    .gs-flujo > div > .svg  .icono {
+        position: absolute;
+       top: 40px;
+       left: 55px;
+       font-size: 400%;
+    }
+    
+	/* Número del gráfico */
+    .gs-flujo > div > .svg > .numero {
+	  display: block;
+	  position: absolute;
+	  /* Número debajo:*/
+	   left: 80px; /* ancho(.svg) / 2 - ancho(.numero) / 2  - 4% de ancho(.svg) - algo(según esté de cerca de la base)*/
+      bottom: -5px; /* Al gusto */
+      /* Número en punta flecha: 
+	   top: 75px;
+	   right: 0px;   */
+	   
+      z-index: 2;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      border-radius: 25px;
+      background-color: #f0f0f0; 
+	   font-weight: bold;
+    }
+    .gs-flujo > div > .svg > .numero:hover {
+      transparency: 0.5;  
+    }
+	
+	.gs-flujo > div > .extra {
+	  width: 190px;  /* ancho(figura) - un poquito */
+	  text-align: left;
+	  padding-left: 10px;
+	  border: 2px solid #efbfbf;
+	  padding: 5px 5px;
+	  padding-top: 15px;
+	  border-radius: 5px;
+    }
+    
+    .gs-flujo > div .vertical {
+      display: none;  
+    }
+    
+	/* Tablet */
+    @media (max-width: 1200px) {
+		.gs-flujo {
+			text-align: left;
+			padding-bottom: 35px;
+		}
+		/* Nodo */
+       .gs-flujo > div {
+		 display: block;
+         height: 200px; /* Al gusto */
+         width: 100%;
+         float: none;
+         margin-bottom: -35px;  /* Espacio entre flechas */
+       }
+	   
+	   	/* Contenedor de gráfico svg */
+		.gs-flujo > div > .svg {
+			position: relative;
+			height: 200px; /* Tamaño de la flecha */
+			width: 250px;
+		}
+       
+		.gs-flujo > div > .svg > .cuerpo {
+			display: block;
+			position: absolute;
+			z-index: 2;
+			top: 25%;
+			left: 10%;
+			right: 10%;
+			bottom: 10%;
+		}
+      .gs-flujo > div .vertical {
+         display: block;  
+      }
+      .gs-flujo > div .horizontal {
+         display: none;  
+      }
+      
+		.gs-flujo > div > .extra {
+			position: absolute;
+			right: 0;
+			top: 0;
+			left: 250px; /* Ancho(contendor svg) */
+			width: auto;
+			margin: 0;
+			padding: 15px; /* Al gusto */
+		}
+    }
+	
+	/* ******************/
+    /* Flujo de 7 nodos */
+	/* ******************/
+	/* Nodo */
+    .gs-flujo.siete > div {
+		margin-right: -30px; /* Espacio entre flechas */
+    }	
+	/* Figura */
+	.gs-flujo.siete > div > .svg {
+		height: 150px; /* Alto de flecha */
+		width: 180px;  /* Ancho de flecha */
+	}
+	/* Número del gráfico */
+    .gs-flujo.siete > div > .svg > .numero {
+	  left: 66px; /* ancho(.svg) / 2 - ancho(.numero) / 2  - 4% de ancho(.svg)*/
+      bottom: 20px; /* Al gusto */
+      width: 35px;
+      height: 35px;
+      line-height: 30px;
+    }	
+	.gs-flujo.siete > div > .extra {
+	  width: 140px;  /* ancho(figura) - un poquito */
+    }
+	@media (max-width: 1200px) {
+       .gs-flujo.siete > div {
+         margin-bottom: -80px;  /* Espacio entre flechas */
+       }	
+		.gs-flujo.siete > div > .svg > .numero {
+		  left: 72px;
+		}	
+		.gs-flujo.siete > div > .extra {
+			left: 170px; /* Ancho(contendor svg) */
+		}		
+	}
+
+
+		/* Estilos concretos de flujos */
+
+	.gs-flujo.siete .cuerpo {
+		font-weight: bold;
+		padding-top: 5px;
+		text-align: center;
+	}
+	.gs-flujo.siete > div svg > polygon { 
+		fill: white; 
+		stroke: #303030;  
+		stroke-width: 1;
+		fill: #eee;
+	}
+	.gs-flujo.siete .numero {
+		border: 2px solid #303030;
+	}
+	.gs-flujo.cinco {
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
+	.gs-flujo.cinco .cuerpo {
+		font-size: 110%;
+		letter-spacing: 2px;
+		font-weight: bold;
+		padding-top: 5px;
+		text-align: center;
+	}
+	.gs-flujo.cinco > div svg > polygon { 
+		/* stroke: #505050; 
+		stroke-width: 1; */
+	}
+	
+	.gs-flujo.cinco > div .extra > p {
+	   padding: 10px;
+	   min-height: 220px;
+	   font-size: 13px;  
+	   border-top: 1px solid red;
+	   text-align: justify;
+	}
+	.gs-flujo.cinco > div .cuerpo { color: white; }
+	.gs-flujo.cinco > div .numero { color: white; }
+	.gs-flujo.cinco > div:nth-child(1) svg > polygon { stroke: #efbfbf; fill: transparent; stroke-width: 1}
+	.gs-flujo.cinco > div:nth-child(2) svg > polygon { stroke: #e08080; fill: transparent; stroke-width: 1}
+	.gs-flujo.cinco > div:nth-child(3) svg > polygon { stroke: #d04040; fill: transparent; stroke-width: 1}
+	.gs-flujo.cinco > div:nth-child(4) svg > polygon { stroke: #c00000; fill: transparent; stroke-width: 1}
+	.gs-flujo.cinco > div:nth-child(5) svg > polygon { stroke: #900000; fill: transparent; stroke-width: 1}
+
+	.gs-flujo.cinco > div:nth-child(1) .cuerpo { color: #efbfbf; }
+	.gs-flujo.cinco > div:nth-child(2) .cuerpo { color: #e08080; }
+	.gs-flujo.cinco > div:nth-child(3) .cuerpo { color: #d04040; }
+	.gs-flujo.cinco > div:nth-child(4) .cuerpo { color: #c00000; }
+	.gs-flujo.cinco > div:nth-child(5) .cuerpo { color: #900000; }
+	
+	.gs-flujo.cinco > div:nth-child(1) .numero { background-color: #efbfbf; }
+	.gs-flujo.cinco > div:nth-child(2) .numero { background-color: #e08080; }
+	.gs-flujo.cinco > div:nth-child(3) .numero { background-color: #d04040; }
+	.gs-flujo.cinco > div:nth-child(4) .numero { background-color: #c00000; }
+	.gs-flujo.cinco > div:nth-child(5) .numero { background-color: #900000; }
+	
+	.gs-flujo.cinco > div:nth-child(1) .extra { border-color: #efbfbf; }
+	.gs-flujo.cinco > div:nth-child(2) .extra { border-color: #e08080; }
+	.gs-flujo.cinco > div:nth-child(3) .extra { border-color: #d04040; }
+	.gs-flujo.cinco > div:nth-child(4) .extra { border-color: #c00000; }
+	.gs-flujo.cinco > div:nth-child(5) .extra { border-color: #900000; }
+	
+	.gs-flujo.cinco > div:nth-child(1) .extra span { background-color: #efbfbf; }
+	.gs-flujo.cinco > div:nth-child(2) .extra span { background-color: #e08080; }
+	.gs-flujo.cinco > div:nth-child(3) .extra span { background-color: #d04040; }
+	.gs-flujo.cinco > div:nth-child(4) .extra span { background-color: #c00000; }
+	.gs-flujo.cinco > div:nth-child(5) .extra span { background-color: #900000; }	
+	
+	.gs-flujo.cinco > div:nth-child(1) .extra p { border-color: #efbfbf; }
+	.gs-flujo.cinco > div:nth-child(2) .extra p { border-color: #e08080; }
+	.gs-flujo.cinco > div:nth-child(3) .extra p { border-color: #d04040; }
+	.gs-flujo.cinco > div:nth-child(4) .extra p { border-color: #c00000; }
+	.gs-flujo.cinco > div:nth-child(5) .extra p { border-color: #900000; }	
+
+/** BORRAR **/
+/* Layout 7 columnas */
+@media (min-width: 768px){
+  .seven-cols .col-md-1,
+  .seven-cols .col-sm-1,
+  .seven-cols .col-lg-1  {
+    width: 100%;
+    *width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .seven-cols .col-md-1,
+  .seven-cols .col-sm-1,
+  .seven-cols .col-lg-1 {
+    width: 14.285714285714285714285714285714%;
+    *width: 14.285714285714285714285714285714%;
+  }
+}
+
+/* Correcciones de estilos por defecto */
+.btn.btn-primary:hover {
+    color: #fff;
+    /* background-color: #286090; */
+    border-color: #204d74;
+}
+
+.btn.btn-primary {
+   background-color: #BF0000 !important;
+}
+
+.btn.btn-primary:hover {
+   background-color: #d83939 !important;
+}
+
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+   background-color: #787878;
+   color: #f5f5f5;
+}
+
+.form-control:not(disabled), .form-control:not(readonly) {
+   background-color: #f5f5f5;
+   color: #333;
+}
+
+/* Errores de Validacion */
+.gs-error {
+	color: red;
+    font-size: 20px;
+}
+

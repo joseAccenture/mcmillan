@@ -1,0 +1,75 @@
+<div class="border-start bgGrey">
+	<div id="impacteContainer">
+		<div class="fpca_subcapcalera bgGrey">	
+			<div class="container">
+				<div class="row">
+					<div class="capcelera_basica col-sm-12">
+						<div class="capcelera_basica_cont">		            		
+							<ol class="breadcrumb filariana hidden-xs">
+								<li><a [routerLink]="['/inci']" routerLinkActive="active" title="Torna: Inici">Inici</a></li>
+								<li><a [routerLink]="['/estat']" routerLinkActive="active" title="Torna: Estat general">Estat general</a></li>
+								<li><a [routerLink]="['/estatsollicitud']" routerLinkActive="active" title="Torna: Resum de sol·licituds">Resum de sol·licituds</a></li>
+								<li>Llista de sol·licituds</li>
+							</ol>
+							<h1 class="titulo-capcalera">
+								<span>Llista de sol·licituds</span>
+							</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="gs-filter container" style="position:relative; margin: auto; margin-bottom: 20px">
+	<form class="form-inline">
+		<div class="form-group">
+			<label for="organ">Organ: </label>
+			<select class="form-control" id="organ" style="max-width: 180px">
+				<option>Junta Finances</option>
+				<option>Agencia Tributaria de Catalunya</option>
+		    </select>
+		</div>
+		<div class="form-group">
+			<label for="bo">Back Office: </label>
+			<select class="form-control" id="bo" style="max-width: 180px">
+			<option>REACAT</option>
+				<option>SPRIU</option>
+			</select>
+		</div>     
+		<div class="form-group">
+		<label for="codi">Codi: </label>
+			<input type="text" class="form-control" id="codi" style="width: 180px"/>
+		</div>
+		<div class="form-group">
+			<label for="estat">Estat: </label>
+			<select class="form-control" id="estat">
+			    <option>Pendent</option>
+				<option>En curs</option>
+				<option>Finalitzada</option>
+				<option>Fallida</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<button type="submit" class="btn bgRed white">Buscar</button>
+		</div>      
+	</form>
+</div>
+<div class="container">
+	<table class="table table-striped" style="margin: auto">
+		<tr>
+			<th>Peticio</th>
+			<th>Sol·licitud</th>
+			<th>Organ</th>
+			<th>Back Office</th>
+			<th>Estat</th>
+		</tr>
+		<tr *ngFor="let sollicitud of storeSollicituds">
+			<td>{{sollicitud.peticio}}</td>
+			<td><a [routerLink]="['detall', sollicitud.codi, sollicitud.organisme, sollicitud.backoffice, sollicitud.peticio]" routerLinkActive="active">{{sollicitud.codi}}</a></td>
+			<td><a [routerLink]="['/organisme/detall', sollicitud.organisme]" routerLinkActive="active">{{sollicitud.organisme}}</a></td>
+			<td><a [routerLink]="['/backoffice/detall', sollicitud.backoffice]" routerLinkActive="active">{{sollicitud.backoffice}}</a>
+			</td><td>{{sollicitud.estat}}</td>
+		</tr>
+       </table>
+</div>

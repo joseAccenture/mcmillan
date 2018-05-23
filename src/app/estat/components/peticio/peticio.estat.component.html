@@ -1,0 +1,116 @@
+<div class="border-start bgGrey">
+	<div id="impacteContainer">
+		<div class="fpca_subcapcalera bgGrey">	
+			<div class="container">
+				<div class="row">
+					<div class="capcelera_basica col-sm-12">
+						<div class="capcelera_basica_cont">		            		
+							<ol class="breadcrumb filariana hidden-xs">
+								<li><a [routerLink]="['/inici']" routerLinkActive="active" title="Torna: Inici">Inici</a></li>
+								<li><a [routerLink]="['/estat']" routerLinkActive="active" title="Torna: Estat general">Estat General</a></li>
+								<li>Resum de peticions</li>
+							</ol>
+							<h1 class="titulo-capcalera">
+								<span>Resum de peticions</span>
+							</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+	    </div>
+	</div>
+</div>
+<div class="gs-filter container">
+	<form class="form-inline" action="#">
+		<div class="form-group">
+			<label for="organ">Organ: </label>
+			<select class="form-control" id="organ">
+				<option>Junta Finances</option>
+				<option>Agencia Tributaria de Catalunya</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="bo">Back Office: </label>
+			<select class="form-control" id="bo">
+				<option>REACAT</option>
+				<option>SPRIU</option>
+			</select>
+		</div>     
+		<div class="form-group">
+			<button type="submit" class="btn bgRed white">Buscar</button>
+		</div>      
+	</form>
+</div>
+<div class="container">
+	<div class="gs-flujo cinco">
+		<div>
+			<div class="svg" onclick="location='llista-peticions.html'">
+				<svg class="horizontal" viewBox="0, 0, 120, 100" preserveAspectRatio="none">
+					<polygon points="5, 5, 90, 5, 100, 50, 90, 95, 5, 95, 15, 50" />
+				</svg>		
+				<svg class="vertical" viewBox="0, 0, 100, 120" preserveAspectRatio="none">
+					<polygon points="5, 5, 50, 25, 95, 5, 95, 95, 50, 115, 5, 95" />
+				</svg>
+				<div class="numero">50</div>
+				<div class="cuerpo">
+					Pendent<span class="icono glyphicon glyphicon-off" aria-hidden="true"></span>
+			</div>
+			</div>
+			<div class="extra">
+				La petició ha estat rebuda pel GS i no s'han generat les sol·licituds o estan en estat de procés Pendent.
+			</div>
+		</div>
+		<div>
+			<div class="svg" onclick="location='llista-peticions.html'">
+				<svg class="horizontal" viewBox="0, 0, 120, 100" preserveAspectRatio="none">
+					<polygon points="5, 5, 90, 5, 100, 50, 90, 95, 5, 95, 15, 50" />
+				</svg>		
+				<svg class="vertical" viewBox="0, 0, 100, 120" preserveAspectRatio="none">
+					<polygon points="5, 5, 50, 25, 95, 5, 95, 95, 50, 115, 5, 95" />
+				</svg>
+				<div class="numero">50</div>
+				<div class="cuerpo">
+					En curs <span class="glyphicon glyphicon-time icono" aria-hidden="true"></span>
+				</div>
+			</div>
+			<div class="extra">
+				La petició ha estat rebuda pel GS i no s'han generat les sol·licituds o estan en estat de procés Pendent.
+			</div>
+		</div>
+		<div>
+			<div class="svg" onclick="location='llista-peticions.html'">
+			    <svg class="horizontal" viewBox="0, 0, 120, 100" preserveAspectRatio="none">
+					<polygon points="5, 5, 90, 5, 100, 50, 90, 95, 5, 95, 15, 50" />
+				</svg>		
+				<svg class="vertical" viewBox="0, 0, 100, 120" preserveAspectRatio="none">
+					<polygon points="5, 5, 50, 25, 95, 5, 95, 95, 50, 115, 5, 95" />
+				</svg>
+				<div class="numero">50</div>
+				<div class="cuerpo">
+					Finalitzada.
+					<span class="glyphicon glyphicon-ok-circle icono" aria-hidden="true"></span>
+				</div>
+			</div>
+			<div class="extra">
+				Totes les sol·licituds estan en estat de procés Finalitzada o Fallida. 
+			</div>
+		</div>
+		<div>
+			<div class="svg" onclick="location='llista-peticions.html'">
+				<svg class="horizontal" viewBox="0, 0, 120, 100" preserveAspectRatio="none">
+					<polygon points="5, 5, 90, 5, 100, 50, 90, 95, 5, 95, 15, 50" />
+				</svg>		
+				<svg class="vertical" viewBox="0, 0, 100, 120" preserveAspectRatio="none">
+					<polygon points="5, 5, 50, 25, 95, 5, 95, 95, 50, 115, 5, 95" />
+				</svg>
+				<div class="numero">50</div>
+				<div class="cuerpo">
+					Fallida <span class="glyphicon glyphicon-remove icono" aria-hidden="true"></span>
+				</div>
+			</div>
+			<div class="extra">
+				Aquest estat es mantindrà únicament en el cas que existeixi una fallada intrínseca a la petició (format, error tècnic, obligatorietat, etc).
+			</div>
+		</div>
+	</div>
+</div>

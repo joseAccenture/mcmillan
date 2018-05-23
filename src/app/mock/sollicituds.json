@@ -1,0 +1,10 @@
+[
+    {"id": 1, "codi": "SOL-1", "organisme": "ATC", "backoffice": "Junta Finances", "peticio": "PET-1", "estat": "PDE"},
+    {"id": 2, "codi": "SOL-2", "organisme": "ATC", "backoffice": "Junta Finances", "peticio": "PET-2", "estat": "PDE"},
+    {"id": 3, "codi": "SOL-3", "organisme": "ATC", "backoffice": "Junta Finances", "peticio": "PET-3", "estat": "FIN"},
+    {"id": 4, "codi": "SOL-4", "organisme": "eSPRIU", "backoffice": "Reacat", "peticio": "PET-4", "estat": "FIN"},
+    {"id": 5, "codi": "SOL-5", "organisme": "ATC", "backoffice": "Junta Finances", "peticio": "PET-4", "estat": "PDE"},
+    {"id": 6, "codi": "SOL-6", "organisme": "eSPRIU", "backoffice": "Reacat", "peticio": "PET-4", "estat": "FIN"}
+] 
+
+ 

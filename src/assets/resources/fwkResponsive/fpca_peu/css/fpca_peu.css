@@ -1,0 +1,68 @@
+@media (min-width: 47.939em){
+html footer .avis_legal p {
+  width: 100%;
+}
+footer .footer_tab_ord{
+	margin-bottom: 1em;
+}
+}
+#peuImatge
+{
+	padding-left:0
+}
+footer p .torna_amunt{
+	margin-top: -32px;
+}
+
+@media(max-width: 61.938em) and (min-width:48.000em) {
+  footer .connecta {
+    border-top: 2px solid #ccc;
+    margin-top: 10px;
+    padding-top: 20px
+  }
+  
+  footer .connecta .formatter_body.fpca_peu_faldoGiny {
+    width: 66%;
+  }
+  
+  footer .connecta .formatter_body.fpca_peu_faldoSocial {
+    margin-top: 45px;
+    width: 33%;
+  }
+  
+  footer .connecta .formatter_body .twitter {
+    width: 50%;
+    margin-right: 20px;
+  }
+  
+  footer .connecta .formatter_body .cerca_xarxes {
+    width: 43%;
+    float: left;
+    margin-right: 10px;
+  }
+  footer .list-group1.w-45{
+ 	width:45%;
+  }
+  footer .connecta .llistat_xarxes_socials{
+    float: right;
+    width: auto;
+  }
+  
+  footer .connecta .formatter_body .accordionFoot {
+    width: 66%;
+  }
+}
+
+@media (min-width: 62.000em){
+  footer .list-group1.w-45{
+  	width:100%;
+  }
+}
+
+@media (max-width: 767px){
+footer .footer_tab_top{
+    z-index: 999;
+    position: relative;
+	}
+	
+}

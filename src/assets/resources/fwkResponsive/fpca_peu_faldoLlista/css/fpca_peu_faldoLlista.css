@@ -1,0 +1,13 @@
+footer .fpca_peu_faldoLlista .list-group {
+  box-shadow: none;
+  border-radius: 0;
+  width: 100%;
+}
+@media ( max-width : 46.875em) {
+	.fpca_peu_faldoLlista .accordionFoot .panel-default .panel-collapse .panel-body {
+		padding-left:0px !important;
+	}
+	.fpca_peu_faldoLlista .panel-group .panel .panel-collapse .panel-body ul {
+		padding-left:0px !important;
+	}
+}

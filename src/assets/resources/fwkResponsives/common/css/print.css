@@ -1,0 +1,551 @@
+@media print {
+	.FW_bWidth{
+min-width: 100%;
+}
+* html .FW_bMinwidth {
+border-left:0pt none !important;
+margin: 0pt;
+}
+* html .FW_bContainer {
+margin-left:0pt !important;
+padding: 0pt 0pt 0pt 0pt;
+}
+* HTML .FW_bWidth {
+PADDING-LEFT: 0pt !important;
+}
+#unav_gcc_capcalera {
+display:none;
+}
+#CapcaleraImpacte {
+display:none;
+}
+#unav_gcc_impacte {
+display:none;
+}
+#unav_gcc_colesquerra {
+display:none;
+}
+#unav_gcc_coldreta {
+	display:none;
+	}
+	#FW_contingut{
+	margin: 0pt 0pt 0pt 0pt;
+	width: 100%;
+	padding: 0pt 0pt 0pt 0pt;
+	float:none;
+	clear:none;
+	}
+	#unav_gcc_main
+	{
+	margin: 0 0 0 0;
+	}
+	.FW_row_panel
+	{
+	display:none;
+	}
+	#unav_gcc_peu {
+	display:none;
+	}
+	/* hacks impresion flash */
+	#big_player {
+	display: none;
+	}
+	#big_player_ie {
+	display: none;
+	}
+	/* IE6 */
+	* html #big_player_ie {
+	display: block;
+	}
+	/* IE7 */
+	*+html #big_player_ie {
+	display: block;
+	}
+	.FW_column_panel{
+	float: none;
+	}
+	/* in SAC fitxa tramits */
+	#fitxa_sac #serveis_tramits #tab1, #fitxa_sac #serveis_tramits #tab2, #fitxa_sac
+	#serveis_tramits #tab3, #fitxa_sac #serveis_tramits #tab4, #fitxa_sac
+	#serveis_tramits #tab5 {
+	font-size: 1.5em !important;
+	color: #B31717 !important;
+left: 0% !important;
+border:none;
+float:none !important;
+clear:both;
+position: relative !important;
+}
+#fitxa_sac #serveis_tramits #tab1 a, #fitxa_sac #serveis_tramits #tab2 a,
+#fitxa_sac #serveis_tramits #tab3 a, #fitxa_sac #serveis_tramits #tab4 a,
+#fitxa_sac #serveis_tramits #tab5 a {
+color: #B31717 !important;
+}
+#fitxa_sac #serveis_tramits #tab1_, #fitxa_sac #serveis_tramits #tab2_,
+#fitxa_sac #serveis_tramits #tab3_, #fitxa_sac #serveis_tramits #tab4_,
+#fitxa_sac #serveis_tramits #tab5_ {
+height: auto;
+left: auto;
+width: auto;
+top: auto !important;
+position: relative !important;
+border: 0;
+padding:0;
+margin:1em 0 1.5em 0 !important;
+top:0 !important;
+background: transparent;
+float:none !important;
+clear:both;
+overflow: visible !important;
+}
+#fitxa_sac #serveis_tramits #bloc_pastilles_tipus div.visible {
+border: none;
+}
+#fitxa_sac #serveis_tramits .tabover, #fitxa_sac #serveis_tramits .tabsel,
+#fitxa_sac #serveis_tramits .tabunsel{
+float:none;
+position:inherit;
+width: auto !important;
+top: auto;
+font-size: 1.5em;
+color: #B31717;
+background: none !important;
+text-align: left !important;
+height: auto !important;
+}
+#fitxa_sac #serveis_tramits #bloc_pastilles_tipus > div.visible {
+top: auto !important;
+}
+#fitxa_sac .FW_sLinkDreta {display: none;}
+/* fi SAC fitxa tramits */
+/* START: Detall article amb destacats: FF */
+.FW_bDetallArticle {
+margin-right: 0px;
+padding-right: 190px;
+}
+/* END: Detall article amb destacats: FF */
+
+	/*type*/
+	body {
+		font-family: "Georgia", Times New Roman, Times, Serif !important;
+		color: #000;
+	}
+
+	p {
+			font-family: "Georgia", Times New Roman, Times, Serif !important;
+			font-size: 12pt !important;
+			color: #000;
+	}
+
+	h1, h2, h3, h4, h5, h6, a {
+			font-family: "Georgia", Times New Roman, Times, Serif !important;
+	}
+
+  p a {
+    font-size: 10pt !important
+  }
+  
+	a {
+		text-decoration: underline !important;
+	}
+
+	a:link:after,
+	a:visited:after {
+	  content: "";
+	  font-size: 90%;
+		display: inline-block;
+		line-height: 1.75;
+		white-space: normal;
+	}
+
+	.destacat_imatge_cont a:link:after,
+	.destacat_imatge_cont a:visited:after {
+		float: left;
+		display: inline-block;
+		margin-top: 10pt;
+		margin-bottom: 16pt;
+	}
+
+	.panel-title a:link:after,
+	.panel-title  a:visited:after {
+	  content: "";
+	}
+
+	.rss {
+		display: none !important;
+	}
+
+	.moreInfo{
+		display: none !important;
+	}
+
+	.menu_flotant {
+		display:none;
+	}
+	.img-responsive {
+		width: auto;
+	}
+	.widthResponsive {
+		width: auto;
+		height: auto;
+		max-width: 100%;
+	}
+	.torna_amunt {
+		display: none;
+	}
+
+	.menu_flotant {
+		display:none;
+	}
+	.img-responsive {
+		width: auto;
+	}
+	.widthResponsive {
+		width: auto;
+		height: auto;
+		max-width: 100%;
+	}
+
+	.imatge_text,
+	.text-imagte-actualitat {
+		display: none !important;
+	}
+
+	.panel-footer {
+		display: none !important;
+	}
+	.fullcontainer-xs {
+		overflow: visible;
+	}
+
+	.fpca_llista_destacatImatge .treu-padding {
+    margin-bottom: 0;
+	}
+
+	.llistat_destacat_color_cont .list-group-item .destacat_color_cont a {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: left !important;
+	}
+	/*Header*/
+	header,
+	.fpca_capcalera{
+		display: block !important;
+		position: relative;
+	}
+	.fpca_capcalera .capcaleraFixed{
+		position: relative;
+	}
+  	.fpca_capcalera a.mvlogo {
+		font-size: 1.5em;
+		color: #333;
+		text-decoration: none !important;
+	} 
+
+	header .navbar-collapse,
+	header .navbar-toggle,
+	header .coloca1,
+	header .dos{
+		display: none !important;
+	}
+	/*Capcalera*/
+	.capcelera_basica_cont h1 {
+		font-size: 26.25pt !important;
+		color: #333 !important;
+	}
+
+	/*Subcapcalera*/
+	.tornar-tramits{
+		display: none;
+	}
+  .tornar-box{
+    display: none;
+  }
+	.fpca_subcapcalera.capcelera_imatge .menu_flotant+h1{
+		max-width: 100%;
+	}
+	.capcelera_imatge h1 {
+		background: white !important;
+		width: auto !important;
+		padding: 0 1em;
+		line-height: .5;
+	}
+
+	/*Footer*/
+	.fons_footer .panel-group{
+		display: none !important;
+	}
+	.footer_tab_top {
+		display: none;
+	}
+	.llistat_xarxes_socials {
+		display: none;
+	}
+	footer .idiomes {
+    display: none !important;
+}
+
+	/*Article*/
+	.responsive-object {
+		display: none;
+	}
+
+  .basic_text_peq{
+    font-size: 12pt;
+  }
+
+  .basic_text_peq a{
+    font-size: 10pt;
+    text-decoration: underline;
+  }
+
+	.destacat_imatge_cont .imatge_text {
+		display:none;
+	}
+
+	/*Blocs*/
+	.llistat_collapse_cont .panel-default>.panel-heading a {
+		font-size: 13.5pt !important;
+	}
+	.llistat_collapse_cont .panel {
+		border:none;
+	}
+
+	.panel-group .panel {
+		overflow: visible;
+	}
+
+	.pestanyes .panel-group .panel .panel-collapse {
+    overflow: visible;
+		border: none;
+	}
+	.pestanyes .panel-group .panel-title a{
+		display: block;
+		position: relative;
+		font-size: 16pt;
+		margin-top: 36pt;
+		margin-bottom: 16pt;
+		padding-top: 16pt;
+		padding-bottom: 16pt;
+	}
+
+	/*Ancores*/
+	.tri_combo_destacat_llistat.ancores2 {
+		display: none;
+	}
+	.ancores a {
+		display: none;
+	}
+
+	/*Llista*/
+	.llistat_destacat_color_cont .list-group-item .destacat_color_cont a {
+		display: inline-block;
+		float: left;
+	}
+
+	.fpca_llista .llistat_enllacos_filet_cont.caixa .destacat_noticies_cont {
+		height: auto !important;
+	}
+
+	.el_mes_consultat .panel-body {
+		position: relative !important;
+		right: 0 !important;
+	}
+	.fpca_llista .llistat_enllacos_filet_cont .list-group-item.primer-dret {
+    background: none;
+	}
+	.fpca_llista .destacat_noticies_cont img.img-llista {
+    height: 100%;
+    width: auto !important;
+    max-width: none;
+    min-width: auto;
+    position: relative;
+    left: 0;
+    top: 0;
+    -webkit-transform: none;
+    -ms-transform: translate(0);
+    transform: none;
+	}
+
+	/*Galeria BIG*/
+	.fpca_distribuidora .destacat_text_avancat_cont {
+    height: 100% !important;
+	}
+	.fpca_BIG_galeria .caixa_imatge {
+    max-height: auto !important;
+    overflow: visible !important;
+	}
+
+	.fpca_big_playlist .playlist-vertical .basic-multi-container {
+    width: 100% !important;
+	}
+	.fpca_big_playlist .playlist-vertical .multimedia-tabs-container {
+    float: left;
+    position: relative;
+    width: 100%;
+	}
+
+	.fpca_big_playlist .playlist-horizontal .slide, .fpca_big_playlist .playlist-vertical .slide {
+    padding-bottom: 5px;
+    width: 100% !important;
+	}
+
+	.fpca_big_playlist .playlist-horizontal .video-arrow-image, .fpca_big_playlist .playlist-vertical .video-arrow-image {
+    display: none;
+}
+
+
+.fpca_big_playlist  .bx-wrapper, .fpca_big_playlist  .bx-wrapper {
+    max-width: 100% !important;
+}
+.fpca_big_playlist .playlist-horizontal .video-carousel-container-slider-slide-image, .fpca_big_playlist .playlist-vertical .video-carousel-container-slider-slide-image, .fpca_big_playlist .playlist-horizontal .image-carousel-container-slider-slide-image, .fpca_big_playlist .playlist-vertical .image-carousel-container-slider-slide-image, .fpca_big_playlist .playlist-horizontal .audio-carousel-container-slider-slide-image, .fpca_big_playlist .playlist-vertical .audio-carousel-container-slider-slide-image {
+    width: 100%;
+		max-width: 100%;
+    height: auto !important;
+}
+
+	/*Activitat agenda*/
+	.fpca_activitatAgenda .imatge_amb_peu.responsive-object {
+		display: none !important;
+	}
+	.fpca_activitatAgenda .destacat_imatge2_cont a div,
+	.fpca_activitatAgenda .destacat_imatge2_cont.box:after {
+		display: none !important;
+		visibility: hidden !important;
+	}
+
+	.fpca_activitatAgenda .box {
+		border: none;
+	}
+
+	div#calendariagenda {
+    overflow: hidden;
+	}
+
+	/*Tramit*/
+	.fpca_tramit .avis-modalitats:before {
+		border-color: #fff !important;
+		display: none !important;
+	}
+	.fpca_tramit .avis-modalitats {
+		padding: 0;
+	}
+
+	.fpca_tramit .btn.bgRed{
+		display: none;
+	}
+	button#plegar-tots {
+		display: none;
+	}
+
+	/*Cercador*/
+	.cerca-av,
+	.cerca_avancada {
+		display: none !important;
+	}
+	.custom_select.cerca.general-search{
+		display: none !important;
+	}
+	.btn-x {
+		display: none;
+	}
+	.fpca_cercador_categories .fpca_container_basic_box li.list-basic-box {
+		font-size: 0 !important;
+	}
+
+	.fpca_cercador_categories .img-hide{
+		margin-bottom: 16pt;
+		margin-top: 0;
+		padding-bottom: .5em;
+	}
+	.fpca_cercador_categories .fpca_container_basic_box .content-basic-box-p {
+		margin-top: 12pt;
+	}
+	.fpca_cercador_categories .fpca_container_basic_box ul.container-list-basic-box{
+		margin-top: 12pt;
+	}
+	.fpca_cercadorGencat .row .llistat_destacat_text_cont li .destacat_text_cont .link_resultats{
+		white-space: normal;
+		width: 100%;
+	}
+	.fpca_cercadorGencat .row .llistat_destacat_text_cont li .destacat_text_cont a.link_resultats:link:after,
+	.fpca_cercadorGencat .row .llistat_destacat_text_cont li .destacat_text_cont a.link_resultats:visited:after{
+		content: "";
+		width: 100%;
+		white-space: normal;
+	}
+	.tab-content .nav-tabs li{
+		display: none;
+	}
+	.tab-content .nav-tabs li.active{
+		display: inline-block;
+	}
+	.tab-content .dropdown.cerca_avancada  {
+		display: none;
+	}
+	.tab-content .img-responsive {
+    width: 100%;
+	}
+	.tab-content .img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+	}
+	.tab-content .cerca-av{
+		display: none;
+	}
+
+	.tab-content .border_box a {
+		display: inline-block;
+	}
+	.tab-content .border_box a h3{
+		width: auto;
+		display: inline-block;
+		float: left;
+	}
+	.tab-content .border_box a:link:after,
+	.tab-content .border_box a:visited:after {
+		margin-top: 15px;
+		display: inline-block;
+		float: left;
+	}
+
+	/*Diapositives*/
+	.slide_navigator {
+    display: none !important;
+	}
+	.carousel-image a,
+	.carousel-image span {
+		display: none !important;
+	}
+
+	/*Xarxes socials*/
+	.footer-xarxes{
+		display: none !important;
+	}
+
+	/*Twitter*/
+	.fpca_llista_agregador_twitter{
+		display: none;
+	}
+
+	/*Pagination*/
+	ul.pagination li:first-child,
+	ul.pagination li:last-child{
+		display: none;
+	}
+
+	/*Calendari*/
+	#calendariagenda td a {
+		text-decoration: none !important;
+	}
+	#calendariagenda td a:link:after,
+	#calendariagenda td a:visited:after {
+	  content: "";
+	}
+
+  /*Peu*/
+  .footer .avis_legal p{
+    font-size: 0.688em !important;
+  }
+}

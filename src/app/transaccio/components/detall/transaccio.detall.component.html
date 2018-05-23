@@ -1,0 +1,193 @@
+<!--
+<p>
+    ESTAMOS EDITANDO TRANSACCIO!!!
+</p>
+-->
+<div class="border-start bgGrey">
+	<div id="impacteContainer">
+		<div class="fpca_subcapcalera bgGrey">	
+			<div class="container">
+				<div class="row">
+					<div class="capcelera_basica col-sm-12">
+						<div class="capcelera_basica_cont">		            		
+							<ol class="breadcrumb filariana hidden-xs">
+                                <li><a [routerLink]="['/inici']" routerLinkActive="active" title="Torna: Inici">Inici</a></li>
+                                <li><a [routerLink]="['/estat']" routerLinkActive="active" title="Torna: Estat general">Estat General</a></li>
+                                <li><a [routerLink]="['/estattransaccio']" routerLinkActive="active" title="Torna: Resum de transaccions">Resum de transaccions</a></li>
+                                <li><a [routerLink]="['/transaccio']" routerLinkActive="active" title="Torna: Llista de transaccions">Llista de transaccions</a></li>
+                 				<li>Detall de transacció</li>
+							</ol>
+							<h1 class="titulo-capcalera">
+								<span>Detall de transacció</span>
+							</h1>		
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container" style="margin-top: 30px">
+	<form [formGroup]="transaccioForm">
+	<div class="row gs-separator-2">
+		<div class="col-md-12">
+			<fieldset><legend>Dades Generals</legend></fieldset>
+				<div class="form-group col-md-2">
+					<label for="organisme">Organisme:</label>
+					<input type="text" class="form-control" id="organisme" name="organisme" disabled formControlName="organisme" />
+				</div>
+				<div class="form-group col-md-2">
+					<label for="backoffice">Backoffice:</label>
+					<input type="text" class="form-control" id="backoffice" name="backoffice" disabled formControlName="backoffice"/>
+				</div>
+				<div class="form-group col-md-2">
+					<label for="lot">Lot:</label>
+					<input type="text" class="form-control" id="lot" name="lot" disabled formControlName="lot" />
+				</div>
+				<div class="form-group col-md-3">
+					<label for="peticio">Peticio:</label>
+					<input type="text" class="form-control" id="peticio" name="peticio" disabled formControlName="peticio"/>
+				</div>
+				<div class="form-group col-md-3">
+					<label for="sollicitud">Sollicitud:</label>
+					<input type="text" class="form-control" id="sollicitud" name="sollicitud" disabled formControlName="sollicitud" />
+				</div>
+		</div>
+		<div class="col-md-12">
+			<div class="form-group col-md-2">
+				<label for="organisme">Referencia:</label>
+					<input type="text" class="form-control" id="referencia" name="referencia" disabled formControlName="referencia" />
+				</div>
+				<div class="form-group col-md-2">
+					<label for="backoffice">Expedient:</label>
+					<input type="text" class="form-control" id="expedient" name="expedient" disabled formControlName="expedient" />
+				</div>
+				<div class="form-group col-md-5">
+					<label for="peticio">Titol:</label>
+					<input type="text" class="form-control" id="titol" name="titol" disabled formControlName="titol" />
+				</div>
+				<div class="form-group col-md-2">
+					<label for="sollicitud">Circuit:</label>
+					<input type="text" class="form-control" id="circuit" name="circuit" disabled formControlName="circuit" />
+				</div>
+				<div class="form-group col-md-1">
+					<label for="lot">Versio:</label>
+					<input type="text" class="form-control" id="versio" name="versio" disabled formControlName="versio"/>
+				</div>
+			</div>
+	</div>
+	<div class="row gs-separator-2">
+		<div class="col-md-12">
+			<fieldset><legend>Dades de Transaccio</legend></fieldset>
+			<div class="form-group col-md-2">
+				<label for="organisme">Transaccio:</label>
+				<input type="text" class="form-control" id="transaccio" name="transaccio" disabled formControlName="transaccio" />
+			</div>
+			<div class="form-group col-md-2">
+				<label for="backoffice">Sequencia:</label>
+				<input type="text" class="form-control" id="sequencia" name="sequencia" disabled  formControlName="sequencia"/>
+			</div>
+		</div>
+		<div class="col-md-10 col-md-offset-1 gs-separator-2">
+			<div class="table-responsive"> 
+				<table class="table table-hover table-striped">
+					<thead>
+						<tr>	
+							<th>Estat Process</th>
+							<th>Data Actualizatcio</th>
+							<th>Estat Funcional</th>
+							<th>Data Actualitzacio</th>
+							<th>Id Evidencia</th>
+							<th>Circuit</th>
+							<th>Data Aceptacio</th>
+							<th>Accions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>En Curs</td>
+							<td>27-07-2017</td>
+							<td>PDE</td>
+							<td>27-07-2017</td>
+							<td>123-6564-232323-23232</td>
+							<td>NP</td>
+							<td>1.0</td>
+							<td>
+								<p data-placement="top" data-toggle="tooltip" title="Detalle" aria-label="Left Align">
+									<button class="btn btn-primary btn-xs" data-title="Detalle">  
+										<span class="glyphicon glyphicon-download" aria-hidden="true"></span>
+									</button>
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td>En Curs</td>
+							<td>27-07-2017</td>
+							<td>PDE</td>
+						    <td>27-07-2017</td>
+							<td>123-6564-232323-23232</td>
+							<td>NP</td>
+							<td>1.0</td>
+							<td>
+								<p data-placement="top" data-toggle="tooltip" title="Detalle" aria-label="Left Align">
+								<button class="btn btn-primary btn-xs" data-title="Detalle">  
+									<span class="glyphicon glyphicon-download" aria-hidden="true"></span>
+								</button>
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td>En Curs</td>
+							<td>27-07-2017</td>
+							<td>PDE</td>
+							<td>27-07-2017</td>
+							<td>123-6564-232323-23232</td>
+							<td>NP</td>
+							<td>1.0</td>
+							<td>
+								<p data-placement="top" data-toggle="tooltip" title="Detalle" aria-label="Left Align">
+									<button class="btn btn-primary btn-xs" data-title="Detalle">  
+										<span class="glyphicon glyphicon-download" aria-hidden="true"></span>
+									</button>
+								</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="col-md-10 col-md-offset-1 gs-separator-3 text-center">
+			<ul class="pagination" >
+				<li><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+				<li><a href="#">1</a></li>
+				<li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="row gs-separator-2">
+		<div class="col-md-12">
+			<fieldset><legend>Dades del Canal que Finalitza el Circuit</legend></fieldset>
+			<div class="form-group col-md-2">
+				<label for="transacciocanal">Transaccio:</label>
+				<input type="text" class="form-control" id="transacciocanal" name="transacciocanal" disabled formControlName="transaccioFinal"/>
+			</div>
+			<div class="form-group col-md-2">
+				<label for="backoffice">Descripcio:</label>
+				<input type="text" class="form-control" id="descripcio" name="descripcio" disabled formControlName="descripcio"/>
+			</div>
+			<div class="form-group col-md-2">
+				<label for="lot">Codi Resposta:</label>
+				<input type="text" class="form-control" id="resposta" name="resposta" disabled formControlName="codiResposta" />
+			</div>
+			<div class="form-group col-md-3">
+				<label for="peticio">Desc. Resposta:</label>
+				<input type="text" class="form-control" id="descresposta" name="descresposta" disabled formControlName="descripcioRespota" />
+			</div>
+			<div class="form-group col-md-3">
+				<label for="sollicitud">Remesa:</label>
+				<input type="text" class="form-control" id="remesa" name="remesa" disabled formControlName="remesa" />
+			</div>
+		</div>
+	</div>	
+	</form>
+</div>

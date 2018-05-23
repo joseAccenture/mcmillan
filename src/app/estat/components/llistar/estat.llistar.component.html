@@ -1,0 +1,76 @@
+<div class="border-start bgGrey">
+	<div id="impacteContainer">
+		<div class="fpca_subcapcalera bgGrey">	
+			<div class="container">
+				<div class="row">
+					<div class="capcelera_basica col-sm-12">
+						<div class="capcelera_basica_cont">		            		
+							<ol class="breadcrumb filariana hidden-xs">
+								<li><a [routerLink]="['/inici']" routerLinkActive="active" title="Torna: Inici">Inici</a></li>
+								<li>Estat general</li>
+							</ol>
+							<h1 class="titulo-capcalera">
+								<span>Estat general</span>
+							</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="caption text-center">
+			<h1 class="display-1"><strong>En Curs</strong></h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="thumbnail">
+				<div class="caption text-center">
+					<h1 class="display-1">Peticions</h1>
+					<p><span class="glyphicon glyphicon-search resum-icon" aria-hidden="true"></span></p>
+					<p>(100)</p>
+					<p>
+                        <a [routerLink]="['estatpeticio']" routerLinkActive="active" class="btn btn-success" aria-label="Left Align">
+                           <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+						</a>
+					</p>
+				</div>
+		    </div>
+	    </div>
+	    <div class="col-md-4">
+			<div class="thumbnail">
+				<div class="caption text-center">
+					<h1 class="display-1">Sollicituds</h1>
+					<p class="display-4">
+						<span class="glyphicon glyphicon-list resum-icon" aria-hidden="true"></span>
+					</p>
+					<p>(100)</p>
+				    <p>
+                       <a [routerLink]="['estatsollicitud']" routerLinkActive="active" class="btn btn-success" aria-label="Left Align"> 
+					      <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+				       </a>
+				    </p>
+			    </div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="thumbnail">
+				<div class="caption text-center">
+					<h1 class="display-1">Transaccions</h1>
+					<p class="display-4">
+						<span class="glyphicon glyphicon-tasks resum-icon" aria-hidden="true"></span>
+					</p>
+					<p>100)</p>
+					<p>
+                        <a [routerLink]="['estattransaccio']" routerLinkActive="active" class="btn btn-success" aria-label="Left Align">
+                           <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+						</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

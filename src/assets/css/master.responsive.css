@@ -1,0 +1,933 @@
+/***************Evolutiu metadades tramit*****************/
+
+.hiddenAnalitica {
+    display: none;
+}
+/***************Evolutiu metadades tramit FI**************/
+/***************fpc_llista_quadreColors*******************/
+
+.nou-color-title {
+    color: #666 !important;
+}
+/***************fpc_llista_quadreColors FI****************/
+/*Cercador de tramits*/
+
+@media (max-width: 700px) {
+    .converteix-cercador {
+        padding: 10px;
+        padding-bottom: 1.250em;
+        background-color: #f5f5f5;
+    }
+}
+/*Cercador de tramits FI*/
+/**********************CLASE PIJAMA*********************/
+
+.colorSectionOdd:nth-child(odd) {
+    background: #f5f5f5;
+}
+
+.colorSectionEven:nth-child(even) {
+    background: #f5f5f5;
+}
+/**********************CLASE PIJAMA FI******************/
+/**********************CLASES GEN�RICAS*******************/
+
+.mg-n15-left {
+    margin-left: 15px !important;
+}
+
+.mg-n15 {
+    margin: 0px -15px 0px -15px;
+}
+
+.pd-15 {
+    padding: 0px 15px 0px 15px;
+}
+
+.pd-20t {
+    padding: 20px 0px 0px 0px;
+}
+
+.pd-25t {
+    padding: 25px 0px 0px 0px;
+}
+
+.pd-15t {
+    padding: 15px 0px 0px 0px;
+}
+
+.pd-15n-m {
+    padding: 0px 15px 0px 15px;
+}
+
+.mgn-15-left {
+    /*margin-left: -15px;*/
+}
+
+.off-margin-bottom {
+    margin-bottom: 0px;
+}
+
+.off-padding-full {
+    padding: 0px !important;
+}
+
+.off-margin-full {
+    margin: 0px !important;
+}
+
+.mg-n15-nm {
+    margin: 0px -15px 0px -15px;
+}
+
+.br-off-gen {
+    border-radius: 0px;
+}
+
+.col-sm-12 .pd-15,
+.col-sm-8 .pd-15,
+.col-sm-6 .pd-15,
+.col-sm-4 .pd-15 {
+    padding: inherit !important;
+}
+
+.header2 {
+    box-sizing: border-box;
+    color: rgb(51, 51, 51);
+    display: block;
+    font-family: OpenSansRegular, Helvetica, Arial, sans-serif;
+    font-size: 30px;
+    font-weight: normal;
+    line-height: normal;
+    margin-bottom: 0.3em;
+    margin-right: 0px;
+    margin-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+}
+/*Afegeixo estil per a la correcta visualitzaci� de les llistes*/
+
+/* article ul {
+	display: inline-block;
+}*/
+
+/*Afegeixo classes per a la correcta visualitzaci� de les taules*/
+/*TABLE*/
+.table-responsive th {
+    background: #666666;
+    color: #fff;
+}
+
+.table-responsive .table>thead>tr>th,
+.table>tbody>tr>th,
+.table>tfoot>tr>th,
+.table>thead>tr>td,
+.table>tbody>tr>td,
+.table>tfoot>tr>td {
+    padding: 8px;
+    line-height: 1.428571429;
+    vertical-align: top;
+    border: 1px solid #ddd;
+}
+
+.table-responsive tr:nth-child(odd) {
+    background-color: #FCFCFC;
+}
+.whiteBackground .table-responsive tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+@media (min-width: 768px) {
+  .table-responsive{
+    overflow-x: auto;
+  }
+}
+/*FI TABLE*/
+
+@media(max-width: 772px) {
+    /*.pd-15{
+    padding: 0px;
+  }*/
+    /*.pd-15s-m{
+    padding-right: 15px;
+  }*/
+    
+    .pd-15st-left {
+        padding-left: 15px;
+    }
+    .npd-15st-right {
+        margin-right: 15px;
+    }
+}
+
+@media(max-width: 750px) {
+    .mgn-15-left {
+        margin-left: 0px;
+    }
+    .mgn-15-left-m {
+        margin-left: -15px !important;
+    }
+    .col-break-2,
+    .col-break-3,
+    .col-break-4 {
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+        column-count: 1;
+        /******Padding opcional*********
+    -webkit-column-gap: 33px;
+    -moz-column-gap: 33px;
+    column-gap: 33px;
+    *******************************/
+        /* column-rule: 4px outset #ff00ff; */
+        
+        padding: 0;
+    }
+    .pd-30 {
+        padding: 0px 30px 0px 30px !important;
+    }
+    .col-xs-12 .pd-30,
+    .col-xs-8 .pd-30,
+    .col-xs-6 .pd-30,
+    .col-xs-4 .pd-30 {
+        padding: inherit !important;
+    }
+    .col-xs-12 .pd-15,
+    .col-xs-8 .pd-15,
+    .col-xs-6 .pd-15,
+    .col-xs-4 .pd-15 {
+        padding: 0px 15px 0px 15px !important;
+    }
+    .pd-15 {
+        padding: 0px 15px 0px 15px;
+    }
+    .pd-10 {
+        padding: 0px 10px 0px 10px;
+    }
+    .pd-15s-m {
+        padding: 0px 15px 0px 15px;
+    }
+    .off-padding-full-m {
+        padding: 0px !important;
+    }
+    .off-margin-left {
+        margin: -15px !important;
+    }
+    .mg-n15-nm {
+        margin: 0px 0px 0px 0px;
+    }
+    .pd-15x {
+        padding: 0px 15px 0px 15px;
+    }
+    .footer-xarxes .llistat_xarxes_socials .social_text {
+        display: block;
+        font-style: normal !important;
+    }
+    .header2 {
+        box-sizing: border-box;
+        color: rgb(51, 51, 51);
+        display: block;
+        font-family: OpenSansRegular, Helvetica, Arial, sans-serif;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 22px;
+        margin-bottom: 16px;
+        margin-left: 0px;
+        margin-right: 0px;
+        padding-bottom: 0px;
+        position: relative;
+        width: 320px;
+    }
+    footer .avis_legal .fi_peu {
+        margin: 0;
+    }
+    footer .avis_legal .idiomes {
+        height: auto;
+        z-index: 50;
+        position: relative;
+    }
+    footer .avis_legal .torna_amunt {
+        /*margin-top: 0;*/
+    }
+}
+/**********************CLASES GEN�RICAS*******************/
+/**********************CLASE FOOTER*********************/
+
+.nou-peu {
+    box-sizing: border-box;
+    color: #666;
+    display: block;
+    font-family: OpenSansSemibold, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    height: 25px;
+    line-height: 17.6000003814697px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    /*width: 284px;*/
+}
+
+.acc-peu {
+    background: url(/system/modules/cat.vass.wcmResponsive.template.common/resources/common/img/NG_ico_plegar_footer.png) no-repeat right 3px;
+    display: block;
+    font-size: 1.025em;
+    /* font-family: 'OpenSansSemibold'; */
+    
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.acc-peu.collapsed {
+    background: url(/system/modules/cat.vass.wcmResponsive.template.common/resources/common/img/NG_ico_desplegar_footer.png) no-repeat right 3px;
+    display: block;
+    font-size: 1.025em;
+    /* font-family: 'OpenSansSemibold'; */
+    
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.formatter_peu {
+    width: 100% !important;
+    float: left;
+}
+
+@media(max-width: 750px) {
+    .formatter_peu {
+        width: auto !important;
+        float: none;
+    }
+}
+/**********************CLASE FOOTER FI******************/
+/*Nou component tr�mits-access*/
+
+.corrector-artificial {
+    margin-top: 128px;
+}
+
+.contenidor-pestanyes .duo_combo_destacat_llistat .llistat_enllacos_filet .llistat_enllacos_filet_cont .list-group-item a:hover {
+    text-decoration: underline !important;
+}
+
+.margin-apply {
+    margin-top: 600px !important;
+}
+
+.element-component-tramits:hover {
+    background: #f5f5f5;
+}
+
+.element-component-tramits a:hover {
+    text-decoration: none !important;
+}
+
+.contenidor-tramits {
+    width: 100%;
+    float: left;
+    position: relative;
+    min-height: 1px;
+}
+
+.tramit-titol {
+    color: #666666;
+    font-size: 20px;
+    font-family: 'OpenSansSemibold', Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    margin: 0 0 .5em 0;
+    display: block;
+}
+
+.separador-tramits-dreta {
+    clear: both;
+    margin-bottom: 48%;
+}
+
+.seleccionat2 {
+    background: #F5F5F5 !important;
+}
+
+.separador-tramits-esquerra {
+    clear: both;
+    margin-bottom: 4%;
+}
+
+.navbar-nou {
+    /*width:1024px;
+  margin:auto;*/
+    
+    position: relative;
+    z-index: 0;
+}
+
+.element-amb-submenu {
+    position: static !important;
+    width: 72px;
+}
+
+.contenidor-pestanyes {
+    width: 97.3%;
+    left: 1em;
+    border: 0;
+    background: #F5F5F5;
+    height: auto;
+    position: absolute;
+    padding: 25px;
+    width: 1140px;
+    left: 15px;
+    top: 70px;
+    box-shadow: none;
+    text-align: center;
+    margin-left: -15px;
+}
+
+.contenidor-pestanyes-rel {
+    width: 97.3%;
+    left: 1em;
+    border: 0;
+    background: #F5F5F5;
+    height: auto;
+    position: relative;
+    padding: 25px;
+    width: 1140px;
+    left: 15px;
+    box-shadow: none;
+    text-align: center;
+    margin-left: -15px;
+}
+
+.llistat_destacat_text_cont .list-group-item .destacat_text_cont {
+    padding: 0.063em;
+}
+
+.component-tramits {
+    border: 0 !important;
+}
+
+.component-tramits > .element-component-tramits {
+    min-width: 130px;
+    border-left: 1px solid #dddddd;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    border-radius: 0px;
+}
+
+.component-tramits > .element-component-tramits:last-child {
+    min-width: 183px;
+}
+
+.component-tramits > .element-component-tramits > .link-component-tramits,
+.link-component-tramits {
+    position: relative;
+    display: block;
+    padding: 0.233em 0 0.233em 1.889em;
+    font-size: 1.125em;
+    background: url(../img/temes-arrow-down.png) no-repeat left 0.300em !important;
+}
+
+.component-tramits > .element-component-tramits > .link-component-tramits,
+.link-component-tramits.seleccionat {
+    position: relative;
+    display: block;
+    padding: 0.233em 0 0.233em 1.889em;
+    font-size: 1.125em;
+    background: #F5F5F5 url(../img/temes-arrow-up.png) no-repeat left 0.300em !important;
+}
+
+.component-tramits > .element-component-tramits > h3 > .link-component-tramits-mobil {
+    /*padding: 0.233em 0 0.233em 0;
+  font-size: 1.125em;
+  background: #fff url(../img/NG_ico_mes_consultat_tancar.png) no-repeat right 0.300em !important;*/
+    
+    padding: 0.233em 0 0.233em 0;
+    font-size: 0.9em;
+    background: #fff url(../img/NG_ico_mes_consultat_tancar.png) no-repeat right 0.300em !important;
+}
+
+.component-tramits > .open > .link-component-tramits:hover,
+.nav .open > .link-component-tramits:focus {
+    background: #F5F5F5 url(../img/temes-arrow-up.png) no-repeat left 0.300em !important;
+    padding: 0.233em 0 0.233em 1.889em;
+    font-size: 1.125em;
+}
+
+.component-tramits > .element-component-tramits > .link-component-tramits,
+.link-component-tramits:hover {}
+
+.expand {
+    min-height: 530px;
+    transition: 0.2s;
+}
+
+.navbar-nou .open div.dropdown-menu {
+    background: #F5F5F5;
+    height: auto;
+    position: absolute;
+    padding: 25px;
+    width: 1110px;
+    left: 15px;
+    top: 55px;
+    box-shadow: none;
+    text-align: center;
+}
+/*START: lista semantica */
+/*END: lista semantica */
+/* will be red only in google chrome 
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .llistat_enllacos_filet_cont .list-group-item.primer-dret{border-top: none;}
+}*/
+
+@media (max-width: 1029px) {
+    .navbar-nou .open div.dropdown-menu {
+        background: #F5F5F5;
+        height: auto;
+        position: absolute;
+        padding: 25px;
+        width: 910px;
+        left: 15px;
+        top: auto;
+        box-shadow: none;
+        text-align: center;
+    }
+    .contenidor-pestanyes {
+        width: 97.3%;
+        left: 1em;
+        border: 0;
+        background: #F5F5F5;
+        height: auto;
+        position: absolute;
+        padding: 25px;
+        width: 945px;
+        left: 15px;
+        top: 55px;
+        box-shadow: none;
+        text-align: center;
+    }
+    .corrector-artificial {
+        margin-top: 127px;
+    }
+}
+
+@media (max-width: 971px) {
+    .contenidor-pestanyes {
+        width: 97.3%;
+        left: 1em;
+        border: 0;
+        background: #F5F5F5;
+        height: auto;
+        position: absolute;
+        padding: 25px;
+        width: 720px;
+        left: 15px;
+        top: 55px;
+        box-shadow: none;
+        text-align: center;
+    }
+}
+
+@media (max-width: 772px) {
+    .fpca_tramit_filtre .component-tramits > .element-component-tramits {
+        min-width: 110px;
+        width: auto;
+        font-size: 12px;
+    }
+    .fpca_tramit_filtre .component-tramits > .element-component-tramits:last-child {
+        min-width: 135px;
+        font-size: 12px;
+    }
+    .navbar-nou .open div.dropdown-menu {
+        background: #F5F5F5;
+        height: auto;
+        position: absolute;
+        padding: 25px;
+        width: 700px;
+        left: 15px;
+        top: auto;
+        box-shadow: none;
+        text-align: center;
+    }
+    .navbar-nou {
+        width: 770px;
+        margin: auto;
+        position: relative;
+        left: 0;
+    }
+    .contenidor-pestanyes {
+        width: 97.3%;
+        left: 1em;
+        border: 0;
+        background: #F5F5F5;
+        height: auto;
+        position: absolute;
+        padding: 25px;
+        width: 715px;
+        left: 15px;
+        top: 55px;
+        box-shadow: none;
+        text-align: center;
+    }
+    .corrector-artificial {
+        margin-top: 110px;
+    }
+    .imatge-canal {
+        padding-left: 10px;
+        padding-right: 10px !important;
+    }
+    .directe-provisional .shadow {
+        display: none !important;
+    }
+    .margin-apply {
+        margin-top: 584px !important;
+    }
+    .expand {
+        min-height: 440px;
+        transition: 0.2s;
+    }
+    .margin-apply {
+        margin-top: 493px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .corrector-artificial {
+        margin-top: 0px;
+    }
+    .tramit-titol {
+        font-size: 1em;
+        color: #999999;
+        padding-top: 15px;
+    }
+    .fpca_tramit_filtre .component-tramits > .element-component-tramits {
+        font-size: inherit;
+    }
+    .fpca_tramit_filtre .component-tramits > .element-component-tramits:last-child {
+        font-size: inherit;
+    }
+    .navbar-nou {
+        width: 100%;
+        margin: auto;
+        position: relative;
+        left: 0;
+    }
+    #componentTramits {
+        margin: 0;
+    }
+    .component-tramits > .element-component-tramits {
+        /*min-width: 32%;*/
+        
+        width: 100%;
+        border-top: 1px solid #dddddd;
+        padding-left: 0px;
+        border-left: 0;
+        padding-top: 3px;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+    }
+    .component-tramits > .element-component-tramits:last-child {
+        min-width: 32%;
+        border-top: 1px solid #dddddd;
+        border-bottom: 1px solid #dddddd;
+        border-left: 0;
+        padding-left: 0;
+    }
+    .treu-padding-acces {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .treu-padding-llista {
+        margin-left: -20px;
+        margin-right: -80px;
+    }
+    .directe-provisional ul.llistat_enllacos_filet_cont.list-group {
+        padding-left: 0px;
+    }
+}
+
+@media (max-width: 389px) {
+    .component-tramits > .element-component-tramits {
+        min-width: 39%;
+    }
+    .component-tramits > .element-component-tramits:last-child {
+        min-width: 39%;
+    }
+}
+
+@media (max-width: 365px) {
+    .component-tramits > .element-component-tramits {
+        min-width: 37%;
+    }
+    .component-tramits > .element-component-tramits:last-child {
+        min-width: 37%;
+    }
+}
+
+@media (max-width: 325px) {
+    .component-tramits > .element-component-tramits {
+        min-width: 32%;
+    }
+    .component-tramits > .element-component-tramits:last-child {
+        min-width: 32%;
+    }
+}
+/*Nou component tr�mits FI*/
+/****************************SUBCAPCALERA PROVISINAL***********************/
+/****************************SUBCAPCALERA PROVISINAL FI********************/
+/****************************CAPCALERA*************************************/
+
+.titol-cap-nou {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-family: 'OpenSansSemiBold', Helvetica, Arial, sans-serif;
+    float: left;
+}
+
+@media (max-width: 750px) {
+    .titol-capcalera {
+        margin-top: 10px;
+    }
+}
+/****************************CAPCALERA FI**********************************/
+/****************************SUB-CAPCALERA*********************************/
+
+.titulo-capcalera {
+    width: 84%;
+}
+
+.tornar-tramits {
+    background: url(../img/NG_ico_mes_consultat.png) no-repeat left center;
+    padding-left: 25px;
+    font-size: 13px;
+    margin-top: 26px;
+    position: absolute;
+    right: 15px;
+    font-family: 'OpenSansSemibold';
+    top: 45px;
+    padding-right: 5px;
+}
+
+.menu_enviar_amic.menu_flotant button.bgRed#OKMailAmic {
+    background: transparent url(../img/NG_ico_tancar.png) no-repeat !important;
+}
+
+@media (max-width: 750px) {
+    .tornar-tramits {
+        bottom: 15px !important;
+        top: inherit;
+    }
+    .pd-15n-m {
+        padding: 0;
+    }
+}
+/***********************Nou component tr�mits-cercador**************************/
+
+.us-suggerim .panel {
+    margin: 0;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.us-suggerim .panel .panel-heading {
+    background: #fff;
+    padding: 1.250em 1.125em;
+    border-bottom: none;
+}
+
+.us-suggerim .panel .panel-heading h3,
+.us-suggerim .panel .panel-heading h2 {
+    font-size: 1.250em;
+    font-family: "OpenSansRegular", Helvetica, Arial, sans-serif;
+}
+
+h2.panel-title.fb_no-separador.titol-pd-btm {
+    font-size: 1.250em;
+    font-family: "OpenSansRegular", Helvetica, Arial, sans-serif;
+}
+
+.us-suggerim .panel .panel-body {
+    background: #f5f5f5;
+    padding: .5em 0 1.250em;
+}
+
+.us-suggerim .llistat_enllacos_filet_cont {
+    padding: 0 20px;
+}
+
+.us-suggerim .llistat_enllacos_filet_cont .list-group-item {
+    padding-top: .313em;
+    padding-bottom: .313em;
+    font-size: .938em;
+    padding-left: 1.125em;
+}
+
+.us-suggerim .panel .list-group-item {
+    background: none;
+    border: none;
+}
+
+.us-suggerim .llistat_enllacos_filet_cont .list-group-item a {
+    font-family: 'OpenSansSemibold', Helvetica, Arial, sans-serif;
+    display: block;
+}
+/***********************Nou component tr�mits-cercador FI***********************/
+/***********************function widthImatge de generic_responsive.js***********/
+
+.widthResponsive {
+    width: 100%;
+    height: auto;
+}
+/***********************function widthImatge de generic_responsive.js FI********/
+/*No component: menu amb filtres FI*/
+/***********************Efecte TAB dispositius m�bils***************************/
+
+.searchExemple a {
+    -webkit-tap-highlight-color: rgba(43, 49, 65, 0.4);
+}
+
+a,
+header .column ul li a,
+.navbar-default .navbar-nav > li > a {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.2);
+}
+/***********************Efecte TAB dispositius m�bils FI************************/
+/**Estils per a impressi�***/
+
+@media print {
+    .visible-xs {
+        display: block !important;
+        visibility: visible !important
+    }
+    .hidden-xs {
+        display: none
+    }
+    .collapse {
+        display: block !important;
+    }
+    .text-tallat {
+        height: auto !important;
+    }
+}
+/*******************************************CAPCALERA DEPARTAMENTS******************************************/
+/***********************************************************************************************************/
+/*.idioma, .fons_header .cercador_vermell+.idioma {
+  margin-top: 1em;
+  margin-right: .813em;
+  float: right;
+}
+.idioma a {
+  background: rgba(255,255,255,0.5);
+  border-radius: 100%;
+  margin-left: .5em;
+  color: #FFF;
+  font-weight: normal;
+  display: inline;
+  float: left;
+  font-size: .875em;
+  height: 2.000em;
+  position: relative;
+  width: 2.000em;
+  padding-top: .25em;
+  text-align: center;
+  line-height: 1.25em;
+}
+.idioma a:hover {
+  background: rgba(255,255,255,1);
+  color: #333;
+  width: 2.000em;
+  height: 2.000em;
+  display: inline;
+  font-size: .875em;
+  text-decoration: none!important;
+}
+nav ul.nav li, .navbar-collapse {
+background: transparent;
+}*/
+/************************estils per la imatge del pdf****************************/
+
+img.icon-document {
+    margin: 0px 5px 0px 5px;
+    vertical-align: middle;
+}
+
+span.size-document {
+    font-size: 13px;
+    margin-left: 5px;
+}
+/************************END estils per la imatge del pdf****************************/
+/*Elements footer*/
+
+@media (max-width: 1029px) {
+    .fpca_peu_faldoSocial {
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 992px) {
+    #fContainer_right .formatter_body .twitter {
+        width: inherit;
+        margin-right: inherit;
+    }
+    #fContainer_right .formatter_body .cerca_xarxes {
+        width: inherit;
+        float: right;
+        margin-right: 10px;
+        margin-top: 1em !important;
+    }
+    #fContainer_right .formatter_body:last-child {
+        margin-top: inherit;
+        width: inherit;
+    }
+    #fContainer_right .formatter_body .cerca_xarxes {
+        margin-top: 9em;
+    }
+    #fContainer_right {
+        border-top: none;
+    }
+    #fContainer_right .formatter_body:first-child {
+        width: inherit;
+    }
+    footer .connecta {
+        margin-top: inherit;
+    }
+    footer .llistat_xarxes_socials {
+        padding: 0;
+    }
+    .fpca_peu_faldoSocial {
+        margin-top: 15px;
+    }
+}
+@media (max-width: 768px) {
+  #fContainer_right .formatter_body:first-child {
+    width: 100%;
+  }
+  #fContainer_right .formatter_body:last-child {
+    width: 100%;
+  }
+}
+
+/*** Modal ***/
+
+.modal {
+    top: 40%;
+    }
+
+.modal.fade .modal-dialog {
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+    width: 60px;
+    margin: 0px auto;
+}
+
+.modal-content {
+    background-color: #fff;
+}
+
+.modal-content .loading{
+    min-height: 50px !important;
+}
+
+.modal-content .loading img{
+    margin-top: 15% !important;
+}

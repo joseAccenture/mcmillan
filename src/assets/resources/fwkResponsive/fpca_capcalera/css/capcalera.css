@@ -1,0 +1,783 @@
+@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) and (orientation: portrait)
+{
+  .navbar-default .fpca_capcalera .navbar-nav .open .dropdown-menu .centrat .col_left li a{
+    font-size: 0.8em;
+  } 
+  .navbar-default .fpca_capcalera .navbar-nav .open .dropdown-menu .centrat .col_left>li>a.first{
+    font-size: 1em;
+  }
+  header nav a.logo {
+        background-size: 98%;
+        height: 2.1em;
+}
+.fpca_capcalera .navbar-collapse a.logo {
+    background: url('http://ctti.gencat.cat/web/resources/fwkResponsive/fpca_capcalera/img/NG_logo_generalitat_big.png') no-repeat 0 0;
+    height: 2.1em;
+    text-indent: -555em;
+    margin: 0.92em 0;
+    background-size: 96%;
+  }
+}
+.fpca_capcalera .nav .open >a{
+  /*background-color: transparent;*/
+}
+
+.fpca_capcalera .titol-cap-nou {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-family: 'OpenSansSemiBold', Helvetica, Arial, sans-serif;
+  text-align: left;
+  margin-top: -4px;
+}
+
+.fpca_capcalera a.mvlogo{
+  background: none;
+  text-align:center;
+  height: auto;
+  color: white;
+  font-weight: bold;
+  margin: 1em auto 1em;
+}
+
+.fpca_capcalera a.mvlogoDef{
+  text-align:center;
+  margin: 1em auto 1em;
+  background: url("http://ctti.gencat.cat/web/resources/fwkResponsive/common/img/NG_logo_movil.png") no-repeat scroll center;
+  height: 1.688em;
+  display: block;
+}
+.fpca_capcalera a.mvlogo-xs {
+  color: #fff;
+}
+.fpca_capcalera .logoPortal {
+  margin-top: 15px;
+  color: #fff;
+}
+.fpca_capcalera #nomPortal {
+  text-align: inherit;
+}
+.fpca_capcalera #topRight {
+  height: 0px;
+}
+.fpca_capcalera .titol-cap-nou:hover { 
+    color:#fff
+}
+.fpca_capcalera .titol-cap-nou.car50 {
+  font-size: 1.750em;
+}
+.fpca_capcalera .titol-cap-nou.car51-60 {
+  font-size: 1.375em;
+}
+.fpca_capcalera .titol-cap-nou.car61-78 {
+  font-size: 1.188em;
+}
+.fpca_capcalera .titol-cap-nou.car79 {
+  font-size: 1em;
+}
+
+.fpca_capcalera .fons_header .cercador_vermell+.idioma {
+  padding-left: .2em;
+}
+.fpca_capcalera .link-accesible {
+  margin: 1.8em 1em 0 0;
+}
+.fpca_capcalera header .column ul.idioma li {
+    float: left;
+    margin: 0.3em 0.15em 0 -0.5em;
+    position: relative;
+}
+.fpca_capcalera nav div.no-pd {
+  padding-left: 0px;
+  padding-right: 0px; 
+}
+
+.fpca_capcalera nav div.no-pd ul.col-sm-12.col-md-6 {
+  padding-right: 15px !important; 
+}
+/*************capcalera color****************/
+.fpca_capcalera .fons_header .container .row.clearfix.menuNav.negre {
+  width: 100%;
+  background: #333;
+  z-index: 9999;
+  top: 0;
+}
+.fpca_capcalera .nav>.dropdown>.dropdown-menu .centrat {
+  margin-bottom: -4px;
+  border-bottom: none;
+}
+ @media ( max-width : 47.938em) {
+/*********capcalera mobil************/  
+.fpca_capcalera .container.two-lines .logoPortal {
+  padding-bottom: 0.438em;
+}
+.fpca_capcalera .container.three-lines .logoPortal {
+  padding-bottom: 0.438em;
+}
+.fpca_capcalera .container.two-lines nav#topRight.navbar-collapse {
+  margin-top: 4em;
+}
+.fpca_capcalera .container.three-lines nav#topRight.navbar-collapse {
+  margin-top: 6em;
+}
+.fpca_capcalera .titol-cap-nou.car70 {
+ font-size: 0.8em; 
+ line-height:1.2em
+}
+.fpca_subcapcalera.bgGrey .capcelera_basica.col-sm-12.two-lines {
+  margin-top: 1em;
+}
+.fpca_subcapcalera.bgGrey .capcelera_basica.col-sm-12.three-lines {
+  margin-top: 2.5em;
+}
+.fpca_capcalera form.navbar-form.navbar-left.primer.two-lines {
+    margin-top: 3.4em;
+}
+.fpca_capcalera form.navbar-form.navbar-left.primer.three-lines {
+    margin-top: 5em;
+}
+.fpca_capcalera .coloca1 {
+  /*
+  float: left;
+  margin: 0;
+  padding: .6em 0;
+  width: auto;
+  height: 2.5em;
+  text-align: left;
+  */
+  float: right;
+  margin: 0.5em 0.5em 0 0;
+  padding: 0;
+  width: auto;
+  height: 2.5em;
+}
+.fpca_capcalera .logoPortal {
+  margin-top: 15px;
+  color: #fff;
+  text-align: center;
+}
+.fpca_capcalera .fons_header .cercador_vermell+.idioma {
+  padding-left: inherit
+}
+.fpca_capcalera .logoPortal {
+  padding-bottom: .5em;
+}
+.fpca_capcalera .link-accesible {
+  margin: 0 -15px 0 -15px;
+}
+.fpca_capcalera .dos .shadowBox{
+  /* margin-top:50px; */
+}
+
+.fpca_capcalera .menuNav {
+/*  width: 100%; */
+}
+
+.fpca_capcalera nav{
+  /* margin-top:56px; */
+}
+
+.navbar-default .fpca_capcalera .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
+  background: -moz-linear-gradient(top,rgba(109,109,109,1) 0,rgba(94,94,94,1) 100%);
+  background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(109,109,109,1)),color-stop(100%,rgba(94,94,94,1)));
+  background: -webkit-linear-gradient(top,rgba(109,109,109,1) 0,rgba(94,94,94,1) 100%);
+  background: -o-linear-gradient(top,rgba(109,109,109,1) 0,rgba(94,94,94,1) 100%);
+  background: -ms-linear-gradient(top,rgba(109,109,109,1) 0,rgba(94,94,94,1) 100%);
+  background: linear-gradient(to bottom,rgba(109,109,109,1) 0,rgba(94,94,94,1) 100%);
+  color: #fff;
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+.navbar-form .form-group .btn-default:focus{
+  outline: none;
+}
+
+}
+@media (min-width: 47.939em){
+.fpca_capcalera ul.idioma{
+  padding-left: 0.1em;
+} 
+.fpca_capcalera .dropdown-menu .centrat>.col_left li{
+  padding-bottom: 0px;
+}
+.fpca_capcalera nav div.col-sm-4.col-md-6.col_left ul.mt-0:last-child{
+  margin-top: 0 !important;
+} 
+.navbar-default .navbar-nav  div.dropdown-menu ul li ul.mt-0{
+  margin-top: 0;
+} 
+}
+
+
+
+/*******************
+NOTA
+Nom del departament o organisme:
+fins a 50
+OS semibold, cos 28
+de 51 a 60
+OS semibold, cos 22
+de 61 a 78 caracters amb espais
+OS semibold, cos 19
+De 78 amunt, crec que s’haur�  d’ajustar a m� .
+
+
+Enllaç a la Versió Accessible a l’alçada dels
+idiomes
+Què passa amb noms de més de 70? tenim
+algun cas?
+Si fos així, ajustem el cos per a que hi c� piga.
+Descartem les dues línies.
+******************/
+
+header .ico_cerca.collapsed {
+  background: url('../img/NG_ico_lupa.png') no-repeat center center;
+  outline: 0;
+  border: none;
+}
+header .ico_cerca:focus, header .ico_cerca:hover, header .ico_cerca:active{
+  outline: 0;
+}
+
+header .navbar-toggle.collapsed{
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
+header .navbar-nav>li>a:hover{
+  background-image: url(../img/nav-bar-actiu.jpg), linear-gradient(to bottom, rgba(135, 135, 135, 1) 0%, rgba(162, 162, 162, 1) 100% ) !important;
+}
+header .navbar-nav>li.perfil-capcalera>a:hover{
+	background-image: url(../img/nav-bar-actiu.jpg), linear-gradient(to bottom, rgba(192, 0, 0, 1) 0%, rgba(192, 0, 0, 1) 100% ) !important;
+}
+@media(min-width: 768px){
+  header .navbar-nav>li.perfil-capcalera>a:hover{
+    color: #333 !important;
+    }
+}
+@media (max-width: 766px){
+  .fpca_capcalera .capcaleraFixed{
+    position:fixed;
+    z-index:50;
+    width:100%;
+  }
+}
+/*CSS corresponent al evolutiu de la capcalera*/
+.fpca_capcalera.evolution .navbar-header {
+    float: none;
+}
+
+.fpca_capcalera.evolution .navbar-collapse {
+    border-top: 1px solid transparent;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.fpca_capcalera.evolution .navbar-collapse.collapse {
+    display: none!important;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.fpca_capcalera.evolution .navbar-nav {
+    float: none!important;
+    margin: 0px -15px;
+    margin-right: 15px;
+    -webkit-box-shadow: 0px 6px 22px 0px rgba(168, 158, 168, 1);
+    -moz-box-shadow: 0px 6px 22px 0px rgba(168, 158, 168, 1);
+    box-shadow: 0px 6px 22px 0px rgba(168, 158, 168, 1);
+}
+
+.fpca_capcalera.evolution .navbar-nav>li {
+    float: none;
+}
+
+.fpca_capcalera.evolution .navbar-nav>li>a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.fpca_capcalera.evolution .navbar-nav>li>a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.fpca_capcalera.evolution .collapse.in {
+    display: block !important;
+}
+
+.navbar-default .fpca_capcalera.evolution .navbar-nav>li.actiu,
+.navbar-default .fpca_capcalera.evolution .navbar-nav>li>a.actiu {
+    color: #333333;
+    background-repeat: no-repeat;
+    background-position: left center;
+    font-weight: bold;
+	font-family: 'OpenSansBold';
+}
+.navbar-default .fpca_capcalera.evolution .navbar-nav>li.perfil-capcalera>a.actiu{
+	color: #fff;
+} 
+.navbar-default .fpca_capcalera.evolution .navbar-nav>li.perfil-capcalera.actiu, .navbar-default .fpca_capcalera.evolution .navbar-nav>li.perfil-capcalera>a.actiu {
+	color: #fff;
+	background-color: #C00000;
+	font-weight: bold;
+	font-family: 'OpenSansSemiBold';
+}
+.navbar-default .fpca_capcalera.evolution .navbar-nav>li.perfil-capcalera.actiu.open, .navbar-default .fpca_capcalera.evolution .navbar-nav>li.perfil-capcalera.open>a.actiu {
+	color: #333;
+}
+.navbar-default .fpca_capcalera.evolution .navbar-nav>li,
+.navbar-default.fpca_capcalera.evolution .navbar-nav>li>a {
+    /*background: -moz-linear-gradient(top, rgba(109, 109, 109, 1) 0%, rgba(94, 94, 94, 1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(109, 109, 109, 1)), color-stop(100%, rgba(94, 94, 94, 1)));
+    background: -webkit-linear-gradient(top, rgba(109, 109, 109, 1) 0%, rgba(94, 94, 94, 1) 100%);
+    background: -o-linear-gradient(top, rgba(109, 109, 109, 1) 0%, rgba(94, 94, 94, 1) 100%);
+    background: -ms-linear-gradient(top, rgba(109, 109, 109, 1) 0%, rgba(94, 94, 94, 1) 100%);*/
+    background: #fff;
+    color: #333333;
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+.navbar-default .fpca_capcalera.evolution .navbar-nav>li {
+    border-bottom: 1px solid #F5F5F5;
+    border-left: 0;
+}
+
+header .fpca_capcalera.evolution a.logo {
+    background: url('http://ctti.gencat.cat/web/resources/fwkResponsive/fpca_capcalera/img/NG_logo_generalitat.png') no-repeat 0 0;
+    height: 2em;
+    text-indent: -555em;
+    margin: 0.5em 0;
+    margin-left: 20px;
+}
+
+.fpca_capcalera.evolution .navbar-collapse {
+    border: none;
+    text-indent: 1em;
+    background: #6C6C6C;
+    max-height: none;
+    overflow: hidden;
+}
+
+.fpca_capcalera.evolution .navbar-default .navbar-nav>li.actiu,
+.fpca_capcalera.evolution .navbar-default .navbar-nav>li>a.actiu {
+    background-image: url(http://ctti.gencat.cat/web/resources/fwkResponsive/fpca_capcalera/img/nav-bar-actiu.jpg), -moz-linear-gradient(top, rgba(109, 109, 109, 1) 0%, rgba(94, 94, 94, 1) 100%);
+    background-image: url(http://ctti.gencat.cat/web/resources/fwkResponsive/fpca_capcalera/img/nav-bar-actiu.jpg), -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(109, 109, 109, 1)), color-stop(100%, rgba(94, 94, 94, 1)));
+    background-image: url(http://ctti.gencat.cat/web/resources/fwkResponsive/fpca_capcalera/img/nav-bar-actiu.jpg), -webkit-linear-gradient(top, rgba(109, 109, 109, 1) 0%, rgba(94, 94, 94, 1) 100%);
+    background-image: url(http://ctti.gencat.cat/web/resources/fwkResponsive/fpca_capcalera/img/nav-bar-actiu.jpg), -o-linear-gradient(top, rgba(109, 109, 109, 1) 0%, rgba(94, 94, 94, 1) 100%);
+    background-image: url(http://ctti.gencat.cat/web/resources/fwkResponsive/fpca_capcalera/img/nav-bar-actiu.jpg), -ms-linear-gradient(top, rgba(109, 109, 109, 1) 0%, rgba(94, 94, 94, 1) 100%);
+    background-image: url(http://ctti.gencat.cat/web/resources/fwkResponsive/fpca_capcalera/img/nav-bar-actiu.jpg), linear-gradient(to bottom, rgba(109, 109, 109, 1) 0%, rgba(94, 94, 94, 1) 100%);
+    color: #fff;
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+.fpca_capcalera.evolution nav ul.nav li div.dropdown-menu ul.centrat,
+.fpca_capcalera.evolution nav ul.nav li div.dropdown-menu ul.centrat li,
+.fpca_capcalera.evolution .navbar-default .navbar-nav .open div.dropdown-menu {
+    background: #eee;
+    border-top: 1px #fff solid;
+}
+
+.fpca_capcalera.evolution nav ul.nav li div.dropdown-menu ul.centrat,
+.fpca_capcalera.evolution nav ul.nav li div.dropdown-menu ul.centrat li,
+.fpca_capcalera.evolution .navbar-default .navbar-nav .open div.dropdown-menu {
+    background: #ddd;
+    border-radius: 0;
+}
+
+.fpca_capcalera.evolution .navbar-nav .open .dropdown-menu {
+    position: static;
+    float: none;
+    width: auto;
+    margin-top: 0;
+    background-color: transparent;
+    border: 0;
+    box-shadow: none;
+}
+
+.fpca_capcalera.evolution .organigrama-desktop nav,
+.fpca_capcalera.evolution ul.nav>li {
+    background: none;
+    border-top: none;
+}
+
+header .fpca_capcalera.evolution .navbar-nav>li>a:hover {
+    background: url('') #BBBBBB !important;
+    color: #333 !important;
+}
+
+header .fpca_capcalera.evolution .navbar-nav>li>a {
+    font-size: 18px;
+    color: #333333;
+	/*padding-left: 40px;*/
+	padding-left: 40px;
+}
+
+header .fpca_capcalera.evolution .navbar-nav>li.perfil-capcalera>a {
+	color: #FFF;
+	margin: auto;
+}
+
+.fpca_capcalera.evolution .navbar-default .navbar-nav .open div.dropdown-menu>.shadowBox {
+    display: block;
+    width: auto;
+}
+
+.fpca_capcalera.evolution .nav>.dropdown>.dropdown-toggle .caret {
+    background: url(http://ctti.gencat.cat/web/resources/fwkResponsive/fpca_capcalera/img/icon-open-nc.png) no-repeat;
+    height: 1.375em;
+    width: 1.375em;
+    border: none;
+    float: right;
+    display: block !important;
+}
+
+.fpca_capcalera.evolution .nav>.dropdown.open>.dropdown-toggle .caret {
+    background: url(http://ctti.gencat.cat/web/resources/fwkResponsive/fpca_capcalera/img/icon-close-nc.png) no-repeat;
+}
+
+.fpca_capcalera.evolution nav ul.nav li div.dropdown-menu ul.centrat,
+.fpca_capcalera.evolution nav ul.nav li div.dropdown-menu ul.centrat li,
+.fpca_capcalera.evolution .navbar-default .navbar-nav .open div.dropdown-menu {
+    background: #eee;
+    border-top: 1px #fff solid;
+}
+
+.fpca_capcalera.evolution nav ul.nav li div.dropdown-menu ul.centrat,
+.fpca_capcalera.evolution nav ul.nav li div.dropdown-menu ul.centrat li,
+.fpca_capcalera.evolution .navbar-default .navbar-nav .open div.dropdown-menu {
+    background: #ddd;
+    border-radius: 0;
+}
+
+.navbar-default .fpca_capcalera.evolution .navbar-nav>.open>a,
+.navbar-default .fpca_capcalera.evolution .navbar-nav>.open>a:hover,
+.navbar-default .fpca_capcalera.evolution .navbar-nav>.open>a:focus {
+    background: #BBBBBB;
+    color: #333333;
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+.fpca_capcalera.evolution .nav .shadow {
+    box-shadow: none;
+}
+
+.fpca_capcalera.evolution .row.menuNav {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.fpca_capcalera.evolution a.mvlogo {
+    margin: 0;
+    text-align: left;
+    font-size: 1.750em;
+  
+}
+.fpca_capcalera.evolution .col-offset-2.column.col-xs-9.visible-removed.col-md-9 a{
+  margin-left: -20px;
+}
+/*.fpca_capcalera.evolution .col-offset-2.column.col-xs-9.visible-removed.col-md-9 a{
+  margin-left: 20px;
+}*/
+.fpca_capcalera.evolution a.mvlogoDef {
+    margin: 0;
+    text-align: left;
+    font-size: 1.750em;
+}
+.fpca_capcalera a.mvlogoDef {
+    text-align: center;
+    margin: 1em auto 1em;
+    background: url("http://ctti.gencat.cat/web/resources/fwkResponsive/common/img/NG_logo_movil.png") no-repeat scroll center;
+    height: 1.688em;
+    display: block;
+}
+.fpca_capcalera.evolution .dropdown-menu .centrat>ul li.first {
+    padding-left: 0;
+}
+
+.fpca_capcalera.evolution .dropdown-menu .centrat>.col_left:first-child li:first-child,
+.fpca_capcalera.evolution .dropdown-menu .centrat>ul li.first {
+    border-top: none;
+}
+
+.fpca_capcalera.evolution .dropdown-menu .centrat>.col_left li {
+    padding: 0.11em 0 0.11em 0;
+}
+
+.fpca_capcalera.evolution .dropdown-menu .centrat>.col_left li {
+    padding-left: 10px;
+    background: #F5F5F5;
+}
+
+.fpca_capcalera.evolution .dropdown-menu .centrat>ul li {
+    padding: 0.51em 0 0.41em 0;
+	background: none;
+}
+
+.fpca_capcalera.evolution .dropdown-menu .centrat>ul>li,
+.fpca_capcalera.evolution .dropdown-menu .centrat>ul>li>a,
+.fpca_capcalera.evolution .dropdown-menu .centrat>.col_left>ul>li,
+.fpca_capcalera.evolution .dropdown-menu .centrat>.col_left>ul>li>a {
+    color: #333;
+}
+
+.fpca_capcalera.evolution .dropdown-submenu {
+    position: relative;
+}
+
+.fpca_capcalera.evolution .navbar-nav .open .dropdown-menu {
+    position: static;
+    margin-top: 0;
+    background-color: #F5F5F5;
+    border: 0;
+    box-shadow: none;
+    padding-top: 5px;
+}
+
+.fpca_capcalera.evolution .dropdown-menu .centrat>ul li.first a:hover {
+    background: transparent;
+}
+
+.fpca_capcalera.evolution .dropdown-menu .centrat>.col_left li a.first {
+    font-family: 'OpenSansBold', Helvetica, Arial, sans-serif;
+    border-top: none !important;
+    background: #f5f5f5;
+}
+
+.fpca_capcalera.evolution .dropdown-menu .centrat>.col_left li a:hover {
+    background: none;
+}
+
+.fpca_capcalera.evolution .dropdown-menu .centrat>.col_left li a {
+    margin: 0 15px;
+    text-indent: 0;
+}
+
+.fpca_capcalera.evolution .dropdown-menu .centrat>.col_left li a {
+    display: block;
+    font-weight: initial;
+    padding: 0.375em 0;
+    word-wrap: break-word;
+}
+
+.fpca_capcalera.evolution .dropdown-menu .centrat>.col_left li a.first {
+    color: #CC0000;
+}
+
+.fpca_capcalera.evolution .dropdown-menu .centrat>ul>li,
+.fpca_capcalera.evolution .dropdown-menu .centrat>ul>li>a,
+.fpca_capcalera.evolution .dropdown-menu .centrat>.col_left>ul>li,
+.fpca_capcalera.evolution .dropdown-menu .centrat>.col_left>ul>li>a {
+    color: #333;
+	word-break: break-word;
+}
+
+.navbar-default .fpca_capcalera.evolution .navbar-nav .open div.dropdown-menu>.shadowBox {
+    width: 100%;
+}
+
+.navbar-default .fpca_capcalera.evolution .navbar-nav .open div.dropdown-menu ul,
+.navbar-default .fpca_capcalera.evolution .navbar-nav .open .dropdown-menu .centrat>div {
+    margin-top: 0 !important;
+	padding-left: 5px;
+}
+
+.fpca_capcalera.evolution .mvlogo {
+    padding-top: 0;
+}
+.fpca_capcalera.evolution .mvlogoDef {
+    padding-top: 0;
+}
+.fpca_capcalera.evolution .capcaleraFixed .col-offset-2.column.col-xs-9.col-md-9{
+	padding-left: 0;
+}
+.fpca_capcalera.evolution .navbar-toggle {
+    background: url('http://ctti.gencat.cat/web/resources/fwkResponsive/fpca_capcalera/img/x-menu.png');
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin-left: 20px;
+}
+
+.fpca_capcalera.evolution .navbar-toggle span {
+    display: none;
+}
+
+.fpca_capcalera.evolution .navbar-toggle.collapsed {
+    display: block;
+    background: #666666 !important;
+}
+
+.fpca_capcalera.evolution .navbar-toggle.collapsed span {
+    display: block;
+}
+
+.fpca_capcalera.evolution .ico_cerca {
+    display: none;
+}
+.fpca_capcalera.evolution a.mvlogo {
+    margin-top: 10px;
+}
+header .fpca_capcalera.evolution ul.idioma li a {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 100%;
+    margin-left: 0.5em;
+    color: #FFFFFF;
+    font-weight: normal;
+    display: inline;
+    float: left;
+    font-size: 0.875em;
+    height: 2.000em;
+    position: relative;
+    width: 2.000em;
+    padding-top: 0.25em;
+    text-align: center;
+    line-height: 1.25em;
+}
+
+header .fpca_capcalera.evolution .dos form {
+    background: #4b4b4b;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-top: 1.000em;
+    padding-bottom: 1.000em;
+    width: 100%;
+}
+
+header .fpca_capcalera.evolution .dos form .form-group {
+    position: relative;
+    width: 100%;
+    margin: 0;
+}
+
+header .fpca_capcalera.evolution .dos form .form-group .form-control {
+    width: 100%;
+    position: relative;
+    height: 2.500em;
+    background: #fff;
+    color: #333;
+    font-size: 0.938em;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0.375em 0 0.375em 1.563em !important;
+    font-family: 'OpenSansSemibold', Helvetica, Arial, sans-serif;
+    background: url('http://ctti.gencat.cat/web/resources/fwkResponsive/fpca_capcalera/img/NG_ico_cercador_mbl.png') no-repeat 0.375em center #fff;
+}
+
+header .fpca_capcalera.evolution .dos form .form-group .btn {
+    position: absolute;
+    top: 0.063em;
+    right: 0.063em;
+    border: medium none;
+    border-radius: 0;
+    height: 2.375em;
+    width: 2.125em;
+    margin: 0;
+    background: none;
+    background: url(http://ctti.gencat.cat/web/resources/fwkResponsive/fpca_capcalera/img/NG_ico_cercador_tancar.png) no-repeat center center #fff;
+}
+
+.fpca_capcalera.evolution .col-xs-6.logo-tablet {
+    margin-left: -15px;
+}
+
+.fpca_capcalera.evolution .col-xs-6.idioma-tablet .idioma {
+    padding-top: 5px;
+    float: right;
+}
+
+.fpca_capcalera.evolution #topRight {
+    height: 0px;
+    position: absolute;
+    background: transparent;
+}
+
+.fpca_capcalera.evolution .menu_tancar {
+    display: none;
+}
+.fpca_capcalera.evolution .titol-cap-nou.car79 {
+  margin-top: 15px;
+}
+.fpca_capcalera.evolution .nav>.dropdown>.dropdown-menu .centrat {
+    padding-right: 3%;
+    width: 95%;
+    background: #F5F5F5;
+    margin-bottom: 0;
+    margin-left: -30px;
+}
+
+.fpca_capcalera.evolution .centrat .first {
+    color: #bf0000;
+    font-family: 'OpenSansBold';
+    text-align: left;
+    width: 100%;
+    display: block;
+    padding-left: 5px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.fpca_capcalera.evolution .col-offset-2.column.col-xs-9.visible-removed.col-md-9 {
+    padding-left: 0;
+  padding-bottom: 10px;
+}
+
+.fpca_capcalera.evolution .idioma-tablet{
+  padding-right: 0px;
+}
+.fpca_capcalera.evolution .navbar-default .navbar-nav .open div.dropdown-menu ul {
+    padding-left: 5px;
+}
+header .fpca_capcalera.evolution .col-md-12 {
+    display: inherit;
+  padding-right: 0;
+}
+.fpca_capcalera.evolution .col_left li .dropdown-menu a {
+    font-family: 'OpenSansRegular';
+}
+@media(max-width: 1199px) {
+  .fpca_capcalera.evolution .col-offset-2.column.col-xs-9.visible-removed.col-md-9 a {
+    margin-left: 0px;
+  }
+  header .fpca_capcalera.evolution .navbar-nav>li>a {
+    /* margin-left: 25px; */
+	}
+}
+
+@media (max-width: 1025px) {
+    .fpca_capcalera.evolution a.mvlogo {
+        margin-top: 10px;
+    }
+  .fpca_capcalera.evolution a.mvlogoDef {
+        margin-top: 10px;
+    }
+    .fpca_capcalera.evolution .nav>.dropdown>.dropdown-menu .centrat {
+        width: 93%;
+    }
+}
+@media(max-width: 991px) {
+  .fpca_capcalera.evolution .col-offset-2.column.col-xs-9.visible-removed.col-md-9 a {
+    margin-left: 20px;
+  }
+  .fpca_capcalera.evolution a.mvlogo {
+		padding-bottom: 20px;
+    }
+}
+@media (max-width: 767) {
+    .fpca_capcalera.evolution .mvlogo {
+        padding-top: 0;
+    }
+  .fpca_capcalera.evolution .mvlogoDef {
+        padding-top: 0;
+    }
+}
+
+@media (min-width: 786px) {
+    .fpca_capcalera.evolution .nav>.dropdown>.dropdown-menu .centrat.correction {
+        padding: 0;
+        margin: 0;
+        margin-left: -20px;
+    }
+}

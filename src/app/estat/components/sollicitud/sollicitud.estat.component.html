@@ -1,0 +1,127 @@
+<div class="border-start bgGrey">
+	<div id="impacteContainer">
+		<div class="fpca_subcapcalera bgGrey">	
+			<div class="container">
+				<div class="row">
+					<div class="capcelera_basica col-sm-12">
+						<div class="capcelera_basica_cont">		            		
+							<ol class="breadcrumb filariana hidden-xs">
+								<li><a [routerLink]="['/inici']" routerLinkActive="active" title="Torna: Inici">Inici</a></li>
+								<li><a [routerLink]="['/estat']" routerLinkActive="active" title="Torna: Estat general">Estat General</a></li>
+								<li>Resum de sol·licituds</li>
+							</ol>
+							<h1 class="titulo-capcalera">
+								<span>Resum de sol·licituds</span>
+							</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="gs-filter container">
+	<form class="form-inline" action="#">
+           
+			<div class="checkbox" style="margin-left: 25px">
+				<label>
+					<input type="checkbox" id="cambio-tipus" data-toggle="toggle" data-on="Estat proces" data-off="Estat funcional" checked>
+				</label>
+              </div>
+              <script>
+                  $('#cambio-tipus').change(function() {
+                    setTimeout(function(){location = 'resum-sollicituds-funcional.html';}, 300);
+                  });
+			</script>
+           
+		<div class="form-group">
+			<label for="organ">Organ: </label>
+			<select class="form-control" id="organ" style="max-width: 180px">
+			<option>Junta Finances</option>
+				<option>Agencia Tributaria de Catalunya</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="bo">Back Office: </label>
+			<select class="form-control" id="bo">
+				<option>REACAT</option>
+				<option>SPRIU</option>
+			</select>
+		</div>     
+		<div class="form-group">
+			<button type="submit" class="btn bgRed white">Buscar</button>
+		</div>      
+	</form>
+</div>
+<div class="container">
+    <div class="gs-flujo cinco">
+		<div>
+			<div class="svg" onclick="location='llista-sollicituds.html'">
+				<svg class="horizontal" viewBox="0, 0, 120, 100" preserveAspectRatio="none">
+					<polygon points="5, 5, 90, 5, 100, 50, 90, 95, 5, 95, 15, 50" />
+				</svg>		
+				<svg class="vertical" viewBox="0, 0, 100, 120" preserveAspectRatio="none">
+					<polygon points="5, 5, 50, 25, 95, 5, 95, 95, 50, 115, 5, 95" />
+				</svg>
+				<div class="numero">50</div>
+				<div class="cuerpo">
+					Pendent <span class="icono glyphicon glyphicon-off" aria-hidden="true"></span>
+				</div>
+			</div>
+			<div class="extra">
+				La sol·licitud ha estat registrada pel GS, no s'ha començat a procesar internament pel GS i no s'ha lliurat encara cap transacció (1) al canal de sortida.
+			</div>
+		</div>
+		<div>
+			<div class="svg" onclick="location='llista-sollicituds.html'">
+				<svg class="horizontal" viewBox="0, 0, 120, 100" preserveAspectRatio="none">
+					<polygon points="5, 5, 90, 5, 100, 50, 90, 95, 5, 95, 15, 50" />
+				</svg>		
+				<svg class="vertical" viewBox="0, 0, 100, 120" preserveAspectRatio="none">
+					<polygon points="5, 5, 50, 25, 95, 5, 95, 95, 50, 115, 5, 95" />
+				</svg>
+				<div class="numero">50</div>
+				<div class="cuerpo">
+					En curs <span class="glyphicon glyphicon-time icono" aria-hidden="true"></span>
+				</div>
+			</div>
+			<div class="extra">
+				El GS ha començat a procesar la sol·licitud internament (s'ha enviat al Control Dispacher). 
+			</div>
+		</div>
+		<div>
+			<div class="svg" onclick="location='llista-sollicituds.html'">
+				<svg class="horizontal" viewBox="0, 0, 120, 100" preserveAspectRatio="none">
+					<polygon points="5, 5, 90, 5, 100, 50, 90, 95, 5, 95, 15, 50" />
+				</svg>		
+				<svg class="vertical" viewBox="0, 0, 100, 120" preserveAspectRatio="none">
+					<polygon points="5, 5, 50, 25, 95, 5, 95, 95, 50, 115, 5, 95" />
+				</svg>
+				<div class="numero">50</div>
+				<div class="cuerpo">
+					Finalitzada <span class="glyphicon glyphicon-ok-circle icono" aria-hidden="true"></span>
+				</div>
+			</div>
+			<div class="extra">
+				Totes les transaccions han arribat a un estat de procés FINALITZADA o FALLIDA. 
+			</div>
+		</div>
+		<div>
+	    	<div class="svg" onclick="location='llista-sollicituds.html'">
+				<svg class="horizontal" viewBox="0, 0, 120, 100" preserveAspectRatio="none">
+					<polygon points="5, 5, 90, 5, 100, 50, 90, 95, 5, 95, 15, 50" />
+				</svg>		
+				<svg class="vertical" viewBox="0, 0, 100, 120" preserveAspectRatio="none">
+					<polygon points="5, 5, 50, 25, 95, 5, 95, 95, 50, 115, 5, 95" />
+				</svg>
+				<div class="numero">50</div>
+				<div class="cuerpo">
+					Fallida <span class="glyphicon glyphicon-remove icono" aria-hidden="true"></span>
+				</div>
+			</div>
+			<div class="extra">
+				Sol·licitud amb errors que imposibiliten el seu processament (ej: obligatorietat). I per tant no és re-injectable. 
+			</div>
+		</div>	
+	</div>
+</div>

@@ -1,0 +1,9 @@
+[
+    {"id": 1, "nom": "NOM-1", "rol": "ADMIN", "organisme": "ATC", "backoffice": "Junta Finances"},
+    {"id": 2, "nom": "NOM-2", "rol": "ADMIN", "organisme": "ATC", "backoffice": "Junta Finances"},
+    {"id": 3, "nom": "NOM-3", "rol": "ADMIN", "organisme": "ATC", "backoffice": "Junta Finances"},
+    {"id": 4, "nom": "NOM-4", "rol": "ADMIN", "organisme": "eSPRIU", "backoffice": "Reacat"},
+    {"id": 5, "nom": "NOM-5", "rol": "ADMIN", "organisme": "ATC", "backoffice": "Junta Finances"},
+    {"id": 6, "nom": "NOM-6", "rol": "ADMIN", "organisme": "eSPRIU", "backoffice": "Reacat"}
+] 
+

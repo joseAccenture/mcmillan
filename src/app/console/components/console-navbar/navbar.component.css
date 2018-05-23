@@ -1,0 +1,160 @@
+.navbar{
+      max-width: 100%;
+      max-height: 50px;
+      margin-left: 0;
+      background: #c40c0c;
+      -webkit-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.8);
+      -moz-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.8);
+      box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.8);
+      z-index: 1;
+ }
+
+ /* button menu for devices */
+ .navbar-toggler{
+  position: fixed;
+  left: 15px;
+}
+ .navbar-L{
+   margin-right:0; 
+ }
+ nav a.navbar-brand{
+   margin-left: 75px;
+ }
+ .navbar a.navbar-brand label{
+  font-size: 14px;
+    font-family: open_sansbold;
+    color: white;
+    margin: 0;
+    line-height: 14px;
+    vertical-align: text-top;
+}
+.navbar-light .navbar-nav .nav-link{
+  color: rgba(255, 255, 255, .8);
+  font-family: open_sansregular;
+}
+
+.navbar .navbar-collapse.collapse.show{
+  background: white;
+  -webkit-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.8);
+  -moz-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.8);
+  box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.8);
+}
+.navbar-R {
+  min-width: 355px;
+  float: right;
+}
+.navbar .navbar-r ul.navbar-nav li.nav-item.userscombo{
+  width: 100%;
+}
+.navbar-light .navbar-nav .nav-link .icon::after{
+content: url(/assets/images/icons/baseline-person-24px.svg);
+}
+.navbar-light .navbar-nav .nav-link span.icon{
+  max-width: 40px;
+    max-height: 40px;
+    background: white;
+    padding: 6px;
+    border-radius: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 12px;
+    position: relative;
+}
+.navbar-light .navbar-nav a.changeUser{
+  padding: 0;
+  display: inline;
+}
+.navbar-light .navbar-nav input[type=text]{
+  display: inline;
+  max-width: 80%;
+  background: none;
+  border: none;
+  color: white;
+  font-family: open_sanssemibold;
+}
+.navbar-light .navbar-nav input[type=text]::placeholder {
+  color: white;
+  font-family: open_sanssemibold;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+	font-family: open_sansregular;
+	color: #9ea4ab;
+	margin-bottom: 25px;
+  margin-top: 2%;
+}
+
+li {
+    display: inline;
+	padding: 0 10px;
+}
+a{
+	color:#9ea4ab;
+}
+
+.card.secundary-head{
+  height: 150px;
+  background: #c40c0c;
+  border-radius:0;
+  border: none;
+  overflow: hidden;
+  width: 100%;
+}
+.card.secundary-head .card-body .Rbtn{
+  z-index: 1;
+  max-width: 340px;
+  float: right;
+  min-width: 340px;
+  padding: 0;
+}
+.secundary-head::after{
+    content: url(/assets/images/headBack.svg);
+    position: absolute;
+    right:-10%;
+    top: 0;
+    max-width: 75%;
+}
+.card.secundary-head .input-group span.input-group-text{
+  width: 45px;
+  height: 45px;
+  padding: 1.5%;
+}
+.card.secundary-head .input-group .input-group-text img{
+  width: 35px;
+  height: 35px;
+}
+.card.secundary-head .input-group .input-group-append button{
+  background:none;
+  color: white;
+  font-family: open_sanssemibold;
+  border: none;
+}
+.card.secundary-head .input-group .input-group-append button:hover{
+  border: 1px solid rgba(255,255,255, .5);
+}
+
+label{
+  min-width: 45%;
+}
+label, input{
+  cursor: pointer;
+}
+.clientModalTable{
+  margin-top: 25px;
+  font-size: .75rem;
+}
+a.page-link{
+  color: #c40c0c !important;
+}
+.modal-dialog{
+  min-width: 900px;
+  position: relative;
+  top: -95px;
+}
+.modal-dialog .modal-body .form-inline input,
+.modal-dialog .modal-body .form-inline button,
+.modal-dialog .modal-body .modal-footer button,
+.modal-dialog .modal-body .form-group nav.navigation ul.pagination{
+  font-size: .9rem;
+}

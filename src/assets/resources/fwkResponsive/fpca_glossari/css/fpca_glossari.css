@@ -1,0 +1,214 @@
+.fpca_glossari dl.llistat_az dd {
+	display: block;
+	font-size: 0.875em;
+	color: #666;
+	margin-right: .4em;
+}
+.fpca_glossari dl.llistat_az ul.glos_relacionats{ 
+    	margin:0; 
+	padding:0
+}
+.fpca_glossari dl.llistat_az ul.glos_relacionats li a {
+	display: block;
+	color: #333;
+	font-family: 'OpenSansSemibold', Helvetica, Arial, sans-serif;
+    margin: .6em 0;
+    padding: 0 0 0 1em;
+	position: relative; 
+	font-size:0.875em;
+}
+.fpca_glossari dl.llistat_az ul.glos_relacionats li a:before {
+	content: "\2022";
+	font-size: 1.05em;
+	position: absolute;
+	left: 0;
+	color: #c00000;
+}
+.fpca_glossari dl.llistat_az li {
+  padding-bottom: 0;
+}
+.fpca_glossari dl.llistat_az dd li a{
+	display:initial;	
+	color:#BF0000;
+	font-size:1em;
+}
+.fpca_glossari .doc-size {
+	margin-left: 5px;
+	font-family: 'OpenSansRegular', Helvetica, Arial, sans-serif;
+}
+.fpca_glossari .icon-corrector {
+	margin: 0px 5px 0px 5px;
+}
+.fpca_glossari dl.llistat_az dt a.tit {
+	font-size: 1.125em;
+	color: #c00000;
+	font-weight: normal;
+	font-family: 'OpenSansRegular';
+}
+.fpca_glossari .border_letras{
+	border-top: 2px solid #ddd;
+  clear: both;
+  margin: 0 25px 0 15px;
+}
+.fpca_glossari dt, .fpca_llista_websAZ dd {
+	break-after: avoid;
+	page-break-after : avoid;
+	-webkit-column-break-after: avoid; /* Chrome, Safari, Opera */
+	page-break-after: avoid; /* Firefox */
+	break-after: avoid; /* IE 10+ */
+	break-before: avoid;
+	page-break-before : avoid;
+	-webkit-column-break-before: avoid; /* Chrome, Safari, Opera */
+	page-break-before: avoid; /* Firefox */
+	break-before: avoid; /* IE 10+ */
+	margin-bottom: 0.4em;
+	line-height: normal;
+	font-weight: normal;
+	font-size: 0.875em;
+}
+.fpca_glossari dt {
+	margin-top: .9em;
+	margin-right: .4em;
+	font-size: 1.500em;
+	border-top: 1px solid #ddd;
+	padding-top: .5em;
+}
+.fpca_glossari dt.primer-dret2 {
+	border-top: none;
+}
+
+.fpca_glossari dt:first-child {
+	margin-top: 0; 
+	border-top:none
+}
+.fpca_glossari .ancores {
+	overflow: hidden;
+}
+.fpca_glossari .llistat_az li span {
+  display: initial; 
+  font-size: 14px;
+}
+/************ABC*********************/
+.fpca_glossari .seccio_glossari ul.glossari {
+	margin: 0 0 20px 0;
+	padding: 0.563em;
+	background: #fff;
+	border: 1px #ddd solid;
+	text-align: center;
+}
+.fpca_glossari .seccio_glossari ul.glossari li {
+	list-style-type: none;
+	display: inline;
+	background: #fff;
+	font-size: 1.188em;
+	margin: 0;
+	padding: 0;
+	font-family: 'OpenSansSemibold', Helvetica, Arial, sans-serif;
+}
+.fpca_glossari .seccio_glossari ul.glossari li a.active {
+	background: #666 url(../img/select.gif) bottom center no-repeat;
+	color: #fff;
+}
+.fpca_glossari ul.glossari li a {
+	padding: 10px 6px 20px 7px;
+	width: 33px;
+	color: #c00000;
+}
+.fpca_glossari .seccio_glossari ul.glossari li.disable {
+	padding: 0 6px 0 7px;
+	color: #ccc;
+}
+.fpca_glossari .seccio_glossari ul.glossari li a:hover {
+	background: #666 url(../img/select.gif) bottom center no-repeat;
+	color: #fff;
+	text-decoration: none !important;
+}
+/******veuremes***********/
+.fpca_glossari .veuremes {
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	padding: .5em .05em;
+	text-align: right;
+	margin-top: 1em
+}
+.fpca_glossari .veuremes a {
+	font-size: 0.9em;
+	font-family: 'OpenSansSemibold', Helvetica, Arial, sans-serif;
+}
+.fpca_glossari dl.llistat_az li.border {
+	border-top: 1px solid #ddd
+}
+.fpca_glossari dl.llistat_az dd p {
+    margin-bottom: 1.4em;
+}
+.fpca_glossari .ocultaLletra{
+	display: none;
+}
+.fpca_glossari .mostrarLletra{
+	display:block;
+}
+   /*********************mobile*******************/
+ @media (max-width: 750px) {
+.fpca_glossari .pd-15m {
+	padding: 0px 15px 0px 15px;
+}
+.fpca_glossari dl {
+	-webkit-columns: 1px 1; /* Chrome, Safari, Opera */
+	-moz-columns: 1px 1; /* Firefox */
+	columns: 1px 1;
+}
+.fpca_glossari.pd-15m {
+	padding: 0px 15px 0px 15px;
+}
+.fpca_glossari dl {
+	font-size: 0.938em;
+}
+.fpca_glossari dd {
+	font-size: 0.875em;
+}
+.fpca_glossari .ancores a {
+	display: none;
+}
+.fpca_glossari dt:first-child {
+	border-top: none;
+	padding-top: 0;
+}
+.fpca_glossari .seccio_glossari ul.glossari li a.active {
+	background: #666 none;
+	color: #fff;
+}
+.fpca_glossari .seccio_glossari ul.glossari {
+	margin: 0;
+	padding: 0 0.563em;
+}
+.fpca_glossari ul.glossari li a {
+	padding: 4px 2px 8px 0px;
+	width: 26px;
+	color: #c00000;
+	display: inline-block;
+}
+.fpca_glossari dt {
+	font-size: 1.250em;
+	border-top: 1px solid #DDDDDD;
+	margin-right: 0;
+	padding-top: 1em;
+}
+.fpca_glossari dt.primer-dret2 {
+	border-top: 3px solid #DDDDDD;
+}
+.fpca_glossari .veuremes {
+	margin-top: 0
+}
+.fpca_glossari .llistat_az li {
+  border-top: inherit;
+}
+.fpca_glossari dl.llistat_az li.border {
+	border-top: 1px solid #ddd
+}
+/*
+.fpca_glossari dl.llistat_az dd a {
+	margin: .4em 0;
+	padding: 0 0 0 1em;
+}*/
+
+}

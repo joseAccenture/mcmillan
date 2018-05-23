@@ -1,0 +1,81 @@
+<!--
+<ul>
+    <li *ngFor="let usuari of storeUsuaris">
+        {{usuari.id}} - {{usuari.nom}} - {{usuari.rol}} - {{usuari.backoffice}} - {{usuari.organisme}}
+    </li>
+</ul>
+-->
+<div class="border-start bgGrey">
+	<div id="impacteContainer">
+		<div class="fpca_subcapcalera bgGrey">	
+			<div class="container">
+				<div class="row">
+					<div class="capcelera_basica col-sm-12">
+						<div class="capcelera_basica_cont">		            		
+							<ol class="breadcrumb filariana hidden-xs">
+								<li><a [routerLink]="['/inici']" routerLinkActive="active" title="Torna: Inici">Inici</a></li>
+								<li><a title="Torna: Administració" href="javascript:void(0)">Administració</a></li>
+								<li>Llista de usuaris</li>
+							</ol>
+							<h1 class="titulo-capcalera">
+								<span>Llista de usuaris</span>
+							</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="gs-filter container" style="position:relative; margin: auto; margin-bottom: 20px">
+	<form class="form-inline">   
+		<div class="form-group">
+			<label for="codi">Usuari: </label>
+			<input type="text" class="form-control" id="codi">
+		</div>
+		<div class="form-group">
+			<label for="rol">Rol: </label>
+			<select class="form-control" id="rol">
+				<option>Bàsic</option>
+				<option>Administrador</option>
+				<option>Administrador de back office</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="organ">Organ: </label>
+			<select class="form-control" id="organ" style="max-width: 180px">
+				<option>Junta Finances</option>
+				<option>Agencia Tributaria de Catalunya</option>
+		    </select>
+		</div>
+		<div class="form-group">
+			<label for="bo">Back Office: </label>
+			<select class="form-control" id="bo">
+				<option>REACAT</option>
+				<option>SPRIU</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<button type="submit" class="btn bgRed white">Buscar</button>
+		</div>       
+	</form>
+</div>
+<div class="container">
+	<table class="table table-striped">
+		<tr>
+			<th>Nom</th>
+			<th>Rol</th>
+			<th>Organs</th>
+			<th>Back offices</th>
+		</tr>
+		<tr *ngFor="let usuari of storeUsuaris">
+			<td><a [routerLink]="['/usuari/detall', usuari.id]" routerLinkActive="active">{{usuari.nom}}</a></td>
+			<td><a [routerLink]="['/rol/detall', usuari.rol]" routerLinkActive="active">{{usuari.rol}}</a></td>
+			<td><a [routerLink]="['/organisme/detall', usuari.organisme]" routerLinkActive="active">{{usuari.organisme}}</a></td>
+			<td>
+				<a [routerLink]="['/backoffice/detall', usuari.backoffice]" routerLinkActive="active">{{usuari.backoffice}}</a>, 
+				<a [routerLink]="['/backoffice/detall', usuari.backoffice]" routerLinkActive="active">{{usuari.backoffice}}</a>
+			</td>
+		</tr>
+	</table>
+</div>

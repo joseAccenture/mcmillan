@@ -1,0 +1,8 @@
+[
+    {"id": 1, "codi": "BO-1", "nom": "BO-1", "descripcio": "BO-1"},
+    {"id": 2, "codi": "BO-2", "nom": "BO-2", "descripcio": "BO-2"},
+    {"id": 3, "codi": "BO-3", "nom": "BO-3", "descripcio": "BO-3"},
+    {"id": 4, "codi": "BO-4", "nom": "BO-4", "descripcio": "BO-4"},
+    {"id": 5, "codi": "BO-5", "nom": "BO-5", "descripcio": "BO-5"},
+    {"id": 6, "codi": "BO-6", "nom": "BO-6", "descripcio": "BO-6"}
+] 

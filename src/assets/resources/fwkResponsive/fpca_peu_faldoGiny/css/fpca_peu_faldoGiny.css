@@ -1,0 +1,35 @@
+.fpca_peu_faldoGiny .cerca_xarxes .list-group {
+	padding-left: 0;
+	margin-bottom: 0;
+}
+.fpca_peu_faldoGiny .cerca_xarxes input{
+		line-height: 1.4em;
+}
+.fpca_peu_faldoGiny .twitterBox .tweet_list span.tweet_text{
+	font-size: 12px;
+}
+#fContainer_right .formatter_body .cerca_xarxes {
+  /*margin-top: 9em !important;*/
+}
+
+@media ( max-width : 46.875em) {
+	.fpca_peu_faldoGiny .accordionFoot .panel-default .panel-collapse .panel-body {
+		padding-left:0px !important;
+	}
+	.fpca_peu_faldoGiny .panel-group .panel .panel-collapse .panel-body ul {
+		padding-left:0px !important;
+	}
+	
+}
+	
+@media ( max-width : 772px) {
+	.fpca_peu_faldoGiny span.tweet_text {
+		font-size:12px !important;
+	}
+	.fpca_peu_faldoGiny .twitterBox{
+		margin-bottom:5px;
+	}
+	#fContainer_right .formatter_body .cerca_xarxes {
+	  margin-top: 10px !important;
+	}
+}

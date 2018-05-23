@@ -1,0 +1,8 @@
+[
+    {"id": 1, "codi": "ROL-1", "nom": "ROL-1", "descripcio": "ROL-1"},
+    {"id": 2, "codi": "ROL-2", "nom": "ROL-2", "descripcio": "ROL-2"},
+    {"id": 3, "codi": "ROL-3", "nom": "ROL-3", "descripcio": "ROL-3"},
+    {"id": 4, "codi": "ROL-4", "nom": "ROL-4", "descripcio": "ROL-4"},
+    {"id": 5, "codi": "ROL-5", "nom": "ROL-5", "descripcio": "ROL-5"},
+    {"id": 6, "codi": "ROL-6", "nom": "ROL-6", "descripcio": "ROL-6"}
+] 

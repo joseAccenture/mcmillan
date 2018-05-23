@@ -1,0 +1,211 @@
+<nav class="navbar navbar-L col-8 navbar-expand-lg navbar-light bg-corporate">
+    <a class="navbar-brand" href="#" routerLink="/homeview" routerLinkActive="active">
+      <img src="/assets/images/logos/Macmillan_50px.png" width="50" height="50" alt="">
+      <label>Macmillan<br>education</label>
+    </a>
+  
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="ClientsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Clientes
+          </a>
+          <div class="dropdown-menu" aria-labelledby="ClientsDropdown">
+            <a class="dropdown-item">form</a>
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="OrderedDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Pedidos
+          </a>
+          <div class="dropdown-menu" aria-labelledby="OrderedDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="/usersList" routerLinkActive="active">Gestión de usuarios</a>
+        </li>
+      </ul>
+    </div>
+    <div class="navbar-R">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown userscombo">
+            <a class="nav-link dropdown-toggle changeUser" href="#" id="UsersDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="icon"></span>
+            </a>
+            <input type="text" disabled value="user@macmillaneducation.com" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+            <div class="dropdown-menu" aria-labelledby="UsersDropdown">
+              <button type="button" class="btn btn-primary" data-toggle="modal">
+                Cambiar contraseña
+              </button>
+              <button type="button" class="btn btn-primary" data-toggle="modal">
+                Mis datos
+              </button>
+              <button type="button" class="btn btn-primary" data-toggle="modal">
+                Cerrar Sesión
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+  </nav>
+  
+  <div class="card secundary-head" id="secondNav">
+    <div class="card-body row">
+      <div class="col-1 p-0"></div>
+      <div class="col sectiontitle">Bienvenida {{user}}</div>
+      <div class="col-3 Rbtn">
+        <div class="input-group">
+          <span class="input-group-text" id=""><img src="../assets/images/icons/ic_assignment_ind_black_48dp.png"></span>
+          <div class="input-group-append">
+            <button id="prueba" class="btn btn-outline-secondary" (click)="alert('dd')" type="button" data-toggle="modal" title="Click para operar con otro cliente" data-target="#ChangeClientModal">#0000001 ClientName</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row-sm">	
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#" routerLink="/homeview" routerLinkActive="active">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">second</li>
+        <li class="breadcrumb-item active" aria-current="page">Data</li>
+      </ol>
+    </nav>
+  </div>
+  <div class="modal fade" id="ChangeClientModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Selección de cliente</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <nav>
+          <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" data-ng-styles="input" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" data-ng-styles="buscar" type="submit">Buscar</button>
+          </form>
+        </nav>
+        <fieldset class="form-group row">
+        <div class="col-sm-12">
+          <div class="form-check">
+            <label class="form-check-label radiobtn">
+              <input class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+              Buscar por código</label>
+              <label class="form-check-label radiobtn">
+              <input class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+              Buscar por nombre</label>
+              <table class="table clientModalTable">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">First</th>
+                      <th scope="col">Last</th>
+                      <th scope="col">Handle</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      <tr data-col="01" data-clientname="#0000003 Mark Otto" data-dismiss="modal" (click)="ChangeClient($event)">
+                      <th scope="row">1</th>
+                      <td class="nombre">Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                    <tr data-clientname="#0000004 Jacob Thornton"data-dismiss="modal" (click)="ChangeClient($event)">
+                      <th scope="row">2</th>
+                      <td>Jacob</td>
+                      <td>Thornton</td>
+                      <td>@fat</td>
+                    </tr>
+                    <tr data-col="01" data-clientname="#0000003 Mark Otto" data-dismiss="modal" (click)="ChangeClient($event)">
+                        <th scope="row">1</th>
+                        <td class="nombre">Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                      <tr data-clientname="#0000004 Jacob Thornton"data-dismiss="modal" (click)="ChangeClient($event)">
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                      </tr>
+                      <tr data-col="01" data-clientname="#0000003 Mark Otto" data-dismiss="modal" (click)="ChangeClient($event)">
+                          <th scope="row">1</th>
+                          <td class="nombre">Mark</td>
+                          <td>Otto</td>
+                          <td>@mdo</td>
+                        </tr>
+                        <tr data-clientname="#0000004 Jacob Thornton"data-dismiss="modal" (click)="ChangeClient($event)">
+                          <th scope="row">2</th>
+                          <td>Jacob</td>
+                          <td>Thornton</td>
+                          <td>@fat</td>
+                        </tr>
+                        <tr data-col="01" data-clientname="#0000003 Mark Otto" data-dismiss="modal" (click)="ChangeClient($event)">
+                            <th scope="row">1</th>
+                            <td class="nombre">Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                          </tr>
+                          <tr data-clientname="#0000004 Jacob Thornton"data-dismiss="modal" (click)="ChangeClient($event)">
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                          </tr>
+                          <tr data-col="01" data-clientname="#0000003 Mark Otto" data-dismiss="modal" (click)="ChangeClient($event)">
+                              <th scope="row">1</th>
+                              <td class="nombre">Mark</td>
+                              <td>Otto</td>
+                              <td>@mdo</td>
+                            </tr>
+                            <tr data-clientname="#0000004 Jacob Thornton"data-dismiss="modal" (click)="ChangeClient($event)">
+                              <th scope="row">2</th>
+                              <td>Jacob</td>
+                              <td>Thornton</td>
+                              <td>@fat</td>
+                            </tr>
+                  </tbody>
+                </table>
+                <div class="row">
+                    <div class="col"></div>
+                  <div class="col-4">
+                <nav aria-label="Page navigation clientPageNav">
+                    <ul class="pagination">
+                      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                      <li class="page-item"><a class="page-link" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                  </nav>
+                </div>
+               </div>  
+          </div>
+        </div>
+      </fieldset>
+  
+  
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-ng-styles="guardar">Guardar Cambios</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+        

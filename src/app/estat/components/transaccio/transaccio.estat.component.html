@@ -1,0 +1,182 @@
+<div class="border-start bgGrey">
+	<div id="impacteContainer">
+		<div class="fpca_subcapcalera bgGrey">	
+			<div class="container">
+				<div class="row">
+					<div class="capcelera_basica col-sm-12">
+						<div class="capcelera_basica_cont">		            		
+							<ol class="breadcrumb filariana hidden-xs">
+								<li><a [routerLink]="['/inici']" routerLinkActive="active" title="Torna: Inici">Inici</a></li>
+								<li><a [routerLink]="['/estat']" routerLinkActive="active" title="Torna: Estat general">Estat General</a></li>
+								<li>Resum de transaccions</li>
+							</ol>
+							<h1 class="titulo-capcalera">
+								<span>Resum de transaccions</span>
+							</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="gs-filter container">
+	<form class="form-inline" action="#">
+		<div class="checkbox" style="margin-left: 25px">
+			<label>
+				<input type="checkbox" id="cambio-tipus" data-toggle="toggle" data-on="Estat proces" data-off="Estat funcional" checked>
+               </label>
+           </div>
+           <script>
+               $('#cambio-tipus').change(function() {
+                  setTimeout(function(){location = 'resum-transaccions-tipus.html';}, 300);
+               });
+		</script>
+           <div class="form-group">
+			<label for="organ">Organ: </label>
+			<select class="form-control" id="organ" style="max-width: 180px">
+				<option>Junta Finances</option>
+				<option>Agencia Tributaria de Catalunya</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="bo">Back Office: </label>
+			<select class="form-control" id="bo">
+				<option>REACAT</option>
+				<option>SPRIU</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="estat">Tipus: </label>
+			<select class="form-control" id="estat">
+				<option>Enotum</option>
+				<option>Comunicacio Postal</option>
+				<option>Notificacio Postal</option>
+				<option>Oficina Gestora</option>
+			</select>
+		</div>       
+		<div class="form-group">
+			<button type="submit" class="btn bgRed white">Buscar</button>
+		</div>      
+	</form>
+</div>
+<div class="container">
+	<div class="gs-flujo cinco" style="margin-top: 30px">
+		<div>
+			<div class="svg" onclick="location='llista-transaccions.html'">
+				<svg class="horizontal" viewBox="0, 0, 120, 100" preserveAspectRatio="none">
+					<polygon points="5, 5, 90, 5, 100, 50, 90, 95, 5, 95, 15, 50" />
+				</svg>		
+				<svg class="vertical" viewBox="0, 0, 100, 120" preserveAspectRatio="none">
+					<polygon points="5, 5, 50, 25, 95, 5, 95, 95, 50, 115, 5, 95" />
+				</svg>
+				<div class="numero">50</div>
+				<div class="cuerpo">
+					Pendent <span class="icono glyphicon glyphicon-off" aria-hidden="true"></span>
+				</div>
+			</div>
+			<div class="extra">
+				<ul>
+					<li><a href="llista-transaccions.html"><span>4</span> Notificació electrónica</a></li>
+					<li><a href="llista-transaccions.html"><span>6</span> Comunicació postal</a></li>
+					<li><a href="llista-transaccions.html"><span>7</span> Notificació postal</a></li>
+					<li><a href="llista-transaccions.html"><span>8</span> Oficina gestora</a></li>
+				</ul>
+				<p>La transacció ha estat generada i no s'ha lliurat encara al canal de sortida.</p>
+			</div>
+		</div>
+		<div>
+			<div class="svg" onclick="location='llista-transaccions.html'">
+			    <svg class="horizontal" viewBox="0, 0, 120, 100" preserveAspectRatio="none">
+					<polygon points="5, 5,    90, 5,    100, 50,   90, 95,   5, 95,    15, 50" />
+				</svg>		
+				<svg class="vertical" viewBox="0, 0, 100, 120" preserveAspectRatio="none">
+	   			    <polygon points="5, 5, 50, 25, 95, 5, 95, 95, 50, 115, 5, 95" />
+				</svg>
+				<div class="numero">50</div>
+				<div class="cuerpo">
+					En curs <span class="glyphicon glyphicon-time icono" aria-hidden="true"></span>
+				</div>
+			</div>
+			<div class="extra">
+				<ul>
+					<li><a href="llista-transaccions.html"><span>4</span> Notificació electrónica</a></li>
+					<li><a href="llista-transaccions.html"><span>6</span> Comunicació postal</a></li>
+					<li><a href="llista-transaccions.html"><span>7</span> Notificació postal</a></li>
+					<li><a href="llista-transaccions.html"><span>8</span> Oficina gestora</a></li>
+				</ul>				
+				<p>La transacció s'ha lliurat al canal de sortida.</p> 
+			</div>
+		</div>
+		<div>
+			<div class="svg" onclick="location='llista-transaccions.html'">
+				<svg class="horizontal" viewBox="0, 0, 120, 100" preserveAspectRatio="none">
+					<polygon points="5, 5,    90, 5,    100, 50,   90, 95,   5, 95,    15, 50" />
+				</svg>		
+				<svg class="vertical" viewBox="0, 0, 100, 120" preserveAspectRatio="none">
+					<polygon points="5, 5, 50, 25, 95, 5, 95, 95, 50, 115, 5, 95" />
+				</svg>
+				<div class="numero">50</div>
+				<div class="cuerpo">
+					Finalitzada <span class="glyphicon glyphicon-ok-circle icono" aria-hidden="true"></span>
+				</div>
+			</div>
+			<div class="extra">
+				<ul>
+					<li><a href="llista-transaccions.html"><span>4</span> Notificació electrónica</a></li>
+					<li><a href="llista-transaccions.html"><span>6</span> Comunicació postal</a></li>
+					<li><a href="llista-transaccions.html"><span>7</span> Notificació postal</a></li>
+					<li><a href="llista-transaccions.html"><span>8</span> Oficina gestora</a></li>
+				</ul>			
+				<p>La transacció ha finalitzat sense error.</p>
+			</div>
+		</div>
+		<div>
+			<div class="svg" onclick="location='llista-transaccions.html'">
+				<svg class="horizontal" viewBox="0, 0, 120, 100" preserveAspectRatio="none">
+					<polygon points="5, 5,    90, 5,    100, 50,   90, 95,   5, 95,    15, 50" />
+				</svg>		
+				<svg class="vertical" viewBox="0, 0, 100, 120" preserveAspectRatio="none">
+					<polygon points="5, 5, 50, 25, 95, 5, 95, 95, 50, 115, 5, 95" />
+				</svg>
+				<div class="numero">50</div>
+				<div class="cuerpo">
+					Fallida <span class="glyphicon glyphicon-remove icono" aria-hidden="true"></span>
+				</div>
+			</div>
+			<div class="extra">
+				<ul>
+					<li><a href="llista-transaccions.html"><span>4</span> Notificació electrónica</a></li>
+					<li><a href="llista-transaccions.html"><span>6</span> Comunicació postal</a></li>
+					<li><a href="llista-transaccions.html"><span>7</span> Notificació postal</a></li>
+					<li><a href="llista-transaccions.html"><span>8</span> Oficina gestora</a></li>
+				</ul>				
+				<p>Transacció amb errors que imposibiliten el seu processament (ej: obligatorietat). I per tant no es re-injectable.</p> 
+			</div>
+		</div>
+		<div>
+			<div class="svg" onclick="location='llista-transaccions.html'">
+				<svg class="horizontal" viewBox="0, 0, 120, 100" preserveAspectRatio="none">
+					<!-- <polygon points="5, 5, 90, 5, 100, 50, 90, 95, 5, 95, 15, 50" /> -->
+					<polygon points="5, 5,    90, 5,    100, 50,   90, 95,   5, 95,    15, 50" />
+				</svg>		
+				<svg class="vertical" viewBox="0, 0, 100, 120" preserveAspectRatio="none">
+					<polygon points="5, 5, 50, 25, 95, 5, 95, 95, 50, 115, 5, 95" />
+				</svg>
+				<div class="numero">50</div>
+				<div class="cuerpo">
+					Erronia <span class="glyphicon glyphicon glyphicon-repeat icono" aria-hidden="true"></span>
+				</div>
+			</div>
+			<div class="extra">
+				<ul>
+					<li><a href="llista-transaccions.html"><span>4</span> Notificació electrónica</a></li>
+					<li><a href="llista-transaccions.html"><span>6</span> Comunicació postal</a></li>
+					<li><a href="llista-transaccions.html"><span>7</span> Notificació postal</a></li>
+					<li><a href="llista-transaccions.html"><span>8</span> Oficina gestora</a></li>
+				</ul>				
+				<p>Aquest estat es mantindrà únicament en el cas que existeixi una fallada intrínseca a la transacció (error tècnic, etc) que requereix la seva gestió manual (re-injecció o passar a FALLIDA). Ja s'haurà arribat al número màxim de re-intents definit.</p> 
+			</div>
+		</div>		
+	</div>
+</div>

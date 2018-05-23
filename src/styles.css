@@ -69,13 +69,35 @@
     font-style: normal;
 
 }
-/* You can add global styles to this file, and also import other style files */
+/* mediaQueries */
 @media only screen and (max-width: 991px) and (min-width: 768px){
 	.wrapper {
 	    width: auto;
 	    margin: 0;
-	}
+    }
+    
 }
+navbar-component{
+    position: fixed;
+    width: 100%;
+    background: #c40c0c;
+    -webkit-box-shadow: 0px 2px 19px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 2px 19px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 2px 19px 0px rgba(0,0,0,0.75);
+    height: 50px;
+    z-index: 1;
+}
+
+/* vistas */
+app-home{
+    background:url(./assets/images/bghome_80.png);
+  background-size: 1920px 600px;
+    display: inline-block;
+    width: 100%;
+    max-width: 1920px;
+    height: 600px;
+    content: "";
+  }
 /* overlay dialog */
 .modal-backdrop{
   z-index: 4;
@@ -105,7 +127,11 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
   font-family: open_sansregular;
+  background: red;
 
+}
+.formView{
+	top: -100px;
 }
 option.displayNone{
 	display: none;
@@ -122,3 +148,105 @@ position: fixed;
 width: 100%;
 z-index: 5;
 }
+.sectiontitle{
+    margin: 0;
+    padding: 0;
+    line-height: 2em;
+    font-family: open_sanslight;
+    font-size: 1.7em;
+    color: white;
+}
+ 
+#header{
+    display: block;
+  }
+  /* cards */
+
+  .card.secundary-head{
+    height: 250px !important;
+  }
+.card.formView .card-body{
+    padding-bottom: 1.25rem;
+}
+/* formularios */
+.input-group-text,
+.card.formView .card-body .form-control,
+.card.formView .card-body form .input-group select.custom-select,
+.card.formView .card-body .btn,
+.card.formView .card-body .list-group.list-group-flush
+{
+    font-size: .9rem;
+}
+
+  /* estilos generales inputs usando data-ng-styles en la vista*/
+  .form-control[data-ng-styles="input"]:focus{
+      border: solid 2px #f5c6cb;
+
+  }
+  input[data-ng-styles="input"]:focus{
+    -webkit-box-shadow: 0px 0px 10px 1px rgba(245,198,203,1);
+    -moz-box-shadow: 0px 0px 10px 1px rgba(245,198,203,1);
+    box-shadow: 0px 0px 10px 1px rgba(245,198,203,1);
+    border: none;
+    width: 195px;
+    height: 38px;
+  } 
+
+  /* estilos generales boton buscar usando data-ng-styles en la vista */
+  button[data-ng-styles="buscar"]{
+    color: #c40c0c;
+    border-color: #c40c0c;
+    -webkit-box-shadow: 0px 0px 10px 1px rgba(245,198,203,1);
+    -moz-box-shadow: 0px 0px 10px 1px rgba(245,198,203,1);
+    box-shadow: 0px 0px 10px 1px rgba(245,198,203,1);
+      
+  }
+  button[data-ng-styles="buscar"]:hover,
+  button[data-ng-styles="buscar"]:active,
+  button[data-ng-styles="buscar"]:visited,
+  button[data-ng-styles="buscar"]:active:focus,
+  button[data-ng-styles="buscar"]:disabled{
+    color: white !important;
+    background: #c40c0c !important;
+    -webkit-box-shadow: 0px 0px 10px 1px rgba(245,198,203,1) !important;
+    -moz-box-shadow: 0px 0px 10px 1px rgba(245,198,203,1) !important;
+    box-shadow: 0px 0px 10px 1px rgba(245,198,203,1) !important;
+    outline: none !important;
+    border-color:transparent !important;
+  }
+  button[data-ng-styles="buscar"]:not(:disabled){
+      box-shadow: none;
+  }
+   /* estilos generales boton guardar usando data-ng-styles en la vista */
+  button[data-ng-styles="guardar"]{
+    background: #c40c0c !important;
+    border: #c40c0c !important;
+  }
+  button[data-ng-styles="guardar"]:hover,
+  button[data-ng-styles="guardar"]:active,
+  button[data-ng-styles="guardar"]:visited,
+  button[data-ng-styles="guardar"]:active:focus,
+  button[data-ng-styles="guardar"]:disabled{
+
+    -webkit-box-shadow: 0px 0px 10px 1px rgba(245,198,203,1) !important;
+    -moz-box-shadow: 0px 0px 10px 1px rgba(245,198,203,1) !important;
+    box-shadow: 0px 0px 10px 1px rgba(245,198,203,1) !important;
+    outline: none !important;
+  }
+  /*----------*/
+  .form-check-label.radiobtn{
+      min-width: 20%;
+      padding: .5em;
+      padding-left: 0;
+  }
+  /* estilos para tablas */
+  .table{
+      font-size: .9rem;
+  }
+  .table th, .table td{
+      padding: .3rem;
+  }
+  .table tbody tr:hover{
+	background:#f5c6cb;
+	cursor: pointer;
+  }

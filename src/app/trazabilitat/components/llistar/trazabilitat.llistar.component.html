@@ -1,0 +1,75 @@
+
+<div class="border-start bgGrey">
+	<div id="impacteContainer">
+		<div class="fpca_subcapcalera bgGrey">	
+			<div class="container">
+				<div class="row">
+					<div class="capcelera_basica col-sm-12">
+						<div class="capcelera_basica_cont">		            		
+							<ol class="breadcrumb filariana hidden-xs">
+								<li><a [routerLink]="['/inici']" routerLinkActive="active" title="Torna: Inici">Inici</a></li>
+								<li>Llista de Traces</li>
+							</ol>
+							<h1 class="titulo-capcalera">
+								<span>Llista de Traces</span>
+							</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="gs-filter container" style="position:relative; margin: auto">
+    <form class="form-inline">
+		<div class="form-group">
+			<label for="organ">Organ: </label>
+			<select class="form-control" id="organ" style="max-width: 180px">
+				<option>Junta Finances</option>
+				<option>Agencia Tributaria de Catalunya</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="bo">Back Office: </label>
+			<select class="form-control" id="bo" style="max-width: 180px">
+				<option>REACAT</option>
+				<option>SPRIU</option>
+			</select>
+		</div>     
+		<div class="form-group">
+			<label for="codi">Codi Peticio: </label>
+			<input type="text" class="form-control" id="codi" style="width: 180px"/>
+		</div>
+		<div class="form-group">
+			<button type="submit" class="btn bgRed white">Buscar</button>
+		</div>      
+	</form>
+</div>
+<div class="container">
+	<table class="table table-striped">
+		<tr>
+			<th>Data</th>
+			<th>Tipus</th>
+			<th>Servei</th>
+			<th>Text</th>
+			<th>Organ</th>
+			<th>Back Office</th>
+			<th>Peticio</th>
+			<th>Sollicitud</th>
+			<th>Estat Process</th>
+			<th>Estat Funcional</th>
+		</tr>
+		<tr *ngFor="let traza of storeTraza">
+			<td>{{traza.data}}</td>
+			<td>{{traza.tipus}}</td>
+			<td>{{traza.servei}}</td>
+			<td>{{traza.text}}</td>
+			<td><a [routerLink]="['/organisme/detall', traza.organisme]" routerLinkActive="active">{{traza.organisme}}</a></td>
+			<td><a [routerLink]="['/backoffice/detall', traza.backoffice]" routerLinkActive="active">{{traza.backoffice}}</a>
+			<td>{{traza.peticio}}</td>
+			<td><a [routerLink]="['/sollicitud/detall', traza.sollicitud, traza.organisme, traza.backoffice, traza.peticio]" routerLinkActive="active">{{traza.sollicitud}}</a></td>
+			<td>{{traza.estatProcess}}</td>
+			<td>{{traza.estatFuncional}}</td>
+        </tr>
+	</table>
+</div>

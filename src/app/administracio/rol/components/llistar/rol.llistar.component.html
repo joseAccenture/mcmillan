@@ -1,0 +1,44 @@
+<!--
+<ul>
+    <li *ngFor="let rol of storeRoles">
+        {{rol.id}} - {{rol.codi}} - {{rol.nom}} - {{rol.descripcio}}
+    </li>
+</ul>
+-->
+<div class="border-start bgGrey">
+	<div id="impacteContainer">
+		<div class="fpca_subcapcalera bgGrey">	
+			<div class="container">
+				<div class="row">
+					<div class="capcelera_basica col-sm-12">
+						<div class="capcelera_basica_cont">		            		
+							<ol class="breadcrumb filariana hidden-xs">
+								<li><a [routerLink]="['/inici']" routerLinkActive="active" title="Torna: Inici">Inici</a></li>
+								<li><a title="Torna: Administració" href="javascript:void(0)">Administració</a></li>
+								<li>Llista de roles</li>
+							</ol>
+							<h1 class="titulo-capcalera">
+								<span>Llista de roles</span>
+							</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<br />
+	<table class="table table-striped">
+		<tr>
+			<th>Codi</th>
+			<th>Nom</th>
+			<th>Descripció</th>
+		</tr>
+		<tr *ngFor="let rol of storeRoles">
+			<td><a [routerLink]="['/rol/detall', rol.codi]" routerLinkActive="active">{{rol.codi}}</a></td>
+			<td>{{rol.nom}}</td>
+			<td>{{rol.descripcio}}</td>
+		</tr>
+	</table>
+</div>

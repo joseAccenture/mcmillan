@@ -1,0 +1,62 @@
+<!--
+<ul>
+    <li *ngFor="let organisme of storeOrganismes">
+        {{organisme.id}} - {{organisme.codi}} - {{organisme.nom}} - {{organisme.descripcio}}
+    </li>
+</ul>
+-->
+<div class="border-start bgGrey">
+	<div id="impacteContainer">
+		<div class="fpca_subcapcalera bgGrey">	
+			<div class="container">
+				<div class="row">
+					<div class="capcelera_basica col-sm-12">
+						<div class="capcelera_basica_cont">		            		
+						    <ol class="breadcrumb filariana hidden-xs">
+								<li><a [routerLink]="['/inici']" routerLinkActive="active" title="Torna: Inici">Inici</a></li>
+							  <li><a title="Torna: Administració" href="javascript:void(0)">Administració</a></li>
+							  <li>Llista de organs</li>
+						    </ol>
+						    <h1 class="titulo-capcalera">
+							    <span>Llista de organs</span>
+						    </h1>
+					    </div>
+				    </div>
+			    </div>
+		    </div>
+	    </div>
+	</div>
+</div>
+<div class="gs-filter container" style="position:relative; margin: auto; margin-bottom: 20px">
+	<form class="form-inline">   
+		<div class="form-group">
+			<label for="codi">Codi: </label>
+			<input type="text" class="form-control" id="codi">
+		</div>
+		<div class="form-group">
+			<label for="codi">Nom: </label>
+			<input type="text" class="form-control" id="codi"/>
+		</div>
+		<div class="form-group">
+			<label for="codi">Descripció: </label>
+			<input type="text" class="form-control" id="codi"/>
+		</div>
+		<div class="form-group">
+			<button type="submit" class="btn bgRed white">Buscar</button>
+		</div>      
+	</form>
+</div>
+<div class="container">
+	<table class="table table-striped">
+		<tr>
+			<th>Codi</th>
+			<th>Nom</th>
+			<th>Descripció</th>
+		</tr>
+		<tr *ngFor="let organisme of storeOrganismes">
+			<td><a [routerLink]="['/organisme/detall', organisme.codi]" routerLinkActive="active">{{organisme.codi}}</a></td>
+			<td>{{organisme.nom}}</td>
+			<td>{{organisme.descripcio}}</td>
+		</tr>
+	</table>
+</div>
