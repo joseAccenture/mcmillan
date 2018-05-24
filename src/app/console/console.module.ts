@@ -21,6 +21,8 @@ import { PermisModule } from "../administracio/permis/permis.module";
 import { HomeRootComponent } from "../home/components/root/home.component";
 import { ConsoleRootComponent  } from "./components/console-root/console.component";
 import { ConsoleNavbarComponent } from "./components/console-navbar/console.navbar.component";
+import { TableComponent } from '../common/table/table.component';
+import {TableRowComponent} from '../common/table-row/table-row.component';
 
 import { consoleRoutes } from "./console.routes";
 
@@ -45,7 +47,9 @@ import { consoleRoutes } from "./console.routes";
   declarations: [
     ConsoleRootComponent,
     ConsoleNavbarComponent,
-    HomeRootComponent
+    HomeRootComponent,
+    TableComponent,
+    TableRowComponent
   ],
   exports: [
     ConsoleRootComponent,

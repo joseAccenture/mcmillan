@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { homeRoutes } from './home.routes';
 
 import { HomeViewComponent } from "./components/homeview/home.view.component";
-import { HomeLlistarComponent } from "./components/llistar/home.llistar.component";
+import { LoginComponent } from "../common/login/login.component";
 
 import { HomeService } from "./service/home.service";
 
@@ -16,7 +16,7 @@ import { HomeService } from "./service/home.service";
   ],
   declarations: [
     HomeViewComponent,
-    HomeLlistarComponent
+    LoginComponent
   ],
   providers: [
     HomeService

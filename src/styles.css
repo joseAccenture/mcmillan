@@ -98,6 +98,7 @@ app-home{
     height: 600px;
     content: "";
   }
+  
 /* overlay dialog */
 .modal-backdrop{
   z-index: 4;
@@ -244,7 +245,7 @@ z-index: 5;
       font-size: .9rem;
   }
   .table th, .table td{
-      padding: .3rem;
+      padding: .3rem !important;
   }
   .table tbody tr:hover{
 	background:#f5c6cb;

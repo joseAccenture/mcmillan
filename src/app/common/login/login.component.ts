@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import * as $ from 'jquery';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,8 +8,16 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
 
   constructor() { }
-
-  ngOnInit() {
+  OnLogin(){
+    $("#secondNav").css("display","flex");
+    $('.breadcrumb').css("display","block");
+    $('.navbar').css("display","flex");
   }
-
+  ngOnInit() {
+    $("#secondNav").css("display","none");
+    $('.breadcrumb').css("display","none");
+    $('.navbar').css("display","none");
+  }
 }
+
+

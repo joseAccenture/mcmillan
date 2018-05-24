@@ -150,7 +150,7 @@ a.page-link{
 .modal-dialog{
   min-width: 900px;
   position: relative;
-  top: -95px;
+  top: 25px;
 }
 .modal-dialog .modal-body .form-inline input,
 .modal-dialog .modal-body .form-inline button,

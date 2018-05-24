@@ -1,0 +1,71 @@
+.login{
+    position: fixed;
+  }
+  .login::after{
+    background: url(/assets/images/bgLogin.png);
+    background-size: 1925px 1000px;
+      display: inline-block;
+      width: 1925px;
+      height: 1000px;
+      content: "";
+  }
+  .wellcomeText{
+    width: 99%;
+  }
+  .wellcomeText .portal{
+    position: relative;
+    top: 70px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.6em;
+    font-family: open_sanslight;
+    min-width: 300px;
+    line-height: 2px;
+  }
+  .loginbox{
+    width: 100%;
+    text-align: center;
+    height: 400px;
+    position: absolute;
+    top: 15%;
+  }
+  .loginform{
+    height: 26rem;
+    background: white;
+    min-width: 300px;
+    border-radius: .4em;
+    margin-bottom: 150px;
+  }
+  .loginform .btn{
+    background-color: #c40c0c;
+    border-color: #c40c0c;
+    position: absolute;
+    bottom: 5%;
+    width: 80%;
+    left: 10%;
+  }
+  .loginform input{
+    width: 80%;
+    display: inline;
+    padding: 2%;
+    margin: 2% 0%;
+    background-color: #f6f7fa;
+  }
+  .loginform input::placeholder{
+    color: #a2a2aa;
+  }
+  .anagram{
+    background:#c40c0c;
+    border-radius: 50%;
+    width: 10rem;
+    height: 10rem;
+    content: "";
+    margin: 0 auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+  }
+  .anagram img{
+    padding-top: 2em;
+    display: inline-block
+  }
+  
