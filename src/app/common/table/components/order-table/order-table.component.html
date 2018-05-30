@@ -1,0 +1,13 @@
+<table id="OrderTable" class="table clientModalTable">
+    <tr>
+      <th *ngFor="let col of columns">
+        {{col}}
+      </th>
+    </tr>
+    <tr data-clientname="" data-dismiss="modal" *ngFor="let dato of data; let i = index" [class.active]="i == selectedRow" (click)="ChangeClient(i, data)">
+        
+      <td *ngFor="let col of columns">
+          {{dato[col]}}
+      </td>
+    </tr>
+  </table>

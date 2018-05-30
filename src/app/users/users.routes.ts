@@ -1,10 +1,20 @@
 import { Routes, RouterModule, CanActivate } from '@angular/router';
+import { CreateUserComponent } from './components/create/users.createUser.component';
+import { ListUserComponent } from './components/list/users.listUser.component';
 
-import { UsersCreateUser } from "./components/create/users.createUser";
+export const UsersRoutes: Routes = [
 
-export const usersRoutes: Routes = [
+  {
+    path: 'userslist', component: ListUserComponent,
+    data: {
+      breadcrumb: "Lista de usuarios"
+    }
+  },
+  {
+    path: 'createUser', component: CreateUserComponent,
+    data: {
+      breadcrumb: "Nuevo usuario"
+    }
+  }
 
-   {path:'', component: UsersCreateUser }
-  
-   
 ];

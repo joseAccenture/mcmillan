@@ -1,0 +1,7 @@
+.breadcontainer{
+    position: relative;
+    top: 20px;
+}
+.breadcontainer .breadcrumb{
+    border-radius: 0px;
+}

@@ -43,6 +43,20 @@
   min-width: 355px;
   float: right;
 }
+.navbar-R ul li.userscombo{
+  margin-top: 20px;
+  margin-left: 7%;
+  padding-left: 0;
+}
+.navbar-R ul li.userscombo .dropdown-menu{
+  max-width: 200px;
+  z-index: 1;
+}
+.navbar-R ul li.userscombo .dropdown-menu .btn-primary{
+width: 100%;
+border-radius: 0px;
+border-bottom: .01em solid white;
+}
 .navbar .navbar-r ul.navbar-nav li.nav-item.userscombo{
   width: 100%;
 }
@@ -100,6 +114,7 @@ a{
   border: none;
   overflow: hidden;
   width: 100%;
+  z-index: 0;
 }
 .card.secundary-head .card-body .Rbtn{
   z-index: 1;

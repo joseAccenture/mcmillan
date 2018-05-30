@@ -13,6 +13,8 @@ import { Observable } from "rxjs";
 
 import { PROVIDERS } from "./shared/shared.providers";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonTableClientService } from './common/table/service/common-table-client.service';
+
 
 
 /**
@@ -24,6 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   declarations: [
     AppComponent,
     FooterComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpModule
   ],
   providers: [
-    PROVIDERS
+    PROVIDERS,
+    CommonTableClientService
   ],
   bootstrap: [AppComponent]
 })

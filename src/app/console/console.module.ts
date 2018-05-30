@@ -3,26 +3,19 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { HomeModule } from "../home/home.module";
-import { EstatModule } from "../estat/estat.module";
-import { MainContentModule } from "../maincontent/mainContent.module";
+import { CommonElementsModule } from "../common/common_elements.module";
+import { UserModule } from "../users/users.module";
+import { ClientModule } from "../clients/clients.module";
 
-import { PeticioModule } from "../peticio/peticio.module";
-import { SollicitudModule } from "../sollicitud/sollicitud.module";
-import { TransaccioModule } from "../transaccio/transaccio.module";
-import { TrazabilitatModule } from "../trazabilitat/trazabilitat.module";
-
-import { BackofficeModule } from "../administracio/backoffice/backoffice.module";
-import { OrganismeModule} from "../administracio/organisme/organisme.module";
-import { CircuitModule} from "../administracio/circuit/circuit.module";
-import { UsuariModule } from "../administracio/usuari/usuari.module";
-import { RolModule } from "../administracio/rol/rol.module";
-import { PermisModule } from "../administracio/permis/permis.module";
+import { OrdersModule } from "../orders/orders.module";
+// import { BreadcrumbComponent } from '../common/breadcrumb/breadcrumb.component';
 
 import { HomeRootComponent } from "../home/components/root/home.component";
 import { ConsoleRootComponent  } from "./components/console-root/console.component";
 import { ConsoleNavbarComponent } from "./components/console-navbar/console.navbar.component";
-import { TableComponent } from '../common/table/table.component';
-import {TableRowComponent} from '../common/table-row/table-row.component';
+// import { TableComponent } from '../common/table/table.component';
+// import {TableRowComponent} from '../common/table-row/table-row.component';
+// import {BreadcrumbComponent} from '../common/breadcrumb/breadcrumb.component';
 
 import { consoleRoutes } from "./console.routes";
 
@@ -30,26 +23,17 @@ import { consoleRoutes } from "./console.routes";
   imports: [
     CommonModule,
     HomeModule,
-    EstatModule,
-    MainContentModule,
-    PeticioModule,
-    SollicitudModule,
-    TransaccioModule,
-    TrazabilitatModule,
-    BackofficeModule,
-    OrganismeModule,
-    CircuitModule,
-    UsuariModule,
-    RolModule,
-    PermisModule,
+    UserModule,
+    ClientModule,
+    OrdersModule,
+    CommonElementsModule,
     RouterModule.forRoot(consoleRoutes)
   ],
   declarations: [
     ConsoleRootComponent,
     ConsoleNavbarComponent,
     HomeRootComponent,
-    TableComponent,
-    TableRowComponent
+    // BreadcrumbComponent
   ],
   exports: [
     ConsoleRootComponent,

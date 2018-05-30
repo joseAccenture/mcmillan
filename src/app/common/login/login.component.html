@@ -10,9 +10,9 @@
           <div class="col-2 p-0 loginform">
               <div class="anagram"><span><img src="../../assets/images/logos/Macmillan_50px.png"></span></div> 
               <form>
-                  <input type="text" class="form-control user" placeholder="Username" (ngModelChange)=validate() name="name"> 
-                  <input  type="password" class="form-control pass" name="pass" placeholder="password" (ngModelChange)=validate()>
-                  <button type="button" class="btn btn-danger" routerLink="/homeview" (click)="OnLogin()" [disabled]="validate()">Login</button>      
+                  <input type="text" class="form-control user" placeholder="Username" name="name"> 
+                  <input  type="password" class="form-control pass" name="pass" placeholder="password">
+                  <button type="button" class="btn btn-danger" routerLink="/homeview" (click)="OnLogin()">Login</button>      
                   
               </form>
           </div>

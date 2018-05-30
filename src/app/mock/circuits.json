@@ -1,8 +1,0 @@
-[
-    {"id": 1, "versio": "1", "codi": "CIR-1", "nom": "CIR-1", "descripcio": "CIR-1"},
-    {"id": 2, "versio": "1", "codi": "CIR-2", "nom": "CIR-2", "descripcio": "CIR-2"},
-    {"id": 3, "versio": "1", "codi": "CIR-3", "nom": "CIR-3", "descripcio": "CIR-3"},
-    {"id": 4, "versio": "1", "codi": "CIR-4", "nom": "CIR-4", "descripcio": "CIR-4"},
-    {"id": 5, "versio": "1", "codi": "CIR-5", "nom": "CIR-5", "descripcio": "CIR-5"},
-    {"id": 6, "versio": "1", "codi": "CIR-6", "nom": "CIR-6", "descripcio": "CIR-6"}
-] 

@@ -1,0 +1,12 @@
+[
+    {"id": "01", "nombre": "NOM-1","apellidos": "surname-1", "email": "bastian@gmail.com", "tipo": "Individual"},
+    {"id":"02", "nombre": "NOM-2","apellidos": "surname-1", "email": "kingjoshi@optonline.net", "tipo": "Representante"},
+    {"id": "03", "nombre": "NOM-3","apellidos": "surname-1", "email": "kingma@verizon.net", "tipo": "Representante"},
+    {"id": "04", "nombre": "NOM-4","apellidos": "surname-1", "email": "rwelty@outlook.com", "tipo": "Marketing"},
+    {"id": "05", "nombre": "NOM-5","apellidos": "surname-1", "email": "bradl@mac.com", "tipo": "Jefe de zona"},
+    {"id": "06", "nombre": "NOM-6","apellidos": "surname-1", "email": "vertigo@comcast.net", "tipo": "Jefe de zona"},
+    {"id": "07", "nombre": "NOM-7","apellidos": "surname-1", "email": "dwheeler@optonline.net", "tipo": "Marketing"},
+    {"id": "08", "nombre": "NOM-8","apellidos": "surname-1", "email": "eegsa@icloud.com", "tipo": "Marketing"},
+    {"id": "09", "nombre": "NOM-9","apellidos": "surname-1", "email": "eurohack@live.com", "tipo": "Individual"},
+    {"id": "10", "nombre": "NOM-10","apellidos": "surname-1", "email": "irving@live.com", "tipo": "Individual"}
+] 

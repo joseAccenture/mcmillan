@@ -6,7 +6,7 @@ import { homeRoutes } from './home.routes';
 
 import { HomeViewComponent } from "./components/homeview/home.view.component";
 import { LoginComponent } from "../common/login/login.component";
-
+import { FilterPipe } from '../common/table/components/client-table/pipes/filter.pipe';
 import { HomeService } from "./service/home.service";
 
 @NgModule({
@@ -16,8 +16,12 @@ import { HomeService } from "./service/home.service";
   ],
   declarations: [
     HomeViewComponent,
-    LoginComponent
+    LoginComponent,
+    FilterPipe
   ],
+  exports: [
+    FilterPipe
+],
   providers: [
     HomeService
   ]

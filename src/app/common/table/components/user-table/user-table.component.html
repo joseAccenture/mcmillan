@@ -1,0 +1,13 @@
+<table class="table clientModalTable">
+    <tr>
+      <th *ngFor="let col of columns">
+        {{col}}
+      </th>
+    </tr>
+    <tr data-col="01" data-clientname="" data-dismiss="modal" (click)="ChangeClient(dato)" *ngFor="let dato of data">
+      <td *ngFor="let col of columns">
+        {{dato[col]}}
+      </td>
+    </tr>
+  </table>
+  

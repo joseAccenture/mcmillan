@@ -1,8 +1,0 @@
-[
-    {"id": 1, "codi": "ORG-1", "nom": "ORG-1", "descripcio": "ORG-1"},
-    {"id": 2, "codi": "ORG-2", "nom": "ORG-2", "descripcio": "ORG-2"},
-    {"id": 3, "codi": "ORG-3", "nom": "ORG-3", "descripcio": "ORG-3"},
-    {"id": 4, "codi": "ORG-4", "nom": "ORG-4", "descripcio": "ORG-4"},
-    {"id": 5, "codi": "ORG-5", "nom": "ORG-5", "descripcio": "ORG-5"},
-    {"id": 6, "codi": "ORG-6", "nom": "ORG-6", "descripcio": "ORG-6"}
-] 

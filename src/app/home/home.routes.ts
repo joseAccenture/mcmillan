@@ -5,7 +5,17 @@ import { HomeViewComponent } from './components/homeview/home.view.component';
 import { LoginComponent } from '../common/login/login.component';
 export const homeRoutes: Routes = [
 
-   {path:'', component: LoginComponent },
-   {path:'homeview', component: HomeViewComponent }
-   
+    {
+        path: '', component: LoginComponent,
+        data: {
+            breadcrumb: "Login"
+        }
+    },
+    {
+        path: 'homeview', component: HomeViewComponent,
+        data: {
+            breadcrumb: "Inicio"
+        }
+    }
+
 ];
