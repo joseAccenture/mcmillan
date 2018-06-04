@@ -1,34 +1,30 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { CommonTableOrderService } from '../../../common/table/service/common-table-order.service';
+import { Component, OnInit } from '@angular/core';
+import { ConsoleService } from '../../../console/service/console.service';
 
 @Component({
   selector: 'order-detailorder-component',
   templateUrl: './orders.detailOrder.component.html',
   styleUrls: ['./orders.detailOrder.component.css'],
-  providers: [CommonTableOrderService]
+  providers: [ConsoleService]
 })
 export class DetailOrderComponent implements OnInit{
   clients: void;
-  // @Input() characters: client[];
-  @Input() columns: string[];
-  // i: any;
-  row: any = []
+  // @Input() columns: string[];
   data: any = []
-  userdata: any = []
-  constructor(private CommonTableOrderService: CommonTableOrderService) { }
+  columns: void;
+  constructor(private ConsoleService: ConsoleService) { }
  
   ngOnInit() {
-    this.clients = this.getClient();
-    this.columns = this.CommonTableOrderService.getColumns(); 
-   
+    this.clients = this.orderDetail();
   }
 
-  getClient() {
+  orderDetail() {
     try {
-      this.CommonTableOrderService.getCLients()
+      this.ConsoleService.getOrders()
         .subscribe(resp => {
-          console.log(resp, "clients");
+          console.log(resp, "ordersDetail");
           this.data = resp
+
         },
           error => {
             console.log(error, "error");

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HomeService } from './home/service/home.service';
 import { AppService } from './app.service';
 
 /**
@@ -11,7 +10,7 @@ import { AppService } from './app.service';
   selector: 'app-root',  
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [AppService, HomeService]
+  providers: [AppService]
 
 })
 export class AppComponent {
@@ -42,5 +41,29 @@ export class AppComponent {
       console.log(e);
     }
   }
+  // ejemplo post en componente
+ /* method to call post-api from app.service */
+//  submitAuth(formValues) {
+//   try {
+//     let author = {
+//       FirstName: formValues.FirstName,
+//       ID: formValues.ID,
+//       IDBook: formValues.IDBook,
+//       LastName: formValues.LastName
+//     }
+    // console.log(author,"author")
+//     this.appService.submitAuthor(author)
+//       .subscribe(resp => {
+//         console.log(resp, "res");
+//         this.data = resp
+//       },
+//         error => {
+//           console.log(error, "error");
+//         })
+//   } catch (e) {
+//     console.log(e);
+//   }
+// }
+
 }
 

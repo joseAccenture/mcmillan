@@ -11,7 +11,7 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root',
 })
-export class ConsoleService {
+export class CommonTableService {
   
   constructor(private http : HttpClient) {
       
@@ -48,6 +48,9 @@ export class ConsoleService {
     getOrderListColumns():string[]{
       return ["referencia", "estado", "fecha","descripcion"]
     }
+    // orderDetail(user, id){
+    //   return this.http.post('http://localhost:8080/users/'+id, user);
+    // }
 }
 
 

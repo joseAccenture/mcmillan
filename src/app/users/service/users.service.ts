@@ -1,8 +1,4 @@
-import { Injectable, Input } from '@angular/core';
-import { user } from '../../user';
-import { USERS } from '../../../assets/mock/mock-user';
-@Injectable({
-  providedIn: 'root',
-})
+import { Component } from '@angular/core';
+
 export class UsersService {
 }

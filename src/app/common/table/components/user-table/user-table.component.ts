@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CommonTableClientService } from '../../service/common-table-client.service';
-import { CommonTableUserService } from '../../service/common-table-user.service';
+import { ConsoleService } from '../../../../console/service/console.service';
 
 // import { client } from '../../client';
 
@@ -8,26 +7,25 @@ import { CommonTableUserService } from '../../service/common-table-user.service'
   selector: 'common-user-table',
   templateUrl: './user-table.component.html',
   styleUrls: ['./user-table.component.sass'],
-  providers: [CommonTableUserService]
+  providers: [ConsoleService]
 })
 
 export class USerTableComponent implements OnInit {
   clients: void;
-  // @Input() characters: client[];
   @Input() columns: string[];
 
   data: any = []
   userdata: any = []
-  constructor(private CommonTableUSerService: CommonTableUserService) { }
+  constructor(private ConsoleService: ConsoleService) { }
  
   ngOnInit() {
     this.clients = this.getClient();
-    this.columns = this.CommonTableUSerService.getColumns(); 
+    this.columns = this.ConsoleService.getUsersColumns(); 
   }
 
   getClient() {
     try {
-      this.CommonTableUSerService.getCLients()
+      this.ConsoleService.getUsers()
         .subscribe(resp => {
           console.log(resp, "clients");
           this.data = resp
@@ -39,7 +37,9 @@ export class USerTableComponent implements OnInit {
       console.log(e);
     }
   }
-  
+  SelectRow(i) {
+    $("#usertable tr")[i+1].classList.add("isSelected");
+  }
 }
 
 

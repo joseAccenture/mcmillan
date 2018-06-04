@@ -5,13 +5,13 @@ import { Router } from '@angular/router';
 // import { client } from '../../client';
 
 @Component({
-  selector: 'common-order-table',
-  templateUrl: './order-table.component.html',
-  styleUrls: ['./order-table.component.sass'],
+  selector: 'common-detailOrder-table',
+  templateUrl: './detailOrder-table.component.html',
+  styleUrls: ['./detailOrder-table.component.css'],
   providers: [ConsoleService]
 })
 
-export class OrderTableComponent implements OnInit {
+export class DetailOrderTableComponent implements OnInit {
   clients: void;
   // @Input() characters: client[];
   @Input() columns: string[];
@@ -22,16 +22,16 @@ export class OrderTableComponent implements OnInit {
   constructor(private ConsoleService: ConsoleService, private router: Router) { }
  
   ngOnInit() {
-    this.clients = this.getClient();
-    this.columns = this.ConsoleService.getColumns(); 
+    this.clients = this.getOrders();
+    this.columns = this.ConsoleService.getOrderColumns(); 
   }
 
-  getClient() {
+  getOrders() {
     try {
-      this.ConsoleService.getCLients()
+      this.ConsoleService.getOrders()
         .subscribe(resp => {
           console.log(resp, "clients");
-          this.data = resp
+          this.data = resp["lineasPedido"];
         },
           error => {
             console.log(error, "error");

@@ -1,10 +1,10 @@
-<table class="table clientModalTable">
+<table class="table clientModalTable" id="usertable">
     <tr>
       <th *ngFor="let col of columns">
         {{col}}
       </th>
     </tr>
-    <tr data-col="01" data-clientname="" data-dismiss="modal" (click)="ChangeClient(dato)" *ngFor="let dato of data">
+    <tr data-col="01" data-clientname="" data-dismiss="modal" (click)="SelectRow(i)" *ngFor="let dato of data; let i = index">
       <td *ngFor="let col of columns">
         {{dato[col]}}
       </td>

@@ -1,8 +1,5 @@
-import { Component, OnInit } from '@angular/core'; 
-import { ConsoleService } from '../../service/console.service'; 
-import { client } from '../../../client';
-import { CommonTableClientService } from '../../../common/table/service/common-table-client.service';
-import { Observable } from 'rxjs';
+import { Component, OnInit, Input } from '@angular/core';
+import { ConsoleService } from '../../../console/service/console.service';
 
 @Component({
     selector: 'console-navbar',
@@ -10,44 +7,33 @@ import { Observable } from 'rxjs';
     styleUrls: ['./navbar.component.css']
   
 })
-export class ConsoleNavbarComponent  {
-    client: Observable<Object>;
-    // activeUSer: string;
-    values= ""
-    clients: client[]; 
-    constructor(private CommonTableClientService: CommonTableClientService) { } 
-    getClients(): void { 
-        this.client = this.CommonTableClientService.getCLients(); 
-        // this.activeUSer= client[0].name;
-        console.log(this.client); 
-      } 
-      onKey(event: any) { // without type info
-        console.log( this.values = event.nombre1 + ' | ' + event.nombre2 + ' | ' + event.email);
-       }
-       ChangeClient($event){
-         this.onKey($event);
-         }
-      ngOnInit() { 
-        var clients = this.getClients(); 
+export class ConsoleNavbarComponent implements OnInit {
+  clients: void;
+  @Input() columns: string[];
+  public ActualUser;  
+  constructor(private ConsoleService: ConsoleService) { }
+ 
+  ngOnInit() {
+    this.clients = this.getClient();
+    this.columns = this.ConsoleService.getColumns(); 
+  }
+  
+  getClient() {
+    try {
+      this.ConsoleService.getCLients()
+        .subscribe(resp => {
+          var data = resp;
+        },
+          error => {
+            console.log(error, "error");
+          })
+    } catch (e) {
+      console.log(e);
     }
-    myFunction() {
-        // Declare variables 
-        var input, filter, table, tr, td, i;
-        input = document.getElementById("myInput");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("myTable");
-        tr = table.getElementsByTagName("tr");
-      
-        // Loop through all table rows, and hide those who don't match the search query
-        for (i = 0; i < tr.length; i++) {
-          td = tr[i].getElementsByTagName("td")[0];
-          if (td) {
-            if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-              tr[i].style.display = "";
-            } else {
-              tr[i].style.display = "none";
-            }
-          } 
-        }
-      }
+   
+  }
 }
+
+
+
+  

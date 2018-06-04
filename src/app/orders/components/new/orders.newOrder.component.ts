@@ -2,32 +2,29 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ConsoleService } from '../../../console/service/console.service';
 
 @Component({
-  selector: 'client-data-component',
-  templateUrl: './client.data.component.html',
-  styleUrls: ['./client.data.component.css']
-  
+  selector: 'order-neworder-component',
+  templateUrl: './orders.newOrder.component.html',
+  styleUrls: ['./orders.newOrder.component.css']
 })
-export class ClientDataComponent {
-  clientdata: void;
-  title = 'app';
+
+
+export class NewOrderComponent implements OnInit{
   clients: void;
-  // @Input() steps: string[];
   @Input() columns: string[];
-  isUser: true;
-  data: any = []
-  
+  data;
   constructor(private ConsoleService: ConsoleService) { }
  
   ngOnInit() {
-    var isUser = true;
-    this.clientdata = this.getClientsData();
+    this.clients = this.orderDetail();
+    this.columns = this.ConsoleService.getOrderColumns(); 
+   
   }
 
-  getClientsData() {
+  orderDetail() {
     try {
-      this.ConsoleService.getClientsData()
+      this.ConsoleService.getOrders()
         .subscribe(resp => {
-          console.log(resp, "users");
+          console.log(resp, "ordersDetail");
           this.data = resp
         },
           error => {
@@ -37,4 +34,8 @@ export class ClientDataComponent {
       console.log(e);
     }
   }
+  ChangeClient(i) {
+    this.data.splice(i, 1);
+  }
 }
+

@@ -8,6 +8,5 @@ export const ClientsRoutes: Routes = [
         data: {
             breadcrumb: "Datos del cliente"
         }
-    }
-
+    },
 ];

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CommonTableClientService } from '../../service/common-table-client.service';
+import { ConsoleService } from '../../../../console/service/console.service';
 
 // import { client } from '../../client';
 
@@ -11,16 +11,16 @@ import { CommonTableClientService } from '../../service/common-table-client.serv
 
 export class ClientTableComponent implements OnInit {
   clients: void;
-  // @Input() characters: client[];
   @Input() columns: string[];
+
 
   data: any = []
   userdata: any = []
-  constructor(private CommonTableClientService: CommonTableClientService) { }
+  constructor(private ConsoleService: ConsoleService) { }
  
   ngOnInit() {
     this.clients = this.getClient();
-    this.columns = this.CommonTableClientService.getColumns(); 
+    this.columns = this.ConsoleService.getColumns(); 
   }
   filterTable($event, searchby) {
     // Declare variables 
@@ -44,9 +44,9 @@ export class ClientTableComponent implements OnInit {
   }
   getClient() {
     try {
-      this.CommonTableClientService.getCLients()
+      this.ConsoleService.getCLients()
         .subscribe(resp => {
-          console.log(resp, "clients");
+          console.log(resp, "client_table");
           this.data = resp
         },
           error => {
@@ -56,27 +56,6 @@ export class ClientTableComponent implements OnInit {
       console.log(e);
     }
   }
-  getUser() {
-    try {
-      this.CommonTableClientService.getCLients()
-        .subscribe(resp => {
-          console.log(resp, "clients");
-          this.data = resp
-        },
-          error => {
-            console.log(error, "error");
-          })
-    } catch (e) {
-      console.log(e);
-    }
-  }
-  onKey(event: any) { // without type info
-    console.log( event.nombre1 + ' | ' + event.nombre2 + ' | ' + event.email);
-   }
-   ChangeClient($event){
-     this.onKey($event);
-     }
- 
 }
 
 

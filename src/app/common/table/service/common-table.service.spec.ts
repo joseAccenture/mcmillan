@@ -1,15 +1,14 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { CommonTableUserService } from './common-table-user.service';
-import { CommonTableClientService } from './common-table-client.service';
-describe('CommonTableUserService', () => {
+import { CommonTableService } from './common-table.service';
+describe('CommonTableService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [CommonTableUserService, CommonTableClientService]
+      providers: [CommonTableService]
     });
   });
 
-  it('should be created', inject([CommonTableUserService, CommonTableClientService], (userservice: CommonTableUserService, clientservice:CommonTableClientService ) => {
+  it('should be created', inject([ CommonTableService], (userservice: CommonTableService, clientservice:CommonTableService ) => {
     expect([userservice,clientservice]).toBeTruthy();
   }));
 });

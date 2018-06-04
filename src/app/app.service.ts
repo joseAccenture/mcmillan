@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs'
 
@@ -11,8 +11,11 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class AppService {
+export class AppService implements OnInit{
 
+  ngOnInit(): void {
+    var Login = this.getLogin();
+  }
   Url = "./assets/mock";
   constructor(private http : HttpClient) { }
   

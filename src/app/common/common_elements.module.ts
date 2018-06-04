@@ -1,36 +1,31 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 
-import { HomeModule } from "../home/home.module";
-// import { ConsoleModule } from "../console/console.module";
-// import { UserModule } from "../users/users.module";
 
+
+// componentes tabla 
 import { ClientTableComponent } from '../common/table/components/client-table/client-table.component';
 import { USerTableComponent } from '../common/table/components/user-table/user-table.component';
 import { OrderTableComponent } from '../common/table/components/order-table/order-table.component';
+import { DetailOrderTableComponent } from '../common/table/components/detailOrder-table/detailOrder-table.component';
+import { ListOrderTableComponent } from '../common/table/components/listOrder-table/listOrder-table.component';
 
 import {TableRowComponent} from '../common/table-row/table-row.component';
 import {BreadcrumbComponent} from '../common/breadcrumb/breadcrumb.component';
-// import { consoleRoutes } from "../console/console.routes";
 
-// import { FilterPipe } from './table/components/client-table/pipes/filter.pipe';
 
 
 @NgModule({
   imports: [
-    CommonModule,
-    HomeModule
-    // ConsoleModule,
-    // consoleRoutes
-    // UserModule,
-   
+    CommonModule
   ],
   declarations: [
     ClientTableComponent,
     USerTableComponent,
     TableRowComponent,
     OrderTableComponent,
+    DetailOrderTableComponent,
+    ListOrderTableComponent,
     BreadcrumbComponent
   ],
   exports: [
@@ -38,6 +33,8 @@ import {BreadcrumbComponent} from '../common/breadcrumb/breadcrumb.component';
     USerTableComponent,
     TableRowComponent,
     OrderTableComponent,
+    DetailOrderTableComponent,
+    ListOrderTableComponent,
     BreadcrumbComponent
     
   ]

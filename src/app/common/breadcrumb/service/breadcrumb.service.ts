@@ -11,8 +11,7 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class BreadcrumbService {
-  value: string;
-  values:string;
+  lastStep: string[];
 // getCharacters(): client[] {
 //   return CLIENTS;
 // }
@@ -26,7 +25,6 @@ Url = "./assets/mock";
      getSteps() {
       console.log(this.http.get(this.Url + '/breadcrumb.json'))
       return this.STEPS = this.http.get(this.Url + '/breadcrumb.json');
-
     }
 }
 

@@ -2,7 +2,6 @@
 <div class="card">
 	<div class="card-body">
 		<div class="row homebtnContainer">
-			<!-- <app-breadcrumb></app-breadcrumb> -->
 			<div class="row">
 				<div class="col-sm">
 					<form>
@@ -75,7 +74,7 @@
 
 									<input type="text" class="form-control" placeholder="SapCode01" aria-label="representados" aria-describedby="basic-addon2">
 									<div class="input-group-append">
-										<button class="btn btn-outline-secondary" type="button">Insertar</button>
+										<button class="btn btn-outline-secondary" type="button" (click)="InsertAgent()">Insertar</button>
 									</div>
 								</div>
 							</div>
@@ -87,22 +86,22 @@
 						<div class="row mb-0">
 							<div class="col card">
 								<ul class="list-group list-group-flush">
-									<li class="list-group-item">SapCode01</li>
-									<li class="list-group-item">SapCode02</li>
-									<li class="list-group-item">SapCode03</li>
+									<li class="list-group-item">{{sergio}}</li>
+									<li class="list-group-item">{{sergio}}</li>
 								</ul>
 							</div>
 							<div class="col-8"></div>
 						</div>
-						<div class="row">
-								<div class="col-10"></div>
-							<div class="col"><button type="button" class="btn btn-danger" [routerLink]="['/usersList']" routerLinkActive="active">Guardar</button></div>
-						</div>
-						
 					</form>
 				</div>
-
+				
 			</div>
+		</div>
+		<div class="row">
+				<div class="col-6"></div>
+			<div class="col"><button type="button" class="btn btn-secondary" [routerLink]="['/userslist']" routerLinkActive="active">Volver</button>
+			<button type="button" class="btn btn-danger" [routerLink]="['/userslist']" routerLinkActive="active" (click)="submitUser(formValues)">Guardar</button>
+			<button type="button" class="btn btn-secondary">Enviar Credenciales</button></div>
 		</div>
 	</div>
 </div>

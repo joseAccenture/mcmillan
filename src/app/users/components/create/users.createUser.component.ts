@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./users.createUser.component.css']
 })
 export class CreateUserComponent {
-  title = 'app';
+  
 }

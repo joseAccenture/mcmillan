@@ -71,6 +71,7 @@
     font-style: normal;
 
 }
+
 /* mediaQueries */
 @media only screen and (max-width: 991px) and (min-width: 768px){
 	.wrapper {
@@ -91,7 +92,9 @@
 } */
 users-listuser-component, users-createuser-component,
 order-listorder-component,
-order-detailorder-component{
+order-detailorder-component,
+order-neworder-component,
+client-data-component{
 	position: relative;
     top: -150px;
 }
@@ -177,19 +180,16 @@ z-index: 5;
 
   .card.secundary-head{
     height: 250px !important;
+    top:45px;
   }
 .card.formView .card-body{
     padding-bottom: 1.25rem;
 }
 /* formularios */
-jaspero-accord .jaspero__accord_bar{
-    background: #eee !important;
-    border-bottom: 1px solid #dcd9d9 !important;
-}
 .form-control.min-input {
     max-width: 150px;
     display: inline;
-}
+} */
 .input-group-text,
 .card.formView .card-body .form-control,
 .card.formView .card-body form .input-group select.custom-select,
@@ -277,4 +277,13 @@ jaspero-accord .jaspero__accord_bar{
     z-index: 100;
     border: 1px solid #CCC;
     background: rgba(200, 200, 200, .5);
+}
+.breadcrumb-item + .breadcrumb-item.isDisabled{
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    opacity: .5;
+}
+.isSelected{
+    background: #f5c6cb;
 }

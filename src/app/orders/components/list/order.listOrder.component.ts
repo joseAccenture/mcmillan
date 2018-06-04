@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./order.listOrder.component.css']
 })
 export class ListOrderComponent {
-  title = 'app';
 }

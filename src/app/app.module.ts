@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 
+
 import { AppComponent } from './app.component';
 
 import { ConsoleModule } from "./console/console.module";
@@ -11,22 +12,20 @@ import { HomeModule } from "./home/home.module";
 import { HttpClient } from '@angular/common/http'; 
 import { Observable } from "rxjs";
 
-import { PROVIDERS } from "./shared/shared.providers";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CommonTableClientService } from './common/table/service/common-table-client.service';
+import { ConsoleService } from './console/service/console.service';
 
 
 
 /**
  * GS Console Modul Principal
  * 
- * Autor: Ildefonso Serrano García
+ * Autor: Sergio Salazar Cardoso
  */
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent
-    
   ],
   imports: [
     BrowserModule,
@@ -37,21 +36,10 @@ import { CommonTableClientService } from './common/table/service/common-table-cl
     HttpModule
   ],
   providers: [
-    PROVIDERS,
-    CommonTableClientService
+    ConsoleService
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-   
-    //  constructor(private http: HttpClient) {
-    //       this.getJSON().subscribe(data => {
-    //           console.log(data)
-    //       });
-    //   }
-  
-    //   public getJSON(): Observable<any> {
-    //       return this.http.get("./assets/circuits.json")
-    //   }
 
  }

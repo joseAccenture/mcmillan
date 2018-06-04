@@ -11,7 +11,9 @@
 		<div class="row">
 			<div class="col-8"></div>
 			<div class="col">
-				<button type="button" class="btn btn-danger m-2">borrar</button>
+				<button type="button" class="btn btn-danger delete m-2" (click)="deleteRow()">
+					<img src="../../../../assets/images/icons/baseline-delete_forever-24px.svg" width="60" height="25" alt="submit" />
+				</button>
 				<button type="button" class="btn btn-danger m-2">Editar</button>
 				<button type="button" class="btn btn-danger m-2" [routerLink]="['/createUser']" routerLinkActive="active">Crear nuevo</button>
 			</div>

@@ -94,8 +94,27 @@
 
                 <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionLines">
                     <div class="card-body">
-                        <common-detailOrder-table></common-detailOrder-table>
-
+                            <table id="NewOrderTable" class="table">
+                                    <tr>
+                                      <th>
+                                       
+                                      </th>
+                                    </tr>
+                                    <tr data-clientname="" data-dismiss="modal" *ngFor="let dato of data; let i = index" [class.active]="i == selectedRow" (click)="OrderDetail(i)">
+                                        
+                                      <td *ngFor="let col of columns">
+                                          {{dato[col]}}
+                                      </td>
+                                    </tr>
+                                  </table>
+                        <div class="row">
+                            <div class="col-8"></div>
+                            <div class="col">
+                            <button type="button" class="btn btn-danger m-2" [routerLink]="['/createUser']" routerLinkActive="active">Añadir linea</button>
+                            <button type="button" class="btn btn-danger m-2" [routerLink]="['/createUser']" routerLinkActive="active">Validar</button>
+                            <button type="button" class="btn btn-secondary m-2" [routerLink]="['/createUser']" routerLinkActive="active">Borrador</button>
+                            </div>
+                        </div>    
                     </div>
                 </div>
             </div>

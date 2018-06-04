@@ -16,6 +16,7 @@
 }
  .navbar-L{
    margin-right:0; 
+   position: fixed;
  }
  nav a.navbar-brand{
    margin-left: 75px;
