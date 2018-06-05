@@ -1,13 +1,32 @@
-<table id="OrderTable" class="table clientModalTable">
+<table id="OrderTable" class="table clientModalTable" *ngIf="!newOrder">
     <tr>
       <th *ngFor="let col of columns">
         {{col}}
       </th>
     </tr>
-    <tr data-clientname="" data-dismiss="modal" *ngFor="let dato of data; let i = index" [class.active]="i == selectedRow" (click)="OrderDetail(i)">
-        
+    <tr data-clientname=""  data-dismiss="modal" *ngFor="let dato of data; let i = index" [class.active]="i == selectedRow" (click)="OrderDetail(i)">
+      <!-- <ng-template #elseBlock>
+      <tr data-clientname="" data-dismiss="modal" *ngFor="let dato of data; let i = index" [class.active]="i == selectedRow" (click)="OrderDetail(i)">
+        </ng-template>  -->
       <td *ngFor="let col of columns">
           {{dato[col]}}
       </td>
     </tr>
   </table>
+
+  <table id="OrderTable" class="table clientModalTable" *ngIf="newOrder">
+      <tr>
+        <th *ngFor="let col of columns">
+          {{col}}
+        </th>
+      </tr>
+      <tr data-clientname=""  data-dismiss="modal" *ngFor="let dato of data; let i = index" [class.active]="i == selectedRow" (click)="OrderDetail(i)">
+        <!-- <ng-template #elseBlock>
+        <tr data-clientname="" data-dismiss="modal" *ngFor="let dato of data; let i = index" [class.active]="i == selectedRow" (click)="OrderDetail(i)">
+          </ng-template>  -->
+        <td *ngFor="let col of columns">
+            {{dato[col]}}
+        </td>
+      </tr>
+    </table>
+  

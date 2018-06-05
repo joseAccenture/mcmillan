@@ -27,7 +27,7 @@ export class ClientDataComponent {
     try {
       this.ConsoleService.getClientsData()
         .subscribe(resp => {
-          console.log(resp, "users");
+          console.log(resp, "clientData");
           this.data = resp
         },
           error => {

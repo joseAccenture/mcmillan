@@ -94,7 +94,7 @@ users-listuser-component, users-createuser-component,
 order-listorder-component,
 order-detailorder-component,
 order-neworder-component,
-client-data-component{
+client-data-component, order-pendingorder-component{
 	position: relative;
     top: -150px;
 }

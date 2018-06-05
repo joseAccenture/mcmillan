@@ -11,16 +11,17 @@
   }
   .wellcomeText{
     width: 99%;
+    padding-top: 10px;
   }
   .wellcomeText .portal{
     position: relative;
-    top: 70px;
+    top: 24px;
     text-align: center;
     color: rgba(255, 255, 255, 0.7);
     font-size: 1.6em;
     font-family: open_sanslight;
     min-width: 300px;
-    line-height: 2px;
+    line-height: 30px;
   }
   .loginbox{
     width: 100%;

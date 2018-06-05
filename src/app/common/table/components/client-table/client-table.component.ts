@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { ConsoleService } from '../../../../console/service/console.service';
 
 // import { client } from '../../client';
@@ -12,6 +12,7 @@ import { ConsoleService } from '../../../../console/service/console.service';
 export class ClientTableComponent implements OnInit {
   clients: void;
   @Input() columns: string[];
+  @Output() actualClient: EventEmitter<string> =   new EventEmitter();
 
 
   data: any = []
@@ -48,6 +49,8 @@ export class ClientTableComponent implements OnInit {
         .subscribe(resp => {
           console.log(resp, "client_table");
           this.data = resp
+          this.actualClient.emit(this.data[0].codigoSap +" " + this.data[0].nombre);
+
         },
           error => {
             console.log(error, "error");
@@ -55,6 +58,9 @@ export class ClientTableComponent implements OnInit {
     } catch (e) {
       console.log(e);
     }
+  }
+  ChangeClient(user){
+    this.actualClient.emit(user.codigoSap +" " + user.nombre);
   }
 }
 

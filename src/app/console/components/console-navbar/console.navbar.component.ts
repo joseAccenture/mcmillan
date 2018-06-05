@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ConsoleService } from '../../../console/service/console.service';
 
 @Component({
@@ -7,22 +7,28 @@ import { ConsoleService } from '../../../console/service/console.service';
     styleUrls: ['./navbar.component.css']
   
 })
-export class ConsoleNavbarComponent implements OnInit {
-  clients: void;
+export class ConsoleNavbarComponent implements OnInit  {
+  @Input() clients: string[];
   @Input() columns: string[];
-  public ActualUser;  
-  constructor(private ConsoleService: ConsoleService) { }
- 
-  ngOnInit() {
-    this.clients = this.getClient();
-    this.columns = this.ConsoleService.getColumns(); 
+  public userName;
+  public userMail;
+  public actualClient;  
+  public actualUserName;  
+
+  constructor(private ConsoleService: ConsoleService ) { }
+  ngOnInit(){
+    var user = this.getUSer(); 
   }
-  
-  getClient() {
+  updateActualUser(codigoSap: string){
+    this.actualClient = codigoSap;
+  }
+  getUSer() {
     try {
-      this.ConsoleService.getCLients()
+      this.ConsoleService.getUsers()
         .subscribe(resp => {
-          var data = resp;
+          this.userName = resp[0].nombre;
+          this.userMail = resp[0].email;
+          console.log(this.userName, "User_selected");
         },
           error => {
             console.log(error, "error");
@@ -30,7 +36,6 @@ export class ConsoleNavbarComponent implements OnInit {
     } catch (e) {
       console.log(e);
     }
-   
   }
 }
 

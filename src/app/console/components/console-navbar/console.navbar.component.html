@@ -19,7 +19,7 @@
             <a class="dropdown-item" href="#" routerLink="/ordersList" routerLinkActive="active">Lista de pedidos</a>
             <a class="dropdown-item" href="#" routerLink="/newOrder" routerLinkActive="active">Creación de un pedido</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#" routerLink="/pendingsOrder">Pendientes de validar</a>
+            <a class="dropdown-item" href="#" routerLink="/pendingOrder">Pendientes de validar</a>
           </div>
         </li>
         <li class="nav-item">
@@ -33,7 +33,7 @@
             <a class="nav-link dropdown-toggle changeUser" href="#" id="UsersDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="icon"></span>
             </a>
-            <input type="text" disabled value="user@macmillaneducation.com" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+            <input type="text" disabled value="{{userMail}}" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
             <div class="dropdown-menu" aria-labelledby="UsersDropdown">
               <button type="button" class="btn btn-primary" data-toggle="modal">
                 Cambiar contraseña
@@ -53,12 +53,12 @@
   <div class="card secundary-head" id="secondNav">
     <div class="card-body row">
       <div class="col-1 p-0"></div>
-      <div class="col sectiontitle">Bienvenido @User</div>
+      <div class="col sectiontitle">Bienvenido <br />{{userName}}</div>
       <div class="col-3 Rbtn">
         <div class="input-group">
           <span class="input-group-text" id=""><img src="../assets/images/icons/ic_assignment_ind_black_48dp.png"></span>
           <div class="input-group-append col-6 pl-0">
-            <button id="prueba" class="btn btn-outline-secondary" type="button" data-toggle="modal" title="Click para operar con otro cliente" data-target="#ChangeClientModal">{{ActualUser}}</button>
+            <button id="prueba" class="btn btn-outline-secondary" type="button" data-toggle="modal" title="Click para operar con otro cliente" data-target="#ChangeClientModal">{{actualClient}} </button>
           </div>
         </div>
       </div>
@@ -74,7 +74,7 @@
           </button>
         </div>
         <div class="modal-body">
-                  <common-client-table></common-client-table>
+                  <common-client-table (actualClient)="updateActualUser($event)"></common-client-table>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <!-- <button type="button" class="btn btn-primary" data-ng-styles="guardar">Guardar Cambios</button> -->

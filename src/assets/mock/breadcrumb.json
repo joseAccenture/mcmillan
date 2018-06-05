@@ -1,11 +1,12 @@
 {
     "userslist":["Gestión de usuarios"],
        "clientdata":["Datos del cliente"],
+       "clientnew":["Datos del cliente", "Crear cliente"],
+       "createUser":["Gestión de usuarios", "Nuevo usuario"],
        "ordersList":["Lista de pedidos"],
        "detailOrder":["Lista de pedidos", "Detalle del pedido"],
-       "createUser":["Gestión de usuarios", "Nuevo usuario"],
-       "clientnew":["Datos del cliente", "Crear cliente"],
-       "newOrder": ["Lista de pedidos", "Nuevo pedido"]
+       "newOrder": ["Lista de pedidos", "Nuevo pedido"],
+       "pendingOrder": ["Pedidos pendiente de validar"]
    }
 
 

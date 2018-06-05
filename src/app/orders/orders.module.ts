@@ -9,7 +9,9 @@ import { CommonElementsModule } from '../common/common_elements.module';
 import { OrdersRootComponent } from "./components/root/orders-root.component";
 import { DetailOrderComponent } from "./components/detail/orders.detailOrder.component";
 import { NewOrderComponent } from "./components/new/orders.newOrder.component";
-import { ListOrderComponent } from "./components/list/order.listOrder.component";
+import { ListOrderComponent } from "./components/list/orders.listOrder.component";
+import { PendingOrderComponent } from "./components/pending/orders.pendingOrder.component";
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -27,7 +29,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     OrdersRootComponent,
     ListOrderComponent,
     DetailOrderComponent,
-    NewOrderComponent
+    NewOrderComponent,
+    PendingOrderComponent
     
   ],
   providers: [
