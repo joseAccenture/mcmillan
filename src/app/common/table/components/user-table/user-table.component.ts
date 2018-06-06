@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { ConsoleService } from '../../../../console/service/console.service';
 
 // import { client } from '../../client';
@@ -11,9 +11,12 @@ import { ConsoleService } from '../../../../console/service/console.service';
 })
 
 export class USerTableComponent implements OnInit {
+  selectedRow: any;
   clients: void;
   @Input() columns: string[];
+  @Input() customColumns = ["Nombre","Email","Tipo de cliente"];
 
+  @Output() userToEdit: EventEmitter<string> = new EventEmitter()
   data: any = []
   userdata: any = []
   constructor(private ConsoleService: ConsoleService) { }
@@ -29,6 +32,7 @@ export class USerTableComponent implements OnInit {
         .subscribe(resp => {
           console.log(resp, "clients");
           this.data = resp
+          this.userToEdit.emit(this.data[0].codigoSap);
         },
           error => {
             console.log(error, "error");
@@ -37,8 +41,10 @@ export class USerTableComponent implements OnInit {
       console.log(e);
     }
   }
-  SelectRow(i) {
-    $("#usertable tr")[i+1].classList.add("isSelected");
+  selectUserToEdit(index, dato) {
+     this.selectedRow = index;
+    this.userToEdit.emit(dato);
+
   }
 }
 

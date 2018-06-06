@@ -13,8 +13,12 @@ const httpOptions = {
 })
 export class CommonTableService {
   
-  constructor(private http : HttpClient) {
-      
+  constructor(private http : HttpClient) { }
+  Url = "./assets/mock";
+
+  getMaterials() {
+    var MATERIALS = this.http.get(this.Url + '/materials.json');
+    return MATERIALS;
   }
      getCLients() {
       var CLIENTS = this.http.get('http://localhost:8080/thinclients');
@@ -48,9 +52,9 @@ export class CommonTableService {
     getOrderListColumns():string[]{
       return ["referencia", "estado", "fecha","descripcion"]
     }
-    // orderDetail(user, id){
-    //   return this.http.post('http://localhost:8080/users/'+id, user);
-    // }
+    getMaterialsColumns(): string[]{
+      return ["ean", "descCorta"];
+    }
 }
 
 

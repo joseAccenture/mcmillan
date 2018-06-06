@@ -1,0 +1,12 @@
+th{
+    width: 15%;
+}
+th.EAN{
+    width: 15%;
+}
+th.Descripción{
+    width: 45%;
+}
+th.Unidades{
+    width: 10%;
+}

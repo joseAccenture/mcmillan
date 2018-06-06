@@ -1,10 +1,10 @@
 <table class="table clientModalTable" id="usertable">
     <tr>
-      <th *ngFor="let col of columns">
+      <th *ngFor="let col of customColumns">
         {{col}}
       </th>
     </tr>
-    <tr data-col="01" data-clientname="" data-dismiss="modal" (click)="SelectRow(i)" *ngFor="let dato of data; let i = index">
+    <tr id="row-{{i}}" data-clientname="" data-dismiss="modal" (click)="selectUserToEdit(i, dato)" *ngFor="let dato of data; let i = index"  [class.active]="i == selectedRow">
       <td *ngFor="let col of columns">
         {{dato[col]}}
       </td>

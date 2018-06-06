@@ -53,3 +53,8 @@ padding-right: 25px;
 .accordion.col-8{
     margin: 0 auto;
 }
+.modal-dialog{
+    min-width: 900px;
+    position: relative;
+    top: 25px;
+}

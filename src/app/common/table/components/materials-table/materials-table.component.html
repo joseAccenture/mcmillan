@@ -1,0 +1,29 @@
+<nav>
+    <form class="form-inline">
+      <input id="myInput" class="form-control mr-sm-2" type="search" data-ng-styles="input" (keyup)="filterTable($event)" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" data-ng-styles="buscar" type="submit">Buscar</button>
+    </form>
+  </nav>
+  <fieldset class="form-group row">
+      <div class="col-sm-12">
+        <div class="form-check">
+          <label class="form-check-label radiobtn">
+            <input class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadios1" value="option1"> Buscar por EAN</label>
+          <label class="form-check-label radiobtn">
+            <input class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadios2" value="option2"  checked> Buscar por descripción</label>
+<table id="materialsTable" class="table materialsModalTable">
+    <tr>
+      <th *ngFor="let col of customColumns">
+        {{col}}
+      </th>
+    </tr>
+    <tr data-clientname="" data-dismiss="modal" *ngFor="let dato of data; let i = index" [class.active]="i == selectedRow" (click)="selectMaterial(dato)">
+        
+      <td *ngFor="let col of columns">
+          {{dato[col]}}
+      </td>
+    </tr>
+  </table>
+</div>
+</div>
+</fieldset>

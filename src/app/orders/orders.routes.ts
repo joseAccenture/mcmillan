@@ -1,5 +1,4 @@
 import { Routes, RouterModule, CanActivate } from '@angular/router';
-// import { CreateUserComponent } from './components/create/users.createUser.component';
 import { ListOrderComponent } from './components/list/orders.listOrder.component';
 import { DetailOrderComponent } from './components/detail/orders.detailOrder.component';
 import { NewOrderComponent } from './components/new/orders.newOrder.component';

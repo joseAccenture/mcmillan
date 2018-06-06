@@ -6,12 +6,13 @@ import { ConsoleService } from '../../../../console/service/console.service';
 @Component({
   selector: 'common-client-table',
   templateUrl: './client-table.component.html',
-  styleUrls: ['./client-table.component.sass']
+  styleUrls: ['./client-table.component.css']
 })
 
 export class ClientTableComponent implements OnInit {
   clients: void;
   @Input() columns: string[];
+  customColumns = ["Código SAP", "Nombre"];
   @Output() actualClient: EventEmitter<string> =   new EventEmitter();
 
 

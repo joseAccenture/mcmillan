@@ -1,8 +1,9 @@
 {
-    "userslist":["Gestión de usuarios"],
+        "userslist":["Gestión de usuarios"],
        "clientdata":["Datos del cliente"],
        "clientnew":["Datos del cliente", "Crear cliente"],
        "createUser":["Gestión de usuarios", "Nuevo usuario"],
+       "editUser": ["Gestión de usuarios","Editar usuario"],    
        "ordersList":["Lista de pedidos"],
        "detailOrder":["Lista de pedidos", "Detalle del pedido"],
        "newOrder": ["Lista de pedidos", "Nuevo pedido"],

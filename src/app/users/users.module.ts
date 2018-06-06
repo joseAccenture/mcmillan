@@ -9,6 +9,8 @@ import { CommonElementsModule } from '../common/common_elements.module';
 
 import { UsersRootComponent } from "./components/root/user-root.component";
 import { CreateUserComponent } from "./components/create/users.createUser.component";
+import { EditUserComponent } from "./components/edit/users.editUser.component";
+
 import { ListUserComponent } from "./components/list/users.listUser.component";
 // import { BreadcrumbComponent } from '../common/breadcrumb/breadcrumb.component';
 // import { TableComponent } from '../common/table/table.component';
@@ -30,6 +32,7 @@ import { USerTableComponent } from '../common/table/components/user-table/user-t
   declarations: [
     UsersRootComponent,
     CreateUserComponent,
+    EditUserComponent,
     ListUserComponent
     // BreadcrumbComponent
     

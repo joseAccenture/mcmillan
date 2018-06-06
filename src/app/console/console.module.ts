@@ -8,14 +8,11 @@ import { UserModule } from "../users/users.module";
 import { ClientModule } from "../clients/clients.module";
 
 import { OrdersModule } from "../orders/orders.module";
-// import { BreadcrumbComponent } from '../common/breadcrumb/breadcrumb.component';
 
 import { HomeRootComponent } from "../home/components/root/home.component";
 import { ConsoleRootComponent  } from "./components/console-root/console.component";
-import { ConsoleNavbarComponent } from "./components/console-navbar/console.navbar.component";
-// import { TableComponent } from '../common/table/table.component';
-// import {TableRowComponent} from '../common/table-row/table-row.component';
-// import {BreadcrumbComponent} from '../common/breadcrumb/breadcrumb.component';
+import { ConsoleNavbarComponent } from "./components/console-navbar/console.navbar.component";  
+
 
 import { consoleRoutes } from "./console.routes";
 

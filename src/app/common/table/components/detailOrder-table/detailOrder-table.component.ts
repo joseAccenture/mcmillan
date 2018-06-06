@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ConsoleService } from '../../../../console/service/console.service';
 import { Router } from '@angular/router';
+import * as $ from 'jquery';
 
 // import { client } from '../../client';
 
@@ -15,6 +16,7 @@ export class DetailOrderTableComponent implements OnInit {
   clients: void;
   // @Input() characters: client[];
   @Input() columns: string[];
+  @Input() customColumns = ["EAN","Material / Licencia","Descripción","Unidades"];
   
   row: any = []
   data: any = []
@@ -24,6 +26,7 @@ export class DetailOrderTableComponent implements OnInit {
   ngOnInit() {
     this.clients = this.getOrders();
     this.columns = this.ConsoleService.getOrderColumns(); 
+    
   }
 
   getOrders() {
