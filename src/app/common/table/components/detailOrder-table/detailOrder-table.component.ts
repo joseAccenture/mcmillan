@@ -31,7 +31,7 @@ export class DetailOrderTableComponent implements OnInit {
 
   getOrders() {
     try {
-      this.ConsoleService.getOrders()
+      this.ConsoleService.getClientsData()
         .subscribe(resp => {
           console.log(resp, "clients");
           this.data = resp["lineasPedido"];

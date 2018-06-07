@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ConsoleService } from '../../../../console/service/console.service';
 import { Router } from '@angular/router';
 
@@ -20,6 +20,9 @@ export class ListOrderTableComponent implements OnInit {
   row: any = []
   data: any = []
   userdata: any = []
+  @Output() btnActive: EventEmitter<any> = new EventEmitter()
+  @Output() orderToEdit: EventEmitter<any> = new EventEmitter() 
+  @Input() activeBtn = false;
   constructor(private ConsoleService: ConsoleService, private router: Router) { }
 
   ngOnInit() {
@@ -48,7 +51,7 @@ export class ListOrderTableComponent implements OnInit {
           } else if (this.tableData === "newOrder") {
             this.getCleanRows(this.data);
           }
-
+          this.btnActive.emit(this.activeBtn);
         },
           error => {
             console.log(error, "error");
@@ -57,4 +60,18 @@ export class ListOrderTableComponent implements OnInit {
       console.log(e);
     }
   }
+  toggle() {
+    this.activeBtn = !this.activeBtn;
+    if (this.activeBtn) {
+      this.btnActive.emit(this.activeBtn);
+    } else {
+      this.btnActive.emit(!this.activeBtn);
+    }
+  }
+  selectRow(index, dato) {
+    this.selectedRow = index;
+    this.toggle();
+    this.orderToEdit.emit(dato);
+
+ }
 }  

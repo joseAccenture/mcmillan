@@ -4,7 +4,7 @@
         {{col}}
       </th>
     </tr>
-    <tr data-clientname="" id="{{i}}" data-dismiss="modal" *ngFor="let dato of data['lineasPedido']; let i = index" (click)="selectRow(i)" [class.active]="i == selectedRow">
+    <tr data-clientname="" id="{{i}}" data-dismiss="modal" *ngFor="let dato of data; let i = index" (click)="selectRow(i, dato)" [class.active]="i == selectedRow">
       <td *ngFor="let col of columns">
           {{dato[col]}}
       </td>

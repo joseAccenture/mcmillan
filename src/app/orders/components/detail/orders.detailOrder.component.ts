@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ConsoleService } from '../../../console/service/console.service';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+
 
 @Component({
   selector: 'order-detailorder-component',
@@ -8,19 +10,28 @@ import { ConsoleService } from '../../../console/service/console.service';
   providers: [ConsoleService]
 })
 export class DetailOrderComponent implements OnInit{
+  orderToedit: string;
   clients: void;
   // @Input() columns: string[];
   data: any = []
   columns: void;
-  constructor(private ConsoleService: ConsoleService) { }
+  constructor(private ConsoleService: ConsoleService, private activatedRoute: ActivatedRoute) { }
  
-  ngOnInit() {
-    this.clients = this.orderDetail();
+
+    ngOnInit() {  
+     
+      this.activatedRoute.queryParams.subscribe(params => {
+          var orderToedit = params;
+          var orderRef = orderToedit.orderToedit;
+          console.log("order REF: " + orderRef);
+          this.clients = this.orderDetail(orderRef); 
+      });
+      // this.getUSertoEdit(this.codigoSap);
   }
 
-  orderDetail() {
+  orderDetail(orderRef) {
     try {
-      this.ConsoleService.getOrders()
+      this.ConsoleService.getOrders(orderRef)
         .subscribe(resp => {
           console.log(resp, "ordersDetail");
           this.data = resp

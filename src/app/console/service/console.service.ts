@@ -24,8 +24,8 @@ export class ConsoleService {
     var CLIENTDATA = this.http.get(' http://localhost:8080/orders/7');
     return CLIENTDATA;
   }
-  getOrders() {
-    var ORDER_DETAIL = this.http.get(' http://localhost:8080/orders/7');
+  getOrders(id) {
+    var ORDER_DETAIL = this.http.get(' http://localhost:8080/orders/'+id);
     return ORDER_DETAIL;
   }
   getOrdersList() {
