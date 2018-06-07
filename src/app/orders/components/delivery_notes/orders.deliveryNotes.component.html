@@ -1,5 +1,5 @@
 <breadcrumb-custom></breadcrumb-custom>
-<div class="card">
+<div class="card">Delivery_notes
         <div class="card-body">
             <div class="row homebtnContainer">
                 <div class="col-8 m-auto">
@@ -13,7 +13,7 @@
                 <div class="col">
                     <button type="button" ng-disabled="true" class="btn btn-danger m-2" [routerLink]="['/newOrder']" routerLinkActive="active">Nuevo</button>
                     <button type="button" [disabled]="!active" class="btn btn-danger m-2" (click)="navigateToDetail()" routerLinkActive="active">Ver detalle</button>
-                    <button type="button" [disabled]="!active" class="btn btn-danger m-2" [routerLink]="['/deliveryNotes']" routerLinkActive="active">Albarán</button>
+                    <button type="button" [disabled]="!active" class="btn btn-danger m-2" [routerLink]="['/newOrder']" routerLinkActive="active">Albarán</button>
                 </div>
             </div>
         </div>

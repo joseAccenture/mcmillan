@@ -4,26 +4,21 @@
 		<div class="row homebtnContainer">
 			<div class="row">
 				<div class="col-sm">
-					<form>
+					<form (ngSubmit)="onSubmit(contactForm);" #contactForm="ngForm">
 						<div class="row mb-0">
 							<div class="col">
 								<div class="input-group mb-3">
 									<div class="input-group-prepend">
 										<span class="input-group-text" id="basic-addon2">Nombre</span>
 									</div>
-									<input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon2">
+									<input type="text" class="form-control" placeholder="Nombre" (ngModel)="data.nombre" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" required aria-label="Nombre" aria-describedby="basic-addon2">
 								</div>
 							</div>
 							<!-- <div class="col-4"></div> -->
-							<div class="col-4">
+							<!-- <div class="col-4">
 								<div class="input-group mb-3">
-									<!-- <div class="input-group-prepend">
-										<span class="input-group-text" id="basic-addon1">Código SAP</span>
-									</div>
-									<input type="text" class="form-control" placeholder="#000000000" aria-label="CódigoSAP" aria-describedby="basic-addon1" maxlength="10"
-									 width="48"> -->
 								</div>
-							</div>
+							</div> -->
 						</div>
 						<div class="row mb-0">
 							<div class="col">
@@ -31,7 +26,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text" id="basic-addon3">Email</span>
 									</div>
-									<input type="text" class="form-control" placeholder="user@macmillaneducation.com" id="email" aria-describedby="basic-addon3">
+									<input type="text" class="form-control" placeholder="email@macmillaneducation.com" (ngModel)="data.email" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" required id="email" aria-describedby="basic-addon3">
 								</div>
 							</div>
 							<div class="col-6"></div>
@@ -59,7 +54,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text">Zona</span>
 									</div>
-									<input type="text" class="form-control" placeholder="Zona" aria-label="zona">
+									<input type="text" class="form-control" placeholder="Zona" aria-label="zona" (ngModel)="data.zona" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" required>
 								</div>
 							</div>
 							<div class="col">
@@ -86,8 +81,7 @@
 						<div class="row mb-0">
 							<div class="col card">
 								<ul class="list-group list-group-flush">
-									<li class="list-group-item">{{sergio}}</li>
-									<li class="list-group-item">{{sergio}}</li>
+									<li class="list-group-item"></li>
 								</ul>
 							</div>
 							<div class="col-8"></div>
@@ -100,7 +94,7 @@
 		<div class="row">
 				<div class="col-6"></div>
 			<div class="col"><button type="button" class="btn btn-secondary" [routerLink]="['/userslist']" routerLinkActive="active">Volver</button>
-			<button type="button" class="btn btn-danger" [routerLink]="['/userslist']" routerLinkActive="active" (click)="submitUser(formValues)">Guardar</button>
+			<button type="button" class="btn btn-danger" [routerLink]="['/userslist']" routerLinkActive="active"(ngModel)="data" (click)="submitUser(data)">Guardar</button>
 			<button type="button" class="btn btn-secondary">Enviar Credenciales</button></div>
 		</div>
 	</div>

@@ -13,8 +13,12 @@ const httpOptions = {
   })
 export class UsersService {
     constructor(private http : HttpClient){}
-    getUSertoEdit(id) {
-        var USERS = this.http.get(' http://localhost:8080/users/'+id);
+    getUSertoEdit() {
+        var USERS = this.http.get(' http://localhost:8080/users');
        return USERS;
-     } 
+     }
+     submitUser(user) {
+      var USERS = this.http.post(' http://localhost:8080/users', user);
+     return USERS;
+   } 
 }

@@ -24,10 +24,10 @@ export class AppComponent {
   constructor(public appService: AppService) { }
 
   ngOnInit() {
-    this.USerLoign();
+    this.userLogin();
   }
   /* method to call get-api from app.service */
-  USerLoign() {
+  userLogin() {
     try {
       this.appService.getLogin()
         .subscribe(resp => {
@@ -41,29 +41,6 @@ export class AppComponent {
       console.log(e);
     }
   }
-  // ejemplo post en componente
- /* method to call post-api from app.service */
-//  submitAuth(formValues) {
-//   try {
-//     let author = {
-//       FirstName: formValues.FirstName,
-//       ID: formValues.ID,
-//       IDBook: formValues.IDBook,
-//       LastName: formValues.LastName
-//     }
-    // console.log(author,"author")
-//     this.appService.submitAuthor(author)
-//       .subscribe(resp => {
-//         console.log(resp, "res");
-//         this.data = resp
-//       },
-//         error => {
-//           console.log(error, "error");
-//         })
-//   } catch (e) {
-//     console.log(e);
-//   }
-// }
 
 }
 

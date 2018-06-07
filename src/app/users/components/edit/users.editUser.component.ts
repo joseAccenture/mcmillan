@@ -11,7 +11,7 @@ export class EditUserComponent {
   public userInEdit; 
   optionSelected: any;
   options = ["Representante","Cliente","Administrador","Atención Cliente","Jefe de Marketing","Jefe de Zona"];
-  public codigoSap: string; 
+  public id: string; 
   constructor(private UsersService: UsersService, private activatedRoute: ActivatedRoute){}
 
   selectUserInEdit(userInEdit) {
@@ -22,16 +22,16 @@ export class EditUserComponent {
    }
   ngOnInit() {  
     this.activatedRoute.queryParams.subscribe(params => {
-        this.codigoSap = params['codigoSap'];
-        console.log(this.codigoSap);
-      this.onOptionSelected(event);  
+        this.id = params['codigoSap'];
+      //   console.log(this.codigoSap);
+      // this.onOptionSelected(event);  
     });
-    this.getUSertoEdit(this.codigoSap);
+    this.getUSertoEdit();
 }
 
-getUSertoEdit(codigoSap) {
+getUSertoEdit() {
   try {
-    this.UsersService.getUSertoEdit(codigoSap)
+    this.UsersService.getUSertoEdit()
       .subscribe(resp => {
         console.log(resp, "userToedit");
         this.data = resp

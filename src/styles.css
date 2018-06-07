@@ -144,6 +144,7 @@ body {
   margin-bottom: 60px;
   font-family: open_sansregular;
   background: red;
+  overflow-x: hidden;
 
 }
 .formView{
@@ -293,4 +294,7 @@ z-index: 5;
 }
 .isSelected{
     background: #f5c6cb;
+}
+#collapseTwo{
+    border-bottom: solid .5px #ccc;
 }

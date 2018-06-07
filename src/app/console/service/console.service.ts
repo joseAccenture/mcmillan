@@ -17,25 +17,27 @@ export class ConsoleService {
       
   }
   getCLients() {
-    var CLIENTS = this.http.get('http://localhost:8080/thinclients');
+    var CLIENTS = this.http.get('http://localhost:8080/clients');
     return CLIENTS;
   }
   getClientsData() {
-    var CLIENTDATA = this.http.get(' http://localhost:8080/orders/7');
+    var CLIENTDATA = this.http.get(' http://localhost:8080/orders/1');
     return CLIENTDATA;
   }
   getOrders(id) {
-    var ORDER_DETAIL = this.http.get(' http://localhost:8080/orders/'+id);
+    var ORDER_DETAIL = this.http.get(' http://localhost:8080/orders/1');
     return ORDER_DETAIL;
   }
   getOrdersList() {
-    var ORDER_DETAIL = this.http.get(' http://localhost:8080/thinorders');
+    var ORDER_DETAIL = this.http.get(' http://localhost:8080/orders/thin');
     return ORDER_DETAIL;
   }
   getUsers() {
-    var USERS = this.http.get(' http://localhost:8080/thinusers');
+    var USERS = this.http.get(' http://localhost:8080/users');
     return USERS;
   }
+
+  // WS columns to draw
   getUsersColumns(): string[] {
     return ["nombre", "email", "tipoCliente"]
   }
