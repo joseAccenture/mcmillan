@@ -4,14 +4,21 @@
 		<div class="row homebtnContainer">
 			<div class="row">
 				<div class="col-sm">
-					<form (ngSubmit)="onSubmit(contactForm);" #contactForm="ngForm">
-						<div class="row mb-0">
+					<!-- ddddddddddddddddd -->
+					<div class="row mb-0">
 							<div class="col">
 								<div class="input-group mb-3">
 									<div class="input-group-prepend">
 										<span class="input-group-text" id="basic-addon2">Nombre</span>
 									</div>
-									<input type="text" class="form-control" placeholder="Nombre" (ngModel)="data.nombre" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" required aria-label="Nombre" aria-describedby="basic-addon2">
+
+									
+									
+								</div>
+
+
+								<input [formControl]="name"><br />
+								<label *ngIf="name.invalid" [ngClass]="'error'"> Name required with max 15 character. </label>
 								</div>
 							</div>
 							<!-- <div class="col-4"></div> -->
@@ -26,7 +33,8 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text" id="basic-addon3">Email</span>
 									</div>
-									<input type="text" class="form-control" placeholder="email@macmillaneducation.com" (ngModel)="data.email" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" required id="email" aria-describedby="basic-addon3">
+									<input [formControl]="email">
+									
 								</div>
 							</div>
 							<div class="col-6"></div>
@@ -37,14 +45,14 @@
 									<div class="input-group-prepend">
 										<label class="input-group-text" for="inputGroupSelect01">Tipos de Cliente</label>
 									</div>
-									<select class="custom-select" id="inputGroupSelect01">
+									<select [formControl]="clientType" class="custom-select" id="inputGroupSelect01">
 										<option selected="">Choose...</option>
-										<option value="1">Cliente</option>
-										<option value="2">Representante</option>
-										<option value="3">Administrador</option>
-										<option value="4">Atención Cliente</option>
-										<option value="5">Jefe de Marketing</option>
-										<option value="6">Jefe de Zona</option>
+										<option value="Cliente">Cliente</option>
+										<option value="Representante">Representante</option>
+										<option value="Administrador">Administrador</option>
+										<option value="Atención Cliente">Atención Cliente</option>
+										<option value="Jefe de Marketing">Jefe de Marketing</option>
+										<option value="Jefe de Zona">Jefe de Zona</option>
 
 									</select>
 								</div>
@@ -54,7 +62,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text">Zona</span>
 									</div>
-									<input type="text" class="form-control" placeholder="Zona" aria-label="zona" (ngModel)="data.zona" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" required>
+									<input [formControl]="zona" name="zona">
 								</div>
 							</div>
 							<div class="col">
@@ -64,10 +72,9 @@
 							<div class="col inputMaxWidth">
 								<div class="input-group mb-3">
 									<div class="input-group-prepend">
-										<label class="input-group-text" for="inputGroupSelect01">Representados</label>
+										<label class="input-group-text"[formControl]="representados" for="inputGroupSelect01">Representados</label>
 									</div>
 
-									<input type="text" class="form-control" placeholder="SapCode01" aria-label="representados" aria-describedby="basic-addon2">
 									<div class="input-group-append">
 										<button class="btn btn-outline-secondary" type="button" (click)="InsertAgent()">Insertar</button>
 									</div>
@@ -86,15 +93,68 @@
 							</div>
 							<div class="col-8"></div>
 						</div>
-					</form>
-				</div>
+						<button (click)="setNameValue()"class="btn btn-danger"><a href="/userslist">Guardar</a></button>
+						<!-- [routerLink]="['/userslist']"  -->
+
+
+
+
+
+					<!-- ddddddddddddd -->
+						<!-- <h3>Using FormControl </h3>
+						<div>
+							<div>
+								Name:
+								<input [formControl]="name">
+								<label *ngIf="name.invalid" [ngClass]="'error'"> Name required with max 15 character. </label>
+							</div>
+							<div>
+								<button (click)="setNameValue()">Set value</button>
+								<button (click)="setResetName()">Reset</button>
+							</div>
+							<div>
+								Age:
+								<input [formControl]="age">
+							</div>
+							<div>
+								City:
+								<input [formControl]="city">
+							</div>
+							<div>
+								Country:
+								<input [formControl]="country">
+							</div>
+							<div>
+								<input type="checkbox" [checked]="married.value" (change)="changeValue()" /> Are you married?
+							</div>
+						</div>
+						<div>
+							<p>Name:
+								<b>{{ name.value }}</b>, Validation Status:
+								<b>{{ name.status }}</b>
+							</p>
+							<p>Age:
+								<b>{{ age.value }}</b>, Validation Status:
+								<b>{{ age.status }}</b>
+							</p>
+							<p>City:
+								<b>{{ city.value }}</b>
+							</p>
+							<p>Country:
+								<b>{{ country.value }}</b>
+							</p>
+							<p>Married?:
+								<b>{{ married.value }}</b>
+							</p>
+						</div>
+				</div> -->
 				
 			</div>
 		</div>
 		<div class="row">
 				<div class="col-6"></div>
 			<div class="col"><button type="button" class="btn btn-secondary" [routerLink]="['/userslist']" routerLinkActive="active">Volver</button>
-			<button type="button" class="btn btn-danger" [routerLink]="['/userslist']" routerLinkActive="active"(ngModel)="data" (click)="submitUser(data)">Guardar</button>
+			
 			<button type="button" class="btn btn-secondary">Enviar Credenciales</button></div>
 		</div>
 	</div>

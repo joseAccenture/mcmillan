@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { UsersRoutes } from './users.routes';
 import { CommonElementsModule } from '../common/common_elements.module';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { UsersRootComponent } from "./components/root/user-root.component";
 import { CreateUserComponent } from "./components/create/users.createUser.component";
@@ -25,6 +26,7 @@ import { USerTableComponent } from '../common/table/components/user-table/user-t
     CommonModule,
     FormsModule, 
     ReactiveFormsModule,
+    BrowserModule,
     RouterModule.forChild(UsersRoutes),
     CommonElementsModule
     

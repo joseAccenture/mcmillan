@@ -20,6 +20,10 @@ export class ConsoleService {
     var CLIENTS = this.http.get('http://localhost:8080/clients');
     return CLIENTS;
   }
+  submitLine(line) {
+    var LINE = this.http.post(' http://localhost:8080/users', line);
+   return LINE;
+ } 
   getClientsData() {
     var CLIENTDATA = this.http.get(' http://localhost:8080/orders/1');
     return CLIENTDATA;

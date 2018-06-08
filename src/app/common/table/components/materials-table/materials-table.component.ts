@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { CommonTableService } from '../../../../common/table/service/common-table.service';
+import { ConsoleService } from '../../../../console/service/console.service';
+
 import { Router } from '@angular/router';
 
 
@@ -22,7 +24,7 @@ export class MaterialsTableComponent implements OnInit {
   row: any = []
   data: any = []
   userdata: any = []
-  constructor(private CommonTableService: CommonTableService, private router: Router) { }
+  constructor(private CommonTableService: CommonTableService, private router: Router, private ConsoleService: ConsoleService) { }
  
   ngOnInit() {
     this.materials = this.getMaterials();
@@ -67,6 +69,19 @@ export class MaterialsTableComponent implements OnInit {
   selectMaterial(dato) {
     this.lineToAdd.emit(dato);
     console.log(dato);
+    try {
+      this.ConsoleService.submitLine(dato)
+        .subscribe(resp => {
+          console.log(resp, "ListOrders");
+          this.data = resp
+        },
+          error => {
+            console.log(error, "error");
+          })
+    } catch (e) {
+      console.log(e);
+    }
+
   }
   
 }

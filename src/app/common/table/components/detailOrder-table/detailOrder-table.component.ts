@@ -44,6 +44,7 @@ export class DetailOrderTableComponent implements OnInit {
     }
   }
   OrderDetail(i) {
+    // this.ConsoleService.submitLine()
     this.router.navigateByUrl('/detailOrder', i);
   }
   

@@ -24,7 +24,7 @@ import { consoleRoutes } from "./console.routes";
     ClientModule,
     OrdersModule,
     CommonElementsModule,
-    RouterModule.forRoot(consoleRoutes)
+    RouterModule.forRoot(consoleRoutes, {onSameUrlNavigation: 'reload'})
   ],
   declarations: [
     ConsoleRootComponent,

@@ -72,6 +72,24 @@ export class ListOrderTableComponent implements OnInit {
     this.selectedRow = index;
     this.toggle();
     this.orderToEdit.emit(dato);
+    // try {
+    //   this.ConsoleService.submitLine(dato)
+    //     .subscribe(resp => {
+    //       console.log(resp, "ListOrders");
+    //       this.data = resp
+    //       // if (this.tableData === "pendingOrder") {
+    //       //   this.getStatus(this.data);
+    //       // } else if (this.tableData === "newOrder") {
+    //       //   this.getCleanRows(this.data);
+    //       // }
+    //       this.btnActive.emit(this.activeBtn);
+    //     },
+    //       error => {
+    //         console.log(error, "error");
+    //       })
+    // } catch (e) {
+    //   console.log(e);
+    // }
 
  }
 }  

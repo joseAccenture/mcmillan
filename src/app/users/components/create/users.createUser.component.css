@@ -96,5 +96,8 @@ max-width: 50%;
 .container.form .card{
 	margin-left: 1em;
 }
-	
+button a{
+	text-decoration: none;
+	color: white;
+}	
 

@@ -17,7 +17,7 @@ export class CommonTableService {
   Url = "./assets/mock";
 
   getMaterials() {
-    var MATERIALS = this.http.get(this.Url + '/materials.json');
+    var MATERIALS = this.http.get('http://localhost:8080/lineas');
     return MATERIALS;
   }
      getCLients() {
@@ -53,7 +53,7 @@ export class CommonTableService {
       return ["referencia", "estado", "fecha","descripcion"]
     }
     getMaterialsColumns(): string[]{
-      return ["ean", "descCorta"];
+      return ["ean", "descripcion"];
     }
 }
 
