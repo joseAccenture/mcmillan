@@ -11,7 +11,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text" id="basic-addon2">Nombre</span>
 									</div>
-									<input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" [(ngModel)]="data.nombre" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" aria-describedby="basic-addon2">
+									<input class="form-control" [(ngModel)]="data.nombre" [formControl]="name"> 
 								</div>
 							</div>
 							<div class="col-4">
@@ -25,7 +25,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text" id="basic-addon3">Email</span>
 									</div>
-									<input type="text" class="form-control" placeholder="user@macmillaneducation.com" [(ngModel)]="data.email" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" id="email" aria-describedby="basic-addon3">
+									<input class="form-control" [(ngModel)]="data.email" [formControl]="mail"> 
 								</div>
 							</div>
 							<div class="col-6"></div>
@@ -46,17 +46,19 @@
 										<option value="6">Jefe de Zona</option>
 
 									</select> -->
-									<select class='select-option custom-select' required [(ngModel)]='optionSelected' (ngModelChange)='onOptionsSelected($event)'>
-											<option class='option' *ngFor='let option of options' [value]="option">{{option}}</option>
+									
+									<select class='select-option custom-select' (change)="onChange($event.target.value)" required [formControl]="tipo"> 
+											<!-- (ngModelChange)='onOptionsSelected($event)' -->
+											<option class='option' *ngFor='let option of options' [selected]="option === data.tipoCliente">{{option}}</option>
 										</select>
 								</div>
 							</div>
 							<div class="col">
-								<div class="input-group mb-3">
+								<div class="input-group mb-3" [hidden]="!isZoneBoss && !isAgent">
 									<div class="input-group-prepend">
 										<span class="input-group-text">Zona</span>
 									</div>
-									<input type="text" class="form-control" placeholder="Zona"[(ngModel)]="data.zona" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" aria-label="zona">
+									<input class="form-control" [(ngModel)]="data.zona" [formControl]="zona"> 
 								</div>
 							</div>
 							<div class="col">
@@ -69,26 +71,30 @@
 										<label class="input-group-text" for="inputGroupSelect01">Representados</label>
 									</div>
 
-									<input type="text" class="form-control" placeholder="SapCode01" aria-label="representados" aria-describedby="basic-addon2">
+									<input class="repCode" type="text" placeholder="SapCode01" [value]="repCode" [(ngModel)]="repCode" [ngModelOptions]="{standalone: true}">
 									<div class="input-group-append">
-										<button class="btn btn-outline-secondary" type="button" (click)="InsertAgent()">Insertar</button>
+										<button class="btn btn-outline-secondary" type="button" (click)="InsertAgent(data, repCode)">Insertar</button>
 									</div>
 								</div>
 							</div>
 							<div class="col-6"></div>
 						</div>
-						<div class="row mb-0">
+						<span class="ListContainer" [hidden]="!isAgent">
+						<div class="row mb-0" >
 							<h6 class="ml-3">Lista de Representados</h6>
 						</div>
 						<div class="row mb-0">
 							<div class="col card">
 								<ul class="list-group list-group-flush">
-									<li class="list-group-item"></li>
-									<li class="list-group-item"></li>
+												<li *ngFor="let representado of data.representados">
+												  {{ representado }}
+												</li>
+												 
 								</ul>
 							</div>
 							<div class="col-8"></div>
 						</div>
+					</span>
 					</form>
 				</div>
 				
@@ -97,7 +103,8 @@
 		<div class="row">
 				<div class="col-6"></div>
 			<div class="col"><button type="button" class="btn btn-secondary" [routerLink]="['/userslist']" routerLinkActive="active">Volver</button>
-			<button type="button" class="btn btn-danger" [routerLink]="['/userslist']" routerLinkActive="active" (click)="submitUser(formValues)">Guardar</button>
+			<button type="button" class="btn btn-danger" routerLinkActive="active" (click)="submitUser(formValues)"><a href="/userslist">Guardar</a></button>
+			<!-- [routerLink]="['/userslist']" -->
 			<button type="button" class="btn btn-secondary">Enviar Credenciales</button></div>
 		</div>
 	</div>

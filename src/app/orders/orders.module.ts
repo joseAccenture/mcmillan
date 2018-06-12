@@ -13,6 +13,7 @@ import { DeliveryNotesOrderComponent } from "./components/delivery_notes/orders.
 import { NewOrderComponent } from "./components/new/orders.newOrder.component";
 import { ListOrderComponent } from "./components/list/orders.listOrder.component";
 import { PendingOrderComponent } from "./components/pending/orders.pendingOrder.component";
+import { MyDatePickerModule } from 'mydatepicker';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -24,7 +25,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     RouterModule.forChild(OrdersRoutes),
     CommonElementsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MyDatePickerModule
     
   ],
   declarations: [

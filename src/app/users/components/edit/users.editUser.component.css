@@ -1,3 +1,7 @@
+button  a{
+	text-decoration: none;
+	color: #fff;
+}
 .card .card-body .homebtnContainer{
 	width: 80%;
 	margin: 0 auto;
@@ -71,6 +75,9 @@ margin: 0 auto;
 .footer .list-inline-item:not(:last-child){
 	margin-right: 2.5em;
 }
+.list-group.list-group-flush{
+	list-style: none;
+}
 	/* title */
 .container.title{
 	margin-bottom: 2%;
@@ -96,5 +103,13 @@ max-width: 50%;
 .container.form .card{
 	margin-left: 1em;
 }
-	
+input.repCode, label.input-group-text{
+	max-height: 35px;
+}
+button.btn.btn-outline-secondary{
+	margin: 0 !important;
+	max-height: 35px;
+}
+
+
 

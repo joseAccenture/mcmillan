@@ -20,8 +20,9 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon2">Código Sap</span>
                                         </div>
-                                        <input type="text" class="form-control" placeholder="Codigo SAP" [(ngModel)]="data.codigoSap" [ngModelOptions]="{standalone: true}"
-                                            #ctrl="ngModel" aria-describedby="basic-addon2">
+                                        <!-- <input type="text" class="form-control" [formControl]="codSap" placeholder="Codigo SAP" [(ngModel)]="data.codigoSap" [ngModelOptions]="{standalone: true}"
+                                            #ctrl="ngModel" aria-describedby="basic-addon2"> -->
+                                            <input class="form-control" [formControl]="codSap" placeholder="Codigo SAP" >
                                     </div>
                                 </div>
                                 <div class="col">
@@ -29,8 +30,10 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon2">Nombre fiscal</span>
                                         </div>
-                                        <input type="text" class="form-control" placeholder="Client fiscal name" [(ngModel)]="data.nombre" [ngModelOptions]="{standalone: true}"
-                                            #ctrl="ngModel" aria-describedby="basic-addon2">
+                                        <!-- <input type="text" class="form-control" [formControl]="nomFis" placeholder="Client fiscal name" [(ngModel)]="data.nombre" [ngModelOptions]="{standalone: true}"
+                                            #ctrl="ngModel" aria-describedby="basic-addon2"> -->
+
+                                            <input class="form-control" [formControl]="nomFis" placeholder="Client fiscal name" >
                                     </div>
                                 </div>
                                 <div class="col">
@@ -38,8 +41,10 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon2">CIF</span>
                                         </div>
-                                        <input type="text" class="form-control" placeholder="CIF" [(ngModel)]="data.cif" [ngModelOptions]="{standalone: true}" #ctrl="ngModel"
-                                            aria-describedby="basic-addon2">
+                                        <!-- <input type="text" class="form-control" [formControl]="cif" placeholder="CIF" [(ngModel)]="data.cif" [ngModelOptions]="{standalone: true}" #ctrl="ngModel"
+                                            aria-describedby="basic-addon2"> -->
+
+                                            <input class="form-control" [formControl]="cif" placeholder="CIF">
                                     </div>
                                 </div>
                             </div>
@@ -51,28 +56,35 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon2">Dirección de entrega</span>
                                         </div>
-                                        <input type="text" class="form-control" placeholder="Calle Orotava s/n" [(ngModel)]="data.direccionEntrega" [ngModelOptions]="{standalone: true}"
-                                            #ctrl="ngModel" aria-label="Nombre" aria-describedby="basic-addon2">
+                                        <!-- <input [formControl]="dirEnt" type="text" class="form-control" placeholder="calle" [(ngModel)]="data.direccionEntrega" [ngModelOptions]="{standalone: true}"
+                                            #ctrl="ngModel" aria-label="Nombre" aria-describedby="basic-addon2"> -->
+
+                                            <input [formControl]="dirEnt" class="form-control" placeholder="calle" >
                                     </div>
                                 </div>
                             </div>
                             <div class="row ml-2">
                                 <div class="col">
                                     <label class="form-check-label radiobtn">
-                                        <input class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>Fecha inmediata</label>
+                                        <!-- <input [formControl]="fecEnt" class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>Fecha inmediata</label> -->
+                                        <input class="form-check-input radio-inline" type="radio" >Fecha inmediata</label>
                                 </div>
                                 <div class="col">
                                 </div>
                             </div>
                             <div class="row ml-2">
-                                <div class="col">
+                                <div class="colCalendar">
 
                                     <input class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadios2" value="option2">
                                     <label class="form-check-label radiobtn">Fecha preferente de entrega</label>
-                                    <input type="text" name="preferentDate" class="form-control min-input" placeholder="Date" (ngModel)="data.fecha" [ngModelOptions]="{standalone: true}"
-                                        #ctrl="ngModel">
+                                    <!-- <input type="text" name="preferentDate" class="form-control min-input" placeholder="Date" (ngModel)="data.fecha" [ngModelOptions]="{standalone: true}"
+                                        #ctrl="ngModel"> -->                                                 
 
-                                    <!-- <dl-date-time-picker></dl-date-time-picker> -->
+                                        <form #myForm="ngForm" class="dateCalendar" novalidate>
+                                            <!-- <my-date-picker [formControl]="fecEnt" name="mydate" [options]="myDatePickerOptions" [(ngModel)]="data.fecha" required [ngModelOptions]="{standalone: true}" #ctrl="ngModel"></my-date-picker> -->
+                                            <my-date-picker [formControl]="fecEnt" ></my-date-picker>
+                                        </form>
+                                                <!--<dl-date-time-picker></dl-date-time-picker> -->
                                 </div>
 
                             </div>

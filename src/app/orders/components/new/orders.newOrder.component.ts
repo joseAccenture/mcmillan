@@ -1,5 +1,8 @@
 import { Component, OnInit, Input  } from '@angular/core';
 import { ConsoleService } from '../../../console/service/console.service';
+import {IMyDpOptions} from 'mydatepicker';
+import { FormsModule, FormGroup, FormControl, Validators }   from '@angular/forms';
+
 @Component({
   selector: 'order-neworder-component',
   templateUrl: './orders.newOrder.component.html',
@@ -7,15 +10,31 @@ import { ConsoleService } from '../../../console/service/console.service';
 })
 
 
+
 export class NewOrderComponent implements OnInit{
+  
+  nomFis = new FormControl('', Validators.required);
+  dirEnt = new FormControl('', Validators.required);
+  cif = new FormControl('', Validators.required);
+  fecEnt = new FormControl('', Validators.required); 
+
   clients: void;
+  users: void;
   @Input() columns: string[];
+  @Input() dataUser: any;
+  public formGroup;
   data;
+  // dataUser;
   constructor(private ConsoleService: ConsoleService) { }
+  public myDatePickerOptions: IMyDpOptions  = {
+    // other options...
+    dateFormat: 'dd.mm.yyyy',
+}
  
   ngOnInit() {
     this.clients = this.orderDetail();
     this.columns = this.ConsoleService.getOrderColumns(); 
+    // this.users = this.userDetail();
   }
   addLine(materialSelected){
     // this.lineToAdd = materialSelected;

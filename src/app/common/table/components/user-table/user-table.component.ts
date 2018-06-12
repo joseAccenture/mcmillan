@@ -13,6 +13,8 @@ import { ConsoleService } from '../../../../console/service/console.service';
 export class USerTableComponent implements OnInit {
   selectedRow: any;
   clients: void;
+  @Output() btnActive: EventEmitter<any> = new EventEmitter()
+  @Input() activeBtn = false;
   @Input() columns: string[];
   @Input() customColumns = ["Nombre","Email","Tipo de cliente"];
 
@@ -33,6 +35,7 @@ export class USerTableComponent implements OnInit {
           console.log(resp, "clients");
           this.data = resp
           this.userToEdit.emit(this.data[0].codigoSap);
+          this.btnActive.emit(this.activeBtn);
         },
           error => {
             console.log(error, "error");
@@ -41,8 +44,17 @@ export class USerTableComponent implements OnInit {
       console.log(e);
     }
   }
+  toggle() {
+    this.activeBtn = !this.activeBtn;
+    if (this.activeBtn) {
+      this.btnActive.emit(this.activeBtn);
+    } else {
+      this.btnActive.emit(!this.activeBtn);
+    }
+  }
   selectUserToEdit(index, dato) {
      this.selectedRow = index;
+     this.toggle();
     this.userToEdit.emit(dato);
 
   }

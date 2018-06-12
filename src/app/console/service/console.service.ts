@@ -29,7 +29,7 @@ export class ConsoleService {
   //   return CLIENTDATA;
   // }
   getOrders(id) {
-    var ORDER_DETAIL = this.http.get(' http://localhost:8080/orders/1');
+    var ORDER_DETAIL = this.http.get(' http://localhost:8080/orders', );
     return ORDER_DETAIL;
   }
   getOrdersList() {
