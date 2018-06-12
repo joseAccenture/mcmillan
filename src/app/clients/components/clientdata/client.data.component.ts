@@ -20,15 +20,15 @@ export class ClientDataComponent {
  
   ngOnInit() {
     var isUser = true;
-    this.clientdata = this.getClientsData();
+    this.clientdata = this.getClients();
   }
 
-  getClientsData() {
+  getClients() {
     try {
-      this.ConsoleService.getClientsData()
+      this.ConsoleService.getCLients()
         .subscribe(resp => {
           console.log(resp, "clientData");
-          this.data = resp
+          this.data = resp[0]
         },
           error => {
             console.log(error, "error");

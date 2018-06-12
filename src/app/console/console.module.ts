@@ -12,6 +12,7 @@ import { OrdersModule } from "../orders/orders.module";
 import { HomeRootComponent } from "../home/components/root/home.component";
 import { ConsoleRootComponent  } from "./components/console-root/console.component";
 import { ConsoleNavbarComponent } from "./components/console-navbar/console.navbar.component";  
+import { DataListModule, DataTableModule }  from 'primeng/primeng';
 
 
 import { consoleRoutes } from "./console.routes";
@@ -23,6 +24,8 @@ import { consoleRoutes } from "./console.routes";
     UserModule,
     ClientModule,
     OrdersModule,
+    DataListModule,
+    DataTableModule,
     CommonElementsModule,
     RouterModule.forRoot(consoleRoutes, {onSameUrlNavigation: 'reload'})
   ],

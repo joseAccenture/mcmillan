@@ -12,11 +12,13 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^6.0.2",
+    "@angular/cdk": "^6.2.1",
     "@angular/common": "^6.0.2",
     "@angular/compiler": "^6.0.2",
     "@angular/core": "^6.0.2",
     "@angular/forms": "^6.0.2",
     "@angular/http": "^6.0.2",
+    "@angular/material": "^6.2.1",
     "@angular/platform-browser": "^6.0.2",
     "@angular/platform-browser-dynamic": "^6.0.2",
     "@angular/router": "^6.0.2",
@@ -27,6 +29,7 @@
     "moment": "^2.22.1",
     "open-iconic": "^1.1.1",
     "popper.js": "^1.14.3",
+    "primeng": "^6.0.0-beta.1",
     "rxjs": "^6.0.0",
     "tooltip.js": "^1.2.0",
     "zone.js": "^0.8.26"

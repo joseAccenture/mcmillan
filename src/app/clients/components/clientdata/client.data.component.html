@@ -16,7 +16,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text" id="basic-addon2">Código Sap</span>
 									</div>
-									<input type="text" class="form-control" placeholder="Codigo SAP" [(ngModel)]="data.codigoSap" [ngModelOptions]="{standalone: true}"
+									<input type="text" class="form-control" placeholder="Codigo SAP" [readonly]="true" [(ngModel)]="data.codigoSap" [ngModelOptions]="{standalone: true}"
 									 #ctrl="ngModel" required aria-label="SapCode" aria-describedby="basic-addon2">
 								</div>
 							</div>
@@ -25,7 +25,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text" id="basic-addon2">Nombre fiscal</span>
 									</div>
-									<input type="text" [(ngModel)]="data.nombre" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" required class="form-control"
+									<input type="text" [(ngModel)]="data.nombre" [readonly]="true" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" required class="form-control"
 									 placeholder="Client fiscal name" value="" aria-label="name" aria-describedby="basic-addon2">
 								</div>
 							</div>
@@ -34,7 +34,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text" id="basic-addon2">CIF</span>
 									</div>
-									<input type="text" [(ngModel)]="data.cif" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" class="form-control" placeholder="CIF"
+									<input type="text" [(ngModel)]="data.cif" [readonly]="true" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" class="form-control" placeholder="CIF"
 									 aria-label="Nombre" aria-describedby="basic-addon2">
 								</div>
 							</div>
@@ -45,7 +45,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text" id="basic-addon3">Direción</span>
 									</div>
-									<input type="text" [(ngModel)]="data.direccion" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" class="form-control"
+									<input type="text" [(ngModel)]="data.direccion" [readonly]="true" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" class="form-control"
 									 placeholder="Calle Orotava s/n" id="address" aria-describedby="basic-addon3">
 								</div>
 							</div>
@@ -54,7 +54,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text" id="basic-addon3">Email</span>
 									</div>
-									<input type="text" class="form-control" [(ngModel)]="data.email" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" placeholder="user@macmillaneducation.com"
+									<input type="text" class="form-control" [(ngModel)]="data.email" [readonly]="true" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" placeholder="user@macmillaneducation.com"
 									 id="email" aria-describedby="basic-addon3">
 								</div>
 							</div>
@@ -65,7 +65,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text" id="basic-addon2">Teléfono</span>
 									</div>
-									<input type="text" class="form-control" [(ngModel)]="data.telefono" [ngModelOptions]="{standalone: true}" #ctrl="ngModel"
+									<input type="text" class="form-control" [(ngModel)]="data.telefono" [readonly]="true" [ngModelOptions]="{standalone: true}" #ctrl="ngModel"
 									 placeholder="956996699" aria-label="Nombre" aria-describedby="basic-addon2">
 								</div>
 							</div>
@@ -74,7 +74,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text" id="basic-addon2">Via de pago</span>
 									</div>
-									<input type="text" [(ngModel)]="data.viaPago" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" class="form-control"
+									<input type="text" [(ngModel)]="data.viaPago" [readonly]="true" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" class="form-control"
 									 placeholder="Contado" value="" aria-label="Nombre" aria-describedby="basic-addon2">
 								</div>
 							</div>
@@ -83,7 +83,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text" id="basic-addon2">Condición de pago</span>
 									</div>
-									<input type="text" class="form-control" [(ngModel)]="data.condicionPago" [ngModelOptions]="{standalone: true}" #ctrl="ngModel"
+									<input type="text" class="form-control" [(ngModel)]="data.condicionPago" [readonly]="true" [ngModelOptions]="{standalone: true}" #ctrl="ngModel"
 									 placeholder="1" aria-label="Nombre" aria-describedby="basic-addon2">
 								</div>
 							</div>
@@ -94,7 +94,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text" id="basic-addon2">Dirección de entrega</span>
 									</div>
-									<input type="text" class="form-control" [(ngModel)]="data.direccionEntrega" [ngModelOptions]="{standalone: true}" #ctrl="ngModel"
+									<input type="text" class="form-control" [(ngModel)]="data.direccionEntrega" [readonly]="true" [ngModelOptions]="{standalone: true}" #ctrl="ngModel"
 									 placeholder="Calle Orotava s/n" aria-label="Nombre" aria-describedby="basic-addon2">
 								</div>
 							</div>
@@ -103,7 +103,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text" id="basic-addon2">Persona de contacto</span>
 									</div>
-									<input type="text" class="form-control" [(ngModel)]="data.personaContacto" [ngModelOptions]="{standalone: true}" #ctrl="ngModel"
+									<input type="text" class="form-control" [(ngModel)]="data.personaContacto" [readonly]="true" [ngModelOptions]="{standalone: true}" #ctrl="ngModel"
 									 placeholder="Contacto 01" aria-label="Nombre" aria-describedby="basic-addon2">
 								</div>
 							</div>

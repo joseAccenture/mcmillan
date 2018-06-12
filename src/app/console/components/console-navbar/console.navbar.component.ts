@@ -8,24 +8,36 @@ import { ConsoleService } from '../../../console/service/console.service';
   
 })
 export class ConsoleNavbarComponent implements OnInit  {
+   data: Object;
   @Input() clients: string[];
   @Input() columns: string[];
   public userName;
   public userMail;
   public actualClient;  
   public actualUserName;  
+  // public data:{
+  //   nombre: string,
+  //   email: string
+  // }[];
+  
 
   constructor(private ConsoleService: ConsoleService ) { }
   ngOnInit(){
     var user = this.getUSer(); 
   }
-  updateActualUser(codigoSap: string){
-    this.actualClient = codigoSap;
+  updateActualUser(user: object){
+    if (typeof user === "string"){
+      this.actualClient = user;   
+    }else{
+      this.actualClient = user.codigoSap + " "+ user.nombre;
+    }
+    
   }
   getUSer() {
     try {
       this.ConsoleService.getUsers()
         .subscribe(resp => {
+          this.data = resp;
           this.userName = resp[0].nombre;
           this.userMail = resp[0].email;
           console.log(this.userName, "User_selected");
@@ -37,6 +49,7 @@ export class ConsoleNavbarComponent implements OnInit  {
       console.log(e);
     }
   }
+  
 }
 
 

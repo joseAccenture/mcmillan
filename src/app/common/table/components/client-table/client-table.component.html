@@ -1,4 +1,4 @@
-<nav>
+<!-- <nav>
   <form class="form-inline">
     <input id="myInput" class="form-control mr-sm-2" type="search" data-ng-styles="input" (keyup)="filterTable($event)" placeholder="Search" aria-label="Search">
     <button class="btn btn-outline-success my-2 my-sm-0" data-ng-styles="buscar" type="submit">Buscar</button>
@@ -49,4 +49,14 @@
       </div>
     </div>
   </div>
-</fieldset>
+</fieldset> -->
+<p-dataTable [value]="data"  (actualClient)="updateActualUser($event)" [paginator]="true" [rows]="2"  [rowStyleClass]="isRowSelected" [pageLinks]="2" #dt>
+    <p-column field="isSelected codigoSap" header="" [style]="{'width':'32px','cursor': 'pointer'}">
+        <ng-template pTemplate="body" let-rowData="rowData">
+          <img src="../../../../../assets/images/icons/baseline-check_circle-24px.svg" (click)="ChangeClient(rowData)" data-dismiss="modal"  (mouseover)=" rowData.isSelected=!rowData.isSelected" (mouseout)=" rowData.isSelected=!rowData.isSelected"/>
+          <!-- rowData.isSelected=!rowData.isSelected -->
+        </ng-template>
+      </p-column> 
+  <p-column  field="codigoSap" header="Código SAP"></p-column>
+  <p-column  field="email" header="Email"></p-column>
+  </p-dataTable>

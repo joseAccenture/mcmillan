@@ -11,15 +11,18 @@ import { MaterialsTableComponent } from '../common/table/components/materials-ta
 
 import { DetailOrderTableComponent } from '../common/table/components/detailOrder-table/detailOrder-table.component';
 import { ListOrderTableComponent } from '../common/table/components/listOrder-table/listOrder-table.component';
+import { NewOrderTableComponent } from '../common/table/components/newOrder-table/newOrder-table.component';
 
 import {TableRowComponent} from '../common/table-row/table-row.component';
 import {BreadcrumbComponent} from '../common/breadcrumb/breadcrumb.component';
-
+import { DataListModule, DataTableModule }  from 'primeng/primeng'; 
 
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    DataListModule, 
+    DataTableModule
   ],
   declarations: [
     ClientTableComponent,
@@ -29,6 +32,7 @@ import {BreadcrumbComponent} from '../common/breadcrumb/breadcrumb.component';
     MaterialsTableComponent,
     DetailOrderTableComponent,
     ListOrderTableComponent,
+    NewOrderTableComponent,
     BreadcrumbComponent
   ],
   exports: [
@@ -39,6 +43,7 @@ import {BreadcrumbComponent} from '../common/breadcrumb/breadcrumb.component';
     MaterialsTableComponent,
     DetailOrderTableComponent,
     ListOrderTableComponent,
+    NewOrderTableComponent,
     BreadcrumbComponent
     
   ]

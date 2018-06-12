@@ -60,8 +60,13 @@ export class ClientTableComponent implements OnInit {
       console.log(e);
     }
   }
-  ChangeClient(user){
-    this.actualClient.emit(user.codigoSap +" " + user.nombre);
+  ChangeClient (rowData){
+    this.actualClient.emit(rowData);
+    // this.actualClient.emit(rowData.codigoSap +" " + rowData.nombre);
+
+  }
+  isRowSelected(rowData: any){
+    return (rowData.isSelected) ? "rowSelected" : "rowUnselected";
   }
 }
 

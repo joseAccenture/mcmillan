@@ -24,10 +24,10 @@ export class ConsoleService {
     var LINE = this.http.post(' http://localhost:8080/users', line);
    return LINE;
  } 
-  getClientsData() {
-    var CLIENTDATA = this.http.get(' http://localhost:8080/orders/1');
-    return CLIENTDATA;
-  }
+  // getClientsData() {
+  //   var CLIENTDATA = this.http.get(' http://localhost:8080/orders/1');
+  //   return CLIENTDATA;
+  // }
   getOrders(id) {
     var ORDER_DETAIL = this.http.get(' http://localhost:8080/orders/1');
     return ORDER_DETAIL;
@@ -35,6 +35,10 @@ export class ConsoleService {
   getOrdersList() {
     var ORDER_DETAIL = this.http.get(' http://localhost:8080/orders/thin');
     return ORDER_DETAIL;
+  }
+  getOrdersLines() {
+    var ORDER_LINES = this.http.get(' http://localhost:8080/lineas');
+    return ORDER_LINES;
   }
   getUsers() {
     var USERS = this.http.get(' http://localhost:8080/users');
@@ -49,7 +53,7 @@ export class ConsoleService {
     return ["codigoSap", "nombre"]
   }
   getOrderColumns(): string[] {
-    return ["ean", "material", "descripcion", "unidades"]
+    return ["ean", "libro", "descripcion", "unidades"]
   }
   getOrderListColumns(): string[] {
     return ["referencia", "estado", "fecha", "descripcion"]

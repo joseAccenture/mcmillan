@@ -27,7 +27,7 @@ export class ListUserComponent implements OnInit {
     var url = '/editUser';
     // this.userInEdit.emit(userSelected);
     // this.router.navigateByUrl(url);
-    this.router.navigate([url], { queryParams: { codigoSap: userSelected.codigoSap } });
+    this.router.navigate([url], { queryParams: { id: userSelected.id } });
 
   }
   deleteUser(userSelected){

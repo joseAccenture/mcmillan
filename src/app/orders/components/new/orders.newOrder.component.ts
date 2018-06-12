@@ -25,7 +25,7 @@ export class NewOrderComponent implements OnInit{
   }
   orderDetail() {
     try {
-      this.ConsoleService.getClientsData()
+      this.ConsoleService.getOrdersList()
         .subscribe(resp => {
           console.log(resp, "ordersDetail");
           this.data = resp

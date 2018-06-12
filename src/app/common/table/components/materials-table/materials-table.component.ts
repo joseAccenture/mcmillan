@@ -83,6 +83,9 @@ export class MaterialsTableComponent implements OnInit {
     }
 
   }
+  ChangeClient(rowData){
+    this.lineToAdd.emit(rowData.ean +" " + rowData.descripcion);
+  }
   
 }
 

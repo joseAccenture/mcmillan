@@ -122,6 +122,44 @@ app-home{
 .modal-dialog{
   margin: 10.75rem auto;
 }
+
+.modal-dialog .modal-content .modal-body .ui-datatable-tablewrapper{
+    min-height: 300px;
+}
+.modal-dialog .modal-content .modal-body table{
+    width: 80%;
+    margin: 0 auto;
+}
+.modal-dialog .modal-content .modal-body .ui-datatable-tablewrapper.ui-datatable-thead{
+    background: #ccc; 
+}
+.modal-dialog .modal-content .modal-body .ui-datatable-tablewrapper tr{
+    border-bottom: solid 1px #ccc;
+}
+.modal-dialog .modal-content .modal-body .ui-datatable-tablewrapper tr img{
+    opacity: .5;
+}
+.modal-dialog .modal-content .modal-body .ui-paginator-bottom{
+    text-align: right;
+}
+
+.modal-dialog .modal-content .modal-body .ui-paginator-bottom .ui-paginator-page{
+    /* padding: .5%; */
+    padding-left: 1%;
+    padding-right: 1%;
+    margin-right: 15px;
+    color: #c40c0c;
+    text-decoration: none;
+    border: solid 1px #ccc;
+
+}
+.modal-dialog .modal-content .modal-body .ui-paginator-bottom .ui-paginator-page.ui-state-active{
+    background: #c40c0c;
+    color: white;
+
+}
+
+
 .clearfix {
     display: block;
 }
@@ -193,7 +231,10 @@ z-index: 5;
 .form-control.min-input {
     max-width: 150px;
     display: inline;
-} */
+} 
+.form-control[readonly]{
+    background-color: #f1e8e9  !important;
+}
 .input-group-text,
 .card.formView .card-body .form-control,
 .card.formView .card-body form .input-group select.custom-select,
@@ -297,4 +338,14 @@ z-index: 5;
 }
 #collapseTwo{
     border-bottom: solid .5px #ccc;
+}
+
+tr.rowUnselected > td {
+  color: black;
+  background-color: white !important;
+}
+
+tr.rowSelected > td {
+  color: black;
+  background-color:#f5c6cb !important;
 }
