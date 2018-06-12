@@ -19,7 +19,10 @@ export class ConsoleNavbarComponent implements OnInit  {
   //   nombre: string,
   //   email: string
   // }[];
-  
+  public user: {
+    "codigoSap": string,
+    "nombre": string
+  }
 
   constructor(private ConsoleService: ConsoleService ) { }
   ngOnInit(){
@@ -29,7 +32,7 @@ export class ConsoleNavbarComponent implements OnInit  {
     if (typeof user === "string"){
       this.actualClient = user;   
     }else{
-      this.actualClient = user.codigoSap + " "+ user.nombre;
+      this.actualClient = user["codigoSap"] + " "+ user["nombre"];
     }
     
   }
