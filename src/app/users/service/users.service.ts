@@ -51,13 +51,14 @@ export class UsersService {
      return USERS;
    } 
    submitEditUser(user) {
-    var USERS = this.http.put(' http://localhost:8080/users/'+ user.id, user);
+    var USERS = this.http.put(' http://localhost:8080/users', user);
    return USERS;
  } 
  delUser(user, idObj){
   //  const apiUrl = 'http://localhost:8080/users/'+ user.id;
   // const params = new HttpParams().set('id', user.id);
   // return this.http.delete(apiUrl, { params})
-    return this.http.delete('http://localhost:8080/users/'+ user.id, idObj);
+    var COMPLETE = this.http.delete('http://localhost:8080/users', user);
+    return COMPLETE;
  }
 }

@@ -64,6 +64,7 @@
 							<div class="col">
 							</div>
 						</div>
+						<span class="ListContainer" [hidden]="!isAgent">
 						<div class="row mb-0">
 							<div class="col inputMaxWidth">
 								<div class="input-group mb-3">
@@ -79,7 +80,6 @@
 							</div>
 							<div class="col-6"></div>
 						</div>
-						<span class="ListContainer" [hidden]="!isAgent">
 						<div class="row mb-0" >
 							<h6 class="ml-3">Lista de Representados</h6>
 						</div>
@@ -100,12 +100,11 @@
 				
 			</div>
 		</div>
-		<div class="row">
-				<div class="col-6"></div>
-			<div class="col"><button type="button" class="btn btn-secondary" [routerLink]="['/userslist']" routerLinkActive="active">Volver</button>
-			<button type="button" class="btn btn-danger" routerLinkActive="active" (click)="submitUser(formValues)"><a href="/userslist">Guardar</a></button>
-			<!-- [routerLink]="['/userslist']" -->
-			<button type="button" class="btn btn-secondary">Enviar Credenciales</button></div>
-		</div>
 	</div>
+</div>
+<div class="row">
+		<div class="col-6"></div>
+	<div class="col"><button type="button" class="btn btn-secondary" [routerLink]="['/userslist']" routerLinkActive="active">Volver</button>
+	<button type="button" class="btn btn-danger" routerLinkActive="active" (click)="submitUser(formValues)">Guardar</button>
+	<button type="button" class="btn btn-secondary">Enviar Credenciales</button></div>
 </div>

@@ -24,11 +24,11 @@ export class USerTableComponent implements OnInit {
   constructor(private ConsoleService: ConsoleService) { }
  
   ngOnInit() {
-    this.clients = this.getClient();
+    this.clients = this.getUser();
     this.columns = this.ConsoleService.getUsersColumns(); 
   }
 
-  getClient() {
+  getUser() {
     try {
       this.ConsoleService.getUsers()
         .subscribe(resp => {
