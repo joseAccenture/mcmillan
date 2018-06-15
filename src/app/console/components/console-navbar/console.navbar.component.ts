@@ -29,11 +29,8 @@ export class ConsoleNavbarComponent implements OnInit  {
     var user = this.getUSer(); 
   }
   updateActualUser(user: object){
-    if (typeof user === "string"){
-      this.actualClient = user;   
-    }else{
-      this.actualClient = user["codigoSap"] + " "+ user["nombre"];
-    }
+      this.actualClient = user["nombre2"];
+      this.data = user;
     
   }
   getUSer() {

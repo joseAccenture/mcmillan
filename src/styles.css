@@ -219,7 +219,9 @@ z-index: 5;
 .card{
     min-height: 300px;
 }
-
+.card-body{
+    min-height: 450px;
+}
   .card.secundary-head{
     height: 250px !important;
     top:45px;

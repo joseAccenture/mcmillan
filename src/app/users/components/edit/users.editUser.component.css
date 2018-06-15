@@ -3,7 +3,7 @@ button  a{
 	color: #fff;
 }
 .card .card-body .homebtnContainer{
-	width: 80%;
+	width: 50%;
 	margin: 0 auto;
 	max-height: 450px;
 }
@@ -12,7 +12,19 @@ button  a{
 }
 .card .card-body .homebtnContainer .row{
 	width: 90%;
-
+}
+.col button{
+	margin: 1%;
+}
+.card.col{
+	margin-left: 1em !important;
+}
+.card.col ul.list-group li{
+	border-bottom: solid 1px #ccc;
+}
+.card.col ul.list-group li:last-child{
+	border-bottom: none;
+	padding-bottom: .1em;
 }
 .card-body{
 	padding-bottom: 0;
@@ -104,12 +116,15 @@ max-width: 50%;
 	margin-left: 1em;
 }
 input.repCode, label.input-group-text{
-	max-height: 35px;
+	max-height: 38px;
+	border: 1px solid #ced4da;
 }
 button.btn.btn-outline-secondary{
 	margin: 0 !important;
-	max-height: 35px;
+	max-height: 38px;
 }
 
-
+.input-group-prepend label{
+	min-height: 38px;
+}
 

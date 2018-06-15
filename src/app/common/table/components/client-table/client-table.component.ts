@@ -49,8 +49,8 @@ export class ClientTableComponent implements OnInit {
       this.ConsoleService.getCLients()
         .subscribe(resp => {
           console.log(resp, "client_table");
-          this.data = resp
-          this.actualClient.emit(this.data[0].codigoSap +" " + this.data[0].nombre);
+          this.data = resp["detalleCliente"];
+          this.actualClient.emit(this.data);
 
         },
           error => {

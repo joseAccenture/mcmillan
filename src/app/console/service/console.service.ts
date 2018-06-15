@@ -5,7 +5,8 @@ import { Observable } from 'rxjs'
 
 const httpOptions = {
   headers: new HttpHeaders({ 
-    'Content-Type': 'application/json'})
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*'})
 };
 
 @Injectable({
@@ -17,7 +18,7 @@ export class ConsoleService {
       
   }
   getCLients() {
-    var CLIENTS = this.http.get('http://localhost:8080/clients');
+    var CLIENTS = this.http.get('http://localhost:8080/customers/040', httpOptions);
     return CLIENTS;
   }
   submitLine(line) {
@@ -50,7 +51,7 @@ export class ConsoleService {
     return ["nombre", "email", "tipoCliente"]
   }
   getColumns(): string[] {
-    return ["codigoSap", "nombre"]
+    return ["numCliente", "email"]
   }
   getOrderColumns(): string[] {
     return ["ean", "libro", "descripcion", "unidades"]

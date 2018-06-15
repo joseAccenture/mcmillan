@@ -28,7 +28,7 @@ export class ClientDataComponent {
       this.ConsoleService.getCLients()
         .subscribe(resp => {
           console.log(resp, "clientData");
-          this.data = resp[0]
+          this.data = resp["detalleCliente"];
         },
           error => {
             console.log(error, "error");

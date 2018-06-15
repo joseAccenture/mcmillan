@@ -16,7 +16,7 @@ export class ListOrderTableComponent implements OnInit {
   @Input() columns: string[];
   @Input() customColumns = ["Referencia", "Estado", "Fecha", "Descripción"];
   public URLactual: string;
-  @Input() tableData: string;
+  @Input() tableData: string; 
   row: any = []
   data: any = []
   userdata: any = []
