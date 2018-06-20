@@ -9,10 +9,12 @@
           <div class="col p-0"></div>
           <div class="col-2 p-0 loginform">
               <div class="anagram"><span><img src="../../assets/images/logos/Macmillan_50px.png"></span></div> 
+              <!-- <input #name (keyup)="onKey(name.value)">
+                <p>{{name.value}}</p> -->
               <form>
-                  <input type="text" class="form-control user" placeholder="Username" name="name"> 
-                  <input  type="password" class="form-control pass" name="pass" placeholder="password">
-                  <button type="button" class="btn btn-danger" routerLink="/homeview" (click)="OnLogin()">Login</button>      
+                  <input type="text" placeholder="Username" name="name" #username> 
+                  <input  type="password" name="pass" placeholder="password"#pass>
+                  <button type="button" class="btn btn-danger" (click)="OnLogin(username.value,pass.value)">Login</button>      
                   
               </form>
           </div>

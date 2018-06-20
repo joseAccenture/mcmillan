@@ -18,8 +18,7 @@ httpOptions.headers.append("Content-Type", "application/x-www-form-urlencoded");
   providedIn: 'root',
 })
 export class ConsoleService {
-  
-  
+  // public backendUrl = "/macmillanBackend"
 
   constructor(private http : HttpClient) {
       
@@ -50,25 +49,14 @@ export class ConsoleService {
     headers.set('Accept', 'application/json');
     headers.set('Access-Control-Allow-Origin ', 'http://localhost:4200');
     headers.set('Authorization', 'Basic ' + btoa('U23r:MacMillan!1'));
-
     var CLIENTS = this.http.get  ('http://localhost:8080/customers/'+numCliente, {headers});
     return CLIENTS;
-    
-
-    /* 
-    var CLIENTS = this.http.get  ('http://localhost:8080/customers/040', httpOptions);
-    return CLIENTS;
-    */
   }
   submitLine(line) {
     var LINE = this.http.post(' http://localhost:8080/users', line);
    return LINE;
  } 
-  // getClientsData() {
-  //   var CLIENTDATA = this.http.get(' http://localhost:8080/orders/1');
-  //   return CLIENTDATA;
-  // }
-  getOrders() {
+   getOrders() {
     var ORDER_DETAIL = this.http.get(' http://localhost:8080/orders');
     return ORDER_DETAIL;
   }
