@@ -9,7 +9,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-              <a class="nav-link" href="#" routerLink="/clientdata" routerLinkActive="active">Datos de Cliente</a>
+              <a class="nav-link" href="#" routerLink="/clientdata" [queryParams]="{id : id}" routerLinkActive="active">Datos de Cliente</a>
             </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="OrderedDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -58,7 +58,8 @@
         <div class="input-group">
           <span class="input-group-text" id=""><img src="../assets/images/icons/ic_assignment_ind_black_48dp.png"></span>
           <div class="input-group-append col-6 pl-0">
-            <button id="prueba" class="btn btn-outline-secondary" type="button" data-toggle="modal" title="Click para operar con otro cliente" data-target="#ChangeClientModal">{{actualClient}} </button>
+            <button id="prueba" class="btn btn-outline-secondary" type="button" data-toggle="modal" title="Click para operar con otro cliente" 
+            data-target="#ChangeClientModal">{{actualClient}} </button>
           </div>
         </div>
       </div>

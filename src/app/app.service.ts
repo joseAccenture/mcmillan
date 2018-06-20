@@ -1,6 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs'
+import { Observable, BehaviorSubject } from 'rxjs'
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -22,4 +22,6 @@ export class AppService implements OnInit{
   getLogin() {
     return this.http.get(this.Url + '/login.json');
   }
+
+  
 }

@@ -14,6 +14,10 @@
 									<input class="form-control" [(ngModel)]="data.nombre" [formControl]="name"> 
 								</div>
 							</div>
+							<div class="col-4">
+								<div class="input-group mb-3">
+								</div>
+							</div>
 						</div>
 						<div class="row mb-0">
 							<div class="col">
@@ -24,9 +28,10 @@
 									<input class="form-control" [(ngModel)]="data.email" [formControl]="mail"> 
 								</div>
 							</div>
+							<div class="col-6"></div>
 						</div>
 						<div class="row mb-0">
-							<div class="col">
+							<div class="col-4">
 								<div class="input-group mb-3">
 									<div class="input-group-prepend">
 										<label class="input-group-text" for="inputGroupSelect01">Tipos de Cliente</label>
@@ -56,6 +61,8 @@
 									<input class="form-control" [(ngModel)]="data.zona" [formControl]="zona"> 
 								</div>
 							</div>
+							<div class="col">
+							</div>
 						</div>
 						<span class="ListContainer" [hidden]="!isAgent">
 						<div class="row mb-0">
@@ -65,36 +72,27 @@
 										<label class="input-group-text" for="inputGroupSelect01">Representados</label>
 									</div>
 
-									<input class="repCode col-7" type="text" placeholder="Inserte código SAP del representado" [value]="repCode" [(ngModel)]="repCode" [ngModelOptions]="{standalone: true}">
+									<input class="repCode" type="text" placeholder="SapCode01" [value]="repCode" [(ngModel)]="repCode" [ngModelOptions]="{standalone: true}">
 									<div class="input-group-append">
 										<button class="btn btn-outline-secondary" type="button" (click)="InsertAgent(data, repCode)">Insertar</button>
 									</div>
 								</div>
 							</div>
+							<div class="col-6"></div>
 						</div>
-						<div [hidden]="empty" class="row mb-0 listContainer">
+						<div class="row mb-0" >
 							<h6 class="ml-3">Lista de Representados</h6>
 						</div>
 						<div class="row mb-0">
-							<div class="col card listContainer">
+							<div class="col card">
 								<ul class="list-group list-group-flush">
-										
 												<li *ngFor="let representado of data.representados">
-														<span class="{{representado}}">
-															<input #delete type="checkbox" class="form-check-input" id="{{representado}}" (click)="isShown(data, representado)">
-														</span>
-														{{ representado }}
-														<button   type="button" class="btn btn-danger delete m-0 p-0 {{representado}} hidden" (click)="deleteFromList(representado)">
-																<!-- (click)="deleteUser(userToEdit)"  [disabled]="!active" -->
-																<img src="../../../../assets/images/icons/baseline-clear-24px.svg" width="20" height="20" alt="delete line" />
-															</button>
+												  {{ representado }}
 												</li>
 												 
 								</ul>
 							</div>
-							<div class="col-8">
-									
-							</div>
+							<div class="col-8"></div>
 						</div>
 					</span>
 					</form>
