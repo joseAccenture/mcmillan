@@ -31,17 +31,6 @@
 									<div class="input-group-prepend">
 										<label class="input-group-text" for="inputGroupSelect01">Tipos de Cliente</label>
 									</div>
-									<!-- <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="data.tipoCliente" [ngModelOptions]="{standalone: true}" #ctrl="ngModel">
-										<option selected="">Choose...</option>
-										<option value="1">Cliente</option>
-										<option value="2">Representante</option>
-										<option value="3">Administrador</option>
-										<option value="4">Atención Cliente</option>
-										<option value="5">Jefe de Marketing</option>
-										<option value="6">Jefe de Zona</option>
-
-									</select> -->
-									
 									<select class='select-option custom-select' (change)="onChange($event.target.value)" required [formControl]="tipo"> 
 											<!-- (ngModelChange)='onOptionsSelected($event)' -->
 											<option class='option' *ngFor='let option of options' [selected]="option === data.tipoCliente">{{option}}</option>
