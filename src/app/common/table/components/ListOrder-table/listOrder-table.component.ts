@@ -104,4 +104,4 @@ ChangeClient (rowData){
 isRowSelected(rowData: any) {
   return (rowData.isSelected) ? "rowSelected" : "rowUnselected";
 }
-}  
+} 

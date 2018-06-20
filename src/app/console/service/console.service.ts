@@ -4,23 +4,17 @@ import { Observable } from 'rxjs'
 
 import { Headers, Http, RequestOptions } from '@angular/http';
 
-
-/*
 const httpOptions = {
-  headers: new HttpHeaders()
-  // let headers = new HttpHeaders();
+  headers: new HttpHeaders({ 
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*'})
 };
-httpOptions.headers.append("Authorization", "Basic " + btoa("ilde:1234"));
-httpOptions.headers.append("Content-Type", "application/x-www-form-urlencoded");
-*/
 
 @Injectable({
   providedIn: 'root',
 })
 export class ConsoleService {
   
-  
-
   constructor(private http : HttpClient) {
       
   }
@@ -37,12 +31,6 @@ export class ConsoleService {
 
     var CLIENTS = this.http.get  ('http://localhost:8080/customers/040', {headers});
     return CLIENTS;
-    
-
-    /* 
-    var CLIENTS = this.http.get  ('http://localhost:8080/customers/040', httpOptions);
-    return CLIENTS;
-    */
   }
   getCLientDetail(numCliente) {
   

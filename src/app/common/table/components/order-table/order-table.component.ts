@@ -28,7 +28,7 @@ export class OrderTableComponent implements OnInit {
 
   getClient() {
     try {
-      this.ConsoleService.getCLients()
+      this.ConsoleService.getCLients(id)
         .subscribe(resp => {
           console.log(resp, "clients");
           this.data = resp

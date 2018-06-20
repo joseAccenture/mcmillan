@@ -1,16 +1,4 @@
-<!-- <table id="OrderTable" class="table clientModalTable" *ngIf="!newOrder">
-    <tr>
-      <th *ngFor="let col of customColumns" class="{{col}}">
-        {{col}}
-      </th>
-    </tr>
-    <tr data-clientname="" id="{{i}}" data-dismiss="modal" *ngFor="let dato of data; let i = index" (click)="selectRow(i, dato)" [class.active]="i == selectedRow">
-      <td *ngFor="let col of columns">
-          {{dato[col]}}
-      </td>
-    </tr>
-  </table> -->
-  <div *ngIf="!pending; then primaryBlock; else secondaryBlock">this is ignored</div>
+ <div *ngIf="!pending; then primaryBlock; else secondaryBlock">this is ignored</div>
   <ng-template #primaryBlock>
       <p-dataTable [value]="data"  (actualClient)="updateActualUser($event)" [paginator]="true" [rows]="10"  [rowStyleClass]="isRowSelected"  #dt>
           <p-column field="isSelected" header="" [style]="{'width':'32px','cursor': 'pointer'}">

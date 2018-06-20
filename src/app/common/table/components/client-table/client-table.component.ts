@@ -21,7 +21,7 @@ export class ClientTableComponent implements OnInit {
  
   ngOnInit() {
     this.clients = this.getClient();
-    this.columns = this.ConsoleService.getColumns(); 
+    this.columns = this.ConsoleService.getColumns();
   }
   filterTable($event, searchby) {
     // Declare variables 
@@ -45,12 +45,12 @@ export class ClientTableComponent implements OnInit {
   }
   getClient() {
     try {
-      this.ConsoleService.getCLients()
+      this.ConsoleService.getCLients(40)
         .subscribe(resp => {
           console.log(resp, "client_table");
           this.data = resp["sociosCliente"];
-          this.actualClient.emit(this.data);
-
+            this.actualClient.emit(this.data);
+         
         },
           error => {
             console.log(error, "error");

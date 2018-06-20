@@ -4,14 +4,12 @@
             <div class="row homebtnContainer">
                 <div class="col-8 m-auto">
                     <div class="col-sm">
-                        <!-- <p>{{data[0].numAlbaran}}</p>
-                        <p>{{data[0].nroMaterial}}</p>
-                        <p>{{data[0].nroItemAlbaran}}</p> -->
+
                         <p-dataTable [value]="data"  (actualClient)="updateActualUser($event)" [rowStyleClass]="isRowSelected"  #dt>
                                 <p-column field="isSelected codigoSap" header="" [style]="{'width':'32px','cursor': 'pointer'}">
                                     <ng-template pTemplate="body" let-rowData="rowData">
                                       <img src="../../../../../assets/images/icons/baseline-check_circle-24px.svg" (click)="ChangeClient(rowData)" data-dismiss="modal"/>
-                                      <!-- rowData.isSelected=!rowData.isSelected -->
+                                
                                     </ng-template>
                                   </p-column> 
                               <p-column field="numAlbaran" header="Número de albarán"></p-column>
