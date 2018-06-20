@@ -23,24 +23,24 @@ export class AppComponent {
   }
   constructor(public appService: AppService) { }
 
-  ngOnInit() {
-    this.userLogin();
-  }
-  /* method to call get-api from app.service */
-  userLogin() {
-    try {
-      this.appService.getLogin()
-        .subscribe(resp => {
-          console.log(resp, "Login");
-          this.data = resp
-        },
-          error => {
-            console.log(error, "error");
-          })
-    } catch (e) {
-      console.log(e);
-    }
-  }
+  // ngOnInit() {
+  //   this.userLogin();
+  // }
+  // /* method to call get-api from app.service */
+  // userLogin() {
+  //   try {
+  //     this.appService.getLogin()
+  //       .subscribe(resp => {
+  //         console.log(resp, "Login");
+  //         this.data = resp
+  //       },
+  //         error => {
+  //           console.log(error, "error");
+  //         })
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // }
 
 }
 

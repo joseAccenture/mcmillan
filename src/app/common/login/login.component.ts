@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import { ConsoleService} from '../../console/service/console.service';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Router, ActivatedRoute, Params, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,6 +9,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  userActive: any;
   userData: string;
   data: Object;
   constructor(private ConsoleService: ConsoleService, private router: Router) { }  
@@ -17,17 +18,26 @@ export class LoginComponent implements OnInit {
       var resultado = "";
       for (var i in data) {
         if (user ===data[i].email && pass===data[i].password){
-          console.log("true")
           $("#secondNav").css("display","flex");
           $('.breadcrumb').css("display","block");
           $('.navbar').css("display","flex");
-          this.router.navigateByUrl('/homeview');
-          return true;
-
+          this.userActive = data[i];
+          var url ='/homeview';
+          let navigationExtras: NavigationExtras = {
+            queryParams: {
+              codigoSap:this.userActive["codigoSap"],
+              email: this.userActive["email"],
+              id:this.userActive["id"],
+              nombre:this.userActive["nombre"],
+              password:this.userActive["password"],
+              representados:this.userActive["representados"],
+              tipoCliente: this.userActive["tipoCliente"],
+              zona: this.userActive["zona"]
+            }
+          }
+      this.router.navigate([url], navigationExtras);
         }
       }
-      return resultado;
-  
   }
   OnLogin(user, pass){
     try {
