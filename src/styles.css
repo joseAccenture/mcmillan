@@ -350,9 +350,25 @@ z-index: 5;
 tr.rowUnselected > td {
   color: black;
   background-color: white !important;
+  border-bottom: solid 1px #ccc;
+
 }
 
 tr.rowSelected > td {
   color: black;
   background-color:#f5c6cb !important;
+  border-bottom: solid 1px #ccc;
 }
+p-datatable th{
+    background: #ccc;
+    
+}
+p-datatable .ui-datatable-tablewrapper{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+p-datatable .ui-datatable-tablewrapper th{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+

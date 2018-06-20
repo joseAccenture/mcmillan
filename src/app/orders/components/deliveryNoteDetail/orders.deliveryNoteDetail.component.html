@@ -1,76 +1,93 @@
 <breadcrumb-custom></breadcrumb-custom>
 <div class="card">
-        <div class="card-body">
-            <div class="row homebtnContainer">
-                <div class="col-4 m-auto">
-                    <div class="col-sm">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Datos cliente</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>{{clientData.numCliente}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>{{clientData.nombre2}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>{{clientData.calleYNumero}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>{{clientData.poblacion}}</td>
-                                    <tr>
-                                        <td>{{clientData.codigoPostal}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>{{clientData.nif}}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        
-                    </div>
+    <div class="card-body">
+        <div class="row homebtnContainer">
+            <div class="col-4 m-auto">
+                <div class="col-sm">
+                    <table class="table ">
+                        <thead>
+                            <tr>
+                                <th scope="col">Datos pedido</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Nº ALBARÁN: {{numAlbaran}}</td>
+                            </tr>
+                            <tr>
+                                <td>TIPO: {{data.contadoOCredito}}</td>
+                            </tr>
+                            <tr>
+                                <td>FECHA: {{data.fechaRegistro}}</td>
+                            </tr>
+                            <tr>
+                                <td>ENVÍO: {{data.entrega}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
                 </div>
-                <div class="col-4 m-auto">
-                        <div class="col-sm">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Datos cliente</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>{{clientData.numCliente}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>{{clientData.nombre2}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>{{clientData.calleYNumero}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>{{clientData.poblacion}}</td>
-                                        <tr>
-                                            <td>{{clientData.codigoPostal}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>{{clientData.nif}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            
-                        </div>
-                    </div>
             </div>
-            <div class="row">
-                <div class="col-8"></div>
-                <div class="col">
-                    <button type="button" ng-disabled="true" class="btn btn-secondary m-2" (click)="ReturnToDeliveryList()" routerLinkActive="active">volver</button>
-                    <button type="button" [disabled]="!active" class="btn btn-danger m-2" (click)="ToDeliveryNoteDetail()" routerLinkActive="active">Ver Detalle de albarán</button>
+            <div class="col-4 m-auto">
+                <div class="col-sm">
+                    <table class="table clientData">
+                        <thead>
+                            <tr>
+                                <th scope="col">Datos cliente</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Nº cliente: {{clientData.numCliente}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{clientData.nombre2}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{clientData.calleYNumero}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{clientData.poblacion}}</td>
+                                <tr>
+                                    <td>C.P. {{clientData.codigoPostal}}</td>
+                                </tr>
+                                <tr>
+                                    <td>NIF: {{clientData.nif}}</td>
+                                </tr>
+                        </tbody>
+                    </table>
+
                 </div>
             </div>
         </div>
+        <div class="row homebtnContainer">
+                <div class="col-10 m-auto">
+                    <div class="col">
+                            <p-dataTable class="itemTable" [value]="dataItems"  (actualClient)="updateActualUser($event)" [rowStyleClass]="isRowSelected"  #dt>
+                                    <!-- <p-column field="isSelected codigoSap" header="" [style]="{'width':'32px','cursor': 'pointer'}">
+                                        <ng-template pTemplate="body" let-rowData="rowData">
+                                          <img src="../../../../../assets/images/icons/baseline-check_circle-24px.svg" (click)="ChangeClient(rowData)" data-dismiss="modal"/> -->
+                                          <!-- rowData.isSelected=!rowData.isSelected -->
+                                        <!-- </ng-template> -->
+                                      <!-- </p-column>  -->
+                                  <p-column class="itemTable" field="cantidadEntregadaEfectivamenteUMV" header="Unidades"></p-column>
+                                  <p-column field="numMaterial" header="EAN"></p-column>
+                                  <!-- <p-column field="pciva" header="Descripción"></p-column> -->
+                                  <p-column field="pciva" header="PVP sin IVA"></p-column>
+                                  <p-column field="iva" header="IVA"></p-column>
+                                  <p-column field="pciva" header="PVP sin IVA"></p-column>
+                                  <p-column field="descuento" header="Descuento"></p-column>
+                                  <p-column field="pciva" header="PRECIO"></p-column>
+                                  <p-column field="pciva" header="TOTAL"></p-column>
+                                  </p-dataTable>
+                    </div>
+                </div>
+            </div>
+        <div class="row">
+            <div class="col-11 btnAlbaran">
+                <button type="button" class="btn btn-secondary m-2" (click)="ReturnToDeliveryList()" routerLinkActive="active">volver</button>
+                <button type="button" class="btn btn-danger m-2" (click)="DownloadDeliveryNote()" routerLinkActive="active">Descargar</button>
+            </div>
+        </div>
     </div>
+</div>

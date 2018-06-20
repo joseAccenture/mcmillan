@@ -11,7 +11,7 @@ import { FormsModule, FormGroup, FormControl, Validators } from '@angular/forms'
 export class EditUserComponent {
   doAgentsList(data): any {
     if (data !=="" || data!==null ){
-      // return this.data.representados.join();
+       return this.data.representados.join();
     }else{
       return null;
     }

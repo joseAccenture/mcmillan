@@ -7,6 +7,7 @@ import { ConsoleService } from '../../../console/service/console.service';
   styleUrls: ['./orders.deliveryNoteDetail.component.css']
 })
 export class DeliveryNoteOrderDetailComponent implements OnInit {
+  dataItems: any;
   clientData: Object;
   public dataToReturn: object = {
     cantidadPedido: null,
@@ -54,6 +55,7 @@ export class DeliveryNoteOrderDetailComponent implements OnInit {
         .subscribe(resp => {
           console.log(resp, "detalleAlbaran");
           this.data = resp["albaranHeader"];
+          this.dataItems = resp["albaranItems"];
           
           this.getClientDetail(this.data["solicitante"]);
         },
@@ -99,5 +101,8 @@ export class DeliveryNoteOrderDetailComponent implements OnInit {
       }
   };
     this.router.navigate([url], navigationExtras);
+  }
+  DownloadDeliveryNote(){
+    console.log("donwload");
   }
 }
