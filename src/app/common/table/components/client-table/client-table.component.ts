@@ -15,7 +15,6 @@ export class ClientTableComponent implements OnInit {
   customColumns = ["Código SAP", "Nombre"];
   @Output() actualClient: EventEmitter<string> =   new EventEmitter();
 
-
   data: any = []
   userdata: any = []
   constructor(private ConsoleService: ConsoleService) { }
@@ -49,7 +48,7 @@ export class ClientTableComponent implements OnInit {
       this.ConsoleService.getCLients()
         .subscribe(resp => {
           console.log(resp, "client_table");
-          this.data = resp["detalleCliente"];
+          this.data = resp["sociosCliente"];
           this.actualClient.emit(this.data);
 
         },

@@ -1,0 +1,76 @@
+<breadcrumb-custom></breadcrumb-custom>
+<div class="card">
+        <div class="card-body">
+            <div class="row homebtnContainer">
+                <div class="col-4 m-auto">
+                    <div class="col-sm">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Datos cliente</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{clientData.numCliente}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{clientData.nombre2}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{clientData.calleYNumero}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{clientData.poblacion}}</td>
+                                    <tr>
+                                        <td>{{clientData.codigoPostal}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{clientData.nif}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        
+                    </div>
+                </div>
+                <div class="col-4 m-auto">
+                        <div class="col-sm">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Datos cliente</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>{{clientData.numCliente}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{clientData.nombre2}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{clientData.calleYNumero}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{clientData.poblacion}}</td>
+                                        <tr>
+                                            <td>{{clientData.codigoPostal}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{clientData.nif}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            
+                        </div>
+                    </div>
+            </div>
+            <div class="row">
+                <div class="col-8"></div>
+                <div class="col">
+                    <button type="button" ng-disabled="true" class="btn btn-secondary m-2" (click)="ReturnToDeliveryList()" routerLinkActive="active">volver</button>
+                    <button type="button" [disabled]="!active" class="btn btn-danger m-2" (click)="ToDeliveryNoteDetail()" routerLinkActive="active">Ver Detalle de albarán</button>
+                </div>
+            </div>
+        </div>
+    </div>

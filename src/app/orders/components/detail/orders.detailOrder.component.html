@@ -20,38 +20,39 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon2">Código Sap</span>
                                         </div>
-                                        <input type="text" class="form-control" placeholder="Codigo SAP" [(ngModel)]="data.codigoSap" [ngModelOptions]="{standalone: true}"
+                                        <input type="text" class="form-control" placeholder="Codigo SAP" [(ngModel)]="data.numCliente" [ngModelOptions]="{standalone: true}"
                                             #ctrl="ngModel" aria-describedby="basic-addon2">
                                     </div>
                                 </div>
+                                <div class="col">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon2">NIF</span>
+                                            </div>
+                                            <input type="text" class="form-control" placeholder="NIF" [(ngModel)]="data.nif" [ngModelOptions]="{standalone: true}" #ctrl="ngModel"
+                                                aria-describedby="basic-addon2">
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="row mb-0">
                                 <div class="col">
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon2">Nombre fiscal</span>
                                         </div>
-                                        <input type="text" class="form-control" placeholder="Client fiscal name" [(ngModel)]="data.nombre" [ngModelOptions]="{standalone: true}"
+                                        <input type="text" class="form-control" placeholder="Client fiscal name" [(ngModel)]="data.nombre2" [ngModelOptions]="{standalone: true}"
                                             #ctrl="ngModel" aria-describedby="basic-addon2">
                                     </div>
                                 </div>
-                                <div class="col">
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" id="basic-addon2">CIF</span>
-                                        </div>
-                                        <input type="text" class="form-control" placeholder="CIF" [(ngModel)]="data.cif" [ngModelOptions]="{standalone: true}" #ctrl="ngModel"
-                                            aria-describedby="basic-addon2">
-                                    </div>
                                 </div>
-                            </div>
+                               
                             <div class="row mb-0">
-                            </div>
-                            <div class="row mb-0">
-                                <div class="col-4">
+                                <div class="col">
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon2">Dirección de entrega</span>
                                         </div>
-                                        <input type="text" class="form-control" placeholder="Calle Orotava s/n" [(ngModel)]="data.direccionEntrega" [ngModelOptions]="{standalone: true}"
+                                        <input type="text" class="form-control"  [(ngModel)]="data.calleYNumero + ' '+ data.poblacion" [ngModelOptions]="{standalone: true}"
                                             #ctrl="ngModel" aria-label="Nombre" aria-describedby="basic-addon2">
                                     </div>
                                 </div>
@@ -59,7 +60,7 @@
                             <div class="row ml-2">
                                 <div class="col">
                                     <label class="form-check-label radiobtn">
-                                        <input class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>Fecha inmediata</label>
+                                        <input class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadios1" value="option1">Fecha inmediata</label>
                                 </div>
                                 <div class="col">
                                 </div>
@@ -67,9 +68,9 @@
                             <div class="row ml-2">
                                 <div class="col">
 
-                                    <input class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                                    <input class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadios2" checked>
                                     <label class="form-check-label radiobtn">Fecha preferente de entrega</label>
-                                    <input type="text" name="preferentDate" class="form-control min-input" placeholder="Date" (ngModel)="data.fecha" [ngModelOptions]="{standalone: true}"
+                                    <input type="text" name="fecha" class="form-control min-input" placeholder="Date" [(ngModel)]="data.fecha" [ngModelOptions]="{standalone: true}"
                                         #ctrl="ngModel">
 
                                     <!-- <dl-date-time-picker></dl-date-time-picker> -->

@@ -97,6 +97,8 @@ order-detailorder-component,
 order-neworder-component,
 client-data-component,
 order-pendingorder-component,
+order-delivery-list-component,
+order-delivery-detail-component,
 users-editUser-component{
 	position: relative;
     top: -150px;
@@ -139,11 +141,11 @@ app-home{
 .modal-dialog .modal-content .modal-body .ui-datatable-tablewrapper tr img{
     opacity: .5;
 }
-.modal-dialog .modal-content .modal-body .ui-paginator-bottom{
+.modal-dialog .modal-content .modal-body .ui-paginator-bottom, .ui-paginator-bottom{
     text-align: right;
 }
 
-.modal-dialog .modal-content .modal-body .ui-paginator-bottom .ui-paginator-page{
+.modal-dialog .modal-content .modal-body .ui-paginator-bottom .ui-paginator-page, .ui-paginator-bottom .ui-paginator-page{
     /* padding: .5%; */
     padding-left: 1%;
     padding-right: 1%;
@@ -153,12 +155,15 @@ app-home{
     border: solid 1px #ccc;
 
 }
-.modal-dialog .modal-content .modal-body .ui-paginator-bottom .ui-paginator-page.ui-state-active{
+.modal-dialog .modal-content .modal-body .ui-paginator-bottom .ui-paginator-page.ui-state-active, .ui-paginator-bottom .ui-paginator-page.ui-state-active{
     background: #c40c0c;
     color: white;
 
 }
 
+p-datatable .ui-datatable .ui-datatable-tablewrapper table{
+    width: 100%;
+}
 
 .clearfix {
     display: block;
@@ -219,9 +224,9 @@ z-index: 5;
 .card{
     min-height: 300px;
 }
-.card-body{
+/* .card-body{
     min-height: 450px;
-}
+} */
   .card.secundary-head{
     height: 250px !important;
     top:45px;

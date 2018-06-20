@@ -10,8 +10,9 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
   providers: [ConsoleService]
 })
 export class DetailOrderComponent implements OnInit{
-  orderToedit: string;
+  public orderToedit: object;
   clients: void;
+public pending = false;
   // @Input() columns: string[];
   data: any = []
   columns: void;
@@ -21,20 +22,19 @@ export class DetailOrderComponent implements OnInit{
     ngOnInit() {  
      
       this.activatedRoute.queryParams.subscribe(params => {
-          var orderToedit = params;
-          var orderRef = orderToedit.orderToedit;
-          console.log("order REF: " + orderRef);
-          this.clients = this.orderDetail(orderRef); 
+          this.orderToedit = params;
+          this.clients = this.orderHeader(); 
       });
       // this.getUSertoEdit(this.codigoSap);
   }
 
-  orderDetail(orderRef) {
+  orderHeader() {
     try {
-      this.ConsoleService.getOrders(orderRef)
+      this.ConsoleService.getCLients()
         .subscribe(resp => {
-          console.log(resp, "ordersDetail");
-          this.data = resp
+          console.log(resp, "clientDetail");
+          this.data = resp["detalleCliente"];
+          this.data.fecha = this.orderToedit["fechaDocumento"];
 
         },
           error => {

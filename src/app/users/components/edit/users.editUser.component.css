@@ -3,7 +3,7 @@ button  a{
 	color: #fff;
 }
 .card .card-body .homebtnContainer{
-	width: 50%;
+	width: 90%;
 	margin: 0 auto;
 	max-height: 450px;
 }
@@ -12,6 +12,7 @@ button  a{
 }
 .card .card-body .homebtnContainer .row{
 	width: 90%;
+	margin: 0 auto;
 }
 .col button{
 	margin: 1%;
@@ -89,6 +90,21 @@ margin: 0 auto;
 }
 .list-group.list-group-flush{
 	list-style: none;
+}
+.list-group.list-group-flush li{
+	margin-left: 5%;
+}
+.list-group.list-group-flush li span input{
+	cursor: pointer;
+}
+.list-group.list-group-flush li button{
+	float: right;
+}
+.list-group.list-group-flush li button.hidden{
+	display: none;
+}
+.listContainer.hidden{
+	display: none;
 }
 	/* title */
 .container.title{

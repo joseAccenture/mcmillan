@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 
 export class ListOrderTableComponent implements OnInit {
-
+public pending = false;
   selectedRow: any;
   public orders;
   @Input() columns: string[];
@@ -22,7 +22,7 @@ export class ListOrderTableComponent implements OnInit {
   userdata: any = []
   @Output() btnActive: EventEmitter<any> = new EventEmitter()
   @Output() orderToEdit: EventEmitter<any> = new EventEmitter() 
-  @Input() activeBtn = false;
+  activeBtn = false;
   constructor(private ConsoleService: ConsoleService, private router: Router) { }
 
   ngOnInit() {
@@ -40,18 +40,17 @@ export class ListOrderTableComponent implements OnInit {
   getStatus(orders) {
     this.data = orders.filter(orders => orders.estado === "borrador");
   }
-  getOrdersList() {
+  getDraftList(){
     try {
-      this.ConsoleService.getOrdersList()
+      this.ConsoleService.getOrders()
         .subscribe(resp => {
-          console.log(resp, "ListOrders");
-          this.data = resp
-          if (this.tableData === "pendingOrder") {
-            this.getStatus(this.data);
-          } else if (this.tableData === "newOrder") {
-            this.getCleanRows(this.data);
+          console.log(resp, "clientData");
+          this.pending = true;
+          this.data = resp;
+          for (var i = 0; i < this.data.length; i++){
+            this.data[i].estado = "Borrador";
           }
-          this.btnActive.emit(this.activeBtn);
+         
         },
           error => {
             console.log(error, "error");
@@ -59,18 +58,50 @@ export class ListOrderTableComponent implements OnInit {
     } catch (e) {
       console.log(e);
     }
+    
   }
+  getOrdersList() {
+    if (this.tableData === "pendingOrder") { 
+         this.getDraftList(); 
+      }else{
+        try {
+          this.ConsoleService.getOrdersList()
+          .subscribe(resp => {
+            console.log(resp, "ListOrders"); 
+            this.data = resp["pedidos"];
+            // if (this.tableData === "pendingOrder") { 
+            //   this.getDraftList(this.data); 
+            if (this.tableData === "newOrder") { 
+               this.getCleanRows(this.data);
+             }
+            this.btnActive.emit(this.activeBtn);
+          },
+            error => {
+              console.log(error, "error");
+            })
+      } catch (e) {
+        console.log(e);
+      }
+      }
+  
+  }
+     
   toggle() {
     this.activeBtn = !this.activeBtn;
-    if (this.activeBtn) {
+    // if (this.activeBtn) {
+    //   this.btnActive.emit(!this.activeBtn);
+    // } else {
       this.btnActive.emit(this.activeBtn);
-    } else {
-      this.btnActive.emit(!this.activeBtn);
-    }
+    
   }
-  selectRow(index, dato) {
-    this.selectedRow = index;
-    this.toggle();
-    this.orderToEdit.emit(dato);
- }
+ChangeClient (rowData){
+  rowData.isSelected = !rowData.isSelected;
+  // this.selectedRow = this.data.indexOf(rowData);
+  this.toggle();
+  this.orderToEdit.emit(rowData);
+  // console.log(rowData);
+}
+isRowSelected(rowData: any) {
+  return (rowData.isSelected) ? "rowSelected" : "rowUnselected";
+}
 }  

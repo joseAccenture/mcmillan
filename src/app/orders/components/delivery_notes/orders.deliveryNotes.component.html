@@ -1,19 +1,32 @@
 <breadcrumb-custom></breadcrumb-custom>
-<div class="card">Delivery_notes
+<div class="card">
         <div class="card-body">
             <div class="row homebtnContainer">
                 <div class="col-8 m-auto">
                     <div class="col-sm">
-                        <common-listorder-table tableData="listOrder" (btnActive)="activeBtn($event)" (orderToEdit)="editOrder($event)"></common-listorder-table>
+                        <!-- <p>{{data[0].numAlbaran}}</p>
+                        <p>{{data[0].nroMaterial}}</p>
+                        <p>{{data[0].nroItemAlbaran}}</p> -->
+                        <p-dataTable [value]="data"  (actualClient)="updateActualUser($event)" [rowStyleClass]="isRowSelected"  #dt>
+                                <p-column field="isSelected codigoSap" header="" [style]="{'width':'32px','cursor': 'pointer'}">
+                                    <ng-template pTemplate="body" let-rowData="rowData">
+                                      <img src="../../../../../assets/images/icons/baseline-check_circle-24px.svg" (click)="ChangeClient(rowData)" data-dismiss="modal"/>
+                                      <!-- rowData.isSelected=!rowData.isSelected -->
+                                    </ng-template>
+                                  </p-column> 
+                              <p-column field="numAlbaran" header="Número de albarán"></p-column>
+                              <p-column field="nroItemAlbaran" header="Número de item"></p-column>
+                              <p-column field="nroMaterial" header="Número de material"></p-column>
+                              
+                              </p-dataTable>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-8"></div>
                 <div class="col">
-                    <button type="button" ng-disabled="true" class="btn btn-danger m-2" [routerLink]="['/newOrder']" routerLinkActive="active">Nuevo</button>
-                    <button type="button" [disabled]="!active" class="btn btn-danger m-2" (click)="navigateToDetail()" routerLinkActive="active">Ver detalle</button>
-                    <button type="button" [disabled]="!active" class="btn btn-danger m-2" [routerLink]="['/newOrder']" routerLinkActive="active">Albarán</button>
+                    <button type="button" ng-disabled="true" class="btn btn-secondary m-2" [routerLink]="['/ordersList']" routerLinkActive="active">volver</button>
+                    <button type="button" [disabled]="!active" class="btn btn-danger m-2" (click)="ToDeliveryNoteDetail()" routerLinkActive="active">Ver Detalle de albarán</button>
                 </div>
             </div>
         </div>

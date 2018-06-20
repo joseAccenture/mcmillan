@@ -1,13 +1,42 @@
-<table id="OrderTable" class="table clientModalTable">
+<!-- <table id="OrderTable" class="table clientModalTable">
     <tr>
       <th *ngFor="let col of customColumns"  class="{{col}}">
         {{col}}
       </th>
     </tr>
-    <tr data-clientname="" data-dismiss="modal" *ngFor="let dato of data; let i = index" [class.active]="i == selectedRow" (click)="OrderDetail(i)">
+    <tr data-clientname="" data-dismiss="modal" *ngFor="let dato of orderToEdit; let i = index" [class.active]="i == selectedRow" (click)="OrderDetail(i)">
         
       <td *ngFor="let col of columns">
           {{dato[col]}}
       </td>
     </tr>
-  </table>
+  </table> -->
+  <!-- (actualClient)="updateActualUser($event)"  -->
+  <!-- [paginator]="true" [rows]=""  [rowStyleClass]="isRowSelected" [pageLinks]="2" -->
+  <!-- <p-dataTable [value]="data" [rows]="10" [paginator]="true"  #dt>
+    <p-column  field="numMaterial" header="EAN"></p-column>
+    <p-column  field="numDocumentoComercial" header="Descripción"></p-column>
+    <p-column  field="fechaDocumento" header="Fecha"></p-column>
+    <p-column  field="cantidadPedido" header="Unidades"></p-column>
+
+  </p-dataTable> -->
+
+  <div *ngIf="pending; then primaryBlock; else secondaryBlock">this is ignored</div>
+  <ng-template #primaryBlock>
+      <p-dataTable [value]="data" #dt>
+          <p-column  field="numMaterial" header="EAN"></p-column>
+          <p-column  field="numDocumentoComercial" header="Descripción"></p-column>
+          <p-column  field="fechaDocumento" header="Fecha"></p-column>
+          <p-column  field="cantidadPedido" header="Unidades"></p-column>
+      
+        </p-dataTable>
+  </ng-template>
+  <ng-template #secondaryBlock>
+      <p-dataTable [value]="data" #dt>
+          <p-column  field="numMaterial" header="EAN"></p-column>
+          <p-column  field="numDocumentoComercial" header="Descripción"></p-column>
+          <p-column  field="fechaDocumento" header="Fecha"></p-column>
+          <p-column  field="cantidadPedido" header="Unidades"></p-column>
+      
+        </p-dataTable>
+  </ng-template>

@@ -1,4 +1,4 @@
-<table id="OrderTable" class="table clientModalTable" *ngIf="!newOrder">
+<!-- <table id="OrderTable" class="table clientModalTable" *ngIf="!newOrder">
     <tr>
       <th *ngFor="let col of customColumns" class="{{col}}">
         {{col}}
@@ -9,4 +9,33 @@
           {{dato[col]}}
       </td>
     </tr>
-  </table>
+  </table> -->
+  <div *ngIf="!pending; then primaryBlock; else secondaryBlock">this is ignored</div>
+  <ng-template #primaryBlock>
+      <p-dataTable [value]="data"  (actualClient)="updateActualUser($event)" [paginator]="true" [rows]="10"  [rowStyleClass]="isRowSelected"  #dt>
+          <p-column field="isSelected" header="" [style]="{'width':'32px','cursor': 'pointer'}">
+              <ng-template pTemplate="body" let-rowData="rowData">
+                <img src="../../../../../assets/images/icons/baseline-check_circle-24px.svg" (click)="ChangeClient(rowData)"/>
+                <!-- (mouseover)="rowData.isSelected=!rowData.isSelected" (mouseout)=" rowData.isSelected=!rowData.isSelected" -->
+                <!-- rowData.isSelected=!rowData.isSelected -->
+              </ng-template>
+            </p-column> 
+        <p-column class="referencia" field="numMaterial" header="Referencia"></p-column>
+        <p-column class="status" field="statusDocumento" header="Estado"></p-column>
+        <p-column class="fecha" field="fechaDocumento" header="Fecha"></p-column>
+        </p-dataTable>
+  </ng-template>
+  <ng-template #secondaryBlock>
+      <p-dataTable [value]="data"  (actualClient)="updateActualUser($event)" [paginator]="true" [rows]="10"  [rowStyleClass]="isRowSelected"  #dt>
+          <p-column field="isSelected" header="" [style]="{'width':'32px','cursor': 'pointer'}">
+              <ng-template pTemplate="body" let-rowData="rowData">
+                <img src="../../../../../assets/images/icons/baseline-check_circle-24px.svg" (click)="ChangeClient(rowData)"/>
+                <!-- (mouseover)="rowData.isSelected=!rowData.isSelected" (mouseout)=" rowData.isSelected=!rowData.isSelected" -->
+                <!-- rowData.isSelected=!rowData.isSelected -->
+              </ng-template>
+            </p-column> 
+        <p-column class="codigoSap" field="codigoSap" header="Código SAP"></p-column>
+        <p-column class="fecha" field="fecha" header="Fecha"></p-column>
+        <p-column class="estado" field="estado" header="Estado"></p-column>
+        </p-dataTable>
+  </ng-template>

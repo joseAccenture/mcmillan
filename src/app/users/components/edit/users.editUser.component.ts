@@ -9,9 +9,18 @@ import { FormsModule, FormGroup, FormControl, Validators } from '@angular/forms'
   styleUrls: ['./users.editUser.component.css']
 })
 export class EditUserComponent {
+  doAgentsList(data): any {
+    if (data !=="" || data!==null ){
+      // return this.data.representados.join();
+    }else{
+      return null;
+    }
+   
+  }
   public id: any;
   repCode: string;
   public isZoneBoss: boolean = false;
+  public btnVisible: boolean = true;
   public isAgent: boolean = false;
   data: any;
   public userInEdit;
@@ -96,7 +105,7 @@ export class EditUserComponent {
         "email": this.mail.value,
         "tipoCliente": this.tipo.value,
         "zona": this.zona.value,
-        "representados": this.data.representados.join()
+        "representados": this.doAgentsList(this.data.representados)
       }
       console.log(user, "editUser")
       this.UsersService.submitEditUser(user)
@@ -114,8 +123,25 @@ export class EditUserComponent {
     }
   }
   InsertAgent(data, sapCodetoInclude) {
-    console.log(data, sapCodetoInclude);
+    // console.log(data, sapCodetoInclude);
+    if (data.representados === null || data.representados === ""){
+      data.representados = [];
+    }
     data.representados.push(sapCodetoInclude);
+    this.repCode = "";
+    $(".listContainer").removeClass("hidden");
+
+  }
+  isShown(user, representado){
+    // this.btnVisible = !this.btnVisible;
+    $("."+representado).toggleClass("hidden");
+  }
+  deleteFromList(user){
+    var index = this.data.representados.indexOf(user);
+   this.data.representados.splice(index, 1);
+   if (  this.data.representados.length === 0 ){
+    $(".listContainer").addClass("hidden");
+   }
   }
 
 }

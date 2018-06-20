@@ -8,6 +8,9 @@ float: right;
 .card{
     min-height: auto !important;
 }
+.card-body{
+    min-height: auto !important;
+}
 .card-container{
     min-height: 500px;
     background: #fff;

@@ -18,11 +18,14 @@ export class USerTableComponent implements OnInit {
   @Input() columns: string[];
   @Input() customColumns = ["Nombre","Email","Tipo de cliente"];
 
-  @Output() userToEdit: EventEmitter<string> = new EventEmitter()
+  // @Output() userToEdit: EventEmitter<string> = new EventEmitter()
   data: any = []
   userdata: any = []
   constructor(private ConsoleService: ConsoleService) { }
- 
+  @Output() actualClient: EventEmitter<string> =   new EventEmitter();
+  @Output() userToEdit: EventEmitter<any> = new EventEmitter() 
+
+
   ngOnInit() {
     this.clients = this.getUser();
     this.columns = this.ConsoleService.getUsersColumns(); 
@@ -44,19 +47,27 @@ export class USerTableComponent implements OnInit {
       console.log(e);
     }
   }
-  toggle() {
+  toggle(rowData) {
+
     this.activeBtn = !this.activeBtn;
-    if (this.activeBtn) {
       this.btnActive.emit(this.activeBtn);
-    } else {
-      this.btnActive.emit(!this.activeBtn);
-    }
   }
   selectUserToEdit(index, dato) {
      this.selectedRow = index;
-     this.toggle();
+    //  this.toggle();
     this.userToEdit.emit(dato);
 
+  }
+  ChangeClient (rowData){
+    $(".ui-widget-content").removeClass("rowSelected");
+    rowData.isSelected = !rowData.isSelected;
+    this.actualClient.emit(rowData);
+    this.userToEdit.emit(rowData);
+    this.toggle(rowData);
+
+  }
+  isRowSelected(rowData: any){
+    return (rowData.isSelected) ? "rowSelected" : "rowUnselected";
   }
 }
 

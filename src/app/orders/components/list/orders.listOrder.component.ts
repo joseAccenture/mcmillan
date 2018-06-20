@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 @Component({
   selector: 'order-listorder-component',
   templateUrl: './orders.listOrder.component.html',
@@ -18,10 +18,37 @@ export class ListOrderComponent {
     // var url = '/detailOrder';
     // this.router.navigate([url], { queryParams: { orderToedit:  orderToedit} });
   }
-  navigateToDetail(){
+  navigateToOrderDetail(){
     var url ='/detailOrder';
-    this.router.navigate([url], { queryParams: { orderToedit:  this.orderToEdit.referencia} });
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+          "cantidadPedido": this.orderToEdit.cantidadPedido,
+          "fechaDocumento": this.orderToEdit.fechaDocumento,
+          "numDocumentoComercial": this.orderToEdit.numDocumentoComercial,
+          "numMaterial": this.orderToEdit.numMaterial,
+          "numPedidoCliente": this.orderToEdit.numPedidoCliente,
+          "numPosicionDocumentoComercial": this.orderToEdit.numPosicionDocumentoComercial,
+          "statusDocumento": this.orderToEdit.statusDocumento,
+          "unidadMedidaVenta": this.orderToEdit.unidadMedidaVenta
+      }
+  };
+    this.router.navigate([url], navigationExtras);
 
   }
-  
+  ToDeliveryNoteList(){
+    var url ='/deliveryNotes';
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+          "cantidadPedido": this.orderToEdit.cantidadPedido,
+          "fechaDocumento": this.orderToEdit.fechaDocumento,
+          "numDocumentoComercial": this.orderToEdit.numDocumentoComercial,
+          "numMaterial": this.orderToEdit.numMaterial,
+          "numPedidoCliente": this.orderToEdit.numPedidoCliente,
+          "numPosicionDocumentoComercial": this.orderToEdit.numPosicionDocumentoComercial,
+          "statusDocumento": this.orderToEdit.statusDocumento,
+          "unidadMedidaVenta": this.orderToEdit.unidadMedidaVenta
+      }
+  };
+    this.router.navigate([url], navigationExtras);
+}
 }

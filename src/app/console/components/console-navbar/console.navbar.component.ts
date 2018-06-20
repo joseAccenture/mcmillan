@@ -20,8 +20,8 @@ export class ConsoleNavbarComponent implements OnInit  {
   //   email: string
   // }[];
   public user: {
-    "codigoSap": string,
-    "nombre": string
+    "numCliente": string,
+    "email": string
   }
 
   constructor(private ConsoleService: ConsoleService ) { }
@@ -29,8 +29,9 @@ export class ConsoleNavbarComponent implements OnInit  {
     var user = this.getUSer(); 
   }
   updateActualUser(user: object){
-      this.actualClient = user["nombre2"];
-      this.data = user;
+      // this.actualClient = user["nombre1"];
+      this.data = user["sociosCliente"];
+      (Array.isArray(user)) ? this.actualClient = user[0]["nombre1"] : this.actualClient = user["nombre1"];
     
   }
   getUSer() {
