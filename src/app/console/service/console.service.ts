@@ -58,7 +58,7 @@ export class ConsoleService {
    return LINE;
  } 
    getOrders() {
-    var ORDER_DETAIL = this.http.get(' /orders');
+    var ORDER_DETAIL = this.http.get('/'+ConsoleService.backendUrl+'/orders');
     return ORDER_DETAIL;
   }
   getOrdersList() {
