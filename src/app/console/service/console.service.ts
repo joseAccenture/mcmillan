@@ -18,7 +18,8 @@ httpOptions.headers.append("Content-Type", "application/x-www-form-urlencoded");
   providedIn: 'root',
 })
 export class ConsoleService {
-  // public backendUrl = "/macmillanBackend"
+  public static backendUrl = "macmillanBackend"
+   
 
   constructor(private http : HttpClient) {
       
@@ -34,7 +35,7 @@ export class ConsoleService {
     //   console.log(data);
     // });
 
-    var CLIENTS = this.http.get  ('http://localhost:8080/customers/040', {headers});
+    var CLIENTS = this.http.get  ('http://localhost:8080/'+ConsoleService.backendUrl+'/customers/040', {headers});
     return CLIENTS;
     
 
@@ -49,11 +50,11 @@ export class ConsoleService {
     headers.set('Accept', 'application/json');
     headers.set('Access-Control-Allow-Origin ', 'http://localhost:4200');
     headers.set('Authorization', 'Basic ' + btoa('U23r:MacMillan!1'));
-    var CLIENTS = this.http.get  ('http://localhost:8080/customers/'+numCliente, {headers});
+    var CLIENTS = this.http.get  ('http://localhost:8080/'+ConsoleService.backendUrl+'/customers/'+numCliente, {headers});
     return CLIENTS;
   }
   submitLine(line) {
-    var LINE = this.http.post(' http://localhost:8080/users', line);
+    var LINE = this.http.post(' http://localhost:8080/'+ConsoleService.backendUrl+'/users', line);
    return LINE;
  } 
    getOrders() {
@@ -61,40 +62,40 @@ export class ConsoleService {
     return ORDER_DETAIL;
   }
   getOrdersList() {
-    var ORDER_DETAIL = this.http.get('http://localhost:8080/salesorders/customers/40?numCliente=040&organizacionVentas=0001&fechaDocumentoDesde=2017-06-01&fechaDocumentoHasta=2018-06-18');
+    var ORDER_DETAIL = this.http.get('http://localhost:8080/'+ConsoleService.backendUrl+'/salesorders/customers/40?numCliente=040&organizacionVentas=0001&fechaDocumentoDesde=2017-06-01&fechaDocumentoHasta=2018-06-18');
     return ORDER_DETAIL;
   }
   getDeliveryNotes(numDocumentoComercial){
-    var DELIVERY_NOTES = this.http.get('http://localhost:8080/salesorders/'+numDocumentoComercial+'/deliverynotes');
+    var DELIVERY_NOTES = this.http.get('http://localhost:8080/'+ConsoleService.backendUrl+'/salesorders/'+numDocumentoComercial+'/deliverynotes');
     return DELIVERY_NOTES;
   }
   getDeliveryNoteDetail(numDocumentoComercial){
-    var DELIVERY_NOTE_DETAIL = this.http.get('http://localhost:8080/deliverynotes/'+numDocumentoComercial);
+    var DELIVERY_NOTE_DETAIL = this.http.get('http://localhost:8080/'+ConsoleService.backendUrl+'/deliverynotes/'+numDocumentoComercial);
     return DELIVERY_NOTE_DETAIL;
 
   }
   getOrdersLines() {
-    var ORDER_LINES = this.http.get(' http://localhost:8080/lineas');
+    var ORDER_LINES = this.http.get(' http://localhost:8080/'+ConsoleService.backendUrl+'/lineas');
     return ORDER_LINES;
   }
   getUsers() {
-    var USERS = this.http.get(' http://localhost:8080/users');
+    var USERS = this.http.get(' http://localhost:8080/'+ConsoleService.backendUrl+'/users');
     return USERS;
   }
 
   // WS columns to draw
-  getUsersColumns(): string[] {
-    return ["nombre", "email", "tipoCliente"]
-  }
-  getColumns(): string[] {
-    return ["numCliente", "email"]
-  }
-  getOrderColumns(): string[] {
-    return ["numMaterial", "numDocumentoComercial", "statusDocumento", "cantidadPedido"]
-  }
-  getOrderListColumns(): string[] {
-    return ["referencia", "estado", "fecha", "descripcion"]
-  }
+  // getUsersColumns(): string[] {
+  //   return ["nombre", "email", "tipoCliente"]
+  // }
+  // getColumns(): string[] {
+  //   return ["numCliente", "email"]
+  // }
+  // getOrderColumns(): string[] {
+  //   return ["numMaterial", "numDocumentoComercial", "statusDocumento", "cantidadPedido"]
+  // }
+  // getOrderListColumns(): string[] {
+  //   return ["referencia", "estado", "fecha", "descripcion"]
+  // }
 }
 
 

@@ -28,7 +28,7 @@ export class USerTableComponent implements OnInit {
 
   ngOnInit() {
     this.clients = this.getUser();
-    this.columns = this.ConsoleService.getUsersColumns(); 
+    // this.columns = this.ConsoleService.getUsersColumns(); 
   }
 
   getUser() {

@@ -11,15 +11,6 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class AppService implements OnInit{
+export class AppService {
 
-  ngOnInit(): void {
-    var Login = this.getLogin();
-  }
-  Url = "./assets/mock";
-  constructor(private http : HttpClient) { }
-  
-  getLogin() {
-    return this.http.get(this.Url + '/login.json');
-  }
 }

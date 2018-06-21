@@ -28,7 +28,7 @@ export class MaterialsTableComponent implements OnInit {
  
   ngOnInit() {
     this.materials = this.getMaterials();
-    this.columns = this.CommonTableService.getMaterialsColumns(); 
+    // this.columns = this.CommonTableService.getMaterialsColumns(); 
   }
 
   getMaterials() {

@@ -27,7 +27,7 @@ public pending = false;
 
   ngOnInit() {
     this.orders = this.getOrdersList();
-    this.columns = this.ConsoleService.getOrderListColumns();
+    // this.columns = this.ConsoleService.getOrderListColumns();
     this.URLactual = window.location.pathname.slice(1).toString();
   }
 

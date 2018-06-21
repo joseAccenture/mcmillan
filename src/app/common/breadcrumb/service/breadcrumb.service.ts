@@ -17,7 +17,7 @@ export class BreadcrumbService {
 // }
 STEPS: Observable<any>;
 
-Url = "./assets/mock";
+Url = "/assets/mock";
  
   constructor(private http : HttpClient) {
       

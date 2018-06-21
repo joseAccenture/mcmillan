@@ -14,7 +14,7 @@ const httpOptions = {
 export class CommonTableService {
   
   constructor(private http : HttpClient) { }
-  Url = "./assets/mock";
+  Url = "/assets/mock";
 
   getMaterials() {
     var MATERIALS = this.http.get('http://localhost:8080/lineas');
@@ -40,21 +40,21 @@ export class CommonTableService {
         var USERS = this.http.get(' http://localhost:8080/thinusers');
        return USERS;
      }   
-     getUsersColumns(): string[]{
-      return ["nombre", "email", "tipoCliente"]
-      } 
-    getColumns(): string[]{
-      return ["codigoSap", "nombre"]
-    }
-    getOrderColumns():string[]{
-      return ["ean", "material", "descripcion","unidades"]
-    }
-    getOrderListColumns():string[]{
-      return ["referencia", "estado", "fecha","descripcion"]
-    }
-    getMaterialsColumns(): string[]{
-      return ["ean", "descripcion"];
-    }
+    //  getUsersColumns(): string[]{
+    //   return ["nombre", "email", "tipoCliente"]
+    //   } 
+    // getColumns(): string[]{
+    //   return ["codigoSap", "nombre"]
+    // }
+    // getOrderColumns():string[]{
+    //   return ["ean", "material", "descripcion","unidades"]
+    // }
+    // getOrderListColumns():string[]{
+    //   return ["referencia", "estado", "fecha","descripcion"]
+    // }
+    // getMaterialsColumns(): string[]{
+    //   return ["ean", "descripcion"];
+    // }
 }
 
 

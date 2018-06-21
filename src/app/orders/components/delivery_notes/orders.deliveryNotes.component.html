@@ -10,7 +10,7 @@
                         <p-dataTable [value]="data"  (actualClient)="updateActualUser($event)" [rowStyleClass]="isRowSelected"  #dt>
                                 <p-column field="isSelected codigoSap" header="" [style]="{'width':'32px','cursor': 'pointer'}">
                                     <ng-template pTemplate="body" let-rowData="rowData">
-                                      <img src="../../../../../assets/images/icons/baseline-check_circle-24px.svg" (click)="ChangeClient(rowData)" data-dismiss="modal"/>
+                                      <img src="/assets/images/icons/baseline-check_circle-24px.svg" (click)="ChangeClient(rowData)" data-dismiss="modal"/>
                                       <!-- rowData.isSelected=!rowData.isSelected -->
                                     </ng-template>
                                   </p-column> 

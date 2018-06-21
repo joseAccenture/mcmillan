@@ -37,28 +37,29 @@ headers = headers.append("Access-Control-Allow-Headers", "Content-Type, Authoriz
     
   })
 export class UsersService {
+  public static backendUrl = "macmillanBackend"
     constructor(private http : HttpClient){}
     getUSertoEdit(id) {
-        var USERS = this.http.get(' http://localhost:8080/users/'+ id);
+        var USERS = this.http.get(' http://localhost:8080/'+UsersService.backendUrl+'/users/'+ id);
        return USERS;
      }
      getUSerZone(id) {
-      var ZONE = this.http.get(' http://localhost:8080/zone/'+ id);
+      var ZONE = this.http.get(' http://localhost:8080/'+UsersService.backendUrl+'/zone/'+ id);
      return ZONE;
    }
      submitUser(user) {
-      var USERS = this.http.post(' http://localhost:8080/users', user);
+      var USERS = this.http.post(' http://localhost:8080/'+UsersService.backendUrl+'/users', user);
      return USERS;
    } 
    submitEditUser(user) {
-    var USERS = this.http.put(' http://localhost:8080/users', user);
+    var USERS = this.http.put(' http://localhost:8080/'+UsersService.backendUrl+'/users', user);
    return USERS;
  } 
  delUser(user, idObj){
   //  const apiUrl = 'http://localhost:8080/users/'+ user.id;
   // const params = new HttpParams().set('id', user.id);
   // return this.http.delete(apiUrl, { params})
-    var COMPLETE = this.http.delete('http://localhost:8080/users', user);
+    var COMPLETE = this.http.delete('http://localhost:8080/'+UsersService.backendUrl+'/users', user);
     return COMPLETE;
  }
 }

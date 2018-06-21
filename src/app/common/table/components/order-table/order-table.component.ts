@@ -23,7 +23,7 @@ export class OrderTableComponent implements OnInit {
  
   ngOnInit() {
     this.clients = this.getClient();
-    this.columns = this.ConsoleService.getColumns(); 
+    // this.columns = this.ConsoleService.getColumns(); 
   }
 
   getClient() {

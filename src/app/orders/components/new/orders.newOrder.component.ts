@@ -33,7 +33,7 @@ export class NewOrderComponent implements OnInit{
  
   ngOnInit() {
     this.clients = this.orderDetail();
-    this.columns = this.ConsoleService.getOrderColumns(); 
+    // this.columns = this.ConsoleService.getOrderColumns(); 
     // this.users = this.userDetail();
   }
   addLine(materialSelected){
