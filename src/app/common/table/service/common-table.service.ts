@@ -12,32 +12,32 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class CommonTableService {
-  
+  public static backendUrl = "macmillanBackend"
+ 
   constructor(private http : HttpClient) { }
-  Url = "assets/mock";
 
   getMaterials() {
-    var MATERIALS = this.http.get('http://localhost:8080/lineas');
+    var MATERIALS = this.http.get('/'+CommonTableService.backendUrl+'/lineas');
     return MATERIALS;
   }
      getCLients() {
-      var CLIENTS = this.http.get('http://localhost:8080/thinclients');
+      var CLIENTS = this.http.get('/'+CommonTableService.backendUrl+'/thinclients');
       return CLIENTS;
     }
     getClientsData() {
-      var CLIENTDATA = this.http.get(' http://localhost:8080/orders/7');
+      var CLIENTDATA = this.http.get('/'+CommonTableService.backendUrl+'/orders/7');
      return CLIENTDATA;
    }
    getOrders() {
-         var ORDER_DETAIL = this.http.get(' http://localhost:8080/orders/7');
+         var ORDER_DETAIL = this.http.get('/'+CommonTableService.backendUrl+'/orders/7');
         return ORDER_DETAIL;
    }
    getOrdersList() {
-    var ORDER_DETAIL = this.http.get(' http://localhost:8080/thinorders');
+    var ORDER_DETAIL = this.http.get('/'+CommonTableService.backendUrl+'thinorders');
    return ORDER_DETAIL;
 }
       getUsers() {
-        var USERS = this.http.get(' http://localhost:8080/thinusers');
+        var USERS = this.http.get('/'+CommonTableService.backendUrl+'/thinusers');
        return USERS;
      }   
     //  getUsersColumns(): string[]{

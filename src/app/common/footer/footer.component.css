@@ -32,16 +32,16 @@
     float: left;
   }
   .footer .container .socialMedia .facebook::after{
-    background-image: url(assets/images/logos/facebook.svg);
+    background-image: url(/assets/images/logos/facebook.svg);
   }
   .footer .container .socialMedia .youtube::after{
-    background-image: url(assets/images/logos/youtube.svg);
+    background-image: url(/assets/images/logos/youtube.svg);
   }
   .footer .container .socialMedia .linkedin::after{
-    background-image: url(assets/images/logos/linkedin.svg);
+    background-image: url(/assets/images/logos/linkedin.svg);
   }
   .footer .container .socialMedia .twitter::after{
-    background-image: url(assets/images/logos/twitter.svg);
+    background-image: url(/assets/images/logos/twitter.svg);
   }
   .footer .container .legalInfo{
     font-size: .8em;
