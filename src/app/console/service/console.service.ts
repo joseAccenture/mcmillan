@@ -4,6 +4,11 @@ import { Observable } from 'rxjs'
 
 import { Headers, Http, RequestOptions } from '@angular/http';
 
+const httpOptions = {
+  headers: new HttpHeaders({ 
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*'})
+};
 
 /*
 const httpOptions = {
@@ -44,8 +49,8 @@ export class ConsoleService {
   //   var CLIENTDATA = this.http.get(' http://localhost:8080/orders/1');
   //   return CLIENTDATA;
   // }
-  getOrders(id) {
-    var ORDER_DETAIL = this.http.get(' http://localhost:8080/orders'+ id, httpOptions);
+  getOrders() {
+    var ORDER_DETAIL = this.http.get(' http://localhost:8080/orders/40')//+ id, httpOptions);
     return ORDER_DETAIL;
   }
   getOrdersList() {
