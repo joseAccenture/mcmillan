@@ -24,7 +24,7 @@ export class USerTableComponent implements OnInit {
   constructor(private ConsoleService: ConsoleService) { }
   @Output() actualClient: EventEmitter<string> =   new EventEmitter();
   @Output() userToEdit: EventEmitter<any> = new EventEmitter() 
-
+ 
 
   ngOnInit() {
     this.clients = this.getUser();
@@ -51,7 +51,7 @@ export class USerTableComponent implements OnInit {
 
     this.activeBtn = !this.activeBtn;
       this.btnActive.emit(this.activeBtn);
-  }
+    }
   selectUserToEdit(index, dato) {
      this.selectedRow = index;
     //  this.toggle();
@@ -65,7 +65,7 @@ export class USerTableComponent implements OnInit {
     this.userToEdit.emit(rowData);
     this.toggle(rowData);
 
-  }
+}
   isRowSelected(rowData: any){
     return (rowData.isSelected) ? "rowSelected" : "rowUnselected";
   }

@@ -64,25 +64,25 @@ public pending = false;
     if (this.tableData === "pendingOrder") { 
          this.getDraftList(); 
       }else{
-        try {
-          this.ConsoleService.getOrdersList()
-          .subscribe(resp => {
-            console.log(resp, "ListOrders"); 
+    try {
+      this.ConsoleService.getOrdersList()
+        .subscribe(resp => {
+          console.log(resp, "ListOrders");
             this.data = resp["pedidos"];
             // if (this.tableData === "pendingOrder") { 
             //   this.getDraftList(this.data); 
             if (this.tableData === "newOrder") { 
-               this.getCleanRows(this.data);
-             }
-            this.btnActive.emit(this.activeBtn);
-          },
-            error => {
-              console.log(error, "error");
-            })
-      } catch (e) {
-        console.log(e);
-      }
-      }
+            this.getCleanRows(this.data);
+          }
+          this.btnActive.emit(this.activeBtn);
+        },
+          error => {
+            console.log(error, "error");
+          })
+    } catch (e) {
+      console.log(e);
+    }
+  }
   
   }
      
@@ -93,14 +93,14 @@ public pending = false;
     // } else {
       this.btnActive.emit(this.activeBtn);
     
-  }
+    }
 ChangeClient (rowData){
   rowData.isSelected = !rowData.isSelected;
   // this.selectedRow = this.data.indexOf(rowData);
-  this.toggle();
+    this.toggle();
   this.orderToEdit.emit(rowData);
   // console.log(rowData);
-}
+ }
 isRowSelected(rowData: any) {
   return (rowData.isSelected) ? "rowSelected" : "rowUnselected";
 }

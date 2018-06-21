@@ -14,14 +14,18 @@ export class ClientTableComponent implements OnInit {
   @Input() columns: string[];
   customColumns = ["Código SAP", "Nombre"];
   @Output() actualClient: EventEmitter<string> =   new EventEmitter();
+  @Output() initClient: EventEmitter<string> =   new EventEmitter();
+
 
   data: any = []
+  //data2: any = []
   userdata: any = []
   constructor(private ConsoleService: ConsoleService) { }
  
   ngOnInit() {
     this.clients = this.getClient();
-    this.columns = this.ConsoleService.getColumns(); 
+    this.columns = this.ConsoleService.getColumns();
+
   }
   filterTable($event, searchby) {
     // Declare variables 
@@ -45,11 +49,18 @@ export class ClientTableComponent implements OnInit {
   }
   getClient() {
     try {
-      this.ConsoleService.getCLients()
+      this.ConsoleService.getCLients(40)
         .subscribe(resp => {
           console.log(resp, "client_table");
           this.data = resp["sociosCliente"];
-          this.actualClient.emit(this.data);
+          console.log(this.data);
+          //this.data2 = resp["detallesCliente"];
+          
+            this.actualClient.emit(this.data);
+         
+           // this.initClient.emit(this.data[0]["nombre1"]);
+        
+          
 
         },
           error => {

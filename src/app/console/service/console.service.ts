@@ -19,29 +19,13 @@ httpOptions.headers.append("Content-Type", "application/x-www-form-urlencoded");
 })
 export class ConsoleService {
   // public backendUrl = "/macmillanBackend"
-
+  
   constructor(private http : HttpClient) {
       
   }
-  getCLients() {
-  
-    const headers = new HttpHeaders();
-    headers.set('Accept', 'application/json');
-    headers.set('Access-Control-Allow-Origin ', 'http://localhost:4200');
-    headers.set('Authorization', 'Basic ' + btoa('U23r:MacMillan!1'));
-
-    // this.http.get(url2, {headers}).subscribe(data => {
-    //   console.log(data);
-    // });
-
-    var CLIENTS = this.http.get  ('http://localhost:8080/customers/040', {headers});
+  getCLients(id: number) {
+    var CLIENTS = this.http.get('http://localhost:8080/customers/'+id, httpOptions);
     return CLIENTS;
-    
-
-    /* 
-    var CLIENTS = this.http.get  ('http://localhost:8080/customers/040', httpOptions);
-    return CLIENTS;
-    */
   }
   getCLientDetail(numCliente) {
   
@@ -56,8 +40,12 @@ export class ConsoleService {
     var LINE = this.http.post(' http://localhost:8080/users', line);
    return LINE;
  } 
-   getOrders() {
-    var ORDER_DETAIL = this.http.get(' http://localhost:8080/orders');
+  // getClientsData() {
+  //   var CLIENTDATA = this.http.get(' http://localhost:8080/orders/1');
+  //   return CLIENTDATA;
+  // }
+  getOrders(id) {
+    var ORDER_DETAIL = this.http.get(' http://localhost:8080/orders'+ id, httpOptions);
     return ORDER_DETAIL;
   }
   getOrdersList() {

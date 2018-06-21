@@ -14,7 +14,7 @@
 									<input class="form-control" [(ngModel)]="data.nombre" [formControl]="name"> 
 								</div>
 							</div>
-						</div>
+								</div>
 						<div class="row mb-0">
 							<div class="col">
 								<div class="input-group mb-3">
@@ -45,7 +45,7 @@
 									<input class="form-control" [(ngModel)]="data.zona" [formControl]="zona"> 
 								</div>
 							</div>
-						</div>
+							</div>
 						<span class="ListContainer" [hidden]="!isAgent">
 						<div class="row mb-0">
 							<div class="col inputMaxWidth">
@@ -72,7 +72,7 @@
 														<span class="{{representado}}">
 															<input #delete type="checkbox" class="form-check-input" id="{{representado}}" (click)="isShown(data, representado)">
 														</span>
-														{{ representado }}
+												  {{ representado }}
 														<button   type="button" class="btn btn-danger delete m-0 p-0 {{representado}} hidden" (click)="deleteFromList(representado)">
 																<!-- (click)="deleteUser(userToEdit)"  [disabled]="!active" -->
 																<img src="../../../../assets/images/icons/baseline-clear-24px.svg" width="20" height="20" alt="delete line" />
@@ -83,7 +83,7 @@
 							</div>
 							<div class="col-8">
 									
-							</div>
+						</div>
 						</div>
 					</span>
 					</form>

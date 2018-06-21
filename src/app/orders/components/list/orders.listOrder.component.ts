@@ -30,10 +30,10 @@ export class ListOrderComponent {
           "numPosicionDocumentoComercial": this.orderToEdit.numPosicionDocumentoComercial,
           "statusDocumento": this.orderToEdit.statusDocumento,
           "unidadMedidaVenta": this.orderToEdit.unidadMedidaVenta
-      }
+  }
   };
     this.router.navigate([url], navigationExtras);
-
+  
   }
   ToDeliveryNoteList(){
     var url ='/deliveryNotes';

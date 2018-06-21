@@ -12,7 +12,7 @@ export class PendingOrderComponent implements OnInit {
 
   ngOnInit(): void {
    this.getPendingsOrders();
-  }
+}
   constructor(private router: Router,private ConsoleService: ConsoleService ){}
   getPendingsOrders(){
     try {
@@ -54,3 +54,4 @@ export class PendingOrderComponent implements OnInit {
 
 
 }
+

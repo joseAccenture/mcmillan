@@ -20,8 +20,7 @@ export class HomeViewComponent implements OnInit  {
         representados: params.representados,
         tipoCliente: params.tipoCliente,
         zona: params.zona
-      }
-
+}
   });
 
   }

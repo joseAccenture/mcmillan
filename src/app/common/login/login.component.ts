@@ -18,9 +18,9 @@ export class LoginComponent implements OnInit {
       var resultado = "";
       for (var i in data) {
         if (user ===data[i].email && pass===data[i].password){
-          $("#secondNav").css("display","flex");
-          $('.breadcrumb').css("display","block");
-          $('.navbar').css("display","flex");
+    $("#secondNav").css("display","flex");
+    $('.breadcrumb').css("display","block");
+    $('.navbar').css("display","flex");
           this.userActive = data[i];
           var url ='/homeview';
           let navigationExtras: NavigationExtras = {
@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
               representados:this.userActive["representados"],
               tipoCliente: this.userActive["tipoCliente"],
               zona: this.userActive["zona"]
-            }
+  }
           }
       this.router.navigate([url], navigationExtras);
         }

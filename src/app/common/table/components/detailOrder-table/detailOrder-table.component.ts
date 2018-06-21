@@ -35,11 +35,11 @@ export class DetailOrderTableComponent implements OnInit {
         fechaDocumento: params.fechaDocumento,
         numDocumentoComercial: params.numDocumentoComercial
       }]
-
-  });
     
-  }
+  });
 
+    }
+  
   // getOrders() {
   //   try {
   //     this.ConsoleService.getCLients()
