@@ -83,7 +83,7 @@ export class ConsoleService {
     return USERS;
   }
   getLogin(userToVal) {
-    var USERS = this.http.get(' /'+ConsoleService.backendUrl+'/login', userToVal);
+    var USERS = this.http.post(' /'+ConsoleService.backendUrl+'/login', userToVal);
     return USERS;
   }
 
