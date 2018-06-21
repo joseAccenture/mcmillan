@@ -2,7 +2,7 @@
     position: fixed;
   }
   .login::after{
-    background: url(/assets/images/bgLogin.png);
+    background: url(assets/images/bgLogin.png);
     background-size: 1925px 1000px;
       display: inline-block;
       width: 1925px;

@@ -30,7 +30,7 @@
 <p-dataTable [value]="data"  (actualClient)="updateActualUser($event)" [paginator]="true" [rows]="2"  [rowStyleClass]="isRowSelected" [pageLinks]="2" #dt>
     <p-column field="isSelected" header="" [style]="{'width':'32px','cursor': 'pointer'}">
         <ng-template pTemplate="body" let-rowData="rowData">
-          <img src="/assets/images/icons/baseline-check_circle-24px.svg" (click)="ChangeClient(rowData)" data-dismiss="modal"  (mouseover)=" rowData.isSelected=!rowData.isSelected" (mouseout)=" rowData.isSelected=!rowData.isSelected"/>
+          <img src="assets/images/icons/baseline-check_circle-24px.svg" (click)="ChangeClient(rowData)" data-dismiss="modal"  (mouseover)=" rowData.isSelected=!rowData.isSelected" (mouseout)=" rowData.isSelected=!rowData.isSelected"/>
           <!-- rowData.isSelected=!rowData.isSelected -->
         </ng-template>
       </p-column> 

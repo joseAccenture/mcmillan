@@ -41,7 +41,7 @@ button  a{
 	overflow: hidden;
 }
 .secundary-head::after{
-	content: url(/assets/images/headBack.svg);
+	content: url(assets/images/headBack.svg);
     position: absolute;
     right:-10%;
     top: 50px;

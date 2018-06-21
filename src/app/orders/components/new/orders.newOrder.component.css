@@ -41,14 +41,14 @@ padding-right: 25px;
     content: "";
     width: 24px;
     height: 24px;
-    background: url(/assets/images/icons/baseline-expand_less-24px.svg) no-repeat;
+    background: url(assets/images/icons/baseline-expand_less-24px.svg) no-repeat;
     display: block;
     float: left;
     margin-right: 15px;
     opacity: .4;
 }
 .card-container .card-header h5 button.btn-link.collapsed:before {
-    background: url(/assets/images/icons/baseline-expand_more-24px.svg) no-repeat;
+    background: url(assets/images/icons/baseline-expand_more-24px.svg) no-repeat;
 }
 .accordion.col-8{
     margin: 0 auto;

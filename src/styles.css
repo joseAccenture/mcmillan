@@ -107,7 +107,7 @@ users-editUser-component{
 
 /* vistas */
 app-home{
-    background:url(/assets/images/bghome_80.png);
+    background:url(assets/images/bghome_80.png);
   background-size: 1920px 600px;
     display: inline-block;
     width: 100%;

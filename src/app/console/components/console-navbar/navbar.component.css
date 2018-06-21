@@ -62,7 +62,7 @@ border-bottom: .01em solid white;
   width: 100%;
 }
 .navbar-light .navbar-nav .nav-link .icon::after{
-content: url(/assets/images/icons/baseline-person-24px.svg);
+content: url(assets/images/icons/baseline-person-24px.svg);
 }
 .navbar-light .navbar-nav .nav-link span.icon{
   max-width: 40px;
@@ -125,7 +125,7 @@ a{
   padding: 0;
 }
 .secundary-head::after{
-    content: url(/assets/images/headBack.svg);
+    content: url(assets/images/headBack.svg);
     position: absolute;
     right:-10%;
     top: 0;

@@ -15,7 +15,7 @@
       <p-dataTable [value]="data"  (actualClient)="updateActualUser($event)" [paginator]="true" [rows]="10"  [rowStyleClass]="isRowSelected"  #dt>
           <p-column field="isSelected" header="" [style]="{'width':'32px','cursor': 'pointer'}">
               <ng-template pTemplate="body" let-rowData="rowData">
-                <img src="/assets/images/icons/baseline-check_circle-24px.svg" (click)="ChangeClient(rowData)"/>
+                <img src="assets/images/icons/baseline-check_circle-24px.svg" (click)="ChangeClient(rowData)"/>
                 <!-- (mouseover)="rowData.isSelected=!rowData.isSelected" (mouseout)=" rowData.isSelected=!rowData.isSelected" -->
                 <!-- rowData.isSelected=!rowData.isSelected -->
               </ng-template>
@@ -29,7 +29,7 @@
       <p-dataTable [value]="data"  (actualClient)="updateActualUser($event)" [paginator]="true" [rows]="10"  [rowStyleClass]="isRowSelected"  #dt>
           <p-column field="isSelected" header="" [style]="{'width':'32px','cursor': 'pointer'}">
               <ng-template pTemplate="body" let-rowData="rowData">
-                <img src="/assets/images/icons/baseline-check_circle-24px.svg" (click)="ChangeClient(rowData)"/>
+                <img src="assets/images/icons/baseline-check_circle-24px.svg" (click)="ChangeClient(rowData)"/>
                 <!-- (mouseover)="rowData.isSelected=!rowData.isSelected" (mouseout)=" rowData.isSelected=!rowData.isSelected" -->
                 <!-- rowData.isSelected=!rowData.isSelected -->
               </ng-template>

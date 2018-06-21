@@ -14,7 +14,7 @@ const httpOptions = {
 export class CommonTableService {
   
   constructor(private http : HttpClient) { }
-  Url = "/assets/mock";
+  Url = "assets/mock";
 
   getMaterials() {
     var MATERIALS = this.http.get('http://localhost:8080/lineas');
