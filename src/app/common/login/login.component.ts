@@ -32,6 +32,9 @@ export class LoginComponent implements OnInit {
           zona: data["zona"]
         }
       }
+      $("#secondNav").css("display","flex");
+      $('.breadcrumb').css("display","block");
+      $('.navbar').css("display","flex");
       this.router.navigate([url], navigationExtras);
       // for (var i in data) {
       //   if (user ===data[i].email && pass===data[i].password){
@@ -67,7 +70,6 @@ export class LoginComponent implements OnInit {
           console.log(resp, "Login");
           this.data = resp
           this.isOkUser(this.data);
-
         },
           error => {
             console.log(error, "error");
