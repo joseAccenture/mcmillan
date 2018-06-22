@@ -16,7 +16,7 @@ export const consoleRoutes: Routes = [
     {
         path: '',
         children: [{
-            path: 'login', 
+            path: 'inicio', 
             component: HomeRootComponent,
             children: [...homeRoutes] 
         }]

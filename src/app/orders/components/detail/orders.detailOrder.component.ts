@@ -30,7 +30,7 @@ public pending = false;
 
   orderHeader() {
     try {
-      this.ConsoleService.getCLients()
+      this.ConsoleService.getCLients(40)
         .subscribe(resp => {
           console.log(resp, "clientDetail");
           this.data = resp["detalleCliente"];

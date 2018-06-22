@@ -42,7 +42,7 @@ public pending = false;
   }
   getDraftList(){
     try {
-      this.ConsoleService.getOrders()
+      this.ConsoleService.getOrders(40)
         .subscribe(resp => {
           console.log(resp, "clientData");
           this.pending = true;

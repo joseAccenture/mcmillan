@@ -79,9 +79,6 @@ export class LoginComponent implements OnInit {
       console.log(e);
     }
   }
-  onKey(box){
-    console.log(box)
-  }
   ngOnInit() {
     $("#secondNav").css("display","none");
     $('.breadcrumb').css("display","none");

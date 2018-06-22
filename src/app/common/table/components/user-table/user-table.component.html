@@ -1,22 +1,7 @@
-<!-- <table class="table clientModalTable" id="usertable">
-    <tr>
-      <th *ngFor="let col of customColumns">
-        {{col}}
-      </th>
-    </tr>
-    <tr id="row-{{i}}" data-dismiss="modal" (click)="selectUserToEdit(i, dato)" *ngFor="let dato of data; let i = index"  [class.active]="i == selectedRow">
-      <td *ngFor="let col of columns">
-        {{dato[col]}}
-      </td>
-    </tr>
-  </table>
-   -->
    <p-dataTable [value]="data"  (actualClient)="updateActualUser($event)" [paginator]="true" [rows]="10"  [rowStyleClass]="isRowSelected" [pageLinks]="5" #dt>
       <p-column field="isSelected codigoSap" header="" [style]="{'width':'32px','cursor': 'pointer'}">
           <ng-template pTemplate="body" let-rowData="rowData">
             <img src="assets/images/icons/baseline-check_circle-24px.svg" (click)="ChangeClient(rowData)" data-dismiss="modal" />
-            <!-- rowData.isSelected=!rowData.isSelected -->
-            <!-- (mouseover)="rowData.isSelected=!rowData.isSelected" (mouseout)="rowData.isSelected=!rowData.isSelected" -->
           </ng-template>
         </p-column> 
     <p-column  field="nombre" header="Nombre"></p-column>

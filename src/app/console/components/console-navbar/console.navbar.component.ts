@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Input, Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { ConsoleService } from '../../../console/service/console.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'console-navbar',
@@ -11,29 +12,49 @@ export class ConsoleNavbarComponent implements OnInit  {
    data: Object;
   @Input() clients: string[];
   @Input() columns: string[];
-  public userName;
+  @Output() emitEvent:EventEmitter<object> =   new EventEmitter();
+  estado:boolean = false;
+  URLactual: any;
+ public userName;
   public userMail;
   public actualClient;  
   public actualUserName;  
+  // public detallesNombres;  
   // public data:{
   //   nombre: string,
   //   email: string
   // }[];
   public user: {
-    "numCliente": string,
-    "email": string
+    "codigoSap": string,
+    "nombre": string
   }
 
-  constructor(private ConsoleService: ConsoleService ) { }
+  constructor(private ConsoleService: ConsoleService, private route : Router ) { }
   ngOnInit(){
     var user = this.getUSer(); 
+    this.function1(); 
+     
   }
-  updateActualUser(user: object){
-      // this.actualClient = user["nombre1"];
-      this.data = user["sociosCliente"];
+  public function1(): boolean{
+    let fResponse = !this.estado;
+    this.estado = fResponse;
+    //this.emitEvent.emit(fResponse);
+    return fResponse;
+   }
+   updateActualUser(user: object){
+
+    this.URLactual = window.location.pathname.slice(1).toString();
       (Array.isArray(user)) ? this.actualClient = user[0]["nombre1"] : this.actualClient = user["nombre1"];
+      if(this.URLactual != "macmillanEducation/"){
+        this.route.navigate(["/clientdata"], {queryParams: {id : user["numCliente"]}})
+        this.emitEvent.emit(user);
+        // this.detallesNombres = user["numCliente"]["email"];
+        this.data = user;
+      }
+     
     
   }
+
   getUSer() {
     try {
       this.ConsoleService.getUsers()

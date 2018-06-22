@@ -6,15 +6,11 @@ export const homeRoutes: Routes = [
 
     {
         path: '', component: LoginComponent,
-        data: {
-            breadcrumb: "Login"
-        }
+        
     },
     {
         path: 'homeview', component: HomeViewComponent,
-        data: {
-            breadcrumb: "Inicio"
-        }
+        
     }
 
 ];
