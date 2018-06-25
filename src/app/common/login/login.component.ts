@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import { ConsoleService} from '../../console/service/console.service';
+import { ConsoleDataService} from '../../console/service/consoleData.service';
 import { Router, ActivatedRoute, Params, NavigationExtras } from '@angular/router';
 
 @Component({
@@ -16,8 +17,8 @@ export class LoginComponent implements OnInit {
   userData: string;
   data: Object;
   userToVal: object;
-  constructor(private ConsoleService: ConsoleService, private router: Router) { }  
-
+  constructor(private ConsoleService: ConsoleService, private ConsoleDataService: ConsoleDataService, private router: Router) { }  
+  
   isOkUser(data) {
     var url ='/homeview';
       let navigationExtras: NavigationExtras = {
@@ -35,29 +36,8 @@ export class LoginComponent implements OnInit {
       $("#secondNav").css("display","flex");
       $('.breadcrumb').css("display","block");
       $('.navbar').css("display","flex");
+      this.ConsoleDataService.userActive(data);
       this.router.navigate([url], navigationExtras);
-      // for (var i in data) {
-      //   if (user ===data[i].email && pass===data[i].password){
-      //     $("#secondNav").css("display","flex");
-      //     $('.breadcrumb').css("display","block");
-      //     $('.navbar').css("display","flex");
-      //     this.userActive = data[i];
-      //     var url ='/homeview';
-      //     let navigationExtras: NavigationExtras = {
-      //       queryParams: {
-      //         codigoSap:this.userActive["codigoSap"],
-      //         email: this.userActive["email"],
-      //         id:this.userActive["id"],
-      //         nombre:this.userActive["nombre"],
-      //         password:this.userActive["password"],
-      //         representados:this.userActive["representados"],
-      //         tipoCliente: this.userActive["tipoCliente"],
-      //         zona: this.userActive["zona"]
-      //       }
-      //     }
-      // this.router.navigate([url], navigationExtras);
-      //   }
-      // }
   }
   OnLogin(user, pass){
     this.userToVal = {

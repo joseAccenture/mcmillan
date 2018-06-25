@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
-import { ConsoleService } from '../../../../console/service/console.service';
+// import { ConsoleService } from '../../../../console/service/console.service';
+import { ConsoleDataService } from '../../../../console/service/consoleData.service';
 
 // import { client } from '../../client';
 
@@ -18,10 +19,10 @@ export class ClientTableComponent implements OnInit {
 
   data: any = []
   userdata: any = []
-  constructor(private ConsoleService: ConsoleService) { }
+  constructor(private ConsoleDataService: ConsoleDataService) { }
  
   ngOnInit() {
-    this.clients = this.getClient();
+     this.data = this.ConsoleDataService.user;
     // this.columns = this.ConsoleService.getColumns(); 
   }
   filterTable($event, searchby) {
@@ -44,22 +45,22 @@ export class ClientTableComponent implements OnInit {
       } 
     }
   }
-  getClient() {
-    try {
-      this.ConsoleService.getCLients(40)
-        .subscribe(resp => {
-          console.log(resp, "client_table");
-          this.data = resp["sociosCliente"];
-          this.actualClient.emit(this.data);
+  // getClient() {
+  //   try {
+  //     this.ConsoleService.getCLients(40)
+  //       .subscribe(resp => {
+  //         console.log(resp, "client_table");
+  //         this.data = resp["sociosCliente"];
+  //         this.actualClient.emit(this.data);
 
-        },
-          error => {
-            console.log(error, "error");
-          })
-    } catch (e) {
-      console.log(e);
-    }
-  }
+  //       },
+  //         error => {
+  //           console.log(error, "error");
+  //         })
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // }
   ChangeClient (rowData){
     this.actualClient.emit(rowData);
     // this.actualClient.emit(rowData.codigoSap +" " + rowData.nombre);

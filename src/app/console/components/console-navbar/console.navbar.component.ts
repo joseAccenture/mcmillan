@@ -1,5 +1,7 @@
 import { Input, Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { ConsoleService } from '../../../console/service/console.service';
+import { ConsoleDataService} from '../../../console/service/consoleData.service';
+
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,29 +11,37 @@ import { Router } from '@angular/router';
   
 })
 export class ConsoleNavbarComponent implements OnInit  {
-   data: Object;
+  dataTable: void;
+  data: Object;
   @Input() clients: string[];
   @Input() columns: string[];
   @Output() emitEvent:EventEmitter<object> =   new EventEmitter();
   estado:boolean = false;
   URLactual: any;
- public userName;
   public userMail;
-  public actualClient;  
-  public actualUserName;  
+  public userName;
+
+  // public actualClient;  
   // public detallesNombres;  
-  // public data:{
+  // data:{
   //   nombre: string,
   //   email: string
   // }[];
-  public user: {
-    "codigoSap": string,
-    "nombre": string
-  }
+  // public user: {
+  //   "codigoSap": string,
+  //   "nombre": string
+  // }
+  selectedRow: any;
+  @Output() btnActive: EventEmitter<any> = new EventEmitter()
+  @Input() activeBtn = false;
 
-  constructor(private ConsoleService: ConsoleService, private route : Router ) { }
+  constructor(private ConsoleService: ConsoleService,private ConsoleDataService: ConsoleDataService, private route : Router ) { }
+  @Output() actualClient: EventEmitter<string> =   new EventEmitter();
+  @Output() userToEdit: EventEmitter<any> = new EventEmitter() 
   ngOnInit(){
-    var user = this.getUSer(); 
+    this.data = this.ConsoleDataService.user;
+    this.userMail = this.data["email"];
+    this.userName = this.data["nombre"];
     this.function1(); 
      
   }
@@ -49,31 +59,39 @@ export class ConsoleNavbarComponent implements OnInit  {
         this.route.navigate(["/clientdata"], {queryParams: {id : user["numCliente"]}})
         this.emitEvent.emit(user);
         // this.detallesNombres = user["numCliente"]["email"];
-        this.data = user;
+        
+        
       }
      
     
   }
 
-  getUSer() {
-    try {
-      this.ConsoleService.getUsers()
-        .subscribe(resp => {
-          this.data = resp;
-          this.userName = resp[0].nombre;
-          this.userMail = resp[0].email;
-          console.log(this.userName, "User_selected");
-        },
-          error => {
-            console.log(error, "error");
-          })
-    } catch (e) {
-      console.log(e);
-    }
+   getUSerbyId() {
+    this.ConsoleDataService.clientList();
+   }
+
+   toggle(rowData) {
+
+    this.activeBtn = !this.activeBtn;
+      this.btnActive.emit(this.activeBtn);
   }
-  
-}
+  selectUserToEdit(index, dato) {
+     this.selectedRow = index;
+    //  this.toggle();
+    this.userToEdit.emit(dato);
 
+  }
+  ChangeClient (rowData){
+    $(".ui-widget-content").removeClass("rowSelected");
+    rowData.isSelected = !rowData.isSelected;
+    // this.actualClient.emit(rowData);
+    // this.userToEdit.emit(rowData);
+    this.ConsoleDataService.firstclientToRepresent = rowData.numCliente;
+    this.ConsoleDataService.user = rowData;
+    this.toggle(rowData);
 
-
-  
+  }
+  isRowSelected(rowData: any){
+    return (rowData.isSelected) ? "rowSelected" : "rowUnselected";
+  } 
+} 

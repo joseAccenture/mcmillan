@@ -1,2 +1,2 @@
 <console-navbar (emitEvent)=functionData($event)></console-navbar>
-<router-outlet ([ngModel])="dataUser"></router-outlet>    
+<router-outlet ([ngModel])="dataUser" (userWhenLogin)="SendUser($event)"></router-outlet>    

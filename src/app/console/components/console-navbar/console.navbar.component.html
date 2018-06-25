@@ -33,7 +33,7 @@
             <a class="nav-link dropdown-toggle changeUser" href="#" id="UsersDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="icon"></span>
             </a>
-            <input type="text" disabled value="{{userMail}}" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+            <input type="text" disabled value="{{ConsoleDataService.user.email}}" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
             <div class="dropdown-menu" aria-labelledby="UsersDropdown">
               <button type="button" class="btn btn-primary" data-toggle="modal">
                 Cambiar contraseña
@@ -53,12 +53,13 @@
   <div class="card secundary-head" id="secondNav">
     <div class="card-body row">
       <div class="col-1 p-0"></div>
-      <div class="col sectiontitle">Bienvenido <br />{{userName}}</div>
+      <div class="col sectiontitle">Bienvenido <br />{{ConsoleDataService.user.nombre}}</div>
       <div class="col-3 Rbtn">
         <div class="input-group">
           <span class="input-group-text" id=""><img src="assets/images/icons/ic_assignment_ind_black_48dp.png"></span>
           <div class="input-group-append col-6 pl-0">
-            <button id="prueba" class="btn btn-outline-secondary" type="button" data-toggle="modal" title="Click para operar con otro cliente" data-target="#ChangeClientModal">{{actualClient}} </button>
+            <button id="prueba" class="btn btn-outline-secondary" type="button" data-toggle="modal" title="Click para operar con otro cliente" (click)="getUSerbyId(ConsoleDataService.user)" data-target="#ChangeClientModal">{{ConsoleDataService.firstclientToRepresent}}</button>
+            <!-- (click)="getUSerbyId()" -->
           </div>
         </div>
       </div>
@@ -74,8 +75,19 @@
           </button>
         </div>
         <div class="modal-body">
-                  <common-client-table (actualClient)="updateActualUser($event)"></common-client-table>
-                  
+                  <!-- <common-client-table (actualClient)="updateActualUser($event)"></common-client-table> -->
+                  <p-dataTable [value]="ConsoleDataService.dataTable"  (actualClient)="updateActualUser($event)" [paginator]="true" [rows]="2"  [rowStyleClass]="isRowSelected" [pageLinks]="2" #dt>
+                    <p-column field="isSelected codigoSap" header="" [style]="{'width':'32px','cursor': 'pointer'}">
+                        <ng-template pTemplate="body" let-rowData="rowData">
+                          <img src="assets/images/icons/baseline-check_circle-24px.svg" (click)="ChangeClient(rowData)" data-dismiss="modal"  (mouseover)=" rowData.isSelected=!rowData.isSelected" (mouseout)=" rowData.isSelected=!rowData.isSelected"/>
+                        </ng-template>
+                      </p-column> 
+                  <p-column  field="numCliente" header="Código SAP"></p-column>
+                  <p-column  field="nombre2" header="Nombre"></p-column>
+                  </p-dataTable> 
+                  <!-- <p>{{ConsoleDataService.user.codigoSap}}</p>
+                  <p>{{ConsoleDataService.user.nombre}}</p> -->
+
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <!-- <button type="button" class="btn btn-primary" data-ng-styles="guardar">Guardar Cambios</button> -->

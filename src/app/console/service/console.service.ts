@@ -63,7 +63,7 @@ export class ConsoleService {
    return LINE;
  } 
   getOrders(id) {
- var ORDER_DETAIL = this.http.get('/'+ConsoleService.backendUrl+'/orders'+ id, httpOptions);
+ var ORDER_DETAIL = this.http.get('/'+ConsoleService.backendUrl+'/orders/'+ id, httpOptions);
      return ORDER_DETAIL;
    }
 
@@ -84,8 +84,12 @@ export class ConsoleService {
     var ORDER_LINES = this.http.get(' /'+ConsoleService.backendUrl+'/lineas');
     return ORDER_LINES;
   }
+  getUsersbyId(id) {
+    var USERS = this.http.get(' /'+ConsoleService.backendUrl+'/users/'+id);
+    return USERS;
+  }
   getUsers() {
-    var USERS = this.http.get(' /'+ConsoleService.backendUrl+'/users');
+    var USERS = this.http.get(' /'+ConsoleService.backendUrl+'/users/');
     return USERS;
   }
   getLogin(userToVal) {

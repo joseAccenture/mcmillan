@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { ConsoleDataService } from '../../../console/service/consoleData.service';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 })
 export class HomeViewComponent implements OnInit  {
   data: { codigoSap: any; email: any; nombre: any; password: any; representados: any; tipoCliente: any; zona: any; };
-  constructor(private ActivatedRoute: ActivatedRoute) { }
+  constructor(private ActivatedRoute: ActivatedRoute, private ConsoleDataService: ConsoleDataService) { }
   ngOnInit(){
     this.ActivatedRoute.queryParams.subscribe(params => {
       this.data = {
@@ -23,7 +24,7 @@ export class HomeViewComponent implements OnInit  {
       }
 
   });
-
+  this.ConsoleDataService.userActive(this.data);
   }
     
   

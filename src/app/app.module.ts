@@ -14,6 +14,8 @@ import { Observable } from "rxjs";
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConsoleService } from './console/service/console.service';
+import { ConsoleDataService } from './console/service/consoleData.service';
+
 import { MyDatePickerModule } from 'mydatepicker';
 
 
@@ -38,7 +40,8 @@ import { MyDatePickerModule } from 'mydatepicker';
     MyDatePickerModule
   ],
   providers: [
-    ConsoleService
+    ConsoleService,
+    ConsoleDataService
   ],
   bootstrap: [AppComponent]
 })

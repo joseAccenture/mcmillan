@@ -25,7 +25,9 @@ export class ConsoleRootComponent  implements OnInit{
             // );
           }
     
-    
+  SendUser(user){
+    console.log(user);
+  }
     change():void{
         this.childConsole.function1();
       }

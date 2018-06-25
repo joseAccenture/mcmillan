@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { ConsoleService } from '../../../../console/service/console.service';
+import { ConsoleDataService } from '../../../../console/service/consoleData.service';
 
 // import { client } from '../../client';
 
@@ -21,7 +22,7 @@ export class USerTableComponent implements OnInit {
   // @Output() userToEdit: EventEmitter<string> = new EventEmitter()
   data: any = []
   userdata: any = []
-  constructor(private ConsoleService: ConsoleService) { }
+  constructor(private ConsoleService: ConsoleService, private ConsoleDataService: ConsoleDataService) { }
   @Output() actualClient: EventEmitter<string> =   new EventEmitter();
   @Output() userToEdit: EventEmitter<any> = new EventEmitter() 
 

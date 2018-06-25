@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ConsoleService } from '../../../console/service/console.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { ConsoleDataService } from '../../../console/service/consoleData.service';
 
 @Component({
   selector: 'client-data-component',
@@ -27,7 +28,7 @@ export class ClientDataComponent implements OnInit{
   data: any = []
   // data2: any = []
   
-  constructor(private ConsoleService: ConsoleService, private route: ActivatedRoute , private router: Router) {     
+  constructor(private ConsoleDataService:ConsoleDataService, private ConsoleService: ConsoleService, private route: ActivatedRoute , private router: Router) {     
   }
 
    
@@ -38,8 +39,7 @@ export class ClientDataComponent implements OnInit{
      console.log(params);
      this.clientdata = this.getClients(parseInt(params.id));
    });
-
-    
+   this.ConsoleDataService.clientList();
   }
 
   getClients(id : number) {
