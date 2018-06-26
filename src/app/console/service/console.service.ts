@@ -23,7 +23,7 @@ export class ConsoleService {
 
   DoRedirect() {
     this.URLactual = window.location.pathname.slice(1).toString();
-    if (this.URLactual.includes('macmillanBackend')){
+    if (this.URLactual.includes('macmillanEducation')){
       this.backendUrl = '/macmillanBackend';
     }else{
       this.backendUrl = 'http://localhost:8080'
@@ -41,7 +41,7 @@ export class ConsoleService {
 
   getCLients(id: number) {
     this.DoRedirect();
-        var CLIENTS = this.http.get('/'+this.backendUrl+'/customers/'+id, httpOptions);
+        var CLIENTS = this.http.get(this.backendUrl+'/customers/'+id, httpOptions);
          return CLIENTS;
   }
 
