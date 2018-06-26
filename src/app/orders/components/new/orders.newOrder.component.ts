@@ -1,7 +1,9 @@
 import { Component, OnInit, Input  } from '@angular/core';
 import { ConsoleService } from '../../../console/service/console.service';
+import { ConsoleDataService } from '../../../console/service/consoleData.service';
 import {IMyDpOptions} from 'mydatepicker';
 import { FormsModule, FormGroup, FormControl, Validators }   from '@angular/forms';
+
 
 @Component({
   selector: 'order-neworder-component',
@@ -13,26 +15,26 @@ import { FormsModule, FormGroup, FormControl, Validators }   from '@angular/form
 
 export class NewOrderComponent implements OnInit{
   
-  nomFis = new FormControl('', Validators.required);
-  dirEnt = new FormControl('', Validators.required);
-  cif = new FormControl('', Validators.required);
-  fecEnt = new FormControl('', Validators.required); 
+  // nomFis = new FormControl('', Validators.required);
+  // dirEnt = new FormControl('', Validators.required);
+  // cif = new FormControl('', Validators.required);
+  // fecEnt = new FormControl('', Validators.required); 
 
-  clients: void;
+  client: void;
   users: void;
   @Input() columns: string[];
   @Input() dataUser: any;
   public formGroup;
   data;
   // dataUser;
-  constructor(private ConsoleService: ConsoleService) { }
+  constructor(private ConsoleService: ConsoleService, private ConsoleDataService: ConsoleDataService) { }
   public myDatePickerOptions: IMyDpOptions  = {
     // other options...
     dateFormat: 'dd.mm.yyyy',
 }
  
   ngOnInit() {
-    this.clients = this.orderDetail();
+    this.client = this.ConsoleDataService.client;
     // this.columns = this.ConsoleService.getOrderColumns(); 
     // this.users = this.userDetail();
   }
@@ -43,18 +45,18 @@ export class NewOrderComponent implements OnInit{
     // this.lineToAdd.emit(materialSelected);
   }
   orderDetail() {
-    try {
-      this.ConsoleService.getOrdersList()
-        .subscribe(resp => {
-          console.log(resp, "ordersDetail");
-          this.data = resp
-        },
-          error => {
-            console.log(error, "error");
-          })
-    } catch (e) {
-      console.log(e);
-    }
+    // try {
+    //   this.ConsoleService.getOrdersList()
+    //     .subscribe(resp => {
+    //       console.log(resp, "ordersDetail");
+    //       this.data = resp
+    //     },
+    //       error => {
+    //         console.log(error, "error");
+    //       })
+    // } catch (e) {
+    //   console.log(e);
+    // }
   }
   ChangeClient(i) {
     this.data.splice(i, 1);

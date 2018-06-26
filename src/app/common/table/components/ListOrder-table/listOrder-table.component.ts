@@ -1,6 +1,12 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ConsoleService } from '../../../../console/service/console.service';
+import { ConsoleDataService } from '../../../../console/service/consoleData.service';
 import { Router } from '@angular/router';
+import {IMyDpOptions} from 'mydatepicker';
+import { FormsModule, FormGroup, FormControl, Validators }   from '@angular/forms';
+import { DatePipe } from '@angular/common';
+
+
 
 @Component({
   selector: 'common-listorder-table',
@@ -10,8 +16,12 @@ import { Router } from '@angular/router';
 })
 
 export class ListOrderTableComponent implements OnInit {
-public pending = false;
+  fecEnt = new FormControl('', Validators.required); 
+  fecSal = new FormControl('', Validators.required); 
+
+  public pending = false;
   selectedRow: any;
+  public visibleTarget:boolean = false;
   public orders;
   @Input() columns: string[];
   @Input() customColumns = ["Referencia", "Estado", "Fecha", "Descripción"];
@@ -23,10 +33,13 @@ public pending = false;
   @Output() btnActive: EventEmitter<any> = new EventEmitter()
   @Output() orderToEdit: EventEmitter<any> = new EventEmitter() 
   activeBtn = false;
-  constructor(private ConsoleService: ConsoleService, private router: Router) { }
-
+  constructor(private ConsoleService: ConsoleService, private ConsoleDataService: ConsoleDataService, private router: Router, private datePipe: DatePipe) { }
+  public myDatePickerOptions: IMyDpOptions  = {
+    // other options...
+    dateFormat: 'yyyy/mm/dd'
+}
   ngOnInit() {
-    this.orders = this.getOrdersList();
+ 
     // this.columns = this.ConsoleService.getOrderListColumns();
     this.URLactual = window.location.pathname.slice(1).toString();
   }
@@ -64,24 +77,24 @@ public pending = false;
     if (this.tableData === "pendingOrder") { 
          this.getDraftList(); 
       }else{
-        try {
-          this.ConsoleService.getOrdersList()
-          .subscribe(resp => {
-            console.log(resp, "ListOrders"); 
-            this.data = resp["pedidos"];
-            // if (this.tableData === "pendingOrder") { 
-            //   this.getDraftList(this.data); 
-            if (this.tableData === "newOrder") { 
-               this.getCleanRows(this.data);
-             }
-            this.btnActive.emit(this.activeBtn);
-          },
-            error => {
-              console.log(error, "error");
-            })
-      } catch (e) {
-        console.log(e);
-      }
+      //   try {
+      //     this.ConsoleService.getOrdersList()
+      //     .subscribe(resp => {
+      //       console.log(resp, "ListOrders"); 
+      //       this.data = resp["pedidos"];
+      //       // if (this.tableData === "pendingOrder") { 
+      //       //   this.getDraftList(this.data); 
+      //       if (this.tableData === "newOrder") { 
+      //          this.getCleanRows(this.data);
+      //        }
+      //       this.btnActive.emit(this.activeBtn);
+      //     },
+      //       error => {
+      //         console.log(error, "error");
+      //       })
+      // } catch (e) {
+      //   console.log(e);
+      // }
       }
   
   }
@@ -103,5 +116,18 @@ ChangeClient (rowData){
 }
 isRowSelected(rowData: any) {
   return (rowData.isSelected) ? "rowSelected" : "rowUnselected";
+}
+lookForOrders(fecEnt, fecSal){
+  this.visibleTarget = false;
+  var fechaEntr = this.datePipe.transform(fecEnt.value.formatted,"yyyy-MM-dd");
+ var fechaSal = this.datePipe.transform(fecSal.value.formatted,"yyyy-MM-dd");
+  this.ConsoleService.getOrdersList(fechaEntr, fechaSal, this.ConsoleDataService.firstclientToRepresent)
+  .subscribe(resp => {
+    console.log(resp, "lookFor");
+    this.data = resp["pedidos"];
+  },
+    error => {
+      console.log(error, "error");
+    })
 }
 }  

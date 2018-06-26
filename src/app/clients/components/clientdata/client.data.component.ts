@@ -11,6 +11,7 @@ import { ConsoleDataService } from '../../../console/service/consoleData.service
   
 })
 export class ClientDataComponent implements OnInit{
+  client: any;
   getQueryParams(): any {
     throw new Error("Method not implemented.");
   }
@@ -34,30 +35,30 @@ export class ClientDataComponent implements OnInit{
    
 
   ngOnInit() {
-    var isUser = true;
-   this.route.queryParams.subscribe((params) => {
-     console.log(params);
-     this.clientdata = this.getClients(parseInt(params.id));
-   });
-   this.ConsoleDataService.clientList();
+  //   var isUser = true;
+  //  this.route.queryParams.subscribe((params) => {
+  //    console.log(params);
+  //    this.clientdata = this.getClients(parseInt(params.id));
+  //  });
+   this.client = this.ConsoleDataService.client;
   }
 
-  getClients(id : number) {
-    try {
-      this.ConsoleService.getCLients(id)
-        .subscribe(resp => {
-          console.log(resp, "clientData");
-          // this.data2 = resp["sociosCliente"];
-          this.clientdata;
+  // getClients(id : number) {
+  //   try {
+  //     this.ConsoleService.getCLients(id)
+  //       .subscribe(resp => {
+  //         console.log(resp, "clientData");
+  //         // this.data2 = resp["sociosCliente"];
+  //         this.clientdata;
           
-          console.log(this.clientdata)
-          this.data = resp["detalleCliente"];
-        },
-          error => {
-            console.log(error, "error");
-          })
-        } catch (e) {
-                console.log(e);
-              }
-  }
+  //         console.log(this.clientdata)
+  //         this.data = resp["detalleCliente"];
+  //       },
+  //         error => {
+  //           console.log(error, "error");
+  //         })
+  //       } catch (e) {
+  //               console.log(e);
+  //             }
+  // }
 }

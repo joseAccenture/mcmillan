@@ -24,26 +24,7 @@ export class ConsoleService {
   constructor(private http : HttpClient) {
       
   }
-  // getCLients() {
   
-  //   const headers = new HttpHeaders();
-  //   headers.set('Accept', 'application/json');
-  //   headers.set('Access-Control-Allow-Origin ', 'http://localhost:4200');
-  //   headers.set('Authorization', 'Basic ' + btoa('U23r:MacMillan!1'));
-
-  //   // this.http.get(url2, {headers}).subscribe(data => {
-  //   //   console.log(data);
-  //   // });
-
-  //   var CLIENTS = this.http.get  ('/'+ConsoleService.backendUrl+'/customers/040', {headers});
-  //   return CLIENTS;
-    
-
-  //   /* 
-  //   var CLIENTS = this.http.get  ('/customers/040', httpOptions);
-  //   return CLIENTS;
-  //   */
-  // }
   getCLients(id: number) {
         var CLIENTS = this.http.get('/'+ConsoleService.backendUrl+'/customers/'+id, httpOptions);
          return CLIENTS;
@@ -67,8 +48,8 @@ export class ConsoleService {
      return ORDER_DETAIL;
    }
 
-  getOrdersList() {
-    var ORDER_DETAIL = this.http.get('/'+ConsoleService.backendUrl+'/salesorders/customers/40?numCliente=040&organizacionVentas=0001&fechaDocumentoDesde=2017-06-01&fechaDocumentoHasta=2018-06-18');
+  getOrdersList(fecEnt, fecSal, id) {
+    var ORDER_DETAIL = this.http.get('/'+ConsoleService.backendUrl+'/salesorders/customers/'+id+'?numCliente='+id+'&organizacionVentas=0001&fechaDocumentoDesde='+fecEnt+'&fechaDocumentoHasta='+fecSal);
     return ORDER_DETAIL;
   }
   getDeliveryNotes(numDocumentoComercial){

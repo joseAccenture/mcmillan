@@ -22,7 +22,7 @@
                                         </div>
                                         <!-- <input type="text" class="form-control" [formControl]="codSap" placeholder="Codigo SAP" [(ngModel)]="data.codigoSap" [ngModelOptions]="{standalone: true}"
                                             #ctrl="ngModel" aria-describedby="basic-addon2"> -->
-                                            <input class="form-control" [formControl]="codSap" placeholder="Codigo SAP" >
+                                            <input class="form-control"[readonly]="true" [(ngModel)]="ConsoleDataService.client.numCliente"[ngModelOptions]="{standalone: true}" #ctrl="ngModel" aria-describedby="basic-addon2">
                                     </div>
                                 </div>
                                 <div class="col">
@@ -33,7 +33,7 @@
                                         <!-- <input type="text" class="form-control" [formControl]="nomFis" placeholder="Client fiscal name" [(ngModel)]="data.nombre" [ngModelOptions]="{standalone: true}"
                                             #ctrl="ngModel" aria-describedby="basic-addon2"> -->
 
-                                            <input class="form-control" [formControl]="nomFis" placeholder="Client fiscal name" >
+                                            <input class="form-control" [readonly]="true" [(ngModel)]="ConsoleDataService.client.nombre2" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" aria-describedby="basic-addon2">
                                     </div>
                                 </div>
                                 <div class="col">
@@ -44,7 +44,7 @@
                                         <!-- <input type="text" class="form-control" [formControl]="cif" placeholder="CIF" [(ngModel)]="data.cif" [ngModelOptions]="{standalone: true}" #ctrl="ngModel"
                                             aria-describedby="basic-addon2"> -->
 
-                                            <input class="form-control" [formControl]="cif" placeholder="CIF">
+                                            <input class="form-control"[readonly]="true" [(ngModel)]="ConsoleDataService.client.nif" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" aria-describedby="basic-addon2">
                                     </div>
                                 </div>
                             </div>
@@ -59,7 +59,7 @@
                                         <!-- <input [formControl]="dirEnt" type="text" class="form-control" placeholder="calle" [(ngModel)]="data.direccionEntrega" [ngModelOptions]="{standalone: true}"
                                             #ctrl="ngModel" aria-label="Nombre" aria-describedby="basic-addon2"> -->
 
-                                            <input [formControl]="dirEnt" class="form-control" placeholder="calle" >
+                                            <input  [readonly]="true" [(ngModel)]="ConsoleDataService.client.calleYNumero" class="form-control" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" aria-describedby="basic-addon2">
                                     </div>
                                 </div>
                             </div>
@@ -82,7 +82,8 @@
                                     <div class="col-9 pl-0">
                                         <form #myForm="ngForm" class="dateCalendar" novalidate>
                                             <!-- <my-date-picker [formControl]="fecEnt" name="mydate" [options]="myDatePickerOptions" [(ngModel)]="data.fecha" required [ngModelOptions]="{standalone: true}" #ctrl="ngModel"></my-date-picker> -->
-                                            <my-date-picker [formControl]="fecEnt" ></my-date-picker>
+                                            <my-date-picker></my-date-picker>
+                                            <!-- [formControl]="fecEnt" -->
                                         </form>
                                     </div>         <!--<dl-date-time-picker></dl-date-time-picker> -->
                                 </div>

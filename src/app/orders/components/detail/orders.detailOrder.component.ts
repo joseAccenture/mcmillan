@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ConsoleService } from '../../../console/service/console.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { ConsoleDataService } from '../../../console/service/consoleData.service';
 
 
 @Component({
@@ -16,7 +17,7 @@ public pending = false;
   // @Input() columns: string[];
   data: any = []
   columns: void;
-  constructor(private ConsoleService: ConsoleService, private activatedRoute: ActivatedRoute) { }
+  constructor(private ConsoleService: ConsoleService, private ConsoleDataService: ConsoleDataService, private activatedRoute: ActivatedRoute) { }
  
 
     ngOnInit() {  

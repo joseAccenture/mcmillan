@@ -32,10 +32,10 @@ export class CommonTableService {
          var ORDER_DETAIL = this.http.get('/'+CommonTableService.backendUrl+'/orders/7');
         return ORDER_DETAIL;
    }
-   getOrdersList() {
-    var ORDER_DETAIL = this.http.get('/'+CommonTableService.backendUrl+'thinorders');
-   return ORDER_DETAIL;
-}
+//    getOrdersList() {
+//     var ORDER_DETAIL = this.http.get('/'+CommonTableService.backendUrl+'thinorders');
+//    return ORDER_DETAIL;
+// }
       getUsers() {
         var USERS = this.http.get('/'+CommonTableService.backendUrl+'/thinusers');
        return USERS;

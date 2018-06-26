@@ -87,7 +87,7 @@ export class ConsoleNavbarComponent implements OnInit  {
     // this.actualClient.emit(rowData);
     // this.userToEdit.emit(rowData);
     this.ConsoleDataService.firstclientToRepresent = rowData.numCliente;
-    this.ConsoleDataService.user = rowData;
+    this.ConsoleDataService.client = rowData;
     this.toggle(rowData);
 
   }

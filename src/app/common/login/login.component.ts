@@ -21,23 +21,25 @@ export class LoginComponent implements OnInit {
   
   isOkUser(data) {
     var url ='/homeview';
-      let navigationExtras: NavigationExtras = {
-        queryParams: {
-          codigoSap:data["codigoSap"],
-          email: data["email"],
-          id:data["id"],
-          nombre:data["nombre"],
-          password:data["password"],
-          representados:data["representados"],
-          tipoCliente: data["tipoCliente"],
-          zona: data["zona"]
-        }
-      }
+      // let navigationExtras: NavigationExtras = {
+      //   queryParams: {
+      //     codigoSap:data["codigoSap"],
+      //     email: data["email"],
+      //     id:data["id"],
+      //     nombre:data["nombre"],
+      //     password:data["password"],
+      //     representados:data["representados"],
+      //     tipoCliente: data["tipoCliente"],
+      //     zona: data["zona"]
+      //   }
+      // }
       $("#secondNav").css("display","flex");
       $('.breadcrumb').css("display","block");
       $('.navbar').css("display","flex");
       this.ConsoleDataService.userActive(data);
-      this.router.navigate([url], navigationExtras);
+      // this.router.navigate([url], navigationExtras);
+      this.router.navigate([url]);
+
   }
   OnLogin(user, pass){
     this.userToVal = {

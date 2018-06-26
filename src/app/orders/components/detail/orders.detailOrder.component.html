@@ -20,7 +20,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon2">Código Sap</span>
                                         </div>
-                                        <input type="text" class="form-control" placeholder="Codigo SAP" [(ngModel)]="data.numCliente" [ngModelOptions]="{standalone: true}"
+                                        <input type="text" class="form-control" placeholder="Codigo SAP" [(ngModel)]="ConsoleDataService.client.numCliente" [ngModelOptions]="{standalone: true}"
                                             #ctrl="ngModel" aria-describedby="basic-addon2">
                                     </div>
                                 </div>
@@ -29,7 +29,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="basic-addon2">NIF</span>
                                             </div>
-                                            <input type="text" class="form-control" placeholder="NIF" [(ngModel)]="data.nif" [ngModelOptions]="{standalone: true}" #ctrl="ngModel"
+                                            <input type="text" class="form-control" placeholder="NIF" [(ngModel)]="ConsoleDataService.client.nif" [ngModelOptions]="{standalone: true}" #ctrl="ngModel"
                                                 aria-describedby="basic-addon2">
                                         </div>
                                     </div>
@@ -40,7 +40,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon2">Nombre fiscal</span>
                                         </div>
-                                        <input type="text" class="form-control" placeholder="Client fiscal name" [(ngModel)]="data.nombre2" [ngModelOptions]="{standalone: true}"
+                                        <input type="text" class="form-control" placeholder="Client fiscal name" [(ngModel)]="ConsoleDataService.client.nombre2" [ngModelOptions]="{standalone: true}"
                                             #ctrl="ngModel" aria-describedby="basic-addon2">
                                     </div>
                                 </div>
@@ -52,7 +52,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon2">Dirección de entrega</span>
                                         </div>
-                                        <input type="text" class="form-control"  [(ngModel)]="data.calleYNumero + ' '+ data.poblacion" [ngModelOptions]="{standalone: true}"
+                                        <input type="text" class="form-control"  [(ngModel)]="ConsoleDataService.client.calleYNumero + ' '+ ConsoleDataService.client.poblacion" [ngModelOptions]="{standalone: true}"
                                             #ctrl="ngModel" aria-label="Nombre" aria-describedby="basic-addon2">
                                     </div>
                                 </div>
@@ -70,7 +70,7 @@
 
                                     <input class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadios2" checked>
                                     <label class="form-check-label radiobtn">Fecha preferente de entrega</label>
-                                    <input type="text" name="fecha" class="form-control min-input" placeholder="Date" [(ngModel)]="data.fecha" [ngModelOptions]="{standalone: true}"
+                                    <input type="text" name="fecha" class="form-control min-input" placeholder="Date" [(ngModel)]="ConsoleDataService.client.fecha" [ngModelOptions]="{standalone: true}"
                                         #ctrl="ngModel">
 
                                     <!-- <dl-date-time-picker></dl-date-time-picker> -->

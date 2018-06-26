@@ -21,14 +21,14 @@ export class NewOrderTableComponent implements OnInit {
   constructor(private ConsoleService: ConsoleService, private router: Router) { }
 
   ngOnInit() {
-    this.data = this.getOrdersList();
+    // this.data = this.getOrdersList();
 
   }
  
-  getOrdersList() {
-          this.data = this.lineToAdd
+  // getOrdersList() {
+  //         this.data = this.lineToAdd
       
-  }
+  // }
   addLine(rowData){
     console.log(rowData);
   }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { FormsModule, FormGroup, FormControl, Validators, ReactiveFormsModule }   from '@angular/forms';
+import { MyDatePickerModule } from 'mydatepicker';
 
 
 // componentes tabla 
@@ -8,6 +9,8 @@ import { ClientTableComponent } from '../common/table/components/client-table/cl
 import { USerTableComponent } from '../common/table/components/user-table/user-table.component';
 import { OrderTableComponent } from '../common/table/components/order-table/order-table.component';
 import { MaterialsTableComponent } from '../common/table/components/materials-table/materials-table.component';
+import {DatePipe} from '@angular/common';
+
 
 import { DetailOrderTableComponent } from '../common/table/components/detailOrder-table/detailOrder-table.component';
 import { ListOrderTableComponent } from '../common/table/components/listOrder-table/listOrder-table.component';
@@ -22,7 +25,11 @@ import { DataListModule, DataTableModule }  from 'primeng/primeng';
   imports: [
     CommonModule,
     DataListModule, 
-    DataTableModule
+    DataTableModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MyDatePickerModule
+
   ],
   declarations: [
     ClientTableComponent,
@@ -46,6 +53,8 @@ import { DataListModule, DataTableModule }  from 'primeng/primeng';
     NewOrderTableComponent,
     BreadcrumbComponent
     
-  ]
+  ],
+  providers: [DatePipe]
+
 })
 export class CommonElementsModule { }
