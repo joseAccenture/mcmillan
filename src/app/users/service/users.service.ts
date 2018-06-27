@@ -55,6 +55,10 @@ export class UsersService {
     var USERS = this.http.put('/'+UsersService.backendUrl+'/users', user);
    return USERS;
  } 
+ submitNewUser(user) {
+  var USERS = this.http.post('/'+UsersService.backendUrl+'/users', user);
+ return USERS;
+} 
  delUser(user, idObj){
   //  const apiUrl = 'http://localhost:8080/users/'+ user.id;
   // const params = new HttpParams().set('id', user.id);

@@ -4,18 +4,23 @@ import { ConsoleService} from './console.service';
 @Injectable()
 export class ConsoleDataService {
 
+  static user: any;
   client: any;
   dataTable: any;
   data: any;
   codigoSap: any;
   clientsNameList: Object;
-  user: Object = {
-    email: null,
-    nombre: null
-  };
+  dataline: Object;
+  user: Object = {};
+  dataLine = [];
+  dataLineToSend = [];
+  dataLineToSendSap = [];
   firstclientToRepresent = [];
   clientsToRepresent = [];
   constructor(private ConsoleService: ConsoleService) { }
+  
+        
+   
   public clientList(){
      this.ConsoleService.getCLients(this.codigoSap)
      .subscribe(resp => {

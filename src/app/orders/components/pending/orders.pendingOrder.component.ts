@@ -16,7 +16,7 @@ export class PendingOrderComponent implements OnInit {
   constructor(private router: Router,private ConsoleService: ConsoleService ){}
   getPendingsOrders(){
     try {
-      this.ConsoleService.getOrders(40)
+      this.ConsoleService.getOrdersDraft()
         .subscribe(resp => {
           console.log(resp, "ListOrders");
           this.data = resp[0].lineasPedido;

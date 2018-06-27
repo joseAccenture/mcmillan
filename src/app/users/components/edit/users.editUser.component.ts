@@ -30,7 +30,7 @@ export class EditUserComponent {
   tipo = new FormControl('', Validators.required);
   zona = new FormControl('', Validators.required);
 
-  options = ["", "Cliente Individual", "Administrador", "Atención Cliente", "Jefe de Zona", "Jefe de Marketing", "Representante"];
+  ClientOptions = ["", "Cliente Individual", "Administrador", "Atención Cliente", "Jefe de Zona", "Jefe de Marketing", "Representante"];
   constructor(private UsersService: UsersService,
     private activatedRoute: ActivatedRoute,
     private router: Router) {

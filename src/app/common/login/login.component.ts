@@ -10,8 +10,9 @@ import { Router, ActivatedRoute, Params, NavigationExtras } from '@angular/route
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  correctLogin: boolean = false;
   isErrorUser() {
-   console.log("usuario no correcto, repite el login con datos correctos");
+  this.correctLogin = !this.correctLogin;
   }
   userActive: any;
   userData: string;
@@ -19,6 +20,15 @@ export class LoginComponent implements OnInit {
   userToVal: object;
   constructor(private ConsoleService: ConsoleService, private ConsoleDataService: ConsoleDataService, private router: Router) { }  
   
+  onSearchChange(searchValue : string ) {  
+    if (searchValue === ""){
+       this.correctLogin = !this.correctLogin;
+       setTimeout(function() {
+        this.correctLogin = false;
+        }.bind(this), 3000);
+   
+    }
+  }
   isOkUser(data) {
     var url ='/homeview';
       // let navigationExtras: NavigationExtras = {
@@ -51,7 +61,12 @@ export class LoginComponent implements OnInit {
         .subscribe(resp => {
           console.log(resp, "Login");
           this.data = resp
-          this.isOkUser(this.data);
+          if (resp ===null){
+            this.isErrorUser();
+          }else{
+            this.isOkUser(this.data);  
+          }
+          
         },
           error => {
             console.log(error, "error");

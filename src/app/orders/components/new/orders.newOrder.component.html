@@ -67,14 +67,14 @@
                                 <div class="col">
                                     <label class="form-check-label radiobtn">
                                         <!-- <input [formControl]="fecEnt" class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>Fecha inmediata</label> -->
-                                        <input class="form-check-input radio-inline" type="radio" >Fecha inmediata</label>
-                                </div>
+                                        <input class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadios1" value="0">Fecha inmediata</label>
+                                    </div>
                                 <div class="col">
                                 </div>
                             </div>
                                 <div class="colCalendar row ml-2">
                                     <div class="col-3">
-                                        <input class="form-check-input date-radio-inline" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                                        <input class="form-check-input date-radio-inline" type="radio" name="gridRadios2" id="gridRadios2" value="1">
                                         <label class="form-check-label radiobtn">Fecha preferente de entrega</label>
                                     </div>
                                     <!-- <input type="text" name="preferentDate" class="form-control min-input" placeholder="Date" (ngModel)="data.fecha" [ngModelOptions]="{standalone: true}"
@@ -106,14 +106,29 @@
 
                 <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionLines">
                     <div class="card-body">
-                            <common-neworder-table (lineToAdd)="addLine($event)"></common-neworder-table>    
+                            <!-- <common-neworder-table (lineToAdd)="addLine($event)"></common-neworder-table>     -->
+                            <p-dataTable [immutable]=false [value]="ConsoleDataService.dataLine"  (actualClient)="updateActualUser($event)" [paginator]="true" [rows]="5"  [rowStyleClass]="isRowSelected" [pageLinks]="2" #dt>
+                                    <p-column field="isSelected" header="" [style]="{'width':'32px','cursor': 'pointer'}">
+                                        <ng-template pTemplate="body" let-rowData="rowData">
+                                          <img src="assets/images/icons/baseline-check_circle-24px.svg" (click)="ChangeClient(rowData)" data-dismiss="modal"  (mouseover)=" rowData.isSelected=!rowData.isSelected" (mouseout)=" rowData.isSelected=!rowData.isSelected"/>
+                                          <!-- rowData.isSelected=!rowData.isSelected -->
+                                        </ng-template>
+                                      </p-column> 
+                                  <p-column  field="ean" header="EAN"></p-column>
+                                  <p-column  field="descCorta" header="Descripción"></p-column>
+                                  <p-column field="isSelected" header="Cantidad" [style]="{'width':'32px','cursor': 'pointer'}">
+                                        <ng-template pTemplate="body" let-rowData="rowData">
+                                          <input type="number" class="lineSum">
+                                        </ng-template>
+                                      </p-column> 
+                                  </p-dataTable>
                             
                         <div class="row">
                             <div class="col-8"></div>
                             <div class="col">
                             <button type="button" class="btn btn-danger m-2"  data-toggle="modal" data-target="#addLineModal">Añadir linea</button>
-                            <button type="button" class="btn btn-danger m-2" [routerLink]="['/createUser']" routerLinkActive="active">Validar</button>
-                            <button type="button" class="btn btn-secondary m-2" [routerLink]="['/createUser']" routerLinkActive="active">Borrador</button>
+                            <button type="button" class="btn btn-danger m-2" (click)="SendToSap()" >Validar</button>
+                            <button type="button" class="btn btn-secondary m-2" (click)="SendToDraft()">Borrador</button>
                             </div>
                         </div>    
                     </div>
@@ -135,7 +150,17 @@
               </button>
             </div>
             <div class="modal-body">
-                      <common-materials-table (lineToAdd)="addLine($event)"></common-materials-table>
+                      <!-- <common-materials-table (lineToAdd)="addLine($event)"></common-materials-table> -->
+                      <p-dataTable [value]="data"  (actualClient)="updateActualUser($event)" [paginator]="true" [rows]="2"  [rowStyleClass]="isRowSelected" [pageLinks]="2" #dt>
+                            <p-column field="isSelected" header="" [style]="{'width':'32px','cursor': 'pointer'}">
+                                <ng-template pTemplate="body" let-rowData="rowData">
+                                  <img src="assets/images/icons/baseline-check_circle-24px.svg" (click)="addLine(rowData)" data-dismiss="modal"  (mouseover)=" rowData.isSelected=!rowData.isSelected" (mouseout)=" rowData.isSelected=!rowData.isSelected"/>
+                                  <!-- rowData.isSelected=!rowData.isSelected -->
+                                </ng-template>
+                              </p-column> 
+                          <p-column  field="ean" header="EAN"></p-column>
+                          <p-column  field="descCorta" header="Descripción"></p-column>
+                          </p-dataTable>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>

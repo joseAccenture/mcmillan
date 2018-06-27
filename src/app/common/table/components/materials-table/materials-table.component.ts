@@ -66,25 +66,25 @@ export class MaterialsTableComponent implements OnInit {
       } 
     }
   }
-  selectMaterial(dato) {
-    this.lineToAdd.emit(dato);
-    console.log(dato);
-    try {
-      this.ConsoleService.submitLine(dato)
-        .subscribe(resp => {
-          console.log(resp, "ListOrders");
-          this.data = resp
-        },
-          error => {
-            console.log(error, "error");
-          })
-    } catch (e) {
-      console.log(e);
-    }
+  // selectMaterial(dato) {
+  //   this.lineToAdd.emit(dato);
+  //   console.log(dato);
+  //   try {
+  //     this.ConsoleService.submitOrder(dato)
+  //       .subscribe(resp => {
+  //         console.log(resp, "ListOrders");
+  //         this.data = resp
+  //       },
+  //         error => {
+  //           console.log(error, "error");
+  //         })
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
 
-  }
+  // }
   ChangeClient(rowData){
-    this.lineToAdd.emit(rowData.ean +" " + rowData.descripcion);
+    this.lineToAdd.emit(rowData);
   }
   
 }
