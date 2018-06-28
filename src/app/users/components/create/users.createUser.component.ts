@@ -3,6 +3,7 @@ import { UsersService} from '../../service/users.service';
 import { FormsModule, FormGroup, FormControl, Validators }   from '@angular/forms';
 import { ConsoleDataService} from '../../../console/service/consoleData.service';
 import { ArrayType } from '@angular/compiler/src/output/output_ast';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'users-createuser-component',
@@ -40,7 +41,7 @@ export class CreateUserComponent {
   clientType = new FormControl('');
   representados = new FormControl({"codigoSap": 1, "nombre": "Jonh Ford"});
   
- constructor(private UsersService: UsersService){}
+ constructor(private UsersService: UsersService, private router:Router){}
  
 
  InsertAgent(sapCodetoInclude) {
@@ -80,8 +81,8 @@ submitUser(data) {
       .subscribe(resp => {
         console.log(resp, "res");
         this.data = resp
-        // var url = '/userslist';
-        // this.router.navigate([url]);
+         var url = '/userslist';
+         this.router.navigate([url]);
       },
         error => {
           console.log(error, "error");

@@ -1,7 +1,7 @@
 import { Routes, RouterModule, CanActivate } from '@angular/router';
 import { CreateUserComponent } from './components/create/users.createUser.component';
 import { EditUserComponent } from './components/edit/users.editUser.component';
-
+import { MasiveCreateComponent } from './components/MasiveCreate/users.MasiveCreate.component';
 import { ListUserComponent } from './components/list/users.listUser.component';
 
 export const UsersRoutes: Routes = [
@@ -14,6 +14,10 @@ export const UsersRoutes: Routes = [
   },
   {
     path: 'editUser', component: EditUserComponent
+  },
+  {
+    path: 'MasiveCreate', component: MasiveCreateComponent
   }
+
 
 ];
