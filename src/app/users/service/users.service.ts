@@ -65,7 +65,7 @@ submitExcelUser(myFile) {
   headers.append('Access-Control-Allow-Origin', '*');
   let body = new FormData();
   body.append('myFile', myFile);
-  var EXCEL = this.http.post(' http://localhost:8080/excel', body, {headers: headers});
+  var EXCEL = this.http.post('/'+UsersService.backendUrl+'/excel', body, {headers: headers});
    return EXCEL;
   } 
 

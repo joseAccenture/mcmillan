@@ -151,7 +151,8 @@ export class NewOrderComponent implements OnInit {
         "fechaPedido": this.date,
         "fechaPreferenteEntrega": this.date    
       },
-    "pedidoItems": this.ConsoleDataService.dataLine
+    "pedidoItems": this.ConsoleDataService.dataLineToSendSap,
+    "pedidoSocios": this.ConsoleDataService.dataLineToSendSap
     }
         try {
           this.ConsoleService.submitOrderToSap(order)
