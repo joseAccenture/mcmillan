@@ -1,5 +1,9 @@
+button  a{
+	text-decoration: none;
+	color: #fff;
+}
 .card .card-body .homebtnContainer{
-	width: 80%;
+	width: 90%;
 	margin: 0 auto;
 	max-height: 450px;
 }
@@ -8,11 +12,24 @@
 }
 .card .card-body .homebtnContainer .row{
 	width: 90%;
-
+	margin: 0 auto;
+}
+.col button{
+	margin: 1%;
+}
+.card.col{
+	margin-left: 1em !important;
+}
+.card.col ul.list-group li{
+	border-bottom: solid 1px #ccc;
+}
+.card.col ul.list-group li:last-child{
+	border-bottom: none;
+	padding-bottom: .1em;
 }
 .card-body{
 	padding-bottom: 0;
-	width: 50%;
+	width: 80%;
     margin: 0 auto;
 }
 .card.secundary-head{
@@ -71,6 +88,24 @@ margin: 0 auto;
 .footer .list-inline-item:not(:last-child){
 	margin-right: 2.5em;
 }
+.list-group.list-group-flush{
+	list-style: none;
+}
+.list-group.list-group-flush li{
+	margin-left: 5%;
+}
+.list-group.list-group-flush li span input{
+	cursor: pointer;
+}
+.list-group.list-group-flush li button{
+	float: right;
+}
+.list-group.list-group-flush li button.hidden{
+	display: none;
+}
+.listContainer.hidden{
+	display: none;
+}
 	/* title */
 .container.title{
 	margin-bottom: 2%;
@@ -96,8 +131,16 @@ max-width: 50%;
 .container.form .card{
 	margin-left: 1em;
 }
-button a{
-	text-decoration: none;
-	color: white;
-}	
+input.repCode, label.input-group-text{
+	max-height: 38px;
+	border: 1px solid #ced4da;
+}
+button.btn.btn-outline-secondary{
+	margin: 0 !important;
+	max-height: 38px;
+}
+
+.input-group-prepend label{
+	min-height: 38px;
+}
 

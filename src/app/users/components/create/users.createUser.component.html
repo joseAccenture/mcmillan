@@ -1,31 +1,21 @@
+
+
 <breadcrumb-custom></breadcrumb-custom>
 <div class="card">
 	<div class="card-body">
 		<div class="row homebtnContainer">
 			<div class="row">
 				<div class="col-sm">
-					<!-- ddddddddddddddddd -->
-					<div class="row mb-0">
+					<form>
+						<div class="row mb-0">
 							<div class="col">
 								<div class="input-group mb-3">
 									<div class="input-group-prepend">
 										<span class="input-group-text" id="basic-addon2">Nombre</span>
 									</div>
-
-									
-									
-								</div>
-
-
-								<input [formControl]="name"><br />
-								<label *ngIf="name.invalid" [ngClass]="'error'"> Name required with max 15 character. </label>
+									<input class="form-control" [formControl]="name"> 
 								</div>
 							</div>
-							<!-- <div class="col-4"></div> -->
-							<!-- <div class="col-4">
-								<div class="input-group mb-3">
-								</div>
-							</div> -->
 						</div>
 						<div class="row mb-0">
 							<div class="col">
@@ -33,129 +23,82 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text" id="basic-addon3">Email</span>
 									</div>
-									<input [formControl]="email">
-									
+									<input class="form-control" [formControl]="email"> 
 								</div>
 							</div>
-							<div class="col-6"></div>
 						</div>
 						<div class="row mb-0">
-							<div class="col-4">
+							<div class="col">
 								<div class="input-group mb-3">
 									<div class="input-group-prepend">
 										<label class="input-group-text" for="inputGroupSelect01">Tipos de Cliente</label>
 									</div>
-									<select [formControl]="clientType" class="custom-select" id="inputGroupSelect01">
-										<option selected="">Choose...</option>
-										<option value="Cliente">Cliente</option>
-										<option value="Representante">Representante</option>
-										<option value="Administrador">Administrador</option>
-										<option value="Atención Cliente">Atención Cliente</option>
-										<option value="Jefe de Marketing">Jefe de Marketing</option>
-										<option value="Jefe de Zona">Jefe de Zona</option>
-
-									</select>
+									<select class='select-option custom-select' (change)="onChange($event.target.value)" required [formControl]="tipo"> 
+											<!-- (ngModelChange)='onOptionsSelected($event)' -->
+											<option class='option' *ngFor='let option of ClientOptions'>{{option}}</option>
+											<!-- [selected]="option === data.tipoCliente" -->
+										</select>
 								</div>
 							</div>
 							<div class="col">
-								<div class="input-group mb-3">
+								<div class="input-group mb-3" [hidden]="!isZoneBoss && !isAgent">
 									<div class="input-group-prepend">
 										<span class="input-group-text">Zona</span>
 									</div>
-									<input [formControl]="zona" name="zona">
+									<input class="form-control" [formControl]="zona"> 
 								</div>
 							</div>
-							<div class="col">
-							</div>
 						</div>
+						<span class="ListContainer" [hidden]="!isAgent">
 						<div class="row mb-0">
 							<div class="col inputMaxWidth">
 								<div class="input-group mb-3">
 									<div class="input-group-prepend">
-										<label class="input-group-text"[formControl]="representados" for="inputGroupSelect01">Representados</label>
+										<label class="input-group-text" for="inputGroupSelect01">Representados</label>
 									</div>
 
+									<input class="repCode col-7" type="text" placeholder="Inserte código SAP del representado" [value]="repCode" [(ngModel)]="repCode" [ngModelOptions]="{standalone: true}">
 									<div class="input-group-append">
-										<button class="btn btn-outline-secondary" type="button" (click)="InsertAgent()">Insertar</button>
+										<button class="btn btn-outline-secondary" type="button" (click)="InsertAgent(repCode)">Insertar</button>
 									</div>
 								</div>
 							</div>
-							<div class="col-6"></div>
 						</div>
-						<div class="row mb-0">
+						<div [hidden]="empty" class="row mb-0 listContainer">
 							<h6 class="ml-3">Lista de Representados</h6>
 						</div>
-						<div class="row mb-0">
-							<div class="col card">
+						<div [hidden]="empty" class="row mb-0">
+							<div class="col card listContainer">
 								<ul class="list-group list-group-flush">
-									<li class="list-group-item"></li>
+										
+												<li *ngFor="let representado of representadoLista">
+														<span class="{{representado}}">
+															<input #delete type="checkbox" class="form-check-input" id="{{representado}}" (click)="isShown(data, representado)">
+														</span>
+														{{ representado }}
+														<button   type="button" class="btn btn-danger delete m-0 p-0 {{representado}} hidden" (click)="deleteFromList(representado)">
+																<img src="assets/images/icons/baseline-clear-24px.svg" width="20" height="20" alt="delete line" />
+															</button>
+												</li>
+												 
 								</ul>
 							</div>
-							<div class="col-8"></div>
-						</div>
-						<button (click)="setNameValue()"class="btn btn-danger"><a href="/userslist">Guardar</a></button>
-						<!-- [routerLink]="['/userslist']"  -->
-
-
-
-
-
-					<!-- ddddddddddddd -->
-						<!-- <h3>Using FormControl </h3>
-						<div>
-							<div>
-								Name:
-								<input [formControl]="name">
-								<label *ngIf="name.invalid" [ngClass]="'error'"> Name required with max 15 character. </label>
-							</div>
-							<div>
-								<button (click)="setNameValue()">Set value</button>
-								<button (click)="setResetName()">Reset</button>
-							</div>
-							<div>
-								Age:
-								<input [formControl]="age">
-							</div>
-							<div>
-								City:
-								<input [formControl]="city">
-							</div>
-							<div>
-								Country:
-								<input [formControl]="country">
-							</div>
-							<div>
-								<input type="checkbox" [checked]="married.value" (change)="changeValue()" /> Are you married?
+							<div class="col-8">
+									
 							</div>
 						</div>
-						<div>
-							<p>Name:
-								<b>{{ name.value }}</b>, Validation Status:
-								<b>{{ name.status }}</b>
-							</p>
-							<p>Age:
-								<b>{{ age.value }}</b>, Validation Status:
-								<b>{{ age.status }}</b>
-							</p>
-							<p>City:
-								<b>{{ city.value }}</b>
-							</p>
-							<p>Country:
-								<b>{{ country.value }}</b>
-							</p>
-							<p>Married?:
-								<b>{{ married.value }}</b>
-							</p>
-						</div>
-				</div> -->
+					</span>
+					</form>
+				</div>
 				
 			</div>
 		</div>
-		<div class="row">
-				<div class="col-6"></div>
-			<div class="col"><button type="button" class="btn btn-secondary" [routerLink]="['/userslist']" routerLinkActive="active">Volver</button>
-			
-			<button type="button" class="btn btn-secondary">Enviar Credenciales</button></div>
-		</div>
 	</div>
 </div>
+<div class="row">
+		<div class="col-6"></div>
+	<div class="col"><button type="button" class="btn btn-secondary" [routerLink]="['/userslist']" routerLinkActive="active">Volver</button>
+	<button type="button" class="btn btn-danger" routerLinkActive="active" (click)="submitUser(formValues)">Guardar</button>
+	<button type="button" class="btn btn-secondary">Enviar Credenciales</button></div>
+</div>
+

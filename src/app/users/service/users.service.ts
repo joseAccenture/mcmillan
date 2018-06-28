@@ -55,6 +55,20 @@ export class UsersService {
     var USERS = this.http.put('/'+UsersService.backendUrl+'/users', user);
    return USERS;
  } 
+ submitNewUser(user) {
+  var USERS = this.http.post('/'+UsersService.backendUrl+'/users', user);
+ return USERS;
+} 
+submitExcelUser(myFile) {
+  let headers = new HttpHeaders();
+  headers.append( 'Content-Type', 'multipart/form-data');
+  headers.append('Access-Control-Allow-Origin', '*');
+  let body = new FormData();
+  body.append('myFile', myFile);
+  var EXCEL = this.http.post(' http://localhost:8080/excel', body, {headers: headers});
+   return EXCEL;
+  } 
+
  delUser(user, idObj){
   //  const apiUrl = 'http://localhost:8080/users/'+ user.id;
   // const params = new HttpParams().set('id', user.id);

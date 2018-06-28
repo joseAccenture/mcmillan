@@ -17,13 +17,15 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class ConsoleService {
+  Origin: string;
   backendUrl: any;
   URLactual: string;
   // public static backendUrl;
 
   DoRedirect() {
+    this.Origin =  window.location.origin;
     this.URLactual = window.location.pathname.slice(1).toString();
-    if (this.URLactual.includes('macmillanEducation')){
+    if (this.URLactual.includes('macmillanEducation') && !this.Origin.includes('http://localhost:8080')){
       this.backendUrl = '/macmillanBackend';
     }else{
       this.backendUrl = 'http://localhost:8080'
@@ -54,15 +56,20 @@ export class ConsoleService {
     var CLIENTS = this.http.get  (this.backendUrl+'/customers/'+numCliente, {headers});
     return CLIENTS;
   }
-  submitLine(line) {
+  submitOrder(line) {
     this.DoRedirect();
-    var LINE = this.http.post(this.backendUrl+'/users', line);
-   return LINE;
+    var ORDER = this.http.post(this.backendUrl+'/orders', line);
+   return ORDER;
  } 
-  getOrders(id) {
+ submitOrderToSap(line) {
+  this.DoRedirect();
+  var ORDER = this.http.post(this.backendUrl+'/salesorders', line);
+ return ORDER;
+} 
+  getOrdersDraft() {
     this.DoRedirect();
- var ORDER_DETAIL = this.http.get(this.backendUrl+'/orders/'+ id, httpOptions);
-     return ORDER_DETAIL;
+ var ORDER_LIST = this.http.get(this.backendUrl+'/orders');
+     return ORDER_LIST;
    }
 
   getOrdersList(fecEnt, fecSal, id) {

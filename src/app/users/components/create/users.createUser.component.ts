@@ -1,7 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { UsersService} from '../../service/users.service';
 import { FormsModule, FormGroup, FormControl, Validators }   from '@angular/forms';
-
+import { ConsoleDataService} from '../../../console/service/consoleData.service';
+import { ArrayType } from '@angular/compiler/src/output/output_ast';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'users-createuser-component',
@@ -11,12 +13,20 @@ import { FormsModule, FormGroup, FormControl, Validators }   from '@angular/form
 export class CreateUserComponent {
   @Input() data: any;
   public formGroup;
+  ClientOptions = ["", "Cliente Individual", "Administrador", "Atención Cliente", "Jefe de Zona", "Jefe de Marketing", "Representante"];
+  repCode: string;
+  public isZoneBoss: boolean = false;
+  public representadoLista =[];
+  public btnVisible: boolean = true;
+  public isAgent: boolean = false;
+  public empty: boolean = true;
+  optionSelected: any;
 
-  // public SendForm = new FormGroup({
-  //   nombre: new FormControl(),
-  //   email: new FormControl(),
-  //   zona:new FormControl()
-  // });
+  public SendForm = new FormGroup({
+    nombre: new FormControl(),
+    email: new FormControl(),
+    zona:new FormControl()
+  });
 
   // nombre = new FormControl(this.nombre);
   // email = new FormControl(this.email);  
@@ -25,45 +35,74 @@ export class CreateUserComponent {
   name = new FormControl('', [Validators.required, Validators.maxLength(15)]);
   email = new FormControl('', Validators.required);  
   zona = new FormControl('', Validators.required);
+  tipo = new FormControl('', Validators.required);
+
   // codigoSap = new FormControl(6);
   clientType = new FormControl('');
   representados = new FormControl({"codigoSap": 1, "nombre": "Jonh Ford"});
   
- constructor(private UsersService: UsersService){}
+ constructor(private UsersService: UsersService, private router:Router){}
  
 
-
-//  public onSubmit(): void {
-//  this.formGroup.getRawValue()
-//     .subscribe(
-//       (val) => console.log(val),
-//       (err) => console.error(err)
-//     );
-// }
-// /* method to call post-api from app.service */ 
-//  submitUser(data) { 
-//   try { 
-//     let user = { 
-//       codigoSap:null,
-//       nombre: this.data.nombre,
-//       email: this.data.email,
-//       tipoCliente: null,
-//       zona: this.data.zona,
-//     } 
-//     console.log(user,"author") 
-//     this.UsersService.submitUser(user) 
-//       .subscribe(resp => { 
-//         console.log(resp, "res"); 
-//         this.data = resp 
-//       }, 
-//         error => { 
-//           console.log(error, "error"); 
-//         }) 
-//   } catch (e) { 
-//     console.log(e); 
-//   } 
-// }   
-
+ InsertAgent(sapCodetoInclude) {
+  // console.log(data, sapCodetoInclude);
+    if (this.representadoLista.length <=0){
+      this.representadoLista = [];
+    }
+    this.representadoLista.push(sapCodetoInclude);
+    this.repCode = "";
+    this.empty = false;
+    $(".listContainer").removeClass("hidden");
+}
+onChange(clientType) {
+  if (clientType === "Jefe de Zona") {
+    this.isZoneBoss = true;
+    this.isAgent = false;
+  } else if (clientType === "Jefe de Marketing" || clientType === "Representante") {
+    this.isAgent = true;
+    this.isZoneBoss = false;
+  } else {
+    this.isZoneBoss = false;
+    this.isAgent = false;
+  }
+}
+submitUser(data) {
+  try {
+    let user = {
+      "codigoSap": 55,
+      "nombre": this.name.value,
+      "email": this.email.value,
+      "tipoCliente": this.tipo.value,
+      "zona": this.zona.value,
+      "representados": this.representadoLista.join(),
+    }
+    console.log(user, "editUser")
+    this.UsersService.submitNewUser(user)
+      .subscribe(resp => {
+        console.log(resp, "res");
+        this.data = resp
+         var url = '/userslist';
+         this.router.navigate([url]);
+      },
+        error => {
+          console.log(error, "error");
+        })
+  } catch (e) {
+    console.log(e);
+  }
+}  
+isShown(user, representado){
+  // this.btnVisible = !this.btnVisible;
+  $("."+representado).toggleClass("hidden");
+}
+deleteFromList(user){
+  var index = this.representadoLista.indexOf(user);
+ this.representadoLista.splice(index, 1);
+ if (  this.representadoLista.length === 0 ){
+  $(".listContainer").addClass("hidden");
+  this.empty = true;
+ }
+}
 setNameValue() {
  
   // console.log('Name: ' + this.name.value);

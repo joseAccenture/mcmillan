@@ -11,7 +11,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text" id="basic-addon2">Nombre</span>
 									</div>
-									<input class="form-control" [(ngModel)]="data.nombre" [formControl]="name"> 
+									<input class="form-control" [(ngModel)]="data.nombre" [formControl]="name" > 
 								</div>
 							</div>
 						</div>
@@ -33,7 +33,7 @@
 									</div>
 									<select class='select-option custom-select' (change)="onChange($event.target.value)" required [formControl]="tipo"> 
 											<!-- (ngModelChange)='onOptionsSelected($event)' -->
-											<option class='option' *ngFor='let option of options' [selected]="option === data.tipoCliente">{{option}}</option>
+											<option class='option' *ngFor='let option of ClientOptions' [selected]="option === data.tipoCliente">{{option}}</option>
 										</select>
 								</div>
 							</div>

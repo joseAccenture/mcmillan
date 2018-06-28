@@ -1,0 +1,65 @@
+<breadcrumb-custom></breadcrumb-custom>
+<!-- <form #yourForm="ngForm" (ngSubmit)="uploadExcel()">
+	<input type="text" [(ngModel)]="Name" name="Name"/>
+	<input type="files" #fileupload [(ngModel)]="files" name="myFile" (change)="fileChange(fileupload.files)"/>
+	<button type="submit">Submit</button>
+</form> -->
+
+<div class="card">
+	<div class="card-body">
+		<div class="row homebtnContainer">
+			<div class="col-8 m-auto">
+				<div class="col-sm">
+					<h4>Subida masiva de usuarios:
+					</h4>
+					<br/>
+					<form id="formFile" method="POST" enctype="multipart/form-data" action="/">
+						<!-- (ngSubmit)="uploadExcel()" -->
+						<!-- <input type="text" [(ngModel)]="Name" name="Name"/> -->
+						<input type="file" #fileupload name="myFile" (change)="handleUpload($event)" />
+						<button (click)="uploadExcel()" type="submit" class="btn btn-danger" routerLinkActive="active">Enviar</button>
+					</form>
+				</div>
+			</div>
+			<br/>
+			<br/>
+			<br/>
+			<div class="col-10 m-auto">
+				<div class="col-sm">
+					<div *ngIf="viewTable; then primaryBlock">this is ignored</div>
+                    <ng-template #primaryBlock>
+						<p-dataTable class="itemTableUser" [value]="data" [immutable]=false [paginator]="true" [rows]="5" [rowStyleClass]="isRowSelected"
+						[pageLinks]="5" #dt reorderableColumns="true">
+						   <p-column field="nombre" header="Nombre">
+							   <ng-template let-data="rowData" pTemplate="body">
+								   <div class="MasCreatUser"  [ngStyle]="{'background-color': changeColor(data['duplicado'])}">
+									   {{data['nombre']}}
+								   </div>
+							   </ng-template>
+						   </p-column>
+						   <p-column field="email" header="Email">
+							   <ng-template let-data="rowData" pTemplate="body">
+								   <div class="MasCreatUserEmail"  [ngStyle]="{'background-color': changeColor(data['duplicado'])}">
+									   {{data['email']}}
+								   </div>
+							   </ng-template>
+						   </p-column>
+						   <p-column field="tipoCliente" header="Tipo de cliente">
+							   <ng-template let-data="rowData" pTemplate="body">
+								   <div class="MasCreatUserEmail" [ngStyle]="{'background-color': changeColor(data['duplicado'])}">
+									   {{data['tipoCliente']}}
+								   </div>
+							   </ng-template>
+						   </p-column>
+					   </p-dataTable>
+                    </ng-template>
+					<div *ngIf="viewTable; then btnBlock">this is ignored</div>
+                    <ng-template #btnBlock>
+						<button type="button" class="btn btn-danger" routerLink="/userslist" routerLinkActive="active">Volver al listado de usuarios</button>
+                    </ng-template>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

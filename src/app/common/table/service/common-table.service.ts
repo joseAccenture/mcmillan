@@ -17,7 +17,7 @@ export class CommonTableService {
   constructor(private http : HttpClient) { }
 
   getMaterials() {
-    var MATERIALS = this.http.get('/'+CommonTableService.backendUrl+'/lineas');
+    var MATERIALS = this.http.get('/'+CommonTableService.backendUrl+'/material');
     return MATERIALS;
   }
      getCLients() {
