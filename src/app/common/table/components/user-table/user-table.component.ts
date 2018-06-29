@@ -49,9 +49,17 @@ export class USerTableComponent implements OnInit {
     }
   }
   toggle(rowData) {
-
-    this.activeBtn = !this.activeBtn;
-      this.btnActive.emit(this.activeBtn);
+    if (this.ConsoleDataService.lastId === rowData.id){
+      if (this.activeBtn === false){
+        this.activeBtn = false;
+        this.ConsoleDataService.lastId = rowData.id
+      }else{
+        this.activeBtn = true;
+        this.ConsoleDataService.lastId = rowData.id
+      }
+    }
+   console.log(this.activeBtn + "activeBtn");
+    this.btnActive.emit(this.activeBtn);
   }
   selectUserToEdit(index, dato) {
      this.selectedRow = index;
