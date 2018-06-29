@@ -12,6 +12,8 @@ import { UsersRootComponent } from "./components/root/user-root.component";
 import { CreateUserComponent } from "./components/create/users.createUser.component";
 import { EditUserComponent } from "./components/edit/users.editUser.component";
 
+import { MasiveCreateComponent } from './components/MasiveCreate/users.MasiveCreate.component';
+
 import { ListUserComponent } from "./components/list/users.listUser.component";
 // import { BreadcrumbComponent } from '../common/breadcrumb/breadcrumb.component';
 // import { TableComponent } from '../common/table/table.component';
@@ -20,6 +22,7 @@ import { ListUserComponent } from "./components/list/users.listUser.component";
 import { UsersService } from "./service/users.service";
 import { TableRowComponent } from '../common/table-row/table-row.component';
 import { USerTableComponent } from '../common/table/components/user-table/user-table.component';
+import { DataListModule, DataTableModule }  from 'primeng/primeng';
 
 @NgModule({
   imports: [
@@ -28,14 +31,17 @@ import { USerTableComponent } from '../common/table/components/user-table/user-t
     ReactiveFormsModule,
     BrowserModule,
     RouterModule.forChild(UsersRoutes),
-    CommonElementsModule
+    CommonElementsModule,    
+    DataListModule, 
+    DataTableModule
     
   ],
   declarations: [
     UsersRootComponent,
     CreateUserComponent,
     EditUserComponent,
-    ListUserComponent
+    ListUserComponent,
+    MasiveCreateComponent
     // BreadcrumbComponent
     
   ],

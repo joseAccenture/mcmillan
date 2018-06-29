@@ -12,10 +12,11 @@
 			<div class="col-8"></div>
 			<div class="col">
 				<button type="button" class="btn btn-danger delete m-2" (click)="deleteUser(userToEdit)"  [disabled]="!active">
-					<img src="../../../../assets/images/icons/baseline-delete_forever-24px.svg" width="60" height="25" alt="submit" />
+					<img src="assets/images/icons/baseline-delete_forever-24px.svg" width="60" height="25" alt="submit" />
 				</button>
 				<button type="button" class="btn btn-danger m-2"(userInEdit)="selectedUserInEdit($event)"  [disabled]="!active" (click)=goTouserEdit(userToEdit)>Editar</button>
 				<button type="button" class="btn btn-danger m-2" [routerLink]="['/createUser']" routerLinkActive="active">Crear nuevo</button>
+				<button type="button" class="btn btn-danger m-2" [routerLink]="['/MasiveCreate']" routerLinkActive="active">Subida masiva de usuarios</button>
 			</div>
 		</div>
 	</div>

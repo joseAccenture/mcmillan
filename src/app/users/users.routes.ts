@@ -3,6 +3,7 @@ import { CreateUserComponent } from './components/create/users.createUser.compon
 import { EditUserComponent } from './components/edit/users.editUser.component';
 
 import { ListUserComponent } from './components/list/users.listUser.component';
+import { MasiveCreateComponent } from './components/MasiveCreate/users.MasiveCreate.component';
 
 export const UsersRoutes: Routes = [
 
@@ -14,6 +15,9 @@ export const UsersRoutes: Routes = [
   },
   {
     path: 'editUser', component: EditUserComponent
+  },
+  {
+    path: 'MasiveCreate', component: MasiveCreateComponent
   }
 
 ];

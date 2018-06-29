@@ -11,12 +11,12 @@ export class DeliveryNotesOrderComponent implements OnInit {
   deliveryNoteData: object;
   data: object;
   numDocumentoComercial: string;
-    // orderToEdit: any;
+  // orderToEdit: any;
   // public active =false;
   public active: boolean = false;
   constructor(private activatedRoute: ActivatedRoute,private router: Router, private ConsoleService:ConsoleService){}
   ngOnInit() {  
-     
+
     this.activatedRoute.queryParams.subscribe(params => {
       this.numDocumentoComercial= params.numDocumentoComercial;
       this.deliveryNoteData = params;
@@ -36,7 +36,7 @@ export class DeliveryNotesOrderComponent implements OnInit {
           })
     } catch (e) {
       console.log(e);
-    }
+}
     
   }
   isRowSelected(rowData: any){
@@ -67,3 +67,4 @@ export class DeliveryNotesOrderComponent implements OnInit {
     this.router.navigate([url], navigationExtras);
   }
 }
+

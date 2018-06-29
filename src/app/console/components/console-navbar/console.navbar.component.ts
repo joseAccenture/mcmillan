@@ -14,7 +14,7 @@ export class ConsoleNavbarComponent implements OnInit  {
   public userName;
   public userMail;
   public actualClient;  
-  public actualUserName;  
+  public actualUserName;
   // public data:{
   //   nombre: string,
   //   email: string
@@ -26,7 +26,7 @@ export class ConsoleNavbarComponent implements OnInit  {
 
   constructor(private ConsoleService: ConsoleService ) { }
   ngOnInit(){
-    var user = this.getUSer(); 
+    var user = this.getUSer();
   }
   updateActualUser(user: object){
       // this.actualClient = user["nombre1"];

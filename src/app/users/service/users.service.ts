@@ -2,6 +2,8 @@ import { Injectable, Injector } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpRequest, HttpResponse, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs'
 import { environment } from 'src/environments/environment.prod';
+import { Router } from '@angular/router';
+import 'rxjs/add/operator/map';
 // import { RequestOptionsArgs, RequestMethod, RequestOptions, Request,  HttpModule, Http, Headers } from '@angular/http';
 
 
@@ -37,28 +39,43 @@ headers = headers.append("Access-Control-Allow-Headers", "Content-Type, Authoriz
     
   })
 export class UsersService {
+  public static backendUrl = "macmillanBackend"
     constructor(private http : HttpClient){}
     getUSertoEdit(id) {
-        var USERS = this.http.get(' http://localhost:8080/users/'+ id);
+        var USERS = this.http.get('/'+UsersService.backendUrl+'/users/'+ id);
        return USERS;
      }
      getUSerZone(id) {
-      var ZONE = this.http.get(' http://localhost:8080/zone/'+ id);
+      var ZONE = this.http.get('/'+UsersService.backendUrl+'/zone/'+ id);
      return ZONE;
    }
-     submitUser(user) {
-      var USERS = this.http.post(' http://localhost:8080/users', user);
-     return USERS;
-   } 
-   submitEditUser(user) {
-    var USERS = this.http.put(' http://localhost:8080/users', user);
+   submitExcelUser(myFile) {
+    let headers = new HttpHeaders();
+    headers.append( 'Content-Type', 'multipart/form-data');
+    headers.append('Access-Control-Allow-Origin', '*');
+    let body = new FormData();
+    body.append('myFile', myFile);
+    var EXCEL = this.http.post(' http://localhost:8080/excel', body, {headers: headers});
+     return EXCEL;
+    } 
+
+   submitUser(user) {
+      var USERS = this.http.post('/'+UsersService.backendUrl+'/users', user);
    return USERS;
  } 
- delUser(user, idObj){
+   submitEditUser(user) {
+    var USERS = this.http.put('/'+UsersService.backendUrl+'/users', user);
+   return USERS;
+ } 
+ delUser(idObj){
+  let headers = new HttpHeaders();
+  headers.append( 'Content-Type', 'application/json');
+  headers.append('Access-Control-Allow-Origin', '*');
   //  const apiUrl = 'http://localhost:8080/users/'+ user.id;
   // const params = new HttpParams().set('id', user.id);
   // return this.http.delete(apiUrl, { params})
-    var COMPLETE = this.http.delete('http://localhost:8080/users', user);
+    // var COMPLETE = this.http.delete('http://localhost:8080/users' + idObj, userSelected);
+    var COMPLETE = this.http.delete('http://localhost:8080/orders/' + idObj, {headers: headers});
     return COMPLETE;
  }
 }

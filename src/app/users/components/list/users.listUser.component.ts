@@ -34,14 +34,17 @@ export class ListUserComponent implements OnInit {
     this.router.navigate([url], { queryParams: { id: userSelected.id } });
 
   }
-  deleteUserFromList(userSelected, idObj) {
+  deleteUserFromList(idObj) {
+    // var url ='/MasiveCreate';
+    
     try {
-      this.UsersService.delUser(userSelected, idObj)
+      this.UsersService.delUser(idObj)
         .subscribe(resp => {
           console.log(resp, "clients");
           this.data = resp
           // this.userToEdit.emit(this.data[0].codigoSap);
           // this.btnActive.emit(this.activeBtn);
+          
         },
           error => {
             console.log(error, "error");
@@ -51,7 +54,6 @@ export class ListUserComponent implements OnInit {
     }
   }
   deleteUser(userSelected){
-    let idObj = {"id":userSelected.id}
-   this.deleteUserFromList(userSelected, idObj);
+   this.deleteUserFromList(userSelected.id);
   }
 }

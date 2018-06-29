@@ -15,7 +15,7 @@
                     <div class="card-body">
                         <form>
                             <div class="row mb-0">
-                                <div class="col">
+                                <div class="col-4">
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon2">Código Sap</span>
@@ -36,22 +36,11 @@
                                             <input class="form-control" [formControl]="nomFis" placeholder="Client fiscal name" >
                                     </div>
                                 </div>
-                                <div class="col">
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" id="basic-addon2">CIF</span>
-                                        </div>
-                                        <!-- <input type="text" class="form-control" [formControl]="cif" placeholder="CIF" [(ngModel)]="data.cif" [ngModelOptions]="{standalone: true}" #ctrl="ngModel"
-                                            aria-describedby="basic-addon2"> -->
-
-                                            <input class="form-control" [formControl]="cif" placeholder="CIF">
-                                    </div>
-                                </div>
                             </div>
                             <div class="row mb-0">
                             </div>
                             <div class="row mb-0">
-                                <div class="col-4">
+                                <div class="col-9">
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon2">Dirección de entrega</span>
@@ -62,6 +51,17 @@
                                             <input [formControl]="dirEnt" class="form-control" placeholder="calle" >
                                     </div>
                                 </div>
+                                <div class="col-3">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon2">CIF</span>
+                                            </div>
+                                            <!-- <input type="text" class="form-control" [formControl]="cif" placeholder="CIF" [(ngModel)]="data.cif" [ngModelOptions]="{standalone: true}" #ctrl="ngModel"
+                                                aria-describedby="basic-addon2"> -->
+    
+                                                <input class="form-control" [formControl]="cif" placeholder="CIF">
+                                        </div>
+                                    </div>
                             </div>
                             <div class="row ml-2">
                                 <div class="col">
@@ -75,7 +75,7 @@
                                 <div class="colCalendar row ml-2">
                                     <div class="col-3">
                                         <input class="form-check-input date-radio-inline" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                                        <label class="form-check-label radiobtn">Fecha preferente de entrega</label>
+                                    <label class="form-check-label radiobtn">Fecha preferente de entrega</label>
                                     </div>
                                     <!-- <input type="text" name="preferentDate" class="form-control min-input" placeholder="Date" (ngModel)="data.fecha" [ngModelOptions]="{standalone: true}"
                                         #ctrl="ngModel"> -->                                                 
