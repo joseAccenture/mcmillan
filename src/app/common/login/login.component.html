@@ -12,13 +12,13 @@
               <!-- <input #name (keyup)="onKey(name.value)">
                 <p>{{name.value}}</p> -->
               <form>
-                  <input type="text" placeholder="Username" name="name" (input)="onSearchChange($event.target.value)" #username> 
-                  <input  type="password" name="pass" placeholder="password" (input)="onSearchChange($event.target.value)" #pass>
+                  <input type="text" placeholder="Usuario" name="name" (input)="onSearchChange($event.target.value)" #username> 
+                  <input  type="password" name="pass" placeholder="Contraseña" (input)="onSearchChange($event.target.value)" #pass>
                   <button type="button" class="btn btn-danger" (click)="OnLogin(username.value,pass.value)">Login</button>      
               </form>
               <div *ngIf="correctLogin; then primaryBlock">this is ignored</div>
                     <ng-template #primaryBlock>
-                        <span class="AlertLogin">incorrect user/pass</span>
+                        <span class="AlertLogin">Usuario o contraseña incorrectos</span>
                     </ng-template>
           </div>
           <div class="col p-0"></div>

@@ -42,6 +42,9 @@ export class ListOrderTableComponent implements OnInit {
  
     // this.columns = this.ConsoleService.getOrderListColumns();
     this.URLactual = window.location.pathname.slice(1).toString();
+    if (this.URLactual === "pendingOrder"){
+      this.pending = true;
+    }
   }
 
   getCleanRows(orders) {

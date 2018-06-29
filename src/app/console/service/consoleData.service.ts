@@ -25,11 +25,28 @@ export class ConsoleDataService {
      this.ConsoleService.getCLients(this.codigoSap)
      .subscribe(resp => {
     this.dataTable =  resp["sociosCliente"];
+    this.firstclientToRepresent = resp["detalleCliente"].numCliente;
     },
       error => {
         console.log(error, "error");
       });
    }
+   public getClientActive(SapCode){
+    this.ConsoleService.getCLients(SapCode)
+    .subscribe(resp => {
+   this.client =  resp;
+   if (this.client.detalleCliente.codigoSap){
+    this.firstclientToRepresent = this.client.codigoSap;
+   }else{
+    this.firstclientToRepresent = this.client["detalleCliente"].numCliente;
+   }
+  
+
+   },
+     error => {
+       console.log(error, "error");
+     });
+  }
   public userActive(data){
     if (!data.numCliente){
       this.user = data;
@@ -38,7 +55,8 @@ export class ConsoleDataService {
     // first time called
     this.ConsoleService.getCLients(this.codigoSap)
      .subscribe(resp => {
-    this.client =  resp["detalleCliente"];
+    // this.client =  resp["detalleCliente"];
+    this.client =  resp
     },
     error =>{
       console.log(error, "error_clients")

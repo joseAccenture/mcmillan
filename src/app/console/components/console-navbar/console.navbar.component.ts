@@ -86,8 +86,10 @@ export class ConsoleNavbarComponent implements OnInit  {
     rowData.isSelected = !rowData.isSelected;
     // this.actualClient.emit(rowData);
     // this.userToEdit.emit(rowData);
-    this.ConsoleDataService.firstclientToRepresent = rowData.numCliente;
-    this.ConsoleDataService.client = rowData;
+    // this.ConsoleDataService.firstclientToRepresent = rowData.numCliente;
+    // this.ConsoleDataService.client = rowData;
+    this.ConsoleDataService.client = this.ConsoleDataService.getClientActive(rowData.numCliente);
+    
     this.toggle(rowData);
 
   }

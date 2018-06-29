@@ -4,7 +4,19 @@
             <div class="row homebtnContainer">
                 <div class="col-8 m-auto">
                     <div class="col-sm">
-                        <common-listorder-table tableData="pendingOrder"></common-listorder-table>
+                        <!-- <common-listorder-table tableData="pendingOrder"></common-listorder-table> -->
+                        <p-dataTable [value]="data" (actualClient)="updateActualUser($event)" [paginator]="true" [rows]="10"  [rowStyleClass]="isRowSelected"  #dt>
+                            <p-column field="isSelected" header="" [style]="{'width':'32px','cursor': 'pointer'}">
+                                <ng-template pTemplate="body" let-rowData="rowData">
+                                    <img src="assets/images/icons/baseline-check_circle-24px.svg" (click)="ChangeClient(rowData)"/>
+                                    <!-- (mouseover)="rowData.isSelected=!rowData.isSelected" (mouseout)=" rowData.isSelected=!rowData.isSelected" -->
+                                    <!-- rowData.isSelected=!rowData.isSelected -->
+                                </ng-template>
+                                </p-column> 
+                            <p-column class="codigoSap" field="codigoSap" header="Código SAP"></p-column>
+                            <p-column class="fecha" field="fecha" header="Fecha"></p-column>
+                            <!-- <p-column class="estado" field="estado" header="Estado"></p-column> -->
+                        </p-dataTable>
                     </div>
                 </div>
             </div>
@@ -14,7 +26,7 @@
                         <button type="button" class="btn btn-danger delete m-2">
                                 <img src="assets/images/icons/baseline-delete_forever-24px.svg" width="60" height="25" alt="submit" />
                             </button>
-                    <button type="button" class="btn btn-danger m-2" (click)="navigateToDetail()" routerLinkActive="active">Ver detalle</button>
+                    <button type="button" class="btn btn-danger m-2" (click)="navigateToDetail(rowData)" routerLinkActive="active">Ver detalle</button>
                 </div>
             </div>
         </div>

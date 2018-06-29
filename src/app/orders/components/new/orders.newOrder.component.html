@@ -22,7 +22,7 @@
                                         </div>
                                         <!-- <input type="text" class="form-control" [formControl]="codSap" placeholder="Codigo SAP" [(ngModel)]="data.codigoSap" [ngModelOptions]="{standalone: true}"
                                             #ctrl="ngModel" aria-describedby="basic-addon2"> -->
-                                            <input class="form-control"[readonly]="true" [(ngModel)]="ConsoleDataService.client.numCliente" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" aria-describedby="basic-addon2">
+                                            <input class="form-control"[readonly]="true" [(ngModel)]="ConsoleDataService.client.detalleCliente.numCliente" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" aria-describedby="basic-addon2">
                                     </div>
                                 </div>
                                 <div class="col">
@@ -33,7 +33,7 @@
                                         <!-- <input type="text" class="form-control" [formControl]="nomFis" placeholder="Client fiscal name" [(ngModel)]="data.nombre" [ngModelOptions]="{standalone: true}"
                                             #ctrl="ngModel" aria-describedby="basic-addon2"> -->
 
-                                            <input class="form-control" [readonly]="true" [(ngModel)]="ConsoleDataService.client.nombre2" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" aria-describedby="basic-addon2">
+                                            <input class="form-control" [readonly]="true" [(ngModel)]="ConsoleDataService.client.detalleCliente.nombre2" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" aria-describedby="basic-addon2">
                                     </div>
                                 </div>
                                 <div class="col">
@@ -44,7 +44,7 @@
                                         <!-- <input type="text" class="form-control" [formControl]="cif" placeholder="CIF" [(ngModel)]="data.cif" [ngModelOptions]="{standalone: true}" #ctrl="ngModel"
                                             aria-describedby="basic-addon2"> -->
 
-                                            <input class="form-control"[readonly]="true" [(ngModel)]="ConsoleDataService.client.nif" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" aria-describedby="basic-addon2">
+                                            <input class="form-control"[readonly]="true" [(ngModel)]="ConsoleDataService.client.detalleCliente.nif" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" aria-describedby="basic-addon2">
                                     </div>
                                 </div>
                             </div>
@@ -59,7 +59,7 @@
                                         <!-- <input [formControl]="dirEnt" type="text" class="form-control" placeholder="calle" [(ngModel)]="data.direccionEntrega" [ngModelOptions]="{standalone: true}"
                                             #ctrl="ngModel" aria-label="Nombre" aria-describedby="basic-addon2"> -->
 
-                                            <input  [readonly]="true" [(ngModel)]="ConsoleDataService.client.calleYNumero" class="form-control" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" aria-describedby="basic-addon2">
+                                            <input  [readonly]="true" [(ngModel)]="ConsoleDataService.client.detalleCliente.calleYNumero" class="form-control" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" aria-describedby="basic-addon2">
                                     </div>
                                 </div>
                             </div>
@@ -67,14 +67,14 @@
                                 <div class="col">
                                     <label class="form-check-label radiobtn">
                                         <!-- <input [formControl]="fecEnt" class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>Fecha inmediata</label> -->
-                                        <input class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadios1" value="0">Fecha inmediata</label>
+                                        <input class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadios1" value="0" checked>Fecha inmediata</label>
                                     </div>
                                 <div class="col">
                                 </div>
                             </div>
                                 <div class="colCalendar row ml-2">
                                     <div class="col-3">
-                                        <input class="form-check-input date-radio-inline" type="radio" name="gridRadios2" id="gridRadios2" value="1">
+                                        <input class="form-check-input date-radio-inline" type="radio" name="gridRadios" id="gridRadios2" value="1">
                                         <label class="form-check-label radiobtn">Fecha preferente de entrega</label>
                                     </div>
                                     <!-- <input type="text" name="preferentDate" class="form-control min-input" placeholder="Date" (ngModel)="data.fecha" [ngModelOptions]="{standalone: true}"

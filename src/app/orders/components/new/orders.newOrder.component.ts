@@ -36,7 +36,7 @@ export class NewOrderComponent implements OnInit {
   noLine;
   
   ngOnInit() {
-    this.client = this.ConsoleDataService.client;
+    // this.client = this.ConsoleDataService.client;
     this.materials = this.getMaterials();
     this.date = new Date();
     this.date.setDate( this.date.getDate() + 3 );
@@ -110,19 +110,19 @@ export class NewOrderComponent implements OnInit {
     let order =
       {
           "idUser": this.ConsoleDataService.user["id"],
-          "codigoSap": this.ConsoleDataService.client["numCliente"],
-          "nombre": this.ConsoleDataService.client["nombre1"],
-          "cif": this.ConsoleDataService.client["nif"],
-          "direccion": this.ConsoleDataService.client["calleYNumero"],
-          "email":  this.ConsoleDataService.client["email"],
-          "telefono": this.ConsoleDataService.client["telefono"],
-          "condicionPago": this.ConsoleDataService.client["claveCondicionesDePago"],
-           "viaPago": this.ConsoleDataService.client["textoViasDePago"],
-          "tipoCliente": this.ConsoleDataService.client["clasificacionCliente"],
-          "ccc": this.ConsoleDataService.client["cuentaBancaria"],
+          "codigoSap": this.ConsoleDataService.client["detalleCliente"].numCliente,
+          "nombre": this.ConsoleDataService.client["detalleCliente"].nombre1,
+          "cif": this.ConsoleDataService.client["detalleCliente"].nif,
+          "direccion": this.ConsoleDataService.client["detalleCliente"].calleYNumero,
+          "email":  this.ConsoleDataService.client["detalleCliente"].email,
+          "telefono": this.ConsoleDataService.client["detalleCliente"].telefono,
+          "condicionPago": this.ConsoleDataService.client["detalleCliente"].claveCondicionesDePago,
+           "viaPago": this.ConsoleDataService.client["detalleCliente"].textoViasDePago,
+          "tipoCliente": this.ConsoleDataService.client["detalleCliente"].clasificacionCliente,
+          "ccc": this.ConsoleDataService.client["detalleCliente"].cuentaBancaria,
           "personaContacto": "",
-          "direccionEntrega": this.ConsoleDataService.client["calleYNumero"],
-          "tipoFactura": this.ConsoleDataService.client["tipoFacturaImpresa"],
+          "direccionEntrega": this.ConsoleDataService.client["detalleCliente"].calleYNumero,
+          "tipoFactura": this.ConsoleDataService.client["detalleCliente"].tipoFacturaImpresa,
            "fecha": this.date,
            "lineasPedido": this.ConsoleDataService.dataLineToSend
       }
