@@ -26,25 +26,11 @@ public pending = false;
           this.orderToedit = params;
           // this.clients = this.orderHeader(this.orderToedit); 
       });
-      // this.getUSertoEdit(this.codigoSap);
+       this.orderHeader();
   }
 
-  orderHeader(clientData) {
-    // try {
-    //   this.ConsoleService.getCLients(40)
-    //     .subscribe(resp => {
-    //       console.log(resp, "clientDetail");
-    //       this.data = resp["detalleCliente"];
-    //       this.data.fecha = this.orderToedit["fechaDocumento"];
-
-    //     },
-    //       error => {
-    //         console.log(error, "error");
-    //       })
-    // } catch (e) {
-    //   console.log(e);
-    // }
-
+  orderHeader() {
+    this.orderToedit["head"] = this.ConsoleDataService.client;
   }
   ChangeClient(i) {
     this.data.splice(i, 1);

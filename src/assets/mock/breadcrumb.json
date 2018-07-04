@@ -4,9 +4,9 @@
        "clientnew":["Datos del cliente", "Crear cliente"],
        "createUser":["Gestión de usuarios", "Nuevo usuario"],
        "editUser": ["Gestión de usuarios","Editar usuario"],    
-       "ordersList":["Lista de pedidos"],
-       "detailOrder":["Lista de pedidos", "Detalle del pedido"],
-       "newOrder": ["Lista de pedidos", "Nuevo pedido"],
+       "ordersList":["Consulta de pedidos"],
+       "detailOrder":["Consulta de pedidos", "Detalle del pedido"],
+       "newOrder": ["Consulta de pedidos", "Nuevo pedido"],
        "pendingOrder": ["Pedidos pendiente de validar"]
    }
 
