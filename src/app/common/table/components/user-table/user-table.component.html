@@ -1,4 +1,4 @@
-   <p-dataTable [value]="data"  (actualClient)="updateActualUser($event)" [paginator]="true" [rows]="10"  [rowStyleClass]="isRowSelected" [pageLinks]="5" #dt>
+   <p-dataTable [value]="ConsoleDataService.userlist" [immutable]=false (actualClient)="updateActualUser($event)" [paginator]="true" [rows]="10"  [rowStyleClass]="isRowSelected" [pageLinks]="5" #dt>
       <p-column field="isSelected codigoSap" header="" [style]="{'width':'32px','cursor': 'pointer'}">
           <ng-template pTemplate="body" let-rowData="rowData">
             <img src="assets/images/icons/baseline-check_circle-24px.svg" (click)="ChangeClient(rowData)" data-dismiss="modal" />

@@ -1,6 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsersService } from '../../service/users.service';
+import { ConsoleService } from '../../../console/service/console.service';
+import { ConsoleDataService } from '../../../console/service/consoleData.service';
 @Component({
   selector: 'users-listuser-component',
   templateUrl: './users.listUser.component.html',
@@ -14,7 +16,7 @@ export class ListUserComponent implements OnInit {
 
   @Output() userInEdit: EventEmitter<string> = new EventEmitter()
 
-  constructor(private router: Router, private UsersService: UsersService){}
+  constructor(private router: Router, private UsersService: UsersService, private ConsoleService:ConsoleService, private ConsoleDataService: ConsoleDataService ){}
   ngOnInit(){
  
   }
@@ -34,12 +36,18 @@ export class ListUserComponent implements OnInit {
     this.router.navigate([url], { queryParams: { id: userSelected.id } });
 
   }
-  deleteUserFromList(userSelected, idObj) {
+  deleteUserFromList(idObj) {
     try {
-      this.UsersService.delUser(userSelected, idObj)
+      this.UsersService.delUser(idObj)
         .subscribe(resp => {
           console.log(resp, "clients");
           this.data = resp
+         this.ConsoleService.getUsers()
+         .subscribe(resp =>{
+          this.ConsoleDataService.userlist = resp
+         }
+
+        )
           // this.userToEdit.emit(this.data[0].codigoSap);
           // this.btnActive.emit(this.activeBtn);
         },
@@ -51,7 +59,6 @@ export class ListUserComponent implements OnInit {
     }
   }
   deleteUser(userSelected){
-    let idObj = {"id":userSelected.id}
-   this.deleteUserFromList(userSelected, idObj);
+    this.deleteUserFromList(userSelected.id); 
   }
 }

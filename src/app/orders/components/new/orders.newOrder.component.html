@@ -22,18 +22,7 @@
                                         </div>
                                         <!-- <input type="text" class="form-control" [formControl]="codSap" placeholder="Codigo SAP" [(ngModel)]="data.codigoSap" [ngModelOptions]="{standalone: true}"
                                             #ctrl="ngModel" aria-describedby="basic-addon2"> -->
-                                            <input class="form-control"[readonly]="true" [(ngModel)]="ConsoleDataService.client.detalleCliente.numCliente" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" aria-describedby="basic-addon2">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" id="basic-addon2">Nombre fiscal</span>
-                                        </div>
-                                        <!-- <input type="text" class="form-control" [formControl]="nomFis" placeholder="Client fiscal name" [(ngModel)]="data.nombre" [ngModelOptions]="{standalone: true}"
-                                            #ctrl="ngModel" aria-describedby="basic-addon2"> -->
-
-                                            <input class="form-control" [readonly]="true" [(ngModel)]="ConsoleDataService.client.detalleCliente.nombre2" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" aria-describedby="basic-addon2">
+                                            <input class="form-control"[readonly]="true" [(ngModel)]="ConsoleDataService.client['detalleCliente'].numCliente" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" aria-describedby="basic-addon2">
                                     </div>
                                 </div>
                                 <div class="col">
@@ -44,22 +33,39 @@
                                         <!-- <input type="text" class="form-control" [formControl]="cif" placeholder="CIF" [(ngModel)]="data.cif" [ngModelOptions]="{standalone: true}" #ctrl="ngModel"
                                             aria-describedby="basic-addon2"> -->
 
-                                            <input class="form-control"[readonly]="true" [(ngModel)]="ConsoleDataService.client.detalleCliente.nif" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" aria-describedby="basic-addon2">
+                                            <input class="form-control"[readonly]="true" [(ngModel)]="ConsoleDataService.client['detalleCliente'].nif" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" aria-describedby="basic-addon2">
                                     </div>
                                 </div>
                             </div>
                             <div class="row mb-0">
+                                    <div class="col">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon2">Nombre fiscal</span>
+                                                </div>
+                                                <!-- <input type="text" class="form-control" [formControl]="nomFis" placeholder="Client fiscal name" [(ngModel)]="data.nombre" [ngModelOptions]="{standalone: true}"
+                                                    #ctrl="ngModel" aria-describedby="basic-addon2"> -->
+        
+                                                    <input class="form-control" [readonly]="true" [(ngModel)]="ConsoleDataService.client['detalleCliente'].nombre2" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" aria-describedby="basic-addon2">
+                                            </div>
+                                        </div>
                             </div>
                             <div class="row mb-0">
-                                <div class="col-4">
+                                <div class="col-8">
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon2">Dirección de entrega</span>
                                         </div>
+                                        <select class='select-option custom-select'(change)="onChange($event.target.value)"> 
+                                               <!-- [formControl]="tipo" -->
+                                                <!-- (ngModelChange)='onOptionsSelected($event)' -->
+                                                <option class='option' *ngFor='let address of ConsoleDataService.addresses'>{{address}}</option>
+                                                <!-- [selected]="option === data.tipoCliente" -->
+                                            </select>
                                         <!-- <input [formControl]="dirEnt" type="text" class="form-control" placeholder="calle" [(ngModel)]="data.direccionEntrega" [ngModelOptions]="{standalone: true}"
                                             #ctrl="ngModel" aria-label="Nombre" aria-describedby="basic-addon2"> -->
 
-                                            <input  [readonly]="true" [(ngModel)]="ConsoleDataService.client.detalleCliente.calleYNumero" class="form-control" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" aria-describedby="basic-addon2">
+                                            <!-- <input  [readonly]="true" [(ngModel)]="ConsoleDataService.client.detalleCliente.calleYNumero" class="form-control" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" aria-describedby="basic-addon2"> -->
                                     </div>
                                 </div>
                             </div>
@@ -67,14 +73,14 @@
                                 <div class="col">
                                     <label class="form-check-label radiobtn">
                                         <!-- <input [formControl]="fecEnt" class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>Fecha inmediata</label> -->
-                                        <input class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadios1" value="0" checked>Fecha inmediata</label>
+                                        <input [formControl]="fechaSelected" class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadios1" value="0" checked>Fecha inmediata</label>
                                     </div>
                                 <div class="col">
                                 </div>
                             </div>
                                 <div class="colCalendar row ml-2">
                                     <div class="col-3">
-                                        <input class="form-check-input date-radio-inline" type="radio" name="gridRadios" id="gridRadios2" value="1">
+                                        <input [formControl]="fechaSelected" class="form-check-input date-radio-inline" type="radio" name="gridRadios" id="gridRadios2" value="1">
                                         <label class="form-check-label radiobtn">Fecha preferente de entrega</label>
                                     </div>
                                     <!-- <input type="text" name="preferentDate" class="form-control min-input" placeholder="Date" (ngModel)="data.fecha" [ngModelOptions]="{standalone: true}"
@@ -82,7 +88,7 @@
                                     <div class="col-9 pl-0">
                                         <form #myForm="ngForm" class="dateCalendar" novalidate>
                                             <!-- <my-date-picker [formControl]="fecEnt" name="mydate" [options]="myDatePickerOptions" [(ngModel)]="data.fecha" required [ngModelOptions]="{standalone: true}" #ctrl="ngModel"></my-date-picker> -->
-                                            <my-date-picker></my-date-picker>
+                                            <my-date-picker [formControl]="fechaFromPicker"></my-date-picker>
                                             <!-- [formControl]="fecEnt" -->
                                         </form>
                                     </div>         <!--<dl-date-time-picker></dl-date-time-picker> -->
@@ -118,7 +124,7 @@
                                   <p-column  field="descCorta" header="Descripción"></p-column>
                                   <p-column field="isSelected" header="Cantidad" [style]="{'width':'32px','cursor': 'pointer'}">
                                         <ng-template pTemplate="body" let-rowData="rowData">
-                                          <input type="number" #lineSum+{{ConsoleDataService.dataLine.id}} class="lineSum">
+                                          <input type="number" min="0" class="lineSum">
                                         </ng-template>
                                       </p-column> 
                                   </p-dataTable>

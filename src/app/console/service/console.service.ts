@@ -63,7 +63,7 @@ export class ConsoleService {
  } 
  submitOrderToSap(line) {
   this.DoRedirect();
-  var ORDER = this.http.post(this.backendUrl+'/salesorders', line);
+  var ORDER = this.http.post(this.backendUrl+'/salesorders/', line);
  return ORDER;
 } 
   getOrdersDraft() {
@@ -108,20 +108,14 @@ export class ConsoleService {
     var USERS = this.http.post(this.backendUrl+'/login', userToVal);
     return USERS;
   }
-
-  // WS columns to draw
-  // getUsersColumns(): string[] {
-  //   return ["nombre", "email", "tipoCliente"]
-  // }
-  // getColumns(): string[] {
-  //   return ["numCliente", "email"]
-  // }
-  // getOrderColumns(): string[] {
-  //   return ["numMaterial", "numDocumentoComercial", "statusDocumento", "cantidadPedido"]
-  // }
-  // getOrderListColumns(): string[] {
-  //   return ["referencia", "estado", "fecha", "descripcion"]
-  // }
+  delOrder(idObj){ 
+    this.DoRedirect();
+    let headers = new HttpHeaders(); 
+    headers.append( 'Content-Type', 'application/json'); 
+    headers.append('Access-Control-Allow-Origin', '*'); 
+      var COMPLETEORDER = this.http.delete(this.backendUrl+'/orders/'+ idObj, {headers: headers}); 
+      return COMPLETEORDER; 
+   } 
 }
 
 

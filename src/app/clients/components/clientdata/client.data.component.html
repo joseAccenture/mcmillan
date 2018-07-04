@@ -17,7 +17,7 @@
 										<span class="input-group-text" id="basic-addon2">Código Sap</span>
 									</div>
 									<input type="text" class="form-control" [readonly]="true" [(ngModel)]="ConsoleDataService.client.detalleCliente.numCliente" [ngModelOptions]="{standalone: true}"
-									 #ctrl="ngModel" required aria-label="SapCode" placeholder="#0000000" aria-describedby="basic-addon2">
+									 #ctrl="ngModel" required aria-label="SapCode" aria-describedby="basic-addon2">
 								</div>
 							</div>
 							
@@ -26,7 +26,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text" id="basic-addon2">CIF</span>
 									</div>
-									<input type="text" [(ngModel)]="ConsoleDataService.client.detalleCliente.nif" [readonly]="true" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" class="form-control" placeholder="00000000-X"
+									<input type="text" [(ngModel)]="ConsoleDataService.client.detalleCliente.nif" [readonly]="true" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" class="form-control" 
 									 aria-label="Nombre" aria-describedby="basic-addon2">
 								</div>
 							</div>
@@ -39,7 +39,7 @@
 												<span class="input-group-text" id="basic-addon2">Nombre fiscal</span>
 											</div>
 											<input type="text" [(ngModel)]="ConsoleDataService.client.detalleCliente.nombre2" [readonly]="true" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" required class="form-control"
-											 placeholder="Nombre" value="" aria-label="name" aria-describedby="basic-addon2">
+											 value="" aria-label="name" aria-describedby="basic-addon2">
 										</div>
 								</div>
 						</div>
@@ -70,7 +70,7 @@
 										<span class="input-group-text" id="basic-addon2">Teléfono</span>
 									</div>
 									<input type="text" class="form-control" [(ngModel)]="ConsoleDataService.client.detalleCliente.telefono" [readonly]="true" [ngModelOptions]="{standalone: true}" #ctrl="ngModel"
-									 placeholder="+34 656 458 233" aria-label="Nombre" aria-describedby="basic-addon2">
+									 aria-label="Nombre" aria-describedby="basic-addon2">
 								</div>
 							</div>
 							<div class="col">
@@ -107,7 +107,7 @@
 										<div class="input-group-prepend">
 											<span class="input-group-text" id="basic-addon3">Cuenta bancaria</span>
 										</div>
-										<input type="text" class="form-control" [(ngModel)]="ConsoleDataService.client.detalleCliente.cuentaBancaria" [readonly]="true" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" placeholder="ESXXXXXXXXXXXXXX"
+										<input type="text" class="form-control" [(ngModel)]="ConsoleDataService.client.detalleCliente.cuentaBancaria" [readonly]="true" [ngModelOptions]="{standalone: true}" #ctrl="ngModel" 
 										 id="email" aria-describedby="basic-addon3">
 									</div>
 								</div>
@@ -116,9 +116,9 @@
 							<div class="col">
 								<div class="input-group mb-3">
 									<div class="input-group-prepend">
-										<span class="input-group-text" id="basic-addon2">Dirección de entrega</span>
+										<span class="input-group-text" id="basic-addon2">Direcciones Interlocutores</span>
 									</div>
-									<input type="text" class="form-control" [(ngModel)]="ConsoleDataService.client.detalleCliente.calleYNumero" [readonly]="true" [ngModelOptions]="{standalone: true}" #ctrl="ngModel"
+									<input type="text" class="form-control" [(ngModel)]="ConsoleDataService.direccionesEntrega" [readonly]="true" [ngModelOptions]="{standalone: true}" #ctrl="ngModel"
 									 placeholder="" aria-label="Nombre" aria-describedby="basic-addon2">
 								</div>
 							</div>
@@ -127,10 +127,16 @@
 							<div class="col">
 								<div class="input-group mb-3">
 									<div class="input-group-prepend">
-										<span class="input-group-text" id="basic-addon2">Persona de contacto</span>
+										<span class="input-group-text" id="basic-addon2">Personas de contacto</span>
 									</div>
-									<input type="text" class="form-control" [(ngModel)]="ConsoleDataService.client.detalleCliente.textoTipoFacturaImpresa" [readonly]="true" [ngModelOptions]="{standalone: true}" #ctrl="ngModel"
-									 placeholder="Contacto 01" aria-label="Nombre" aria-describedby="basic-addon2">
+									<select class='select-option custom-select'(change)="onChange($event.target.value)"> 
+											<!-- [formControl]="tipo" -->
+											 <!-- (ngModelChange)='onOptionsSelected($event)' -->
+											 <option class='option' *ngFor='let contact of ConsoleDataService.contacts'>{{contact.nombre}} {{contact.apellidos}}</option>
+											 <!-- [selected]="option === data.tipoCliente" -->
+										 </select>
+									<!-- <input type="text" class="form-control" [(ngModel)]="ConsoleDataService.client.detalleCliente.textoTipoFacturaImpresa" [readonly]="true" [ngModelOptions]="{standalone: true}" #ctrl="ngModel"
+									 placeholder="Contacto 01" aria-label="Nombre" aria-describedby="basic-addon2"> -->
 								</div>
 							</div>
 							<div class="col"></div>
@@ -141,8 +147,8 @@
 										<div class="input-group-prepend">
 											<span class="input-group-text" id="basic-addon2">Tipo de factura</span>
 										</div>
-										<input type="text" class="form-control" [(ngModel)]="ConsoleDataService.client.detalleCliente.textoTipoFacturaImpresa" [readonly]="true" [ngModelOptions]="{standalone: true}" #ctrl="ngModel"
-										 placeholder="Contacto 01" aria-label="Nombre" aria-describedby="basic-addon2">
+										<input type="text" class="form-control" [(ngModel)]="ConsoleDataService.orderKind" [readonly]="true" [ngModelOptions]="{standalone: true}" #ctrl="ngModel"
+										 aria-label="Nombre" aria-describedby="basic-addon2">
 									</div>
 								</div>
 								<div class="col"></div>

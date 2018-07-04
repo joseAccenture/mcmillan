@@ -7,6 +7,7 @@ import { BreadcrumbService } from './service/breadcrumb.service';
   styleUrls: ['./breadcrumb.component.css']
 })
 export class BreadcrumbComponent implements OnInit {
+  envURL: any;
   data: any = [];
   steps: any;
   URLactual: string;
@@ -19,7 +20,8 @@ export class BreadcrumbComponent implements OnInit {
         .subscribe(resp => {
           console.log(resp, "steps");
           this.data = resp;
-          var url = resp[this.URLactual];
+          this.envURL = this.URLactual.split("/");
+          var url = resp[this.envURL[1]];
         this.steps = url;
         },
           error => {

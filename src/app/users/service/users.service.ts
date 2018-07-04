@@ -37,43 +37,63 @@ headers = headers.append("Access-Control-Allow-Headers", "Content-Type, Authoriz
     
   })
 export class UsersService {
-  public static backendUrl = "macmillanBackend"
+    backendUrl: string;
+    Origin: string;
+    URLactual: string;
+  DoRedirect() {
+    this.Origin =  window.location.origin;
+    this.URLactual = window.location.pathname.slice(1).toString();
+    if (this.URLactual.includes('macmillanEducation') && !this.Origin.includes('http://localhost:8080')){
+      this.backendUrl = '/macmillanBackend';
+    }else{
+      this.backendUrl = 'http://localhost:8080'
+    }
+
+  }
+
     constructor(private http : HttpClient){}
     getUSertoEdit(id) {
-        var USERS = this.http.get('/'+UsersService.backendUrl+'/users/'+ id);
+      this.DoRedirect();
+        var USERS = this.http.get(this.backendUrl+'/users/'+ id);
        return USERS;
      }
      getUSerZone(id) {
-      var ZONE = this.http.get('/'+UsersService.backendUrl+'/zone/'+ id);
+      this.DoRedirect();
+      var ZONE = this.http.get(this.backendUrl+'/zone/'+ id);
      return ZONE;
    }
      submitUser(user) {
-      var USERS = this.http.post('/'+UsersService.backendUrl+'/users', user);
+      this.DoRedirect();
+      var USERS = this.http.post(this.backendUrl+'/users', user);
      return USERS;
    } 
    submitEditUser(user) {
-    var USERS = this.http.put('/'+UsersService.backendUrl+'/users', user);
+    this.DoRedirect();
+    var USERS = this.http.put(this.backendUrl+'/users', user);
    return USERS;
  } 
  submitNewUser(user) {
-  var USERS = this.http.post('/'+UsersService.backendUrl+'/users', user);
+  this.DoRedirect();
+  var USERS = this.http.post(this.backendUrl+'/users', user);
  return USERS;
 } 
 submitExcelUser(myFile) {
+  this.DoRedirect();
   let headers = new HttpHeaders();
   headers.append( 'Content-Type', 'multipart/form-data');
   headers.append('Access-Control-Allow-Origin', '*');
   let body = new FormData();
   body.append('myFile', myFile);
-  var EXCEL = this.http.post('/'+UsersService.backendUrl+'/excel', body, {headers: headers});
+  var EXCEL = this.http.post(this.backendUrl+'/excel', body, {headers: headers});
    return EXCEL;
   } 
 
- delUser(user, idObj){
-  //  const apiUrl = 'http://localhost:8080/users/'+ user.id;
-  // const params = new HttpParams().set('id', user.id);
-  // return this.http.delete(apiUrl, { params})
-    var COMPLETE = this.http.delete('/'+UsersService.backendUrl+'/users', user);
-    return COMPLETE;
+  delUser(idObj){ 
+    this.DoRedirect();
+    let headers = new HttpHeaders(); 
+    headers.append( 'Content-Type', 'application/json'); 
+    headers.append('Access-Control-Allow-Origin', '*'); 
+      var COMPLETE = this.http.delete(this.backendUrl+'/users/'+ idObj, {headers: headers}); 
+      return COMPLETE; 
  }
 }

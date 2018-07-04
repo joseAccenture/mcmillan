@@ -35,7 +35,7 @@
             </a>
             <input type="text" disabled value="{{ConsoleDataService.user.email}}" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
             <div class="dropdown-menu" aria-labelledby="UsersDropdown">
-              <button type="button" class="btn btn-primary" data-toggle="modal">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ChangePass">
                 Cambiar contraseña
               </button>
               <button type="button" class="btn btn-primary" data-toggle="modal">
@@ -58,7 +58,7 @@
         <div class="input-group">
           <span class="input-group-text" id=""><img src="assets/images/icons/ic_assignment_ind_black_48dp.png"></span>
           <div class="input-group-append col-6 pl-0">
-            <button id="prueba" class="btn btn-outline-secondary" type="button" data-toggle="modal" title="Click para operar con otro cliente" (click)="getUSerbyId(ConsoleDataService.user)" data-target="#ChangeClientModal">{{ConsoleDataService.firstclientToRepresent}}</button>
+            <button id="prueba" class="btn btn-outline-secondary" type="button" data-toggle="modal" title="Click para operar con otro cliente" (click)="getUSerbyId(ConsoleDataService.user)" data-target="#ChangeClientModal">{{ConsoleDataService.user.nombre}} {{ConsoleDataService.user.codigoSap}}</button>
             <!-- (click)="getUSerbyId()" -->
           </div>
         </div>
@@ -76,7 +76,7 @@
         </div>
         <div class="modal-body">
                   <!-- <common-client-table (actualClient)="updateActualUser($event)"></common-client-table> -->
-                  <p-dataTable [value]="ConsoleDataService.dataTable"  (actualClient)="updateActualUser($event)" [paginator]="true" [rows]="2"  [rowStyleClass]="isRowSelected" [pageLinks]="2" #dt>
+                  <p-dataTable [immutable]=false [value]="ConsoleDataService.dataTable"  (actualClient)="updateActualUser($event)" [paginator]="true" [rows]="2"  [rowStyleClass]="isRowSelected" [pageLinks]="2" #dt>
                     <p-column field="isSelected codigoSap" header="" [style]="{'width':'32px','cursor': 'pointer'}">
                         <ng-template pTemplate="body" let-rowData="rowData">
                           <img src="assets/images/icons/baseline-check_circle-24px.svg" (click)="ChangeClient(rowData)" data-dismiss="modal"  (mouseover)=" rowData.isSelected=!rowData.isSelected" (mouseout)=" rowData.isSelected=!rowData.isSelected"/>
@@ -94,6 +94,10 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="modal fade" id="#ChangePass" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+      <h5 class="modal-title" id="exampleModalLabel2">cambiar contraseña</h5>
+    <p>modal</p>
   </div>
 
 

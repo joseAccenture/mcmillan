@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, Input, EventEmitter } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 @Component({
   selector: 'order-listorder-component',
@@ -8,6 +8,8 @@ import { Router, NavigationExtras } from '@angular/router';
 export class ListOrderComponent {
   orderToEdit: any;
   public active =false;
+  @Output() btnActive: EventEmitter<any> = new EventEmitter() 
+  @Input() activeBtnOrder = false; 
   constructor(private router: Router){}
   activeBtn(btnActive){
     this.active = btnActive;
@@ -18,6 +20,10 @@ export class ListOrderComponent {
     // var url = '/detailOrder';
     // this.router.navigate([url], { queryParams: { orderToedit:  orderToedit} });
   }
+  toggle(rowData) { 
+    this.activeBtnOrder = !this.activeBtn; 
+      this.btnActive.emit(this.activeBtn); 
+    } 
   navigateToOrderDetail(){
     var url ='/detailOrder';
     let navigationExtras: NavigationExtras = {

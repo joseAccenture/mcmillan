@@ -24,26 +24,27 @@ public pending = false;
      
       this.activatedRoute.queryParams.subscribe(params => {
           this.orderToedit = params;
-          this.clients = this.orderHeader(); 
+          // this.clients = this.orderHeader(this.orderToedit); 
       });
       // this.getUSertoEdit(this.codigoSap);
   }
 
-  orderHeader() {
-    try {
-      this.ConsoleService.getCLients(40)
-        .subscribe(resp => {
-          console.log(resp, "clientDetail");
-          this.data = resp["detalleCliente"];
-          this.data.fecha = this.orderToedit["fechaDocumento"];
+  orderHeader(clientData) {
+    // try {
+    //   this.ConsoleService.getCLients(40)
+    //     .subscribe(resp => {
+    //       console.log(resp, "clientDetail");
+    //       this.data = resp["detalleCliente"];
+    //       this.data.fecha = this.orderToedit["fechaDocumento"];
 
-        },
-          error => {
-            console.log(error, "error");
-          })
-    } catch (e) {
-      console.log(e);
-    }
+    //     },
+    //       error => {
+    //         console.log(error, "error");
+    //       })
+    // } catch (e) {
+    //   console.log(e);
+    // }
+
   }
   ChangeClient(i) {
     this.data.splice(i, 1);

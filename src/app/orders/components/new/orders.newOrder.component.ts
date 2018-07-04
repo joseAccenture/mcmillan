@@ -5,6 +5,8 @@ import { CommonTableService } from '../../../common/table/service/common-table.s
 import { IMyDpOptions } from 'mydatepicker';
 import { FormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, Params, NavigationExtras } from '@angular/router';
+import { NullInjector } from '@angular/core/src/di/injector';
+
 
 
 @Component({
@@ -16,13 +18,15 @@ import { Router, ActivatedRoute, Params, NavigationExtras } from '@angular/route
 
 
 export class NewOrderComponent implements OnInit {
+  orderToedit: Params;
   date: Date;
   // nomFis = new FormControl('', Validators.required);
   // dirEnt = new FormControl('', Validators.required);
   // cif = new FormControl('', Validators.required);
-  // fecEnt = new FormControl('', Validators.required); 
+  fechaSelected = new FormControl('', Validators.required); 
+  fechaFromPicker = new FormControl('', Validators.required); 
   // dataUser;
-  constructor(private ConsoleService: ConsoleService, private ConsoleDataService: ConsoleDataService, private CommonTableService: CommonTableService, private Router: Router) { }
+  constructor(private ConsoleService: ConsoleService, private ConsoleDataService: ConsoleDataService, private CommonTableService: CommonTableService, private Router: Router, private activatedRoute: ActivatedRoute) { }
   public myDatePickerOptions: IMyDpOptions = {
     // other options...
     dateFormat: 'dd.mm.yyyy',
@@ -40,6 +44,11 @@ export class NewOrderComponent implements OnInit {
     this.materials = this.getMaterials();
     this.date = new Date();
     this.date.setDate( this.date.getDate() + 3 );
+    this.ConsoleDataService.dataLine = [];
+    this.activatedRoute.queryParams.subscribe(params => {
+      this.orderToedit = params;
+      // this.clients = this.orderHeader(this.orderToedit); 
+  });
     // this.columns = this.ConsoleService.getOrderColumns(); 
     // this.users = this.userDetail();
      this.noLine = false;
@@ -62,7 +71,13 @@ export class NewOrderComponent implements OnInit {
       this.ConsoleDataService.dataLineToSendSap =[
         {
           idMaterial: materialSelected.numMaterial,
-          unidades: i.toString()
+          unidades: null
+        }
+      ]
+      this.ConsoleDataService.dataLineToSendSapSocio =[
+        {
+          numCliente:  this.ConsoleDataService.user["codigoSap"],
+          funcionInterlocutor: "AG"
         }
       ]
       this.noLine = true;
@@ -78,17 +93,26 @@ export class NewOrderComponent implements OnInit {
           this.ConsoleDataService.dataLineToSend.push(
             {
               idMaterial: materialSelected.id,
-              unidades: i.toString()
+              unidades: null
             }
           )    
           this.ConsoleDataService.dataLineToSendSap.push(
             {
               idMaterial: materialSelected.numMaterial,
-              unidades: i.toString()
+              unidades: null
+            }
+          )   
+          this.ConsoleDataService.dataLineToSendSapSocio.push(
+            {
+              numCliente: this.ConsoleDataService.user["codigoSap"],
+              funcionInterlocutor: "AG"
             }
           )      
          
     }
+  }
+  onChange(addresses) {
+    this.ConsoleDataService.address = addresses
   }
   getMaterials() {
     try {
@@ -105,15 +129,45 @@ export class NewOrderComponent implements OnInit {
       console.log(e);
     }
   }
-
+ setUnits(type){
+  var parametros=[];
+  $("table tbody tr").each(function(i,e){
+      $(this).find("td").each(function(index, element){
+          if(index != 0) // ignoramos el primer indice que dice Option #
+          {
+          var td = {};
+          td["unidades"] = $(this).find("input.lineSum").val();
+              if ( td["unidades"] !=undefined){
+                parametros.push(td);
+              }
+          }
+      });
+  });
+  if (type === "Draft"){
+    var thisArray = this.ConsoleDataService.dataLineToSend;
+  }else{
+    var thisArray = this.ConsoleDataService.dataLineToSendSap;
+  }
+  for (var i =0; i < (thisArray.length); i++){
+    thisArray[i].unidades = parametros[i].unidades
+  }
+ }
+ dateToSend(){
+   if (this.fechaSelected.value === '0'){
+     return this.date
+   }else{
+    return this.fechaFromPicker.value.formatted
+   }
+ }
   SendToDraft() {
+    this.setUnits("Draft");
     let order =
       {
           "idUser": this.ConsoleDataService.user["id"],
           "codigoSap": this.ConsoleDataService.client["detalleCliente"].numCliente,
           "nombre": this.ConsoleDataService.client["detalleCliente"].nombre1,
           "cif": this.ConsoleDataService.client["detalleCliente"].nif,
-          "direccion": this.ConsoleDataService.client["detalleCliente"].calleYNumero,
+          "direccion": this.ConsoleDataService.address,
           "email":  this.ConsoleDataService.client["detalleCliente"].email,
           "telefono": this.ConsoleDataService.client["detalleCliente"].telefono,
           "condicionPago": this.ConsoleDataService.client["detalleCliente"].claveCondicionesDePago,
@@ -123,7 +177,7 @@ export class NewOrderComponent implements OnInit {
           "personaContacto": "",
           "direccionEntrega": this.ConsoleDataService.client["detalleCliente"].calleYNumero,
           "tipoFactura": this.ConsoleDataService.client["detalleCliente"].tipoFacturaImpresa,
-           "fecha": this.date,
+           "fecha": this.dateToSend(),
            "lineasPedido": this.ConsoleDataService.dataLineToSend
       }
         try {
@@ -145,20 +199,22 @@ export class NewOrderComponent implements OnInit {
         }
   }
   SendToSap() {
+    this.setUnits("Sap");
     let order = {
       "pedidoCabezera":{
-        "numCliente": this.ConsoleDataService.client["numCliente"],
-        "fechaPedido": this.date,
-        "fechaPreferenteEntrega": this.date    
+        "numCliente": this.ConsoleDataService.client["detalleCliente"].numCliente,
+        "fechaPedido": "2018-01-01",
+        "fechaPreferenteEntrega":  "2018-09-09"    
       },
     "pedidoItems": this.ConsoleDataService.dataLineToSendSap,
-    "pedidoSocios": this.ConsoleDataService.dataLineToSendSap
+    "pedidoSocios": this.ConsoleDataService.dataLineToSendSapSocio
     }
         try {
           this.ConsoleService.submitOrderToSap(order)
             .subscribe(resp => {
               console.log(resp, "clients");
               this.data = resp
+              this.Router.navigate(["/ordersList"]);
               // this.lineToAdd.emit(this.data);
             },
               error => {

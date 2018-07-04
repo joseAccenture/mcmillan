@@ -37,7 +37,7 @@ export class USerTableComponent implements OnInit {
       this.ConsoleService.getUsers()
         .subscribe(resp => {
           console.log(resp, "clients");
-          this.data = resp
+          this.ConsoleDataService.userlist = resp
           this.userToEdit.emit(this.data[0].codigoSap);
           this.btnActive.emit(this.activeBtn);
         },

@@ -10,6 +10,7 @@ import { Router, ActivatedRoute, Params, NavigationExtras } from '@angular/route
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  user: Object;
   correctLogin: boolean = false;
   isErrorUser() {
   this.correctLogin = !this.correctLogin;
@@ -31,25 +32,13 @@ export class LoginComponent implements OnInit {
   }
   isOkUser(data) {
     var url ='/homeview';
-      // let navigationExtras: NavigationExtras = {
-      //   queryParams: {
-      //     codigoSap:data["codigoSap"],
-      //     email: data["email"],
-      //     id:data["id"],
-      //     nombre:data["nombre"],
-      //     password:data["password"],
-      //     representados:data["representados"],
-      //     tipoCliente: data["tipoCliente"],
-      //     zona: data["zona"]
-      //   }
-      // }
       $("#secondNav").css("display","flex");
       $('.breadcrumb').css("display","block");
       $('.navbar').css("display","flex");
-      this.ConsoleDataService.userActive(data);
-      // this.router.navigate([url], navigationExtras);
-      this.router.navigate([url]);
-
+        this.user = data
+        this.ConsoleDataService.userActive(this.user);
+        this.router.navigate([url]);
+     
   }
   OnLogin(user, pass){
     this.userToVal = {

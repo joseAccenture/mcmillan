@@ -9,9 +9,12 @@ import { FormsModule, FormGroup, FormControl, Validators } from '@angular/forms'
   styleUrls: ['./users.editUser.component.css']
 })
 export class EditUserComponent {
-  doAgentsList(data): any {
-    if (data !=="" || data!==null ){
-       return this.data.representados.join();
+  doAgentsList(data) {
+    if (data !==""){
+      if (data !=null){
+        return this.data.representados.join();
+      }
+       
     }else{
       return null;
     }
@@ -75,6 +78,15 @@ export class EditUserComponent {
         .subscribe(resp => {
           console.log(resp, "userToedit", this.id);
           this.data = resp
+          if (resp["tipoCliente"] !== "Jefe de Marketing" ||
+          resp["tipoCliente"]  !== "Representante" ||
+          resp["tipoCliente"]  !=="Jefe de Zona"){
+            this.data.zona = null;
+            this.data.representados = null;
+          }
+          if(resp["tipoCliente"] ==="Jefe de Zona") {
+            this.data.representados = null;
+          }
           if (this.data.representados) {
             this.data.representados = this.data.representados.split(',');
           }
@@ -97,30 +109,33 @@ export class EditUserComponent {
     }
   }
   submitUser(data) {
-    try {
-      let user = {
-        "id": this.data.id,
-        "codigoSap": this.data.codigoSap,
-        "nombre": this.name.value,
-        "email": this.mail.value,
-        "tipoCliente": this.tipo.value,
-        "zona": this.zona.value,
-        "representados": this.doAgentsList(this.data.representados)
-      }
-      console.log(user, "editUser")
-      this.UsersService.submitEditUser(user)
-        .subscribe(resp => {
-          console.log(resp, "res");
-          this.data = resp
-          var url = '/userslist';
-          this.router.navigate([url]);
-        },
-          error => {
-            console.log(error, "error");
-          })
-    } catch (e) {
-      console.log(e);
+    let user = {
+      "id": this.data.id,
+      "codigoSap": this.data.codigoSap,
+      "nombre": this.name.value,
+      "email": this.mail.value,
+      "tipoCliente": this.tipo.value,
+      "zona": this.zona.value,
+      "representados": this.doAgentsList(this.data.representados)
     }
+    if (user){
+        try {
+          console.log(user, "editUser")
+          this.UsersService.submitEditUser(user)
+            .subscribe(resp => {
+              console.log(resp, "res");
+              this.data = resp
+              var url = '/userslist';
+              this.router.navigate([url]);
+            },
+              error => {
+                console.log(error, "error");
+              })
+        } catch (e) {
+          console.log(e);
+        }
+    }
+  
   }
   InsertAgent(data, sapCodetoInclude) {
     // console.log(data, sapCodetoInclude);
