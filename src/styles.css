@@ -251,10 +251,6 @@ z-index: 5;
 {
     font-size: .9rem;
 }
-.input-group-text{
-    max-width: 34px;
-}
-
   /* estilos generales inputs usando data-ng-styles en la vista*/
   .form-control[data-ng-styles="input"]:focus{
       border: solid 2px #f5c6cb;

@@ -13,9 +13,12 @@ import { HomeRootComponent } from "../home/components/root/home.component";
 import { ConsoleRootComponent  } from "./components/console-root/console.component";
 import { ConsoleNavbarComponent } from "./components/console-navbar/console.navbar.component";  
 import { DataListModule, DataTableModule }  from 'primeng/primeng';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 
 
 import { consoleRoutes } from "./console.routes";
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   imports: [
@@ -26,7 +29,10 @@ import { consoleRoutes } from "./console.routes";
     OrdersModule,
     DataListModule,
     DataTableModule,
+    BrowserModule,
     CommonElementsModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(consoleRoutes, {onSameUrlNavigation: 'reload'})
   ],
   declarations: [

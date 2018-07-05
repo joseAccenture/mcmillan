@@ -31,11 +31,20 @@
     top: 15%;
   }
   .loginform{
-    height: 26rem;
+    height: 27rem;
     background: white;
     min-width: 300px;
     border-radius: .4em;
     margin-bottom: 150px;
+  }
+  .loginform .resetPass{
+    font-size: 14px;
+    font-style: italic;
+    color: #a2a2aa;
+  }
+  .loginform .resetPass span.resetLink{
+    color: #c40c0c;
+    cursor: pointer;
   }
   .loginform .btn{
     background-color: #c40c0c;

@@ -32,14 +32,19 @@ export class ConsoleService {
     }
 
   }
-
-  
-  
-   
-
   constructor(private http : HttpClient) {}
   
 
+  changePassword(body){
+    this.DoRedirect();
+    var PASSWORD = this.http.post(this.backendUrl+'/login/changePassword', body);
+    return PASSWORD;
+  }
+  resetPassword(body){
+    this.DoRedirect();
+    var PASSWORD = this.http.post(this.backendUrl+'/login/resetPassword', body);
+    return PASSWORD;
+  }
 
   getCLients(id: number) {
     this.DoRedirect();

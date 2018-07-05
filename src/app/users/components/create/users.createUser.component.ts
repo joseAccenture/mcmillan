@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class CreateUserComponent {
   @Input() data: any;
   public formGroup;
-  ClientOptions = ["", "Cliente Individual", "Administrador", "Atención Cliente", "Jefe de Zona", "Jefe de Marketing", "Representante"];
+  ClientOptions = ["", "Cliente Individual", "Administrador", "Atención Cliente", "jefe de delegación", "Marketing Assistant", "Representante"];
   repCode: string;
   public isZoneBoss: boolean = false;
   public representadoLista =[];
@@ -41,7 +41,7 @@ export class CreateUserComponent {
   clientType = new FormControl('');
   representados = new FormControl({"codigoSap": 1, "nombre": "Jonh Ford"});
   
- constructor(private UsersService: UsersService, private router:Router){}
+ constructor(private UsersService: UsersService, private router:Router, private ConsoleDataService:ConsoleDataService){}
  
 
  InsertAgent(sapCodetoInclude) {
@@ -55,11 +55,14 @@ export class CreateUserComponent {
     $(".listContainer").removeClass("hidden");
 }
 onChange(clientType) {
-  if (clientType === "Jefe de Zona") {
+  if (clientType === "jefe de delegación") {
     this.isZoneBoss = true;
     this.isAgent = false;
-  } else if (clientType === "Jefe de Marketing" || clientType === "Representante") {
+  } else if (clientType === "Marketing Assistant" || clientType === "Representante") {
     this.isAgent = true;
+    this.isZoneBoss = false;
+  } else if(clientType === "Cliente Individual"){
+    this.isAgent = true;   
     this.isZoneBoss = false;
   } else {
     this.isZoneBoss = false;
@@ -69,7 +72,7 @@ onChange(clientType) {
 submitUser(data) {
   try {
     let user = {
-      "codigoSap": 55,
+      "codigoSap": this.ConsoleDataService.codigoSap,
       "nombre": this.name.value,
       "email": this.email.value,
       "tipoCliente": this.tipo.value,
@@ -109,7 +112,7 @@ setNameValue() {
   // console.log('Validation Status: ' + this.name.status);
   try { 
         let user = { 
-          codigoSap:2,
+          codigoSap:this.ConsoleDataService.codigoSap,
           nombre: this.name.value,
           email: this.email.value,
           tipoCliente: this.clientType.value,

@@ -14,13 +14,43 @@
               <form>
                   <input type="text" placeholder="Usuario" name="name" (input)="onSearchChange($event.target.value)" #username> 
                   <input  type="password" name="pass" placeholder="Contraseña" (input)="onSearchChange($event.target.value)" #pass>
-                  <button type="button" class="btn btn-danger" (click)="OnLogin(username.value,pass.value)">Login</button>      
+                  <button type="button" class="btn btn-danger" (click)="OnLogin(username.value,pass.value)">Login</button>   
               </form>
               <div *ngIf="correctLogin; then primaryBlock">this is ignored</div>
                     <ng-template #primaryBlock>
                         <span class="AlertLogin">Usuario o contraseña incorrectos</span>
                     </ng-template>
+                     <div class="resetPass">¿Quieres cambiar tu contraseña? <span data-toggle="modal"  data-target="#ChangepassModal" (click)="changePass()" class="resetLink">Resetear</span></div>  
           </div>
+         
           <div class="col p-0"></div>
       </div>
+      <div class="modal fade" id="ChangepassModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="ModalLabel">Cambio de Contraseña</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    
+                      <form (ngSubmit)="onSubmit();" #changepassForm="ngForm">
+                            <div class="form-group">
+                                <label for="password">Introduzca su email de usuario</label>
+                                <input class="form-control" matInput type="email" [(ngModel)]="PasswordForm.email" [email]="true" name="password" required>
+                                <small id="passHelp" class="form-text text-muted">Si el mail introducido es correcto, se enviará su nueva contraseña es este mail.</small>
+                            </div>
+                        <div class="row">
+                            <div class="col-9"></div>
+                              <div class="col-2"><button class="btn btn-primary" [disabled]="!changepassForm.form.valid" (click)="onSubmit()" data-dismiss="modal">Enviar</button></div>
+                            </div>      
+                       </form>
+                  <div class="modal-footer">
+                 
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
   

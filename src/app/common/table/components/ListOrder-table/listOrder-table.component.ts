@@ -36,7 +36,7 @@ export class ListOrderTableComponent implements OnInit {
   constructor(private ConsoleService: ConsoleService, private ConsoleDataService: ConsoleDataService, private router: Router, private datePipe: DatePipe) { }
   public myDatePickerOptions: IMyDpOptions  = {
     // other options...
-    dateFormat: 'yyyy/mm/dd'
+    dateFormat: 'dd/mm/yyyy'
 }
   ngOnInit() {
  
@@ -79,27 +79,7 @@ export class ListOrderTableComponent implements OnInit {
   getOrdersList() {
     if (this.tableData === "pendingOrder") { 
          this.getDraftList(); 
-      }else{
-      //   try {
-      //     this.ConsoleService.getOrdersList()
-      //     .subscribe(resp => {
-      //       console.log(resp, "ListOrders"); 
-      //       this.data = resp["pedidos"];
-      //       // if (this.tableData === "pendingOrder") { 
-      //       //   this.getDraftList(this.data); 
-      //       if (this.tableData === "newOrder") { 
-      //          this.getCleanRows(this.data);
-      //        }
-      //       this.btnActive.emit(this.activeBtn);
-      //     },
-      //       error => {
-      //         console.log(error, "error");
-      //       })
-      // } catch (e) {
-      //   console.log(e);
-      // }
       }
-  
   }
      
   toggle() {
@@ -122,7 +102,7 @@ isRowSelected(rowData: any) {
 }
 lookForOrders(fecEnt, fecSal){
   this.visibleTarget = false;
-  var fechaEntr = this.datePipe.transform(fecEnt.value.formatted,"yyyy-MM-dd");
+ var fechaEntr = this.datePipe.transform(fecEnt.value.formatted,"yyyy-MM-dd");
  var fechaSal = this.datePipe.transform(fecSal.value.formatted,"yyyy-MM-dd");
   this.ConsoleService.getOrdersList(fechaEntr, fechaSal, this.ConsoleDataService.codigoSap)
   .subscribe(resp => {

@@ -136,7 +136,12 @@ export class ConsoleDataService {
       this.user = data;
       this.codigoSap = data.codigoSap;
       this.clientsToRepresent = this.user["listaRepresentados"];
-      this.firstclientToRepresent = this.user["listaRepresentados"][0].codigoSap + " " + this.user["listaRepresentados"][0].nombre;
+      if (this.clientsToRepresent.length>1){
+        this.firstclientToRepresent = this.user["listaRepresentados"][0].codigoSap + " " + this.user["listaRepresentados"][0].nombre;
+      }else{
+        this.firstclientToRepresent = "";
+            }
+    
     }
     // first time called
     this.ConsoleService.getCLients(this.codigoSap)

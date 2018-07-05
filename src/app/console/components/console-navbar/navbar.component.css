@@ -174,3 +174,10 @@ a.page-link{
 .modal-dialog .modal-body .form-group nav.navigation ul.pagination{
   font-size: .9rem;
 }
+input:invalid {
+  border: 1px solid #c40c0c;
+}
+
+input:valid {
+  border: 1px solid rgb(172, 236, 152);
+}

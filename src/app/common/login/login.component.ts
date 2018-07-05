@@ -3,6 +3,9 @@ import * as $ from 'jquery';
 import { ConsoleService} from '../../console/service/console.service';
 import { ConsoleDataService} from '../../console/service/consoleData.service';
 import { Router, ActivatedRoute, Params, NavigationExtras } from '@angular/router';
+import { FormsModule, FormGroup, FormControl, Validators }   from '@angular/forms';
+import { NgForm } from '@angular/forms/src/directives/ng_form';
+import {PasswordForm } from './passwordForm'
 
 @Component({
   selector: 'app-login',
@@ -10,6 +13,7 @@ import { Router, ActivatedRoute, Params, NavigationExtras } from '@angular/route
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  PasswordForm = new PasswordForm();
   user: Object;
   correctLogin: boolean = false;
   isErrorUser() {
@@ -65,6 +69,18 @@ export class LoginComponent implements OnInit {
       console.log(e);
     }
   }
+  changePass(body:PasswordForm, f: NgForm){
+    this.ConsoleService.resetPassword(body).subscribe(resp => {
+              console.log(resp, "changePass");
+            },
+              error => {
+                console.log(error, "changePass error");
+              })
+  }
+  onSubmit(f: NgForm){
+    this.changePass(this.PasswordForm, f);
+}
+
   ngOnInit() {
     $("#secondNav").css("display","none");
     $('.breadcrumb').css("display","none");

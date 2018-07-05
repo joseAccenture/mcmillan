@@ -95,7 +95,7 @@
       </div>
     </div>
   </div>
-
+</div>
   <div class="modal fade" id="ChangePass" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -106,14 +106,65 @@
             </button>
           </div>
           <div class="modal-body">
-                    <!-- <common-client-table (actualClient)="updateActualUser($event)"></common-client-table> -->
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <!-- <form class="changePass">
+                  <div class="form-group">
+                    <label for="usermail">Introduzca su email de usuario</label>
+                    <input type="email" class="form-control" [formControl]="emailUser" id="usermail">
+                  </div>
+                  <div class="form-group">
+                      <label for="password">Introduzca la contraseña actual</label>
+                      <input type="password" class="form-control" [formControl]="pass" id="password">
+                    </div>
+                    <hr style="color: #6c6f79; border-top:2px solid rgba(0, 0, 0, 0.1)" />
+                    <div class="form-group">
+                        <label for="newpass">Nueva contraseña</label>
+                        <input type="password" class="form-control" [formControl]="newpass" id="newpass">
+                        <small id="passHelp" class="form-text text-muted">La nueva contraseña debe tener una longitud mínima de 8 caracteres.</small>
+                      </div>
+                      <div class="form-group">
+                          <label for="newpassconfirm">Confirmar</label>
+                          <input type="password" class="form-control" [formControl]="newpassconfirm" id="newpassconfirm">
+                      </div>
+                      <button type="submit" class="btn btn-primary"  [disabled]= "!user.valid && !pass.valid">Cambiar</button>
+                </form>
+                 -->
+                <form (ngSubmit)="onSubmit(contactForm);" #contactForm="ngForm">
+                    <!-- <div class="form-group">
+                        <label for="usermail">Introduzca su email de usuario</label>
+                        <input class="form-group" type="email" matInput #usermail  [email]="true" [(ngModel)]="ContactModel.email" name="email" required>
+
+                      </div> -->
+                      <div class="form-group">
+                          <label for="password">Introduzca la contraseña actual</label>
+                          <input matInput type="password" [(ngModel)]="ContactModel.password" name="password" required>
+                          <small id="passHelp" class="form-text text-muted">La contraseña actual debe tener una longitud mínima de 8 caracteres.</small>
+
+                      </div>
+                      <hr style="color: #6c6f79; border-top:2px solid rgba(0, 0, 0, 0.1)" />
+                      <div class="form-group">
+                          <label for="newpass">Nueva contraseña</label>
+                          <input matInput #newpass type="password"  minlength="8" [(ngModel)]="ContactModel.newPassword" name="newPassword" required>
+                          <small id="passHelp2" class="form-text text-muted">La nueva contraseña debe tener una longitud mínima de 8 caracteres.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="newpassconfirm">Confirmar nueva contraseña</label>
+                            <input matInput type="password" #confirmnewpass minlength="8" name="confirmnewpass" required>
+                        </div>
+                        <!-- <div *ngIf="contactForm.form.valid; else elseBlock"></div>
+                        <ng-template #elseBlock><div>Rellene todos los campos correctamente</div></ng-template> -->
+                  <div class="row">
+                      <div class="col-10"></div>
+                        <div class="col-2"><button class="btn btn-primary" [disabled]="!contactForm.form.valid" (click)="onSubmit()" data-dismiss="modal">Enviar</button></div>
+                      </div>      
+                 </form>
+            <div class="modal-footer">
+           
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
             <!-- <button type="button" class="btn btn-primary" data-ng-styles="guardar">Guardar Cambios</button> -->
           </div>
         </div>
       </div>
-    </div>
+    
 
 
         

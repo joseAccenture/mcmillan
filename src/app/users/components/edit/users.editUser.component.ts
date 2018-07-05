@@ -33,7 +33,7 @@ export class EditUserComponent {
   tipo = new FormControl('', Validators.required);
   zona = new FormControl('', Validators.required);
 
-  ClientOptions = ["", "Cliente Individual", "Administrador", "Atención Cliente", "Jefe de Zona", "Jefe de Marketing", "Representante"];
+  ClientOptions = ["", "Cliente Individual", "Administrador", "Atención Cliente", "jefe de delegación", "Marketing Assistant", "Representante"];
   constructor(private UsersService: UsersService,
     private activatedRoute: ActivatedRoute,
     private router: Router) {
@@ -47,11 +47,14 @@ export class EditUserComponent {
     console.log("optinoSelected")
   }
   onChange(clientType) {
-    if (clientType === "Jefe de Zona") {
+    if (clientType === "jefe de delegación") {
       this.isZoneBoss = true;
       this.isAgent = false;
-    } else if (clientType === "Jefe de Marketing" || clientType === "Representante") {
+    } else if (clientType === "Marketing Assistant" || clientType === "Representante") {
       this.isAgent = true;
+      this.isZoneBoss = false;
+    } else if(clientType === "Cliente Individual"){
+      this.isAgent = true;   
       this.isZoneBoss = false;
     } else {
       this.isZoneBoss = false;
@@ -78,24 +81,21 @@ export class EditUserComponent {
         .subscribe(resp => {
           console.log(resp, "userToedit", this.id);
           this.data = resp
-          if (resp["tipoCliente"] !== "Jefe de Marketing" ||
-          resp["tipoCliente"]  !== "Representante" ||
-          resp["tipoCliente"]  !=="Jefe de Zona"){
+          var tipo = this.data.tipoCliente
+          if (tipo == "Marketing Assistant" ||tipo  == "Representante"){
             this.data.zona = null;
-            this.data.representados = null;
           }
-          if(resp["tipoCliente"] ==="Jefe de Zona") {
+          if(tipo ==="jefe de delegación") {
             this.data.representados = null;
           }
           if (this.data.representados) {
             this.data.representados = this.data.representados.split(',');
           }
-          if (this.data.tipoCliente === "Jefe de Zona") {
+          if (this.data.tipoCliente === "jefe de delegación") {
             this.isZoneBoss = true;
-          } else if (this.data.tipoCliente === "Jefe de Marketing" ||
-            this.data.tipoCliente === "Representante") {
+          } else if (this.data.tipoCliente === "Marketing Assistant" ||
+            this.data.tipoCliente === "Representante" || "Cliente Individual") {
             this.isAgent = true;
-            this.isZoneBoss = true;
           }
 
 
