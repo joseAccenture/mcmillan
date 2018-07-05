@@ -122,9 +122,10 @@
                                       </p-column> 
                                   <p-column  field="ean" header="EAN"></p-column>
                                   <p-column  field="descCorta" header="Descripción"></p-column>
-                                  <p-column field="isSelected" header="Cantidad" [style]="{'width':'32px','cursor': 'pointer'}">
+                                  <p-column  field="tipoMaterial" header="Tipo de material"></p-column>
+                                  <p-column field="unidades" header="Unidades" [style]="{'width':'32px','cursor': 'pointer'}">
                                         <ng-template pTemplate="body" let-rowData="rowData">
-                                          <input type="number" min="0" class="lineSum">
+                                          <input type="number" min="1" class="lineSum">
                                         </ng-template>
                                       </p-column> 
                                   </p-dataTable>

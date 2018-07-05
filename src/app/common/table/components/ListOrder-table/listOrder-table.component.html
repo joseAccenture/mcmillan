@@ -23,11 +23,12 @@
                   <span class="input-group-text" id="basic-addon2">hasta:</span>
               </div>
               <my-date-picker [formControl]="fecSal" class="col-3"></my-date-picker>
+              <div class="col-2">
+                    <button type="button" class="btn btn-secondary m-2" (click)="lookForOrders(fecEnt, fecSal)">Buscar</button>
+                  </div>
           </form>
       </div>  
-      <div class="row">
-          <button type="button" class="btn btn-secondary m-2" (click)="lookForOrders(fecEnt, fecSal)">Buscar</button>
-        </div>
+      
       <p-dataTable [value]="data"  (actualClient)="updateActualUser($event)" [paginator]="true" [rows]="10"  [rowStyleClass]="isRowSelected"  #dt>
           <p-column field="isSelected" header="" [style]="{'width':'32px','cursor': 'pointer'}">
               <ng-template pTemplate="body" let-rowData="rowData">

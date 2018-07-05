@@ -39,18 +39,10 @@ export class PendingOrderComponent implements OnInit {
   selectOrderToEdit(codigoSap){ 
     this.orderToEdit = codigoSap; 
   } 
-  orderLines(){
-  for (var i=0; i < this.ConsoleDataService.ordertoDelete.lineasPedido.length; i++){
-    var lines = [
-        this.ConsoleDataService.ordertoDelete.lineasPedido[i].id, this.ConsoleDataService.ordertoDelete.lineasPedido[i].idMaterial,
-        this.ConsoleDataService.ordertoDelete.lineasPedido[i].unidades
-    ]
-    return lines
-  }
-  }
     navigateToDetail(){
     var url ='/newOrder';
     let navigationExtras: NavigationExtras = {
+
       queryParams: {
         "ccc":this.ConsoleDataService.ordertoDelete.ccc,
         "cif": this.ConsoleDataService.ordertoDelete.cif,
@@ -64,7 +56,7 @@ export class PendingOrderComponent implements OnInit {
         "idUser":this.ConsoleDataService.ordertoDelete.idUser,
         "isSelected":this.ConsoleDataService.ordertoDelete.isSelected,
         "idOrder": this.ConsoleDataService.ordertoDelete.idOrder,
-        "lineasPedido":this.orderLines(),
+        "lineasPedido":this.ConsoleDataService.orderLines(this.ConsoleDataService.ordertoDelete),
         "personaContacto":this.ConsoleDataService.ordertoDelete.personaContacto,
         "telefono":this.ConsoleDataService.ordertoDelete.telefono,
         "tipoCliente":this.ConsoleDataService.ordertoDelete.tipoCliente,

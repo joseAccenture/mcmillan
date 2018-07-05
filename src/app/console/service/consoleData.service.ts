@@ -4,10 +4,11 @@ import { ConsoleService} from './console.service';
 @Injectable()
 export class ConsoleDataService {
 
+  sujetaARecargoEquival: boolean;
   orderslist: Object;
   userlist: Object;
-  direccionesEntrega= [];
-  orderKind: string;
+  FuncionesInterlocutor= [];
+  orderKind = [];
   contacts: any;
   addresses: any;
   address: any;
@@ -51,30 +52,52 @@ export class ConsoleDataService {
     }
     
    }
-  eliminateDuplicates(arr) {
-    var i,
-      len = arr.length,
-      out = [],
-      obj = {};
+  // eliminateDuplicates(arr) {
+  //   var i,
+  //     len = arr.length,
+  //     out = [],
+  //     obj = {};
 
-    for (i = 0; i < len; i++) {
-      obj[arr[i]] = 0;
-    }
-    for (i in obj) {
-      out.push(i);
-    }
-    return out;
-  }
-   
+  //   for (i = 0; i < len; i++) {
+  //     obj[arr[i]] = 0;
+  //   }
+  //   for (i in obj) {
+  //     out.push(i);
+  //   }
+  //   return out;
+  // }
+   public  orderLines(ordertoDelete){
+      this.dataLine = ordertoDelete.lineasPedido;
+        var parametros=[];
+        $("table tbody tr").each(function(i,e){
+            $(this).find("td").each(function(index, element){
+                if(index != 0) // ignoramos el primer indice que dice Option #
+                {
+                var td = {};
+                td["unidades"] = $(this).find("input.lineSum").html(ordertoDelete.lineasPedido[(index-1)].unidades);
+                
+                    if ( td["unidades"] !=undefined){
+                      parametros.push(td);
+                    }
+                }
+            });
+        });
+        
+ }
+  
    public getClientActive(rowData){
-    this.direccionesEntrega = []; 
+    this.FuncionesInterlocutor = []; 
+    this.orderKind = [];
     this.ConsoleService.getCLients(rowData.numCliente)
     .subscribe(resp => {
    this.client =  resp;
    for (var i = 0; i < (this.client["sociosCliente"].length); i++){
-    this.direccionesEntrega.push(this.client["sociosCliente"][i].calleYNumero);
-    this.direccionesEntrega = this.eliminateDuplicates(this.direccionesEntrega);
-
+    this.FuncionesInterlocutor.push(this.client["sociosCliente"][i].nombre1 +" | "+ this.client["sociosCliente"][i].denominacionFuncionInterlocutor +" | "+ this.client["sociosCliente"][i].calleYNumero);
+  }
+  if (this.client["detalleCliente"].sujetaARecargoEquival === ""){
+    this.sujetaARecargoEquival = false;
+  }else {
+    this.sujetaARecargoEquival = true;
   }
   this.firstclientToRepresent = rowData.numCliente;
   this.user["nombre"] = rowData.nombre2;
@@ -91,9 +114,11 @@ export class ConsoleDataService {
   }
   
   if (this.client["detalleCliente"].enviarEmailFactura ==="X"){
-    this.orderKind = "Enviar por mail"
-  }else{
-    this.orderKind = "No enviar por mail"
+    this.orderKind.push("Factura por mail")
+  }else if (this.client["detalleCliente"].impresionFactura ==="X"){
+    this.orderKind.push("Impresión de factura")
+  }else if(this.client["detalleCliente"].presentacionFacturaElectronica ==="X"){
+    this.orderKind.push("Factura electronica")
   }
   for (var i=0; i < this.client["sociosCliente"].length; i++) {
       if(this.client["sociosCliente"][i].funcionInterlocutor == "WE"){
@@ -117,25 +142,30 @@ export class ConsoleDataService {
     this.ConsoleService.getCLients(this.codigoSap)
      .subscribe(resp => {
     this.client =  resp
-    this.direccionesEntrega = [];
+    this.FuncionesInterlocutor = [];
     this.addresses = [""];
     if (this.client["detalleCliente"].enviarEmailFactura ==="X"){
-      this.orderKind = "Enviar por mail"
-    }else{
-      this.orderKind = "No enviar por mail"
+      this.orderKind.push("Factura por mail")
+    }else if (this.client["detalleCliente"].impresionFactura ==="X"){
+      this.orderKind.push("Impresión de factura")
+    }else if(this.client["detalleCliente"].presentacionFacturaElectronica ==="X"){
+      this.orderKind.push("Factura electronica")
     }
     if (this.client["contactos"].length >0){
       this.contacts = [];
       this.contacts = this.client["contactos"];
-      for (var i = 0; i < (this.client["sociosCliente"].length); i++){
-        this.direccionesEntrega.push(this.client["sociosCliente"][i].calleYNumero);
-        this.direccionesEntrega = this.eliminateDuplicates(this.direccionesEntrega);
-      }
-      
     }else{
       this.contacts = [];
       this.contacts[0].nombre =["sin persona de contacto"];
     }
+    for (var i = 0; i < (this.client["sociosCliente"].length); i++){
+      this.FuncionesInterlocutor.push(this.client["sociosCliente"][i].nombre1 +" | "+ this.client["sociosCliente"][i].denominacionFuncionInterlocutor +" | "+ this.client["sociosCliente"][i].calleYNumero);
+    }
+    if (this.client["detalleCliente"].sujetaARecargoEquival === ""){
+      this.sujetaARecargoEquival = false;
+    }else {
+      this.sujetaARecargoEquival = true;
+    }  
   for (var i=0; i < this.client["sociosCliente"].length; i++) {
       if(this.client["sociosCliente"][i].funcionInterlocutor == "WE"){
         this.addresses.push(this.client["sociosCliente"][i].calleYNumero);

@@ -44,11 +44,15 @@ export class NewOrderComponent implements OnInit {
     this.materials = this.getMaterials();
     this.date = new Date();
     this.date.setDate( this.date.getDate() + 3 );
-    this.ConsoleDataService.dataLine = [];
     this.activatedRoute.queryParams.subscribe(params => {
       this.orderToedit = params;
       // this.clients = this.orderHeader(this.orderToedit); 
   });
+  if ( this.orderToedit.fromUrl !=="pending"){
+    this.ConsoleDataService.dataLine = [];
+  }
+    
+    
     // this.columns = this.ConsoleService.getOrderColumns(); 
     // this.users = this.userDetail();
      this.noLine = false;

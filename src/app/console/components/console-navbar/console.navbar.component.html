@@ -16,7 +16,7 @@
             Pedidos
           </a>
           <div class="dropdown-menu" aria-labelledby="OrderedDropdown">
-            <a class="dropdown-item" href="#" routerLink="/ordersList" routerLinkActive="active">Lista de pedidos</a>
+            <a class="dropdown-item" href="#" routerLink="/ordersList" routerLinkActive="active">Consulta de pedidos</a>
             <a class="dropdown-item" href="#" routerLink="/newOrder" routerLinkActive="active">Crear pedido</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#" routerLink="/pendingOrder">Pedidos pendientes de validadación</a>
@@ -95,10 +95,25 @@
       </div>
     </div>
   </div>
-  <div class="modal fade" id="#ChangePass" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-      <h5 class="modal-title" id="exampleModalLabel2">cambiar contraseña</h5>
-    <p>modal</p>
-  </div>
+
+  <div class="modal fade" id="ChangePass" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel2">Cambio de Contraseña</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+                    <!-- <common-client-table (actualClient)="updateActualUser($event)"></common-client-table> -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <!-- <button type="button" class="btn btn-primary" data-ng-styles="guardar">Guardar Cambios</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
 
 
         
