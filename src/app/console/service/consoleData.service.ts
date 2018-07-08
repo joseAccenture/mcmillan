@@ -1,9 +1,12 @@
 import { Injectable} from '@angular/core';
 import { ConsoleService} from './console.service';
-
 @Injectable()
 export class ConsoleDataService {
-
+  AdmiteReserva: boolean = false;
+  userIdToDelete: string;
+  alertText: string;
+  alertTitle: string;
+  alertEmail: string;
   sujetaARecargoEquival: boolean;
   orderslist: Object;
   userlist: Object;
@@ -28,10 +31,49 @@ export class ConsoleDataService {
   dataLineToSendSapSocio = [];
   firstclientToRepresent: string;
   clientsToRepresent: string;
-  constructor(private ConsoleService: ConsoleService) { }
-  
-        
-   
+  constructor(private ConsoleService: ConsoleService) {
+   }
+    public openModal(id: string){
+      var elemento = document.getElementById(id);
+      elemento.style.display = "block";
+  }  
+  public closeModal(id: string){
+    var elemento = document.getElementById(id);
+    elemento.style.display = "none";
+}    
+  public alertFunction(error, email){
+       if (error === 409){
+      this.alertEmail = email;
+      this.alertTitle = "Usuario ya existente";
+      this.alertText = "El usuario seleccionado ya existe en la aplicación. En caso de error póngase en contacto con el administrador.";
+      var btn = document.getElementById('btnSuccess');
+      btn.style.display = "none";
+    }
+    if (error === 201){
+      this.alertEmail = email;
+      this.alertTitle = "Usuario registrado correctamente";
+      this.alertText = "Consulte la actualización el listado de Usuarios";
+      var btn = document.getElementById('btnSuccess');
+      btn.style.display = "block";
+    }
+    if (error === 200){
+      this.alertEmail = email;
+      this.alertTitle = "Eliminar usuario";
+      this.alertText = "Esta seguro que desea eliminar el usuario con id:";
+      var btn = document.getElementById('btnSuccess');
+      btn.style.display = "block";
+      this.userIdToDelete = email;
+    }
+    if (error === 100){
+      // this.alertEmail = email;
+      // this.alertTitle = "Pedido registrado en Sap";
+      // this.alertText = "Se ha registrado el pedido:";
+      var btn = document.getElementById('btnSuccess');
+      btn.style.display = "block";
+      this.userIdToDelete = email;
+    }
+    this.openModal('myModal');
+   } 
   public clientList(){
     this.representados = this.user["listaRepresentados"];
     for (var i = 0; i <= this.representados.length-1; i++){
@@ -82,6 +124,7 @@ export class ConsoleDataService {
                 }
             });
         });
+        return parametros
         
  }
   
@@ -99,10 +142,26 @@ export class ConsoleDataService {
   }else {
     this.sujetaARecargoEquival = true;
   }
+ 
+  var obj = this.client["detalleCliente"];
+  for (const prop in obj) {
+    if (prop ==="bloqueoCentralEntregaCliente" || prop ==="bloqueoCentralPedidoCliente" || prop ==="bloqueoPedidoCliente"){
+      if (obj[prop] ==="10" || obj[prop] === "20"){
+        this.AdmiteReserva = false;
+      }else{
+        this.AdmiteReserva = true;
+      }
+    }
+  }
+  // if (this.client["detalleCliente"].bloqueoCentralPedidoCliente ==="10" || this.client["detalleCliente"].bloqueoCentralPedidoCliente ==="20"){
+  //   this.AdmiteReserva = true;
+  // }else{
+  //   this.AdmiteReserva = false;
+  // }
   this.firstclientToRepresent = rowData.numCliente;
   this.user["nombre"] = rowData.nombre2;
   this.user["codigoSap"] = rowData.numCliente;
-  this.addresses = [""];
+  this.addresses = [];
   if (this.client["contactos"].length >0){
     this.contacts = [];
     this.contacts = this.client["contactos"];
@@ -148,7 +207,7 @@ export class ConsoleDataService {
      .subscribe(resp => {
     this.client =  resp
     this.FuncionesInterlocutor = [];
-    this.addresses = [""];
+    this.addresses = [];
     if (this.client["detalleCliente"].enviarEmailFactura ==="X"){
       this.orderKind.push("Factura por mail")
     }else if (this.client["detalleCliente"].impresionFactura ==="X"){
@@ -171,6 +230,16 @@ export class ConsoleDataService {
     }else {
       this.sujetaARecargoEquival = true;
     }  
+    var obj = this.client["detalleCliente"];
+    for (const prop in obj) {
+      if (prop ==="bloqueoCentralEntregaCliente" || prop ==="bloqueoCentralPedidoCliente" || prop ==="bloqueoPedidoCliente"){
+        if (obj[prop] ==="10" || obj[prop] === "20"){
+          this.AdmiteReserva = false;
+        }else{
+          this.AdmiteReserva = true;
+        }
+      }
+    } 
   for (var i=0; i < this.client["sociosCliente"].length; i++) {
       if(this.client["sociosCliente"][i].funcionInterlocutor == "WE"){
         this.addresses.push(this.client["sociosCliente"][i].calleYNumero);

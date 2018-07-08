@@ -144,3 +144,9 @@ button.btn.btn-outline-secondary{
 	min-height: 38px;
 }
 
+#customModal{
+	display: none;
+}
+#customModal.open{
+	display: block;
+}

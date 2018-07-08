@@ -20,7 +20,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon2">Código Sap</span>
                                         </div>
-                                        <input type="text" class="form-control" placeholder="Codigo SAP" [(ngModel)]="orderToedit.head.codigoSap" [ngModelOptions]="{standalone: true}"
+                                        <input type="text" class="form-control" placeholder="Codigo SAP" [(ngModel)]="head.codigoSap" [ngModelOptions]="{standalone: true}"
                                             #ctrl="ngModel" aria-describedby="basic-addon2">
                                     </div>
                                 </div>
@@ -29,7 +29,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="basic-addon2">NIF</span>
                                             </div>
-                                            <input type="text" class="form-control" placeholder="NIF" [(ngModel)]="orderToedit.head.cif" [ngModelOptions]="{standalone: true}" #ctrl="ngModel"
+                                            <input type="text" class="form-control" placeholder="NIF" [(ngModel)]="head.cif" [ngModelOptions]="{standalone: true}" #ctrl="ngModel"
                                                 aria-describedby="basic-addon2">
                                         </div>
                                     </div>
@@ -40,7 +40,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon2">Nombre fiscal</span>
                                         </div>
-                                        <input type="text" class="form-control" placeholder="Client fiscal name" [(ngModel)]="ConsoleDataService.client.detalleCliente.nombre2" [ngModelOptions]="{standalone: true}"
+                                        <input type="text" class="form-control" placeholder="Client fiscal name" [(ngModel)]="head.nombre2" [ngModelOptions]="{standalone: true}"
                                             #ctrl="ngModel" aria-describedby="basic-addon2">
                                     </div>
                                 </div>
@@ -52,7 +52,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon2">Dirección de entrega</span>
                                         </div>
-                                        <input type="text" class="form-control"  [(ngModel)]="orderToedit.head.direccionEntrega" [ngModelOptions]="{standalone: true}"
+                                        <input type="text" class="form-control"  [(ngModel)]="head.direccionEntrega" [ngModelOptions]="{standalone: true}"
                                             #ctrl="ngModel" aria-label="Nombre" aria-describedby="basic-addon2">
                                     </div>
                                 </div>
@@ -70,7 +70,7 @@
 
                                     <input class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadios2" checked>
                                     <label class="form-check-label radiobtn">Fecha preferente de entrega</label>
-                                    <input type="text" name="fecha" class="form-control min-input" placeholder="Date" [(ngModel)]="orderToedit.head.fecha" [ngModelOptions]="{standalone: true}"
+                                    <input type="text" name="fecha" class="form-control min-input" placeholder="Date" [(ngModel)]="orderToedit.fechaDocumento" [ngModelOptions]="{standalone: true}"
                                         #ctrl="ngModel">
 
                                     <!-- <dl-date-time-picker></dl-date-time-picker> -->
@@ -95,7 +95,25 @@
 
                 <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionLines">
                     <div class="card-body">
-                        <common-detailOrder-table></common-detailOrder-table>
+                        <!-- <common-detailOrder-table></common-detailOrder-table> -->
+                        <!-- <div *ngIf="pending; then primaryBlock; else secondaryBlock">this is ignored</div>
+  <ng-template #primaryBlock> -->
+      <p-dataTable [value]="orderToedit" [paginator]="true" [rows]="10"  #dtt>
+          <p-column  field="numMaterial" header="EAN"></p-column>
+          <p-column  field="numDocumentoComercial" header="Descripción"></p-column>
+          <p-column  field="fechaDocumento" header="Fecha"></p-column>
+          <p-column  field="cantidadPedido" header="Unidades"></p-column>
+        </p-dataTable>
+  <!-- </ng-template>
+  <ng-template #secondaryBlock>
+      <p-dataTable [value]="orderToedit" #dt>
+          <p-column  field="numMaterial" header="EAN"></p-column>
+          <p-column  field="numDocumentoComercial" header="Descripción"></p-column>
+          <p-column  field="fechaDocumento" header="Fecha"></p-column>
+          <p-column  field="cantidadPedido" header="Unidades"></p-column>
+      
+        </p-dataTable>
+  </ng-template> -->
                     </div>
                 </div>
             </div>

@@ -20,11 +20,21 @@
                     <ng-template #primaryBlock>
                         <span class="AlertLogin">Usuario o contraseña incorrectos</span>
                     </ng-template>
-                     <div class="resetPass">¿Quieres cambiar tu contraseña? <span data-toggle="modal"  data-target="#ChangepassModal" (click)="changePass()" class="resetLink">Resetear</span></div>  
+                     <div class="resetPass">¿Quieres cambiar tu contraseña? <span data-toggle="modal"  data-target="#ChangepassModal" class="resetLink">Resetear</span></div>  
           </div>
          
           <div class="col p-0"></div>
       </div>
+      <div *ngIf="changePassNotification; then successBlock">this is ignored</div>
+                    <ng-template #successBlock>
+                      <div class="notification" id="successBlock">Se ha mandado un mail con su nueva contraseña al email facilitado</div>
+                    </ng-template>
+
+                    <div *ngIf="changePassNotificationError; then errorBlock">this is ignored</div>
+                    <ng-template #errorBlock>
+                      <div class="notification" id="errorBlock">Email no valido para el cambio de contraseña</div>
+                    </ng-template>              
+      
       <div class="modal fade" id="ChangepassModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -36,10 +46,10 @@
                 </div>
                 <div class="modal-body">
                     
-                      <form (ngSubmit)="onSubmit();" #changepassForm="ngForm">
+                      <form #changepassForm="ngForm">
                             <div class="form-group">
                                 <label for="password">Introduzca su email de usuario</label>
-                                <input class="form-control" matInput type="email" [(ngModel)]="PasswordForm.email" [email]="true" name="password" required>
+                                <input class="form-control" matInput type="email" [(ngModel)]="PasswordForm.email" [email]="true" name="email" required>
                                 <small id="passHelp" class="form-text text-muted">Si el mail introducido es correcto, se enviará su nueva contraseña es este mail.</small>
                             </div>
                         <div class="row">

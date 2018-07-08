@@ -58,7 +58,6 @@ export class NewOrderComponent implements OnInit {
      this.noLine = false;
   }
   addLine(materialSelected) {
-    var i = 0;
     if (!this.noLine){
       this.ConsoleDataService.dataLine =[
         {
@@ -69,13 +68,13 @@ export class NewOrderComponent implements OnInit {
       this.ConsoleDataService.dataLineToSend =[
         {
           idMaterial: materialSelected.id,
-          unidades: i.toString()
+          unidades: 1
         }
       ]
       this.ConsoleDataService.dataLineToSendSap =[
         {
-          idMaterial: materialSelected.numMaterial,
-          unidades: null
+          numDeMaterial: materialSelected.numMaterial,
+          unidades: 1
         }
       ]
       this.ConsoleDataService.dataLineToSendSapSocio =[
@@ -85,9 +84,7 @@ export class NewOrderComponent implements OnInit {
         }
       ]
       this.noLine = true;
-      i++;
     }else{
-      i++;
       this.ConsoleDataService.dataLine.push(
             {
               descCorta: materialSelected.descCorta,
@@ -97,13 +94,13 @@ export class NewOrderComponent implements OnInit {
           this.ConsoleDataService.dataLineToSend.push(
             {
               idMaterial: materialSelected.id,
-              unidades: null
+              unidades: 1
             }
           )    
           this.ConsoleDataService.dataLineToSendSap.push(
             {
-              idMaterial: materialSelected.numMaterial,
-              unidades: null
+              numDeMaterial: materialSelected.numMaterial,
+              unidades: 1
             }
           )   
           this.ConsoleDataService.dataLineToSendSapSocio.push(
@@ -218,7 +215,11 @@ export class NewOrderComponent implements OnInit {
             .subscribe(resp => {
               console.log(resp, "clients");
               this.data = resp
-              this.Router.navigate(["/ordersList"]);
+              if (this.data.pedidoDocumentos[0].numDocumentoVentas){
+                var registro = this.data.pedidoDocumentos[0].numDocumentoVentas;
+                this.ConsoleDataService.alertFunction(100, registro);
+              }
+              // this.Router.navigate(["/ordersList"]);
               // this.lineToAdd.emit(this.data);
             },
               error => {

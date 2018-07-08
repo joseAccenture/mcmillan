@@ -174,3 +174,22 @@
           </div>
         </div>
       </div>
+   </div>
+   <div id="myModal" class="modal">
+
+		<!-- Modal content -->
+		<div class="modal-content">
+		  <span class="close" (click)="ConsoleDataService.closeModal('myModal')" [routerLink]="['/ordersList']" routerLinkActive="active">&times;</span>
+		  <h5>Pedido Creado Correctamente</h5>
+          <!-- <p>{{ConsoleDataService.alertText}} <b> {{ConsoleDataService.alertEmail}}</b></p> -->
+          <p>{{ConsoleDataService.userIdToDelete}}</p>
+		  
+		  <div class="row">
+			<div class="col-12 btnList">
+				<!-- <button type="button" id="btncancel" class="btn btn-secondary mr-1"(click)="ConsoleDataService.closeModal('myModal')" routerLinkActive="active">Cancelar</button> -->
+				<button type="button" id="btnSuccess" class="btn btn-danger mr-1"  [routerLink]="['/ordersList']" routerLinkActive="active">volver al listado</button>
+			</div>
+		</div>
+	  
+	  </div>   
+

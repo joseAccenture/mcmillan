@@ -23,6 +23,5 @@ export class ClientDataComponent {
   data: any = []
   // data2: any = []
   
-  constructor(private ConsoleDataService: ConsoleDataService) {     
-  }
+  constructor(private ConsoleDataService: ConsoleDataService) { }
 }

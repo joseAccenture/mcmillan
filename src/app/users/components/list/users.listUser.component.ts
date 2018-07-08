@@ -36,12 +36,13 @@ export class ListUserComponent implements OnInit {
     this.router.navigate([url], { queryParams: { id: userSelected.id } });
 
   }
-  deleteUserFromList(idObj) {
+  delUser() {
     try {
-      this.UsersService.delUser(idObj)
+      this.UsersService.delUser(this.ConsoleDataService.userIdToDelete)
         .subscribe(resp => {
           console.log(resp, "clients");
           this.data = resp
+          this.ConsoleDataService.closeModal('myModal');
          this.ConsoleService.getUsers()
          .subscribe(resp =>{
           this.ConsoleDataService.userlist = resp
@@ -57,6 +58,30 @@ export class ListUserComponent implements OnInit {
     } catch (e) {
       console.log(e);
     }
+  }
+  deleteUserFromList(idObj) {
+    this.ConsoleDataService.userIdToDelete = idObj;
+    this.ConsoleDataService.alertFunction(200, idObj);
+    // try {
+    //   this.UsersService.delUser(idObj)
+    //     .subscribe(resp => {
+    //       console.log(resp, "clients");
+    //       this.data = resp
+    //      this.ConsoleService.getUsers()
+    //      .subscribe(resp =>{
+    //       this.ConsoleDataService.userlist = resp
+    //      }
+
+    //     )
+    //       // this.userToEdit.emit(this.data[0].codigoSap);
+    //       // this.btnActive.emit(this.activeBtn);
+    //     },
+    //       error => {
+    //         console.log(error, "error");
+    //       })
+    // } catch (e) {
+    //   console.log(e);
+    // }
   }
   deleteUser(userSelected){
     this.deleteUserFromList(userSelected.id); 

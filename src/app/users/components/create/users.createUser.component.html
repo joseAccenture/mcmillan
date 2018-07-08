@@ -101,4 +101,31 @@
 	<button type="button" class="btn btn-danger" routerLinkActive="active" (click)="submitUser(formValues)">Guardar</button>
 	<button type="button" class="btn btn-secondary">Enviar Credenciales</button></div>
 </div>
+<!-- 
+<div id="customModal">
+    <div class="modal">
+        <div class="modal-body">
+            <h1>A Custom Modal!</h1>
+            <p>
+                Home page text: <input type="text" [(ngModel)]="bodyText" />
+            </p>
+        </div>
+    </div>
+    <div class="modal-background"></div>
+</div> -->
+<div id="myModal" class="modal">
 
+	<!-- Modal content -->
+	<div class="modal-content">
+	  <span class="close" (click)="ConsoleDataService.closeModal('myModal')">&times;</span>
+	  <h5>{{ConsoleDataService.alertTitle}}</h5>
+	  <b>{{ConsoleDataService.alertEmail}}</b>
+	  <p>{{ConsoleDataService.alertText}}</p>
+	  <div class="row">
+		<div class="col-8"></div>
+		<div class="col">
+			<button type="button" id="btnSuccess" class="btn btn-secondary" [routerLink]="['/userslist']" routerLinkActive="active">Ver lista actualizada</button>
+		</div>
+	</div>
+  
+  </div>

@@ -16,15 +16,15 @@
           <form #myForm="ngForm" class="dateCalendar row" novalidate>
               <!-- <my-date-picker [formControl]="fecEnt" name="mydate" [options]="myDatePickerOptions" [(ngModel)]="data.fecha" required [ngModelOptions]="{standalone: true}" #ctrl="ngModel"></my-date-picker> -->
               <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon2">Buscar pedidos desde:</span>
+                  <span class="input-group-text orderlistSpan" id="basic-addon2">Buscar pedidos desde:</span>
               </div>
               <my-date-picker [formControl]="fecEnt" class="col-3"></my-date-picker>
               <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon2">hasta:</span>
+                  <span class="input-group-text orderlistSpan" id="basic-addon2">hasta:</span>
               </div>
               <my-date-picker [formControl]="fecSal" class="col-3"></my-date-picker>
               <div class="col-2">
-                    <button type="button" class="btn btn-secondary m-2" (click)="lookForOrders(fecEnt, fecSal)">Buscar</button>
+                    <button type="button" class="btn btn-secondary m-2 orderlistBtn" (click)="lookForOrders(fecEnt, fecSal)">Buscar</button>
                   </div>
           </form>
       </div>  

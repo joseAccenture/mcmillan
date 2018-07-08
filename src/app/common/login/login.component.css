@@ -84,4 +84,11 @@
     font-weight: bold;
     
   }
- 
+ .notification{
+  color: #fff;
+  font-weight: 500;
+  position: absolute;
+  bottom: 35%;
+  width: 100%;
+  text-align: center;
+ }

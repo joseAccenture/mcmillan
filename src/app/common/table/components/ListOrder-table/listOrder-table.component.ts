@@ -24,7 +24,6 @@ export class ListOrderTableComponent implements OnInit {
   public visibleTarget:boolean = false;
   public orders;
   @Input() columns: string[];
-  @Input() customColumns = ["Referencia", "Estado", "Fecha", "Descripción"];
   public URLactual: string;
   @Input() tableData: string; 
   row: any = []
@@ -48,7 +47,6 @@ export class ListOrderTableComponent implements OnInit {
   }
 
   getCleanRows(orders) {
-    this.customColumns = ["EAN", "Material/ Licencia", "Descripción", "Unidades"];
     this.data = []
     // var newOrder = true;
     // console.log("newOrder" + orders);

@@ -15,6 +15,9 @@ import {PasswordForm } from './passwordForm'
 export class LoginComponent implements OnInit {
   PasswordForm = new PasswordForm();
   user: Object;
+  changePassNotification: boolean = false;
+  changePassNotificationError: boolean = false;
+
   correctLogin: boolean = false;
   isErrorUser() {
   this.correctLogin = !this.correctLogin;
@@ -30,7 +33,7 @@ export class LoginComponent implements OnInit {
        this.correctLogin = !this.correctLogin;
        setTimeout(function() {
         this.correctLogin = false;
-        }.bind(this), 3000);
+        }.bind(this), 1500);
    
     }
   }
@@ -72,10 +75,17 @@ export class LoginComponent implements OnInit {
   changePass(body:PasswordForm, f: NgForm){
     this.ConsoleService.resetPassword(body).subscribe(resp => {
               console.log(resp, "changePass");
+              this.changePassNotification = true;
+              setTimeout(function() { $('#successBlock').fadeOut('fast'); }, 1500); // <-- time in milliseconds 
+              this.PasswordForm.email = "";
             },
               error => {
+                this.changePassNotificationError = true;
+                setTimeout(function() { $('#errorBlock').fadeOut('fast'); }, 1500); // <-- time in milliseconds 
+                 // <-- time in milliseconds 
                 console.log(error, "changePass error");
               })
+              this.changePassNotificationError = false;
   }
   onSubmit(f: NgForm){
     this.changePass(this.PasswordForm, f);

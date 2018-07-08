@@ -11,6 +11,7 @@ import { ConsoleDataService } from '../../../console/service/consoleData.service
   providers: [ConsoleService]
 })
 export class DetailOrderComponent implements OnInit{
+  head: any;
   public orderToedit: object;
   clients: void;
 public pending = false;
@@ -30,7 +31,12 @@ public pending = false;
   }
 
   orderHeader() {
-    this.orderToedit["head"] = this.ConsoleDataService.client;
+    this.head = {
+      "codigoSap": this.ConsoleDataService.client["detalleCliente"].numCliente,
+      "cif": this.ConsoleDataService.client["detalleCliente"].nif,
+      "nombre2":this.ConsoleDataService.client["detalleCliente"].nombre2,
+      "direccionEntrega":this.ConsoleDataService.client["sociosCliente"][0].calleYNumero  
+    }
   }
   ChangeClient(i) {
     this.data.splice(i, 1);

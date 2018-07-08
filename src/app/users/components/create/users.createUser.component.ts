@@ -84,10 +84,16 @@ submitUser(data) {
       .subscribe(resp => {
         console.log(resp, "res");
         this.data = resp
-         var url = '/userslist';
-         this.router.navigate([url]);
+        if (resp ===null){
+          // var url = '/userslist';
+          this.ConsoleDataService.alertFunction(201, this.email.value);
+        }
       },
         error => {
+          if (error.status ===409){
+            // var url = '/userslist';
+            this.ConsoleDataService.alertFunction(error.status, this.email.value);
+          }
           console.log(error, "error");
         })
   } catch (e) {
