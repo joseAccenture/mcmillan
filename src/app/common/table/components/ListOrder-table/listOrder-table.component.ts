@@ -56,7 +56,7 @@ export class ListOrderTableComponent implements OnInit {
   }
   getDraftList(){
     try {
-      this.ConsoleService.getOrdersDraft()
+      this.ConsoleService.getOrdersDraft(this.ConsoleDataService.user["id"])
         .subscribe(resp => {
           console.log(resp, "clientData");
           this.pending = true;

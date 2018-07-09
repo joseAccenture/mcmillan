@@ -409,8 +409,18 @@ p-datatable .ui-datatable-tablewrapper tr td input.lineSum{
     width: 50% !important;
     margin-top: 5% !important;
 }
+.modal-content.admin{
+    width: 25% !important;
+}
+.modal-content.admin input{
+    margin-bottom: 10%;
+    width: 50%;
+}
 .modal .modal-dialog .modal-content{
     width: 100% !important;
+}
+.modal .modal-dialog .modal-content .modal-body input#SAPCodeInput{
+    margin-bottom: 10%;
 }
 
 /* The Close Button */

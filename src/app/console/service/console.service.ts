@@ -51,6 +51,11 @@ export class ConsoleService {
         var CLIENTS = this.http.get(this.backendUrl+'/customers/'+id, httpOptions);
          return CLIENTS;
   }
+  getCLientsByZone(zone) {
+    this.DoRedirect();
+        var CLIENTS = this.http.get(this.backendUrl+'/customers/zone/'+zone);
+         return CLIENTS;  
+  }
 
   getCLientDetail(numCliente) {
     this.DoRedirect();
@@ -71,9 +76,9 @@ export class ConsoleService {
   var ORDER = this.http.post(this.backendUrl+'/salesorders/', line);
  return ORDER;
 } 
-  getOrdersDraft() {
+  getOrdersDraft(idUser) {
     this.DoRedirect();
- var ORDER_LIST = this.http.get(this.backendUrl+'/orders');
+ var ORDER_LIST = this.http.get(this.backendUrl+'/orders/byUser/'+ idUser);
      return ORDER_LIST;
    }
 

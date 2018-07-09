@@ -33,6 +33,7 @@ export class ConsoleNavbarComponent implements OnInit  {
     this.data = this.ConsoleDataService.user;
     this.userMail = this.data["email"];
     this.userName = this.data["nombre"];
+    this.ConsoleDataService.Admin = false;
     this.function1(); 
      
   }
@@ -69,7 +70,10 @@ export class ConsoleNavbarComponent implements OnInit  {
    getUSerbyId() {
     this.ConsoleDataService.clientList();
    }
-
+   searchClientbyCode(sapcode){
+    this.ConsoleDataService.callClientService(sapcode);
+    this.ConsoleDataService.closeModal("myModal");
+   }
    toggle(rowData) {
 
     this.activeBtn = !this.activeBtn;

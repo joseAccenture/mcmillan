@@ -75,18 +75,34 @@
           </button>
         </div>
         <div class="modal-body">
-                  <!-- <common-client-table (actualClient)="updateActualUser($event)"></common-client-table> -->
-                  <p-dataTable [immutable]=false [value]="ConsoleDataService.dataTable"  (actualClient)="updateActualUser($event)" [paginator]="true" [rows]="10"  [rowStyleClass]="isRowSelected" [pageLinks]="2" #dt>
-                    <p-column field="isSelected codigoSap" header="" [style]="{'width':'32px','cursor': 'pointer'}">
-                        <ng-template pTemplate="body" let-rowData="rowData">
-                          <img src="assets/images/icons/baseline-check_circle-24px.svg" (click)="ChangeClient(rowData)" data-dismiss="modal"  (mouseover)=" rowData.isSelected=!rowData.isSelected" (mouseout)=" rowData.isSelected=!rowData.isSelected"/>
-                        </ng-template>
-                      </p-column> 
-                  <p-column  field="numCliente" header="Código SAP"></p-column>
-                  <p-column  field="nombre2" header="Nombre"></p-column>
-                  </p-dataTable> 
-                  <!-- <p>{{ConsoleDataService.user.codigoSap}}</p>
-                  <p>{{ConsoleDataService.user.nombre}}</p> -->
+                  <div *ngIf="ConsoleDataService.Admin; then primaryBlock; else secondaryBlock">this is ignored</div>
+                  <ng-template #primaryBlock>
+                      <p>{{ConsoleDataService.alertText}}</p>
+                      <input type="text"  id="SAPCodeInput" placeholder="Codigo SAP" name="name" #sapCode> 
+                      
+                      <div class="row">
+                      <div class="col-12 btnList">
+                        <!-- <button type="button" id="btncancel" class="btn btn-secondary mr-1"(click)="ConsoleDataService.closeModal('myModal')" routerLinkActive="active">Cancelar</button> -->
+                        <button type="button" id="btnSuccess" class="btn btn-danger mr-1" (click)="searchClientbyCode(sapCode.value)"  data-dismiss="modal" routerLinkActive="active">Buscar Cliente</button>
+                
+                      </div>
+                    </div>
+                  </ng-template>
+                  <ng-template #secondaryBlock>
+                      <p-dataTable [immutable]=false [value]="ConsoleDataService.dataTable"  (actualClient)="updateActualUser($event)" [paginator]="true" [rows]="10"  [rowStyleClass]="isRowSelected" [pageLinks]="2" #dt>
+                          <p-column field="isSelected codigoSap" header="" [style]="{'width':'32px','cursor': 'pointer'}">
+                              <ng-template pTemplate="body" let-rowData="rowData">
+                                <img src="assets/images/icons/baseline-check_circle-24px.svg" (click)="ChangeClient(rowData)" data-dismiss="modal"  (mouseover)=" rowData.isSelected=!rowData.isSelected" (mouseout)=" rowData.isSelected=!rowData.isSelected"/>
+                              </ng-template>
+                            </p-column> 
+                        <p-column  field="numCliente" header="Código SAP"></p-column>
+                        <p-column  field="nombre2" header="Nombre"></p-column>
+                        </p-dataTable> 
+                  </ng-template>
+
+
+
+
 
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -163,6 +179,27 @@
     </div>
 </div>
 </div>
+<div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content admin">
+      <span class="close" id="equis" (click)="ConsoleDataService.closeModal('myModal')">&times;</span>
+      <h5>{{ConsoleDataService.alert_title}}</h5>
+      <p>{{ConsoleDataService.alert_text}}</p>
+      <p>{{ConsoleDataService.alert_email}}</p>
+      <input type="text"  id="SAPCodeInput" placeholder="Codigo SAP" name="name" #sapCode> 
+      
+      <div class="row">
+      <div class="col-12 btnList">
+        <button type="button" id="btncancel" class="btn btn-secondary mr-1"(click)="ConsoleDataService.closeModal('myModal')" routerLinkActive="active">Cancelar</button>
+        <button type="button" id="btnSuccess" class="btn btn-danger mr-1" (click)="searchClientbyCode(sapCode.value)" routerLinkActive="active">Buscar Cliente</button>
+
+      </div>
+    </div>
+    
+    </div>
+ </div>   
+
+
 
     
 

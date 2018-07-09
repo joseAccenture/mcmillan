@@ -22,7 +22,7 @@ export class PendingOrderComponent implements OnInit {
   constructor(private router: Router,private ConsoleDataService: ConsoleDataService, private ConsoleService: ConsoleService, private datePipe: DatePipe ){}
   getPendingsOrders(){
     try {
-      this.ConsoleService.getOrdersDraft()
+      this.ConsoleService.getOrdersDraft(this.ConsoleDataService.user["id"])
         .subscribe(resp => {
           console.log(resp, "ListOrders");
           // this.data = resp[0].lineasPedido;
@@ -44,24 +44,24 @@ export class PendingOrderComponent implements OnInit {
     let navigationExtras: NavigationExtras = {
 
       queryParams: {
-        "ccc":this.ConsoleDataService.ordertoDelete.ccc,
-        "cif": this.ConsoleDataService.ordertoDelete.cif,
-        "codigoSap":this.ConsoleDataService.ordertoDelete.codigoSap,
-        "condicionPago":this.ConsoleDataService.ordertoDelete.condicionPago,
-        "direccion":this.ConsoleDataService.ordertoDelete.direccion,
-        "direccionEntrega":this.ConsoleDataService.ordertoDelete.direccionEntrega,
-        "email":this.ConsoleDataService.ordertoDelete.email,  
-        "fecha":this.datePipe.transform(this.ConsoleDataService.ordertoDelete.fecha,"yyyy-MM-dd"),
-        "id": this.ConsoleDataService.ordertoDelete.id,
-        "idUser":this.ConsoleDataService.ordertoDelete.idUser,
-        "isSelected":this.ConsoleDataService.ordertoDelete.isSelected,
-        "idOrder": this.ConsoleDataService.ordertoDelete.idOrder,
-        "lineasPedido":this.ConsoleDataService.orderLines(this.ConsoleDataService.ordertoDelete),
-        "personaContacto":this.ConsoleDataService.ordertoDelete.personaContacto,
-        "telefono":this.ConsoleDataService.ordertoDelete.telefono,
-        "tipoCliente":this.ConsoleDataService.ordertoDelete.tipoCliente,
-        "tipoFactura":this.ConsoleDataService.ordertoDelete.tipoFactura,
-        "viaPago":this.ConsoleDataService.ordertoDelete.viaPago,
+        // "ccc":this.ConsoleDataService.ordertoDelete.ccc,
+        // "cif": this.ConsoleDataService.ordertoDelete.cif,
+        // "codigoSap":this.ConsoleDataService.ordertoDelete.codigoSap,
+        // "condicionPago":this.ConsoleDataService.ordertoDelete.condicionPago,
+        // "direccion":this.ConsoleDataService.ordertoDelete.direccion,
+        // "direccionEntrega":this.ConsoleDataService.ordertoDelete.direccionEntrega,
+        // "email":this.ConsoleDataService.ordertoDelete.email,  
+        // "fecha":this.datePipe.transform(this.ConsoleDataService.ordertoDelete.fecha,"yyyy-MM-dd"),
+        // "id": this.ConsoleDataService.ordertoDelete.id,
+        // "idUser":this.ConsoleDataService.ordertoDelete.idUser,
+        // "isSelected":this.ConsoleDataService.ordertoDelete.isSelected,
+        // "idOrder": this.ConsoleDataService.ordertoDelete.idOrder,
+        // "lineasPedido":this.ConsoleDataService.ordertoDelete.lineasPedido,
+        // "personaContacto":this.ConsoleDataService.ordertoDelete.personaContacto,
+        // "telefono":this.ConsoleDataService.ordertoDelete.telefono,
+        // "tipoCliente":this.ConsoleDataService.ordertoDelete.tipoCliente,
+        // "tipoFactura":this.ConsoleDataService.ordertoDelete.tipoFactura,
+        // "viaPago":this.ConsoleDataService.ordertoDelete.viaPago,
         "fromUrl": "pending"
     }
   };

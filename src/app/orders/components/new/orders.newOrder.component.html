@@ -112,23 +112,40 @@
 
                 <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionLines">
                     <div class="card-body">
-                            <!-- <common-neworder-table (lineToAdd)="addLine($event)"></common-neworder-table>     -->
-                            <p-dataTable [immutable]=false [value]="ConsoleDataService.dataLine"  (actualClient)="updateActualUser($event)" [paginator]="true" [rows]="5"  [rowStyleClass]="isRowSelected" [pageLinks]="2" #dt>
-                                    <p-column field="isSelected" header="" [style]="{'width':'32px','cursor': 'pointer'}">
-                                        <ng-template pTemplate="body" let-rowData="rowData">
-                                          <img src="assets/images/icons/baseline-check_circle-24px.svg" (click)="ChangeClient(rowData)" data-dismiss="modal"  (mouseover)=" rowData.isSelected=!rowData.isSelected" (mouseout)=" rowData.isSelected=!rowData.isSelected"/>
-                                          <!-- rowData.isSelected=!rowData.isSelected -->
-                                        </ng-template>
-                                      </p-column> 
-                                  <p-column  field="ean" header="EAN"></p-column>
-                                  <p-column  field="descCorta" header="Descripción"></p-column>
-                                  <p-column  field="tipoMaterial" header="Tipo de material"></p-column>
-                                  <p-column field="unidades" header="Unidades" [style]="{'width':'32px','cursor': 'pointer'}">
-                                        <ng-template pTemplate="body" let-rowData="rowData">
-                                          <input type="number" min="1" class="lineSum">
-                                        </ng-template>
-                                      </p-column> 
-                                  </p-dataTable>
+                            <div *ngIf="pending; then primaryBlock; else secondaryBlock">this is ignored</div>
+                            <ng-template #primaryBlock>
+                                    <p-dataTable [immutable]=false [value]="ConsoleDataService.dataLine"  (actualClient)="updateActualUser($event)" [paginator]="true" [rows]="5"  [rowStyleClass]="isRowSelected" [pageLinks]="2" #dt>
+                                            <p-column  field="ean" header="EAN"></p-column>
+                                            <p-column  field="descCorta" header="Descripción"></p-column>
+                                            <p-column  field="tipoMaterial" header="Tipo de material"></p-column>
+                                            <p-column styleClass="units"  field="unidades" header="Unidades"></p-column>
+                                            <p-column field="isSelected" header="" [style]="{'width':'32px','cursor': 'pointer'}">
+                                                  <ng-template pTemplate="body" let-rowData="rowData">
+                                                    <span id="unitContainer">
+                                                          <img src="assets/images/icons/baseline-edit-24px.svg" (click)="ChangeLineValue(rowData)" data-dismiss="modal"  (mouseover)=" rowData.isSelected=!rowData.isSelected" (mouseout)=" rowData.isSelected=!rowData.isSelected"/>
+                                                      </span>  
+                                                  </ng-template>
+                                                </p-column> 
+                                            </p-dataTable>
+                            </ng-template>
+                            <ng-template #secondaryBlock>
+								   <p-dataTable [immutable]=false [value]="ConsoleDataService.dataLine"  (actualClient)="updateActualUser($event)" [paginator]="true" [rows]="5"  [rowStyleClass]="isRowSelected" [pageLinks]="2" #dt>
+                                        <p-column field="isSelected" header="" [style]="{'width':'32px','cursor': 'pointer'}">
+                                            <ng-template pTemplate="body" let-rowData="rowData">
+                                              <img src="assets/images/icons/baseline-check_circle-24px.svg" (click)="ChangeClient(rowData)" data-dismiss="modal"  (mouseover)=" rowData.isSelected=!rowData.isSelected" (mouseout)=" rowData.isSelected=!rowData.isSelected"/>
+                                              <!-- rowData.isSelected=!rowData.isSelected -->
+                                            </ng-template>
+                                          </p-column> 
+                                      <p-column  field="ean" header="EAN"></p-column>
+                                      <p-column  field="descCorta" header="Descripción"></p-column>
+                                      <p-column  field="tipoMaterial" header="Tipo de material"></p-column>
+                                      <p-column field="unidades" header="Unidades" [style]="{'width':'32px','cursor': 'pointer'}">
+                                            <ng-template pTemplate="body" let-rowData="rowData">
+                                              <input type="number" min="1" class="lineSum">
+                                            </ng-template>
+                                          </p-column> 
+                                      </p-dataTable>
+                            </ng-template>          
                             
                         <div class="row">
                             <div class="col-8"></div>

@@ -12,7 +12,7 @@ import { ConsoleDataService } from '../../../console/service/consoleData.service
 })
 export class DetailOrderComponent implements OnInit{
   head: any;
-  public orderToedit: object;
+  public orderToedit = [];
   clients: void;
 public pending = false;
   // @Input() columns: string[];
@@ -24,7 +24,7 @@ public pending = false;
     ngOnInit() {  
      
       this.activatedRoute.queryParams.subscribe(params => {
-          this.orderToedit = params;
+          this.orderToedit.push(params);
           // this.clients = this.orderHeader(this.orderToedit); 
       });
        this.orderHeader();
