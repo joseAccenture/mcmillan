@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { UsersService } from '../../service/users.service';
 import { FormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
+import { ConsoleDataService} from '../../../console/service/consoleData.service';
 
 @Component({
   selector: 'users-editUser-component',
@@ -35,6 +36,7 @@ export class EditUserComponent {
 
   ClientOptions = ["", "Cliente Individual", "Administrador", "Atención Cliente", "jefe de delegación", "Marketing Assistant", "Representante"];
   constructor(private UsersService: UsersService,
+    private ConsoleDataService: ConsoleDataService,
     private activatedRoute: ActivatedRoute,
     private router: Router) {
     // location.go('/userslist');
@@ -72,9 +74,20 @@ export class EditUserComponent {
     });
     this.getUSertoEdit(this.id);
   }
-
+  sendCredentials(){
+    this.UsersService.sendCredential(this.id)
+    .subscribe(resp => {
+      if (resp === null){
+        this.ConsoleDataService.alertFunction("credential", null);
+      }
+      console.log(resp, "userToedit", this.id);
+      // this.data = this.datas.find(user=> user.id.toString() === this.id);
+    },
+      error => {
+        console.log(error, "error");
+      })
+  }
   getUSertoEdit(idUser) {
-
     try {
       var userId = idUser;
       this.UsersService.getUSertoEdit(userId)
@@ -109,12 +122,18 @@ export class EditUserComponent {
     }
   }
   submitUser(data) {
+    var cliente_tipo;
+    if (this.tipo.value !==""){
+      cliente_tipo = this.tipo.value;
+    }else{
+      cliente_tipo = this.data.tipoCliente;
+    }
     let user = {
       "id": this.data.id,
       "codigoSap": this.data.codigoSap,
       "nombre": this.name.value,
       "email": this.mail.value,
-      "tipoCliente": this.tipo.value,
+      "tipoCliente": cliente_tipo,
       "zona": this.zona.value,
       "representados": this.doAgentsList(this.data.representados)
     }

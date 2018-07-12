@@ -42,7 +42,7 @@ export class ListUserComponent implements OnInit {
         .subscribe(resp => {
           console.log(resp, "clients");
           this.data = resp
-          this.ConsoleDataService.closeModal('myModal');
+          this.ConsoleDataService.closeModal('myUserListModal');
          this.ConsoleService.getUsers()
          .subscribe(resp =>{
           this.ConsoleDataService.userlist = resp

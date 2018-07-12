@@ -49,9 +49,12 @@ export class USerTableComponent implements OnInit {
     }
   }
   toggle(rowData) {
-
-    this.activeBtn = !this.activeBtn;
-      this.btnActive.emit(this.activeBtn);
+    if (rowData.isSelected){
+      this.activeBtn = true;
+    }else{
+      this.activeBtn = false;
+    }
+    this.btnActive.emit(this.activeBtn);
   }
   selectUserToEdit(index, dato) {
      this.selectedRow = index;

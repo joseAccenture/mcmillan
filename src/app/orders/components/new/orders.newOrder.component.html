@@ -73,22 +73,28 @@
                                 <div class="col">
                                     <label class="form-check-label radiobtn">
                                         <!-- <input [formControl]="fecEnt" class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>Fecha inmediata</label> -->
-                                        <input [formControl]="fechaSelected" class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadios1" value="0" checked>Fecha inmediata</label>
+                                        <input [formControl]="fechaSelected" class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadios1" value="0" [checked]=true >Fecha inmediata</label>
                                     </div>
                                 <div class="col">
                                 </div>
                             </div>
                                 <div class="colCalendar row ml-2">
                                     <div class="col-3">
+                                            <div *ngIf="pending; then firstBlock; else secondBlock">this is ignored</div>
+                                            <ng-template #firstBlock>
                                         <input [formControl]="fechaSelected" class="form-check-input date-radio-inline" type="radio" name="gridRadios" id="gridRadios2" value="1">
                                         <label class="form-check-label radiobtn">Fecha preferente de entrega</label>
+                                        </ng-template>
+                                        <ng-template #secondBlock>
+                                                <input [formControl]="fechaSelected" class="form-check-input date-radio-inline" type="radio" name="gridRadios" id="gridRadios2" value="1">
+                                                <label class="form-check-label radiobtn">Fecha preferente de entrega</label>
+                                            </ng-template>
                                     </div>
                                     <!-- <input type="text" name="preferentDate" class="form-control min-input" placeholder="Date" (ngModel)="data.fecha" [ngModelOptions]="{standalone: true}"
                                         #ctrl="ngModel"> -->                                                 
                                     <div class="col-9 pl-0">
                                         <form #myForm="ngForm" class="dateCalendar" novalidate>
-                                            <!-- <my-date-picker [formControl]="fecEnt" name="mydate" [options]="myDatePickerOptions" [(ngModel)]="data.fecha" required [ngModelOptions]="{standalone: true}" #ctrl="ngModel"></my-date-picker> -->
-                                            <my-date-picker [formControl]="fechaFromPicker"></my-date-picker>
+                                            <my-date-picker [formControl]="fechaFromPicker" [options]="myDatePickerOptions" #datepicker></my-date-picker>
                                             <!-- [formControl]="fecEnt" -->
                                         </form>
                                     </div>         <!--<dl-date-time-picker></dl-date-time-picker> -->
@@ -114,10 +120,10 @@
                     <div class="card-body">
                             <div *ngIf="pending; then primaryBlock; else secondaryBlock">this is ignored</div>
                             <ng-template #primaryBlock>
-                                    <p-dataTable [immutable]=false [value]="ConsoleDataService.dataLine"  (actualClient)="updateActualUser($event)" [paginator]="true" [rows]="5"  [rowStyleClass]="isRowSelected" [pageLinks]="2" #dt>
+                                    <p-dataTable [immutable]=false [value]="ConsoleDataService.dataLine['lineasPedido']"  (actualClient)="updateActualUser($event)" [paginator]="true" [rows]="5"  [rowStyleClass]="isRowSelected" [pageLinks]="2" #dt>
                                             <p-column  field="ean" header="EAN"></p-column>
                                             <p-column  field="descCorta" header="Descripción"></p-column>
-                                            <p-column  field="tipoMaterial" header="Tipo de material"></p-column>
+                                            <p-column  field="tipoMaterial" header="Digital SI/NO"></p-column>
                                             <p-column styleClass="units"  field="unidades" header="Unidades"></p-column>
                                             <p-column field="isSelected" header="" [style]="{'width':'32px','cursor': 'pointer'}">
                                                   <ng-template pTemplate="body" let-rowData="rowData">
@@ -132,16 +138,16 @@
 								   <p-dataTable [immutable]=false [value]="ConsoleDataService.dataLine"  (actualClient)="updateActualUser($event)" [paginator]="true" [rows]="5"  [rowStyleClass]="isRowSelected" [pageLinks]="2" #dt>
                                         <p-column field="isSelected" header="" [style]="{'width':'32px','cursor': 'pointer'}">
                                             <ng-template pTemplate="body" let-rowData="rowData">
-                                              <img src="assets/images/icons/baseline-check_circle-24px.svg" (click)="ChangeClient(rowData)" data-dismiss="modal"  (mouseover)=" rowData.isSelected=!rowData.isSelected" (mouseout)=" rowData.isSelected=!rowData.isSelected"/>
+                                              <img src="assets/images/icons/baseline-check_circle-24px.svg" (click)="delLine(rowData)" data-dismiss="modal"  (mouseover)=" rowData.isSelected=!rowData.isSelected" (mouseout)=" rowData.isSelected=!rowData.isSelected"/>
                                               <!-- rowData.isSelected=!rowData.isSelected -->
                                             </ng-template>
                                           </p-column> 
                                       <p-column  field="ean" header="EAN"></p-column>
                                       <p-column  field="descCorta" header="Descripción"></p-column>
-                                      <p-column  field="tipoMaterial" header="Tipo de material"></p-column>
+                                      <p-column  field="tipoMaterial" header="Digital SI/NO"></p-column>
                                       <p-column field="unidades" header="Unidades" [style]="{'width':'32px','cursor': 'pointer'}">
                                             <ng-template pTemplate="body" let-rowData="rowData">
-                                              <input type="number" min="1" class="lineSum">
+                                              <input type="number" min="1" class="lineSum" (change)="onChange($event.target.value)">
                                             </ng-template>
                                           </p-column> 
                                       </p-dataTable>
@@ -150,9 +156,9 @@
                         <div class="row">
                             <div class="col-8"></div>
                             <div class="col">
-                            <button type="button" class="btn btn-danger m-2"  data-toggle="modal" data-target="#addLineModal">Añadir linea</button>
-                            <button type="button" class="btn btn-danger m-2" (click)="SendToSap()" >Validar</button>
-                            <button type="button" class="btn btn-secondary m-2" (click)="SendToDraft()">Borrador</button>
+                            <button type="button" class="btn btn-danger m-2"  data-toggle="modal" [disabled]="btnAddDisabled" data-target="#addLineModal">Añadir linea</button>
+                            <button type="button" class="btn btn-danger m-2" (click)="SendToSap()"[disabled]="btnSendDisabled" >Validar</button>
+                            <button type="button" class="btn btn-secondary m-2" (click)="SendToDraft()" [disabled]="btnSendDisabled">Borrador</button>
                             </div>
                         </div>    
                     </div>
@@ -175,15 +181,16 @@
             </div>
             <div class="modal-body">
                       <!-- <common-materials-table (lineToAdd)="addLine($event)"></common-materials-table> -->
-                      <p-dataTable [value]="data"  (actualClient)="updateActualUser($event)" [paginator]="true" [rows]="5"  [rowStyleClass]="isRowSelected" [pageLinks]="5" #dt>
+                      <p-dataTable [globalFilter]="gb" [value]="data"  (actualClient)="updateActualUser($event)" [paginator]="true" [rows]="5"  [rowStyleClass]="isRowSelected" [pageLinks]="5" #dt>
                             <p-column field="isSelected" header="" [style]="{'width':'32px','cursor': 'pointer'}">
                                 <ng-template pTemplate="body" let-rowData="rowData">
                                   <img src="assets/images/icons/baseline-check_circle-24px.svg" (click)="addLine(rowData)" data-dismiss="modal"  (mouseover)=" rowData.isSelected=!rowData.isSelected" (mouseout)=" rowData.isSelected=!rowData.isSelected"/>
                                   <!-- rowData.isSelected=!rowData.isSelected -->
                                 </ng-template>
                               </p-column> 
-                          <p-column  field="ean" header="EAN"></p-column>
-                          <p-column  field="descCorta" header="Descripción"></p-column>
+                          <p-column  [filter]="true" field="ean" header="EAN"></p-column>
+                          <p-column [filter]="false" field="id" header=""></p-column>
+                          <p-column  [filter]="true" field="descCorta" header="Descripción"></p-column>
                           </p-dataTable>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -192,15 +199,16 @@
         </div>
       </div>
    </div>
-   <div id="myModal" class="modal">
+   <div id="myOrderModal" class="modal">
 
 		<!-- Modal content -->
 		<div class="modal-content">
-		  <span class="close" (click)="ConsoleDataService.closeModal('myModal')" [routerLink]="['/ordersList']" routerLinkActive="active">&times;</span>
+		  <span class="close" (click)="ConsoleDataService.closeModal('myOrderModal')" [routerLink]="['/ordersList']" routerLinkActive="active">&times;</span>
 		  <h5>Pedido Creado Correctamente</h5>
           <!-- <p>{{ConsoleDataService.alertText}} <b> {{ConsoleDataService.alertEmail}}</b></p> -->
-          <p>{{ConsoleDataService.userIdToDelete}}</p>
-		  
+          <p>{{ConsoleDataService.alert_email}}</p>
+          <p>{{ConsoleDataService.alert_warnings}}</p>
+          <p>{{ConsoleDataService.alert_warnings_2}}</p>
 		  <div class="row">
 			<div class="col-12 btnList">
 				<!-- <button type="button" id="btncancel" class="btn btn-secondary mr-1"(click)="ConsoleDataService.closeModal('myModal')" routerLinkActive="active">Cancelar</button> -->
@@ -208,5 +216,25 @@
 			</div>
 		</div>
 	  
-	  </div>   
+      </div>  
+   </div>   
+      <div id="myOrderRegModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close" (click)="ConsoleDataService.closeModal('myOrderRegModal')" [routerLink]="['/ordersList']" routerLinkActive="active">&times;</span>
+              <h5>Pedido Creado Correctamente</h5>
+              <!-- <p>{{ConsoleDataService.alertText}} <b> {{ConsoleDataService.alertEmail}}</b></p> -->
+              <p>{{ConsoleDataService.userIdToDelete}}</p>
+              
+              <div class="row">
+                <div class="col-12 btnList">
+                    <!-- <button type="button" id="btncancel" class="btn btn-secondary mr-1"(click)="ConsoleDataService.closeModal('myModal')" routerLinkActive="active">Cancelar</button> -->
+                    <button type="button" id="btnSuccess" class="btn btn-danger mr-1"  [routerLink]="['/pendingOrder']" (click)="delOrder()" routerLinkActive="active">volver al listado</button>
+                </div>
+            </div>
+          
+          </div>  
+        </div>   
+      
 

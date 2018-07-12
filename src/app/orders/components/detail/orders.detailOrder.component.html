@@ -6,7 +6,7 @@
                 <div class="card-header" id="headingOne">
                     <h5 class="mb-0">
                         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Cabecera del pedido
+                            Cabecera del pedido: {{ConsoleDataService.orderDetail.numDocumentoComercial}}
                         </button>
                     </h5>
                 </div>
@@ -70,7 +70,7 @@
 
                                     <input class="form-check-input radio-inline" [readonly]="true" type="radio" name="gridRadios" id="gridRadios2" checked>
                                     <label class="form-check-label radiobtn">Fecha preferente de entrega</label>
-                                    <input type="text" name="fecha" class="form-control min-input" placeholder="Date" [(ngModel)]="orderToedit.fechaDocumento" [ngModelOptions]="{standalone: true}"
+                                    <input type="text" name="fecha" class="form-control min-input" placeholder="Date" [(ngModel)]="ConsoleDataService.orderDetail.fechaDocumento" [ngModelOptions]="{standalone: true}"
                                         #ctrl="ngModel">
 
                                     <!-- <dl-date-time-picker></dl-date-time-picker> -->
@@ -95,14 +95,11 @@
 
                 <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionLines">
                     <div class="card-body">
-                        <!-- <common-detailOrder-table></common-detailOrder-table> -->
-                        <!-- <div *ngIf="pending; then primaryBlock; else secondaryBlock">this is ignored</div>
-  <ng-template #primaryBlock> -->
-      <p-dataTable [value]="orderToedit" [paginator]="true" [rows]="10"  #dtt>
-          <p-column  field="numMaterial" header="EAN"></p-column>
-          <p-column  field="numDocumentoComercial" header="Descripción"></p-column>
-          <p-column  field="fechaDocumento" header="Fecha"></p-column>
-          <p-column  field="cantidadPedido" header="Unidades"></p-column>
+      <p-dataTable [value]="ConsoleDataService.orderDetail['items']" [paginator]="true" [rows]="10"  #dtt>
+          <p-column  field="ean" header="EAN"></p-column>
+          <p-column  field="descripcionCorta" header="Descripción"></p-column>
+          <p-column  field="statusPosicionDocumento" header="Status"></p-column>
+          <p-column  field="cantidad" header="Unidades"></p-column>
         </p-dataTable>
   <!-- </ng-template>
   <ng-template #secondaryBlock>

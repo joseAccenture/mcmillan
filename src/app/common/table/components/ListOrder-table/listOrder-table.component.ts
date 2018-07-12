@@ -100,12 +100,16 @@ isRowSelected(rowData: any) {
 }
 lookForOrders(fecEnt, fecSal){
   this.visibleTarget = false;
- var fechaEntr = this.datePipe.transform(fecEnt.value.formatted,"yyyy-MM-dd");
- var fechaSal = this.datePipe.transform(fecSal.value.formatted,"yyyy-MM-dd");
+ var fechaEntr = this.datePipe.transform(fecEnt.value.formatted,"yyyy-dd-MM");
+ var fechaSal = this.datePipe.transform(fecSal.value.formatted,"yyyy-dd-MM");
   this.ConsoleService.getOrdersList(fechaEntr, fechaSal, this.ConsoleDataService.codigoSap)
   .subscribe(resp => {
     console.log(resp, "lookFor");
     this.data = resp["pedidos"];
+    for (var i=0;this.data.length; i++){
+      this.data[i].fechaDocumento = this.datePipe.transform(this.data[i].fechaDocumento,"yyyy-dd-MM");
+
+    }
   },
     error => {
       console.log(error, "error");

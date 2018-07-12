@@ -33,7 +33,7 @@ export class ConsoleNavbarComponent implements OnInit  {
     this.data = this.ConsoleDataService.user;
     this.userMail = this.data["email"];
     this.userName = this.data["nombre"];
-    this.ConsoleDataService.Admin = false;
+    this.ConsoleDataService.Admin = true;
     this.function1(); 
      
   }

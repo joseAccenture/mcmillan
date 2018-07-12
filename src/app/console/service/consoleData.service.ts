@@ -2,12 +2,16 @@ import { Injectable} from '@angular/core';
 import { ConsoleService} from './console.service';
 @Injectable()
 export class ConsoleDataService {
+  alert_warnings2: any;
+  alert_warnings: string;
   alert_email: any;
+  lineLength:any;
   alert_text: string;
   alert_title: string;
   AdmiteReserva: boolean = false;
   userIdToDelete: string;
   alertText: string;
+  orderDetail: object;
   Admin: boolean;
   alertTitle: string;
   alertEmail: string;
@@ -35,6 +39,7 @@ export class ConsoleDataService {
   dataLineToSendSapSocio = [];
   firstclientToRepresent: any;
   clientsToRepresent: any;
+  activeButtonId;
   constructor(private ConsoleService: ConsoleService) {
    }
 
@@ -47,6 +52,7 @@ export class ConsoleDataService {
     elemento.style.display = "none";
 }    
   public alertFunction(error, email){
+    var modalid = "myModal";
       this.alertTitle="";
       this.alertTitle = "";
       this.alertText = "";
@@ -63,6 +69,7 @@ export class ConsoleDataService {
       this.alertText = "Consulte la actualización el listado de Usuarios";
       var btn = document.getElementById('btnSuccess');
       btn.style.display = "block";
+      modalid = "myCreateUserModal";
     }
     if (error === 200){
       this.alertEmail = email;
@@ -71,11 +78,24 @@ export class ConsoleDataService {
       var btn = document.getElementById('btnSuccess');
       btn.style.display = "block";
       this.userIdToDelete = email;
+      modalid = "myUserListModal"
     }
     if (error === 100){
-     
-       this.alert_email = email;
-       this.alert_title = "Pedido registrado en Sap";
+      // var found = email.pedidoLogs.find(function(element) {
+      //   var elemento = element.tipo === "W";
+      //   return elemento;
+      // });
+      var warnings= [];
+      for (var i=0; i < email["pedidoLogs"].length; i++){
+        if (email["pedidoLogs"][i].tipo === "W"){
+          warnings.push(email["pedidoLogs"][i].tipo);
+        }else{
+          warnings=[""];
+        }
+      }
+       this.alert_email = "el pedido "+ email.pedidoDocumentos[0].numDocumentoVentas + " ha sido registrado";
+       this.alert_warnings = warnings[0];
+       this.alert_warnings2 = warnings[1];
        this.alert_text = "Se ha registrado el pedido:";
       var btnCancel = document.getElementById('btncancel');
       var btn = document.getElementById('btnSuccess');
@@ -86,25 +106,70 @@ export class ConsoleDataService {
       sapCode.style.display = "none";
       equis.style.display = "block";
       this.userIdToDelete = email;
+      modalid = "myOrderModal"
     }
     if (error ==="login"){
-      this.alertTitle = "Selección del cliente para operar"; 
-      this.alertText = email; 
+      this.alert_title = "Selección del cliente para operar"; 
+      this.alert_text = email; 
       var btn = document.getElementById('btnSuccess');
-      var btnCancel = document.getElementById('btncancel');
       var equis = document.getElementById('equis');
       btn.style.display = "block";
-      btnCancel.style.display = "none";
       equis.style.display = "none";
     }
-    this.openModal('myModal');
+    if (error ==="credential"){ 
+      this.alertTitle = "Credenciales enviadas correctamente";  
+      this.alertText = "En breve, el usuario recibira sus datos por correo";  
+      var btn = document.getElementById('btnSuccess'); 
+      var btnCancel = document.getElementById('btncancel'); 
+      var equis = document.getElementById('equis'); 
+      btn.style.display = "none"; 
+      btnCancel.style.display = "block"; 
+      equis.style.display = "block"; 
+      modalid = "myUserModal" 
+    } 
+    if (error ==="registrado"){ 
+      this.alertTitle = "Credenciales enviadas correctamente";  
+      this.alertText = "En breve, el usuario recibira sus datos por correo";  
+      var btn = document.getElementById('btnSuccess'); 
+      var btnCancel = document.getElementById('btncancel'); 
+      var equis = document.getElementById('equis'); 
+      btn.style.display = "none"; 
+      btnCancel.style.display = "block"; 
+      equis.style.display = "block"; 
+      modalid = "myOrderRegModal" 
+    } 
+    // if (error ==="admin"){ 
+    //   this.alertTitle = "Elección del cliente";  
+    //   this.alertText = "Introduzca el código SAP del cliente para operar";  
+    //   var btn = document.getElementById('btnSuccess'); 
+    //   btn.style.display = "block"; 
+    //   modalid = "myAdminModal" 
+    // } 
+    if (error ==="bloqueo"){ 
+      // this.alertTitle = "Elección del cliente";  
+      // this.alertText = "Introduzca el código SAP del cliente para operar";  
+      var btn = document.getElementById('btnSuccess'); 
+      btn.style.display = "block"; 
+      modalid = "myBlockedModal" 
+    } 
+
+    this.openModal(modalid); 
    } 
+  //  public AdminClientList(user){
+  //   this.Admin = true;
+  //   this.alertText = "para cambiar de cliente introduzca código y pulse buscar:"
+  //   this.alertFunction("admin", this.alertText)
+  //  }
   public clientList(){
+    if (this.user["tipoCliente"] === "Jefe de delegación"){
+      this.Admin = false;
+      return;
+    }
     this.dataTable = [];
     if (this.user["tipoCliente"] === "Administrador" ){
       this.Admin = true;
     }else{
-      this.Admin = false;
+      this.Admin = false; 
     }
 
     this.alertText = "para cambiar de cliente introduzca código y pulse buscar:"
@@ -182,11 +247,16 @@ export class ConsoleDataService {
         return parametros
         
  }
- public callClientByZoneService(zone){
+ public callClientByZoneService(zone, isFirstTime){
   this.ConsoleService.getCLientsByZone(zone)
   .subscribe(resp => {
-    this.user["listaRepresentados"] = resp["datosCliente"];
-    this.callClientService(this.user["listaRepresentados"][0].numCliente);
+    this.dataTable = resp["datosCliente"];
+    if (isFirstTime){
+      var code = resp["datosCliente"][0].numCliente
+    }else{
+      code = this.user["listaRepresentados"][0].numCliente;
+    }
+    this.callClientService(code);
     console.log(resp, "byZoneResponse");
   },
     error => {
@@ -251,7 +321,11 @@ export class ConsoleDataService {
         this.addresses.push(this.client["sociosCliente"][i].calleYNumero);
       }
   }
-
+  for (var i=0; i < this.client["sociosCliente"].length; i++) {
+    if(this.client["sociosCliente"][i].funcionInterlocutor == "AG"){
+      this.addresses.push(this.client["sociosCliente"][i].calleYNumero);
+    }
+  }
 },
      error => {
        console.log(error, "error");
@@ -274,22 +348,34 @@ export class ConsoleDataService {
         var numCliente = rowData.numCliente;
       }
       this.callClientService(numCliente);
+      return;
     }
-    this.callClientByZoneService(rowData.zona);
+    this.callClientByZoneService(rowData.zona, false);
   }
   public userActive(data){
-    if (!data.numCliente){
-      this.user = data;
-      this.codigoSap = data.codigoSap;
-      this.clientsToRepresent = this.user["listaRepresentados"];
-      if (this.clientsToRepresent.length>1){
-        this.firstclientToRepresent = this.user["listaRepresentados"][0].codigoSap + " " + this.user["listaRepresentados"][0].nombre;
-      }else{
-        this.firstclientToRepresent = "";
-            }
+    // if (!data.numCliente){
+    //   this.user = data;
+    //   this.codigoSap = data.codigoSap;
+    //   this.clientsToRepresent = this.user["listaRepresentados"];
+    //   if (this.clientsToRepresent.length>1){
+    //     this.firstclientToRepresent = this.user["listaRepresentados"][0].codigoSap + " " + this.user["listaRepresentados"][0].nombre;
+    //   }else{
+    //     this.firstclientToRepresent = "";
+    //         }
     
-    }
+    // }
     // first time called
-    this.getClientActive(this.user);
+    // this.getClientActive(this.user);
+    this.user = data;
+    this.codigoSap = data.codigoSap;
+      if (data.tipoCliente === "Administrador"){
+       
+        // this.clientList();
+        this.getClientActive(this.user);
+      }else if (data.tipoCliente ==="Jefe de delegación"){
+        this.callClientByZoneService(this.user["zona"], true)
+      }else{
+        this.getClientActive(this.user);
+      }
     }
 }

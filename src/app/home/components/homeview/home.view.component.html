@@ -26,3 +26,23 @@
     </div>
   </div>
 </div>
+<div *ngIf="ConsoleDataService.Admin; then primaryBlock;">this is ignored</div>
+                  <ng-template #primaryBlock>
+                      <div id="myClientModal" class="modal">
+                          <!-- Modal content -->
+                          <div class="modal-content admin">
+                            <span class="close" id="equis" (click)="ConsoleDataService.closeModal('myClientModal')">&times;</span>
+                            <h5>Selección del Cliente</h5>
+                            <p>Introduzca el código Sap del cliente para operar</p>
+                            <input type="text"  id="SAPCode" placeholder="Codigo SAP" name="name" #sapCode> 
+                            
+                            <div class="row">
+                            <div class="col-12 btnList">
+                              <button type="button" id="btnSuccess" class="btn btn-danger mr-1" (click)="searchClientbyCode(sapCode.value)" routerLinkActive="active">Buscar Cliente</button>
+                      
+                            </div>
+                          </div>
+                          
+                          </div>
+                       </div>   
+                  </ng-template>

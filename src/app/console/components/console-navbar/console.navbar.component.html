@@ -89,14 +89,14 @@
                     </div>
                   </ng-template>
                   <ng-template #secondaryBlock>
-                      <p-dataTable [immutable]=false [value]="ConsoleDataService.dataTable"  (actualClient)="updateActualUser($event)" [paginator]="true" [rows]="10"  [rowStyleClass]="isRowSelected" [pageLinks]="2" #dt>
+                      <p-dataTable [globalFilter]="gb" [immutable]=false [value]="ConsoleDataService.dataTable"  (actualClient)="updateActualUser($event)" [paginator]="true" [rows]="10"  [rowStyleClass]="isRowSelected" [pageLinks]="2" #dt>
                           <p-column field="isSelected codigoSap" header="" [style]="{'width':'32px','cursor': 'pointer'}">
                               <ng-template pTemplate="body" let-rowData="rowData">
                                 <img src="assets/images/icons/baseline-check_circle-24px.svg" (click)="ChangeClient(rowData)" data-dismiss="modal"  (mouseover)=" rowData.isSelected=!rowData.isSelected" (mouseout)=" rowData.isSelected=!rowData.isSelected"/>
                               </ng-template>
                             </p-column> 
-                        <p-column  field="numCliente" header="Código SAP"></p-column>
-                        <p-column  field="nombre2" header="Nombre"></p-column>
+                        <p-column [filter]="true"  field="numCliente" header="Código SAP"></p-column>
+                        <p-column [filter]="true" field="nombre2" header="Nombre"></p-column>
                         </p-dataTable> 
                   </ng-template>
 
@@ -168,7 +168,7 @@
                 <li class="list-group-item"><span style="color:black !important">Email:</span> {{ConsoleDataService.user.email}}</li>
                 <li class="list-group-item"><span style="color:black !important">Tipo de Cliente: </span>{{ConsoleDataService.user.tipoCliente}}</li>
                 <li class="list-group-item"><span style="color:black !important">Zona:</span> {{ConsoleDataService.user.zona}}</li>
-                <li class="list-group-item"><span style="color:black !important">Códigos de epresentados:</span> {{ConsoleDataService.user.representados}}</li>
+                <li class="list-group-item"><span style="color:black !important">Códigos de representados:</span> {{ConsoleDataService.user.representados}}</li>
               </ul>
            
           <div class="modal-footer">
@@ -182,16 +182,30 @@
 <div id="myModal" class="modal">
     <!-- Modal content -->
     <div class="modal-content admin">
-      <span class="close" id="equis" (click)="ConsoleDataService.closeModal('myModal')">&times;</span>
-      <h5>{{ConsoleDataService.alert_title}}</h5>
+     <h5>{{ConsoleDataService.alert_title}}</h5>
       <p>{{ConsoleDataService.alert_text}}</p>
       <p>{{ConsoleDataService.alert_email}}</p>
       <input type="text"  id="SAPCodeInput" placeholder="Codigo SAP" name="name" #sapCode> 
       
       <div class="row">
       <div class="col-12 btnList">
-        <button type="button" id="btncancel" class="btn btn-secondary mr-1"(click)="ConsoleDataService.closeModal('myModal')" routerLinkActive="active">Cancelar</button>
         <button type="button" id="btnSuccess" class="btn btn-danger mr-1" (click)="searchClientbyCode(sapCode.value)" routerLinkActive="active">Buscar Cliente</button>
+
+      </div>
+    </div>
+    
+    </div>
+ </div>   
+ <div id="myBlockedModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content admin">
+      <span class="close" id="equis" (click)="ConsoleDataService.closeModal('myBlockedModal')">&times;</span>
+      <h5>Cliente con Bloqueo de pedidos</h5>
+      <p>Pongase en contacto con www.help.macmillan.es</p>
+      
+      <div class="row">
+      <div class="col-12 btnList">
+        <button type="button" id="btncancel" class="btn btn-secondary mr-1"(click)="ConsoleDataService.closeModal('myBlockedModal')"routerLink="/ordersList"  routerLinkActive="active">Volver</button>
 
       </div>
     </div>

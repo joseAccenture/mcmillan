@@ -52,6 +52,11 @@ export class UsersService {
   }
 
     constructor(private http : HttpClient){}
+    sendCredential(id){
+      this.DoRedirect();
+        var USERS = this.http.get(this.backendUrl+'/users/credential/'+id);
+       return USERS; 
+    }
     getUSertoEdit(id) {
       this.DoRedirect();
         var USERS = this.http.get(this.backendUrl+'/users/'+ id);

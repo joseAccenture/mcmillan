@@ -97,5 +97,22 @@
 		<div class="col-6"></div>
 	<div class="col"><button type="button" class="btn btn-secondary" [routerLink]="['/userslist']" routerLinkActive="active">Volver</button>
 	<button type="button" class="btn btn-danger" routerLinkActive="active" (click)="submitUser(formValues)">Guardar</button>
-	<button type="button" class="btn btn-secondary">Enviar Credenciales</button></div>
+	<button type="button" class="btn btn-secondary" (click)="sendCredentials()" >Enviar Credenciales</button></div>
 </div>
+<div id="myUserModal" class="modal">
+
+		<!-- Modal content -->
+		<div class="modal-content">
+				<span class="close" (click)="ConsoleDataService.closeModal('myUserModal')">&times;</span>
+				<h5>{{ConsoleDataService.alertTitle}}</h5>
+				<b>{{ConsoleDataService.alertEmail}}</b>
+				<p>{{ConsoleDataService.alertText}}</p>
+				<div class="row">
+				  <div class="col-8"></div>
+				  <div class="col">
+					  <button type="button" id="btnSuccess" class="btn btn-secondary" (click)="ConsoleDataService.closeModal('myUserModal')">ok</button>
+				  </div>
+			  </div>
+			
+		</div>
+</div>	    

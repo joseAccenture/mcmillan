@@ -1,5 +1,6 @@
 import { Component, Output, Input, EventEmitter } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
+import {ConsoleDataService} from '../../../console/service/consoleData.service';
 @Component({
   selector: 'order-listorder-component',
   templateUrl: './orders.listOrder.component.html',
@@ -10,7 +11,7 @@ export class ListOrderComponent {
   public active =false;
   @Output() btnActive: EventEmitter<any> = new EventEmitter() 
   @Input() activeBtnOrder = false; 
-  constructor(private router: Router){}
+  constructor(private router: Router, private ConsoleDataService: ConsoleDataService ){}
   activeBtn(btnActive){
     this.active = btnActive;
   }
@@ -26,19 +27,20 @@ export class ListOrderComponent {
     } 
   navigateToOrderDetail(){
     var url ='/detailOrder';
-    let navigationExtras: NavigationExtras = {
-      queryParams: {
-          "cantidadPedido": this.orderToEdit.cantidadPedido,
-          "fechaDocumento": this.orderToEdit.fechaDocumento,
-          "numDocumentoComercial": this.orderToEdit.numDocumentoComercial,
-          "numMaterial": this.orderToEdit.numMaterial,
-          "numPedidoCliente": this.orderToEdit.numPedidoCliente,
-          "numPosicionDocumentoComercial": this.orderToEdit.numPosicionDocumentoComercial,
-          "statusDocumento": this.orderToEdit.statusDocumento,
-          "unidadMedidaVenta": this.orderToEdit.unidadMedidaVenta
-      }
-  };
-    this.router.navigate([url], navigationExtras);
+    this.ConsoleDataService.orderDetail = this.orderToEdit;
+  //   let navigationExtras: NavigationExtras = {
+  //     queryParams: {
+  //         "cantidadPedido": this.orderToEdit.cantidadPedido,
+  //         "fechaDocumento": this.orderToEdit.fechaDocumento,
+  //         "numDocumentoComercial": this.orderToEdit.numDocumentoComercial,
+  //         "numMaterial": this.orderToEdit.numMaterial,
+  //         "numPedidoCliente": this.orderToEdit.numPedidoCliente,
+  //         "numPosicionDocumentoComercial": this.orderToEdit.numPosicionDocumentoComercial,
+  //         "statusDocumento": this.orderToEdit.statusDocumento,
+  //         "unidadMedidaVenta": this.orderToEdit.unidadMedidaVenta
+  //     }
+  // };navigationExtras
+    this.router.navigate([url]);
 
   }
   ToDeliveryNoteList(){

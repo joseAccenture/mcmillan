@@ -59,7 +59,7 @@
 
 									<input class="repCode col-7" type="text" placeholder="Inserte código SAP del representado" [value]="repCode" [(ngModel)]="repCode" [ngModelOptions]="{standalone: true}">
 									<div class="input-group-append">
-										<button class="btn btn-outline-secondary" type="button" (click)="InsertAgent(repCode)">Insertar</button>
+										<button class="btn btn-outline-secondary" type="button" [disabled]="IsDisabled"  (click)="InsertAgent(repCode)">Insertar</button>
 									</div>
 								</div>
 							</div>
@@ -113,11 +113,11 @@
     </div>
     <div class="modal-background"></div>
 </div> -->
-<div id="myModal" class="modal">
+<div id="myCreateUserModal" class="modal">
 
 	<!-- Modal content -->
 	<div class="modal-content">
-	  <span class="close" (click)="ConsoleDataService.closeModal('myModal')">&times;</span>
+	  <span class="close" (click)="ConsoleDataService.closeModal('myCreateUserModal')">&times;</span>
 	  <h5>{{ConsoleDataService.alertTitle}}</h5>
 	  <b>{{ConsoleDataService.alertEmail}}</b>
 	  <p>{{ConsoleDataService.alertText}}</p>
@@ -128,4 +128,5 @@
 		</div>
 	</div>
   
+  </div>
   </div>

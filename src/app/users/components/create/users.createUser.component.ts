@@ -21,7 +21,7 @@ export class CreateUserComponent {
   public isAgent: boolean = false;
   public empty: boolean = true;
   optionSelected: any;
-
+  public IsDisabled: boolean = false;
   public SendForm = new FormGroup({
     nombre: new FormControl(),
     email: new FormControl(),
@@ -45,23 +45,33 @@ export class CreateUserComponent {
  
 
  InsertAgent(sapCodetoInclude) {
-  // console.log(data, sapCodetoInclude);
     if (this.representadoLista.length <=0){
       this.representadoLista = [];
     }
+    
     this.representadoLista.push(sapCodetoInclude);
+    if (this.tipo.value ==="Cliente Individual"){
+      this.IsDisabled = true;
+    }
     this.repCode = "";
     this.empty = false;
     $(".listContainer").removeClass("hidden");
 }
 onChange(clientType) {
-  if (clientType === "jefe de delegación") {
+  if (clientType === "jefe de delegación" || clientType === "Marketing Assistant") {
     this.isZoneBoss = true;
     this.isAgent = false;
-  } else if (clientType === "Marketing Assistant" || clientType === "Representante") {
+  } else if (clientType === "Representante") {
     this.isAgent = true;
     this.isZoneBoss = false;
+    this.IsDisabled = false;
   } else if(clientType === "Cliente Individual"){
+    if (this.representadoLista.length >0){
+      this.IsDisabled = true;
+    }else{
+      this.IsDisabled = false;
+    }
+    
     this.isAgent = true;   
     this.isZoneBoss = false;
   } else {
@@ -70,9 +80,14 @@ onChange(clientType) {
   }
 }
 submitUser(data) {
+  if (this.tipo.value === "Jefe de delegación" || this.tipo.value === "Administrador"){
+    var codigo= null;
+  }else{
+    codigo = this.representadoLista[0];
+  }
   try {
     let user = {
-      "codigoSap": this.ConsoleDataService.codigoSap,
+      "codigoSap":codigo,
       "nombre": this.name.value,
       "email": this.email.value,
       "tipoCliente": this.tipo.value,

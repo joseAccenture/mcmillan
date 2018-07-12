@@ -7,7 +7,7 @@ import { FormsModule, FormGroup, FormControl, Validators } from '@angular/forms'
 import { Router, ActivatedRoute, Params, NavigationExtras } from '@angular/router';
 import { NullInjector } from '@angular/core/src/di/injector';
 import { DatePipe } from '@angular/common';
-
+import {Observable} from 'rxjs';
 
 
 @Component({
@@ -19,6 +19,8 @@ import { DatePipe } from '@angular/common';
 
 
 export class NewOrderComponent implements OnInit {
+  btnSendDisabled: boolean;
+  btnAddDisabled: boolean;
   pending: boolean = false;
   orderToedit: Params;
   date: Date;
@@ -31,8 +33,9 @@ export class NewOrderComponent implements OnInit {
   constructor(private ConsoleService: ConsoleService, private ConsoleDataService: ConsoleDataService, private CommonTableService: CommonTableService, private Router: Router, private activatedRoute: ActivatedRoute, private datePipe: DatePipe) { }
   public myDatePickerOptions: IMyDpOptions = {
     // other options...
-    dateFormat: 'dd.mm.yyyy',
+    dateFormat: 'dd/mm/yyyy',
   }
+  // public model: any = { date: { year: 2018, month: 10, day: 9 } };
   client: void;
   @Input() columns: string[];
   @Input() dataUser: any;
@@ -44,6 +47,16 @@ export class NewOrderComponent implements OnInit {
   
   ngOnInit() {
     // this.client = this.ConsoleDataService.client;
+    
+    if (this.ConsoleDataService.client.detalleCliente.bloqueoCentralPedidoCliente !=="" ||
+    this.ConsoleDataService.client.detalleCliente.textoBloqueoCentralPedidoCliente !=="" ||
+    this.ConsoleDataService.client.detalleCliente.bloqueoPedidoCliente !=="" ||
+    this.ConsoleDataService.client.detalleCliente.textoBloqueoPedidoCliente !==""){
+      var error = "bloqueo";
+      var msg= "Cliente con bloqueo";
+      this.ConsoleDataService.alertFunction(error, msg);
+      return;
+    }
     this.ConsoleDataService.dataLine = [];
     this.materials = this.getMaterials();
     this.date = new Date();
@@ -53,8 +66,11 @@ export class NewOrderComponent implements OnInit {
       // this.clients = this.orderHeader(this.orderToedit); 
       if (params.fromUrl ==="pending"){
         this.pending = true;
-        this.ConsoleDataService.dataLine = this.ConsoleDataService.ordertoDelete["lineasPedido"];
+        // this.ConsoleDataService.dataLine = this.ConsoleDataService.ordertoDelete["lineasPedido"];
+        this.ConsoleDataService.dataLine = this.ConsoleDataService.ordertoDelete;
+       
         var length = this.ConsoleDataService.dataLine.length;
+        this.ConsoleDataService.lineLength = length;
           for (var i=0; 1<= length; i++){
         // //   var linea = this.ConsoleDataService.dataLine[i];
         // //   linea["idlinea"] = i;
@@ -62,9 +78,12 @@ export class NewOrderComponent implements OnInit {
           }
        
         // this.setUnitsFromDraft(this.ConsoleDataService.dataLine)
+      }else{
+            this.btnSendDisabled =  true;
+            this.btnAddDisabled =  false;
       }
   });
-  if ( this.orderToedit.fromUrl !=="pending"){
+  if ( this.orderToedit.fromUrl && this.orderToedit.fromUrl !=="pending"){
     this.ConsoleDataService.dataLine = [];
   }
     
@@ -73,25 +92,36 @@ export class NewOrderComponent implements OnInit {
     // this.users = this.userDetail();
      this.noLine = false;
   }
-  addLine(materialSelected) {
+  delLine(rowData){
+    this.ConsoleDataService.dataLine.splice(rowData.idLine, 1);
+    this.btnAddDisabled = false;
+  }
+   addLine(materialSelected) {
+    this.btnAddDisabled = true;
+    this.btnSendDisabled = true;
+    if (materialSelected.tipoMaterial === "D"){
+      var material = "SI";
+    }else{
+      material = "NO";
+    }
     if (this.ConsoleDataService.dataLine.length<= 0){
       this.ConsoleDataService.dataLine =[
         {
           descCorta: materialSelected.descCorta,
           ean: materialSelected.ean,
-          tipoMaterial: materialSelected.tipoMaterial
+          tipoMaterial: material
         }
       ]
       this.ConsoleDataService.dataLineToSend =[
         {
           idMaterial: materialSelected.id,
-          unidades: 1
+          unidades: null
         }
       ]
       this.ConsoleDataService.dataLineToSendSap =[
         {
           numDeMaterial: materialSelected.numMaterial,
-          unidades: 1
+          cantidad: null
         }
       ]
       this.ConsoleDataService.dataLineToSendSapSocio =[
@@ -102,12 +132,17 @@ export class NewOrderComponent implements OnInit {
       ]
       this.noLine = true;
     }else{
+      if (materialSelected.tipoMaterial === "D"){
+        var material = "SI"
+      }else{
+        material = "NO"
+      }
       this.ConsoleDataService.dataLine.push(
             {
               descCorta: materialSelected.descCorta,
               ean: materialSelected.ean,
               idLine: this.ConsoleDataService.dataLine.length,
-              tipoMaterial: materialSelected.tipoMaterial
+              tipoMaterial: material
             }
           )
           this.ConsoleDataService.dataLineToSend.push(
@@ -119,7 +154,7 @@ export class NewOrderComponent implements OnInit {
           this.ConsoleDataService.dataLineToSendSap.push(
             {
               numDeMaterial: materialSelected.numMaterial,
-              unidades: 1
+              cantidad: null
             }
           )   
           this.ConsoleDataService.dataLineToSendSapSocio.push(
@@ -183,10 +218,15 @@ export class NewOrderComponent implements OnInit {
       $(this).find("td").each(function(index, element){ 
           if(index != 0){
           var td = {};
-                td["unidades"] = $(this).find("input.lineSum").val();
-                if ( td["unidades"] !=undefined){
-                  parametros.push(td);
-                }
+                td["cantidad"] = $(this).find("input.lineSum").val();
+                if ( td["cantidad"] !=undefined){
+                  // if (parametros.length > 0){
+                    parametros.push(td);
+                  // }else{
+                  //   parametros = [td];
+                  // }
+                
+                }     
           }
       });
   });
@@ -196,7 +236,7 @@ export class NewOrderComponent implements OnInit {
     var thisArray = this.ConsoleDataService.dataLineToSendSap;
   }
   for (var i =0; i < (thisArray.length); i++){
-    thisArray[i].unidades = parametros[i].unidades
+    thisArray[i].cantidad = parametros[i].cantidad
   }
  }
  dateToSend(){
@@ -253,9 +293,47 @@ export class NewOrderComponent implements OnInit {
           console.log(e);
         }
   }
+  delOrder(){
+    this.ConsoleService.delOrder(this.ConsoleDataService.ordertoDelete.id) 
+    .subscribe(resp => { 
+      console.log(resp, "orders"); 
+      this.data = resp
+    }, 
+      error => { 
+        console.log(error, "error"); 
+      }) 
+} catch (e) { 
+  console.log(e); 
+} 
+  onChange(event){
+    this.btnAddDisabled = false;
+    this.btnSendDisabled = false;
+  //   var unitsLength = $(".lineSum").length;
+  //   var unitsArray = $(".lineSum");
+  // for (var i = 0; i< unitsLength; i++){
+  //   if (unitsArray[i]["value"] !== ""){
+  //     if ( (this.fechaSelected.value === "0" || this.fechaSelected.value ==="1")){
+  //       this.btnSendDisabled = false;
+  //     }
+    
+  //   }
+  // } 
+  }
+  addlinesToDraft(){
+    if (this.pending){
+      this.ConsoleDataService.dataLineToSendSap = this.ConsoleDataService.ordertoDelete["lineasPedido"];
+      if (this.ConsoleDataService.lineLength < this.ConsoleDataService.dataLineToSendSap.length){
+        this.setUnitsToDraft("sap");
+      }
+    }else{
+      this.setUnitsToDraft("sap");
+    }
+   
+  }
   SendToSap() {
+    this.addlinesToDraft();
     var FechaPedido = this.datePipe.transform(this.date,"yyyy-MM-dd");
-    this.setUnitsToDraft("Sap");
+    // this.setUnitsToDraft("Sap");
     let order = {
       "pedidoCabezera":{
         "numCliente": this.ConsoleDataService.client["detalleCliente"].numCliente,
@@ -271,10 +349,15 @@ export class NewOrderComponent implements OnInit {
             .subscribe(resp => {
               console.log(resp, "clients");
               this.data = resp
-              if (this.data.pedidoDocumentos[0].numDocumentoVentas){
+              if (this.data.pedidoDocumentos[0] !== undefined){
                 var registro = this.data.pedidoDocumentos[0].numDocumentoVentas;
-                this.ConsoleDataService.alertFunction(100, registro);
+                	
+            setTimeout(this.ConsoleDataService.alertFunction(100, resp) ,10000);
+                ;
               }
+              // else{
+              //   this.ConsoleDataService.alertFunction("registrado", resp);
+              // }
               // this.Router.navigate(["/ordersList"]);
               // this.lineToAdd.emit(this.data);
             },
