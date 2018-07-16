@@ -68,6 +68,10 @@ export class ConsoleNavbarComponent implements OnInit  {
   }
 
    getUSerbyId() {
+    var sapCode = document.getElementById('SAPCodeInput');
+    sapCode.style.display = "block";
+    var btn = document.getElementById('btnSuccess');
+    btn.style.display = "block";
     this.ConsoleDataService.clientList();
    }
    searchClientbyCode(sapcode){

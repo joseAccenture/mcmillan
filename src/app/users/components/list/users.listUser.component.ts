@@ -36,11 +36,13 @@ export class ListUserComponent implements OnInit {
     this.router.navigate([url], { queryParams: { id: userSelected.id } });
 
   }
+  
   delUser() {
     try {
       this.UsersService.delUser(this.ConsoleDataService.userIdToDelete)
         .subscribe(resp => {
           console.log(resp, "clients");
+          this.active = false;
           this.data = resp
           this.ConsoleDataService.closeModal('myUserListModal');
          this.ConsoleService.getUsers()

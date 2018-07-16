@@ -80,18 +80,19 @@ export class ListOrderTableComponent implements OnInit {
       }
   }
      
-  toggle() {
-    this.activeBtn = !this.activeBtn;
-    // if (this.activeBtn) {
-    //   this.btnActive.emit(!this.activeBtn);
-    // } else {
+  toggle(rowData) {
+    if (rowData.isSelected){
+      this.activeBtn = true;
+    }else{
+      this.activeBtn = false;
+    }
       this.btnActive.emit(this.activeBtn);
     
   }
 ChangeClient (rowData){
   rowData.isSelected = !rowData.isSelected;
   // this.selectedRow = this.data.indexOf(rowData);
-  this.toggle();
+  this.toggle(rowData);
   this.orderToEdit.emit(rowData);
   // console.log(rowData);
 }
@@ -100,8 +101,8 @@ isRowSelected(rowData: any) {
 }
 lookForOrders(fecEnt, fecSal){
   this.visibleTarget = false;
- var fechaEntr = this.datePipe.transform(fecEnt.value.formatted,"yyyy-dd-MM");
- var fechaSal = this.datePipe.transform(fecSal.value.formatted,"yyyy-dd-MM");
+  var fechaEntr =  fecEnt.value.formatted.split("/").reverse().join("-");
+  var fechaSal =  fecSal.value.formatted.split("/").reverse().join("-");
   this.ConsoleService.getOrdersList(fechaEntr, fechaSal, this.ConsoleDataService.codigoSap)
   .subscribe(resp => {
     console.log(resp, "lookFor");

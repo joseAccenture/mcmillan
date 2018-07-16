@@ -70,7 +70,12 @@ export class ConsoleService {
     this.DoRedirect();
     var ORDER = this.http.post(this.backendUrl+'/orders', line);
    return ORDER;
- } 
+ }
+ updateOrder(order) {
+  this.DoRedirect();
+  var ORDER = this.http.put(this.backendUrl+'/orders', order);
+ return ORDER;
+} 
  submitOrderToSap(line) {
   this.DoRedirect();
   var ORDER = this.http.post(this.backendUrl+'/salesorders/', line);

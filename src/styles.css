@@ -447,3 +447,6 @@ p-datatable .ui-datatable-tablewrapper tr td input.lineSum{
     text-decoration: none;
     cursor: pointer;
 }
+.hidden{
+    display: none;
+}

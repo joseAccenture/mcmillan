@@ -52,7 +52,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon2">Dirección de entrega</span>
                                         </div>
-                                        <input type="text" class="form-control" [readonly]="true" [(ngModel)]="head.direccionEntrega" [ngModelOptions]="{standalone: true}"
+                                        <input type="text" class="form-control" [readonly]="true" [(ngModel)]="ConsoleDataService.orderDetail.calle" [ngModelOptions]="{standalone: true}"
                                             #ctrl="ngModel" aria-label="Nombre" aria-describedby="basic-addon2">
                                     </div>
                                 </div>

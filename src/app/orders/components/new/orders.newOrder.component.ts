@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ConsoleService } from '../../../console/service/console.service';
 import { ConsoleDataService } from '../../../console/service/consoleData.service';
 import { CommonTableService } from '../../../common/table/service/common-table.service';
-import { IMyDpOptions } from 'mydatepicker';
+import { IMyDpOptions, IMyDateModel } from 'mydatepicker';
 import { FormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, Params, NavigationExtras } from '@angular/router';
 import { NullInjector } from '@angular/core/src/di/injector';
@@ -19,6 +19,10 @@ import {Observable} from 'rxjs';
 
 
 export class NewOrderComponent implements OnInit {
+  selectedValue: any;
+  Change: boolean = false;
+  key: any;
+  addresses: any;
   btnSendDisabled: boolean;
   btnAddDisabled: boolean;
   pending: boolean = false;
@@ -29,6 +33,9 @@ export class NewOrderComponent implements OnInit {
   // cif = new FormControl('', Validators.required);
   fechaSelected = new FormControl('', Validators.required); 
   fechaFromPicker = new FormControl('', Validators.required); 
+  adddressFromSelect = new FormControl('', Validators.required); 
+  // addressSelected = new FormControl('', Validators.required); 
+  addressSelected: string;
   // dataUser;
   constructor(private ConsoleService: ConsoleService, private ConsoleDataService: ConsoleDataService, private CommonTableService: CommonTableService, private Router: Router, private activatedRoute: ActivatedRoute, private datePipe: DatePipe) { }
   public myDatePickerOptions: IMyDpOptions = {
@@ -47,6 +54,7 @@ export class NewOrderComponent implements OnInit {
   
   ngOnInit() {
     // this.client = this.ConsoleDataService.client;
+    
     
     if (this.ConsoleDataService.client.detalleCliente.bloqueoCentralPedidoCliente !=="" ||
     this.ConsoleDataService.client.detalleCliente.textoBloqueoCentralPedidoCliente !=="" ||
@@ -68,13 +76,13 @@ export class NewOrderComponent implements OnInit {
         this.pending = true;
         // this.ConsoleDataService.dataLine = this.ConsoleDataService.ordertoDelete["lineasPedido"];
         this.ConsoleDataService.dataLine = this.ConsoleDataService.ordertoDelete;
-       
-        var length = this.ConsoleDataService.dataLine.length;
+        this.selectedValue = this.ConsoleDataService.ordertoDelete.direccionEntrega;
+        var length = this.ConsoleDataService.dataLine['lineasPedido'].length;
         this.ConsoleDataService.lineLength = length;
           for (var i=0; 1<= length; i++){
         // //   var linea = this.ConsoleDataService.dataLine[i];
         // //   linea["idlinea"] = i;
-        this.ConsoleDataService.dataLine[i]["idLine"] = i;
+        this.ConsoleDataService.dataLine['lineasPedido'][i]['idLine'] = i;
           }
        
         // this.setUnitsFromDraft(this.ConsoleDataService.dataLine)
@@ -92,8 +100,24 @@ export class NewOrderComponent implements OnInit {
     // this.users = this.userDetail();
      this.noLine = false;
   }
+  onDateChanged(event: IMyDateModel) {
+    $("#gridRadios2")[0]["checked"] = true;
+    $("#gridRadios1")[0]["checked"] = false;
+    var numInput = $(".lineSum");
+    for (var i =0;i<numInput.length; i++){
+      if (numInput[i]["value"] !==""){
+        this.btnAddDisabled = false;
+        this.btnSendDisabled = false; 
+      }
+    }
+   
+}
+toggleRadio(){
+  $("input.selection")[0]['value'] = null;
+}
   delLine(rowData){
-    this.ConsoleDataService.dataLine.splice(rowData.idLine, 1);
+    var index =  this.ConsoleDataService.dataLine.indexOf(rowData);
+    this.ConsoleDataService.dataLine.splice(index, 1);
     this.btnAddDisabled = false;
   }
    addLine(materialSelected) {
@@ -103,6 +127,14 @@ export class NewOrderComponent implements OnInit {
       var material = "SI";
     }else{
       material = "NO";
+    }
+      if (this.Change){
+        var socio = this.ConsoleDataService.adddressFromSelect;
+
+      }else if (this.ConsoleDataService.addresses.length>0){
+          socio = this.ConsoleDataService.addresses[0].numero;
+    }else{
+          socio = this.ConsoleDataService.user["codigoSap"];
     }
     if (this.ConsoleDataService.dataLine.length<= 0){
       this.ConsoleDataService.dataLine =[
@@ -128,6 +160,10 @@ export class NewOrderComponent implements OnInit {
         {
           numCliente:  this.ConsoleDataService.user["codigoSap"],
           funcionInterlocutor: "AG"
+        },
+        {
+          numCliente:  socio,
+          funcionInterlocutor: "WE"
         }
       ]
       this.noLine = true;
@@ -137,32 +173,62 @@ export class NewOrderComponent implements OnInit {
       }else{
         material = "NO"
       }
-      this.ConsoleDataService.dataLine.push(
-            {
-              descCorta: materialSelected.descCorta,
-              ean: materialSelected.ean,
-              idLine: this.ConsoleDataService.dataLine.length,
-              tipoMaterial: material
-            }
-          )
-          this.ConsoleDataService.dataLineToSend.push(
-            {
-              idMaterial: materialSelected.id,
-              unidades: 1
-            }
-          )    
-          this.ConsoleDataService.dataLineToSendSap.push(
-            {
-              numDeMaterial: materialSelected.numMaterial,
-              cantidad: null
-            }
-          )   
-          this.ConsoleDataService.dataLineToSendSapSocio.push(
-            {
-              numCliente: this.ConsoleDataService.user["codigoSap"],
-              funcionInterlocutor: "AG"
-            }
-          )      
+      if (!this.pending){
+        this.ConsoleDataService.dataLine.push(
+          {
+            descCorta: materialSelected.descCorta,
+            ean: materialSelected.ean,
+            idLine: this.ConsoleDataService.dataLine.length,
+            tipoMaterial: material
+          }
+        )
+        this.ConsoleDataService.dataLineToSend.push(
+          {
+            idMaterial: materialSelected.id,
+            unidades: null
+          }
+        )    
+        this.ConsoleDataService.dataLineToSendSap.push(
+          {
+            numDeMaterial: materialSelected.numMaterial,
+            cantidad: null
+          }
+        )   
+        this.ConsoleDataService.dataLineToSendSapSocio.push(
+          {
+            numCliente: this.ConsoleDataService.user["codigoSap"],
+            funcionInterlocutor: "AG"
+          }
+        ) 
+      }else{
+        this.ConsoleDataService.dataLine["lineasPedido"].push(
+          {
+            descCorta: materialSelected.descCorta,
+            ean: materialSelected.ean,
+            idLine: this.ConsoleDataService.dataLine.length,
+            tipoMaterial: material
+          }
+        )
+        this.ConsoleDataService.dataLineToSend["lineasPedido"].push(
+          {
+            idMaterial: materialSelected.id,
+            unidades: null
+          }
+        )    
+        this.ConsoleDataService.dataLineToSendSap["lineasPedido"].push(
+          {
+            numDeMaterial: materialSelected.numMaterial,
+            cantidad: null
+          }
+        )   
+        this.ConsoleDataService.dataLineToSendSapSocio["lineasPedido"].push(
+          {
+            numCliente: this.ConsoleDataService.user["codigoSap"],
+            funcionInterlocutor: "AG"
+          }
+        ) 
+      }
+          
          
     }
   }
@@ -175,7 +241,7 @@ export class NewOrderComponent implements OnInit {
    ChangeLineValue(rowData) {
     var capa = document.getElementsByClassName("units");
       capa[rowData.idLine+1].innerHTML = " <input type='number' min='1' class='lineSum'>";
-    this.remove('units', rowData.idLine);
+    // this.remove('units', rowData.idLine);
     
   }
   getMaterials() {
@@ -193,24 +259,7 @@ export class NewOrderComponent implements OnInit {
       console.log(e);
     }
   }
-  // setUnitsFromDraft(lines){
-  //   this.ConsoleDataService["unidades"] = "1";
-  //   // var capa = document.getElementById("unitContainer");
-  //   // var input = document.createElement("input");
-  //   // for (var i =0; i< lines.length; i++){
-  //   //   var inputClass = "inputClass_" + i;
-  //   //   $(this).find("input."+inputClass).html(lines[i].unidades);
-  //   //   this.ConsoleDataService["unidades"] = lines[i].unidades;
 
-  //   //   i++
-  //   // }
-    
-  // //   $("table tbody tr").each(function(i,e){
-  // //     for (var i =0; i< lines.length; i++){
-  // //       $(this).find("input.lineSum").html(lines[i].unidades);
-  // //     }
-  // // }
-  // }
  setUnitsToDraft(type){
   var parametros=[];
   $("table tbody tr").each(function(i,e){
@@ -218,7 +267,7 @@ export class NewOrderComponent implements OnInit {
       $(this).find("td").each(function(index, element){ 
           if(index != 0){
           var td = {};
-                td["cantidad"] = $(this).find("input.lineSum").val();
+                td["cantidad"] = $(this).find(".lineSum").val();
                 if ( td["cantidad"] !=undefined){
                   // if (parametros.length > 0){
                     parametros.push(td);
@@ -231,32 +280,59 @@ export class NewOrderComponent implements OnInit {
       });
   });
   if (type === "orderToDraft"){
-    var thisArray = this.ConsoleDataService.dataLineToSend;
+    if (this.pending){
+      var thisArray = this.ConsoleDataService.ordertoDelete['lineasPedido'];
+      for (var i =0; i < (parametros.length); i++){
+        thisArray[i].unidades = parametros[i].cantidad
+      }
+      for (var z = 0; z< thisArray.length; z++){
+         thisArray[z].unidades = thisArray[z].unidades.toString(); 
+      }
+    }else{
+      thisArray = this.ConsoleDataService.dataLineToSend;
+      for (var i =0; i < (thisArray.length); i++){
+        thisArray[i].unidades = parametros[i].cantidad
+      }
+    }
+    
   }else{
-    var thisArray = this.ConsoleDataService.dataLineToSendSap;
+     thisArray = this.ConsoleDataService.dataLineToSendSap;
+     if (this.pending){
+       if (parametros.length > 0){
+        for (var i =0; i < (thisArray.length); i++){
+          thisArray[i].unidades = parametros[i].cantidad
+        }
+       }
+      
+     }else{
+      for (var i =0; i < (thisArray.length); i++){
+        thisArray[i].cantidad = parametros[i].cantidad
+      }
+     }
+    
   }
-  for (var i =0; i < (thisArray.length); i++){
-    thisArray[i].cantidad = parametros[i].cantidad
-  }
+  
  }
  dateToSend(){
-   if (this.fechaSelected.value === '0'){
-     var entregaInmediata = this.datePipe.transform(this.date,"yyyy-MM-dd");
-     return entregaInmediata
+   if (this.fechaSelected.value === '0' || this.fechaSelected.value === ''||this.fechaSelected.value === 0){
+    // var entregaInmediata = this.date.toString().split("/").reverse().join("-");
+    var entregaInmediata = this.datePipe.transform(this.date,"yyyy-MM-dd");
+     return entregaInmediata;
    }else{
-    var entregaPref = this.datePipe.transform(this.fechaFromPicker.value.formatted,"yyyy-MM-dd");
+    var entregaPref = this.fechaFromPicker.value.formatted.split("/").reverse().join("-");
     return entregaPref
    }
  }
   SendToDraft() {
-    this.setUnitsToDraft("orderToDraft");
     var lineas;
-    if (this.pending){
-      lineas = this.ConsoleDataService.ordertoDelete;
-    }else{
+    if (!this.pending){
       lineas = this.ConsoleDataService.dataLineToSend;
+    }else{
+      this.setUnitsToDraft("orderToDraft");
+      lineas = this.ConsoleDataService.ordertoDelete['lineasPedido'];
     }
-    let order =
+      if (!this.pending){
+        let order =
       {
           "idUser": this.ConsoleDataService.user["id"],
           "codigoSap": this.ConsoleDataService.client["detalleCliente"].numCliente,
@@ -273,7 +349,7 @@ export class NewOrderComponent implements OnInit {
           "direccionEntrega": this.ConsoleDataService.client["detalleCliente"].calleYNumero,
           "tipoFactura": this.ConsoleDataService.client["detalleCliente"].tipoFacturaImpresa,
            "fecha": this.dateToSend(),
-           "lineasPedido": lineas
+           "lineasPedido": lineas,
       }
         try {
           this.ConsoleService.submitOrder(order)
@@ -292,6 +368,47 @@ export class NewOrderComponent implements OnInit {
         } catch (e) {
           console.log(e);
         }
+      }else{
+        let order =
+      {
+          "idUser": this.ConsoleDataService.user["id"],
+          "codigoSap": this.ConsoleDataService.client["detalleCliente"].numCliente,
+          "nombre": this.ConsoleDataService.client["detalleCliente"].nombre1,
+          "cif": this.ConsoleDataService.client["detalleCliente"].nif,
+          "direccion": this.ConsoleDataService.address,
+          "email":  this.ConsoleDataService.client["detalleCliente"].email,
+          "telefono": this.ConsoleDataService.client["detalleCliente"].telefono,
+          "condicionPago": this.ConsoleDataService.client["detalleCliente"].claveCondicionesDePago,
+           "viaPago": this.ConsoleDataService.client["detalleCliente"].textoViasDePago,
+          "tipoCliente": this.ConsoleDataService.client["detalleCliente"].clasificacionCliente,
+          "ccc": this.ConsoleDataService.client["detalleCliente"].cuentaBancaria,
+          "personaContacto": "",
+          "direccionEntrega": this.ConsoleDataService.client["detalleCliente"].calleYNumero,
+          "tipoFactura": this.ConsoleDataService.client["detalleCliente"].tipoFacturaImpresa,
+           "fecha": this.dateToSend(),
+           "lineasPedido": lineas,
+           "id":this.ConsoleDataService.ordertoDelete.id
+      }
+        try {
+          this.ConsoleService.updateOrder(order)
+            .subscribe(resp => {
+              console.log(resp, "clients");
+              this.data = resp
+              this.ConsoleDataService.dataLine = [];
+              this.ConsoleDataService.dataLineToSend = [];
+              this.ConsoleDataService.dataLineToSendSap = [];
+              this.Router.navigate(["/pendingOrder"]);
+
+            },
+              error => {
+                console.log(error, "error");
+              })
+        } catch (e) {
+          console.log(e);
+        }  
+      }
+      
+        
   }
   delOrder(){
     this.ConsoleService.delOrder(this.ConsoleDataService.ordertoDelete.id) 
@@ -306,25 +423,19 @@ export class NewOrderComponent implements OnInit {
   console.log(e); 
 } 
   onChange(event){
-    this.btnAddDisabled = false;
+    if($("input.selection")[0]['value'] !==null){
+      this.btnAddDisabled = false;
     this.btnSendDisabled = false;
-  //   var unitsLength = $(".lineSum").length;
-  //   var unitsArray = $(".lineSum");
-  // for (var i = 0; i< unitsLength; i++){
-  //   if (unitsArray[i]["value"] !== ""){
-  //     if ( (this.fechaSelected.value === "0" || this.fechaSelected.value ==="1")){
-  //       this.btnSendDisabled = false;
-  //     }
-    
-  //   }
-  // } 
+    }
   }
+  onChangeDir(event){
+    this.Change = true;
+    this.ConsoleDataService.adddressFromSelect = event.target.value.split(': ')[0];  
+  } 
   addlinesToDraft(){
     if (this.pending){
       this.ConsoleDataService.dataLineToSendSap = this.ConsoleDataService.ordertoDelete["lineasPedido"];
-      if (this.ConsoleDataService.lineLength < this.ConsoleDataService.dataLineToSendSap.length){
-        this.setUnitsToDraft("sap");
-      }
+      this.setUnitsToDraft("sap");
     }else{
       this.setUnitsToDraft("sap");
     }
@@ -344,32 +455,12 @@ export class NewOrderComponent implements OnInit {
     "pedidoItems": this.ConsoleDataService.dataLineToSendSap,
     "pedidoSocios": this.ConsoleDataService.dataLineToSendSapSocio
     }
-        try {
-          this.ConsoleService.submitOrderToSap(order)
-            .subscribe(resp => {
-              console.log(resp, "clients");
-              this.data = resp
-              if (this.data.pedidoDocumentos[0] !== undefined){
-                var registro = this.data.pedidoDocumentos[0].numDocumentoVentas;
-                	
-            setTimeout(this.ConsoleDataService.alertFunction(100, resp) ,10000);
-                ;
-              }
-              // else{
-              //   this.ConsoleDataService.alertFunction("registrado", resp);
-              // }
-              // this.Router.navigate(["/ordersList"]);
-              // this.lineToAdd.emit(this.data);
-            },
-              error => {
-                console.log(error, "error");
-              })
-        } catch (e) {
-          console.log(e);
-        }
-  }
-  // ChangeClient(i) {
-  //   this.data.splice(i, 1);
-  // }
+    var source = this.ConsoleService.submitOrderToSap(order);
+    var subscription = source
+            .subscribe(
+              resp => this.ConsoleDataService.alertFunction(100, resp),
+              err =>  console.log(err)
+            );
+          }
 }
 

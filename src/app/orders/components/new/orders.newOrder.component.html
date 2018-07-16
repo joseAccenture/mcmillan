@@ -56,11 +56,12 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon2">Dirección de entrega</span>
                                         </div>
-                                        <select class='select-option custom-select'(change)="onChange($event.target.value)"> 
+                                        <select class="select-option custom-select"(change)="onChangeDir($event)" [formControl]="adddressFromSelect"> 
+                                                <!-- (change)="onChange($event.target.value)" -->
                                                <!-- [formControl]="tipo" -->
                                                 <!-- (ngModelChange)='onOptionsSelected($event)' -->
-                                                <option class='option' *ngFor='let address of ConsoleDataService.addresses'>{{address}}</option>
-                                                <!-- [selected]="option === data.tipoCliente" -->
+                                                <option class="option" [selected]="selectedValue"  *ngFor="let address of ConsoleDataService.addresses">{{address.numero}} {{address.calle}}</option>
+                                                <!-- [selected]="option === data.tipoCliente" [value]="opt.selected" [selected]="opt.selected == true" -->
                                             </select>
                                         <!-- <input [formControl]="dirEnt" type="text" class="form-control" placeholder="calle" [(ngModel)]="data.direccionEntrega" [ngModelOptions]="{standalone: true}"
                                             #ctrl="ngModel" aria-label="Nombre" aria-describedby="basic-addon2"> -->
@@ -73,7 +74,7 @@
                                 <div class="col">
                                     <label class="form-check-label radiobtn">
                                         <!-- <input [formControl]="fecEnt" class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>Fecha inmediata</label> -->
-                                        <input [formControl]="fechaSelected" class="form-check-input radio-inline" type="radio" name="gridRadios" id="gridRadios1" value="0" [checked]=true >Fecha inmediata</label>
+                                        <input [formControl]="fechaSelected" class="form-check-input radio-inline" (change)="toggleRadio()" type="radio" name="gridRadios" id="gridRadios1" [value]="0" [checked]=true>Fecha inmediata</label>
                                     </div>
                                 <div class="col">
                                 </div>
@@ -82,11 +83,11 @@
                                     <div class="col-3">
                                             <div *ngIf="pending; then firstBlock; else secondBlock">this is ignored</div>
                                             <ng-template #firstBlock>
-                                        <input [formControl]="fechaSelected" class="form-check-input date-radio-inline" type="radio" name="gridRadios" id="gridRadios2" value="1">
+                                        <input [formControl]="fechaSelected" class="form-check-input date-radio-inline" type="radio" name="gridRadios" id="gridRadios2" [value]="1">
                                         <label class="form-check-label radiobtn">Fecha preferente de entrega</label>
                                         </ng-template>
                                         <ng-template #secondBlock>
-                                                <input [formControl]="fechaSelected" class="form-check-input date-radio-inline" type="radio" name="gridRadios" id="gridRadios2" value="1">
+                                                <input [formControl]="fechaSelected" class="form-check-input date-radio-inline" type="radio" name="gridRadios" id="gridRadios2" [value]="1">
                                                 <label class="form-check-label radiobtn">Fecha preferente de entrega</label>
                                             </ng-template>
                                     </div>
@@ -94,7 +95,7 @@
                                         #ctrl="ngModel"> -->                                                 
                                     <div class="col-9 pl-0">
                                         <form #myForm="ngForm" class="dateCalendar" novalidate>
-                                            <my-date-picker [formControl]="fechaFromPicker" [options]="myDatePickerOptions" #datepicker></my-date-picker>
+                                            <my-date-picker [formControl]="fechaFromPicker"  [options]="myDatePickerOptions" #datepicker (dateChanged)="onDateChanged($event)"></my-date-picker>
                                             <!-- [formControl]="fecEnt" -->
                                         </form>
                                     </div>         <!--<dl-date-time-picker></dl-date-time-picker> -->
@@ -124,7 +125,7 @@
                                             <p-column  field="ean" header="EAN"></p-column>
                                             <p-column  field="descCorta" header="Descripción"></p-column>
                                             <p-column  field="tipoMaterial" header="Digital SI/NO"></p-column>
-                                            <p-column styleClass="units"  field="unidades" header="Unidades"></p-column>
+                                            <p-column styleClass="units" (change)="onChange($event.target.value)" field="unidades" header="Unidades"></p-column>
                                             <p-column field="isSelected" header="" [style]="{'width':'32px','cursor': 'pointer'}">
                                                   <ng-template pTemplate="body" let-rowData="rowData">
                                                     <span id="unitContainer">
@@ -168,7 +169,7 @@
     </div>
 </div>
 <div class="row">
-<div class="col-8 m-auto"><button type="button" class="btn btn-secondary m-2  float-right" [routerLink]="['/ordersList']" routerLinkActive="active">volver</button></div>
+<div class="col-8 m-auto"><button type="button" class="btn btn-secondary m-2  float-right" [routerLink]="['/pendingOrder']" routerLinkActive="active">volver</button></div>
 </div>
 <div class="modal fade" id="addLineModal" tabindex="-1" role="dialog" aria-labelledby="addLineLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -189,7 +190,7 @@
                                 </ng-template>
                               </p-column> 
                           <p-column  [filter]="true" field="ean" header="EAN"></p-column>
-                          <p-column [filter]="false" field="id" header=""></p-column>
+                          <p-column styleClass="hidden" [filter]="false" field="id" header=""></p-column>
                           <p-column  [filter]="true" field="descCorta" header="Descripción"></p-column>
                           </p-dataTable>
             <div class="modal-footer">

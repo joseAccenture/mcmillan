@@ -49,7 +49,7 @@ export class EditUserComponent {
     console.log("optinoSelected")
   }
   onChange(clientType) {
-    if (clientType === "jefe de delegación") {
+    if (clientType === "jefe de delegación" || clientType === "Marketing Assistant") {
       this.isZoneBoss = true;
       this.isAgent = false;
     } else if (clientType === "Marketing Assistant" || clientType === "Representante") {
@@ -98,13 +98,13 @@ export class EditUserComponent {
           if (tipo == "Marketing Assistant" ||tipo  == "Representante"){
             this.data.zona = null;
           }
-          if(tipo ==="jefe de delegación") {
+          if(tipo ==="jefe de delegación" || tipo ==="Marketing Assistant") {
             this.data.representados = null;
           }
           if (this.data.representados) {
             this.data.representados = this.data.representados.split(',');
           }
-          if (this.data.tipoCliente === "jefe de delegación") {
+          if (this.data.tipoCliente === "jefe de delegación" || this.data.tipoCliente === "Marketing Assistant") {
             this.isZoneBoss = true;
           } else if (this.data.tipoCliente === "Marketing Assistant" ||
             this.data.tipoCliente === "Representante" || "Cliente Individual") {
