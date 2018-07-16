@@ -49,11 +49,16 @@ export class USerTableComponent implements OnInit {
     }
   }
   toggle(rowData) {
-    if (rowData.isSelected){
-      this.activeBtn = true;
-    }else{
-      this.activeBtn = false;
+    if (this.ConsoleDataService.lastId === rowData.id){
+      if (this.activeBtn === false){
+        this.activeBtn = false;
+        this.ConsoleDataService.lastId = rowData.id
+      }else{
+        this.activeBtn = true;
+        this.ConsoleDataService.lastId = rowData.id
+      }
     }
+   console.log(this.activeBtn + "activeBtn");
     this.btnActive.emit(this.activeBtn);
   }
   selectUserToEdit(index, dato) {

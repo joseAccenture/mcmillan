@@ -20,8 +20,8 @@ export class BreadcrumbComponent implements OnInit {
         .subscribe(resp => {
           console.log(resp, "steps");
           this.data = resp;
-          this.envURL = this.URLactual.split("/");
-          var url = resp[this.envURL[1]];
+          this.URLactual= this.URLactual.substring(this.URLactual.indexOf('/')+ 1);
+          var url = resp[this.URLactual];
         this.steps = url;
         },
           error => {
